@@ -1,0 +1,36 @@
+{
+  "name": "org.visualpinball.unity.assets",
+  "version": "0.0.1-preview.1",
+  "displayName": "Visual Pinball Engine (Optimized Assets)",
+  "description": "Common assets for all render pipelines.",
+  "keywords": [
+    "Assets",
+    "Unity"
+  ],
+  "unity": "6000.0",
+  "unityRelease": "42f1",
+  "dependencies": {},
+  "author": "freezy <freezy@vpdb.io>",
+  "contributors": [
+    "ravarcade <ravarcade@gmail.com>",
+    "shaderbytes",
+    "jsm174 <jsm174@gmail.com>",
+    "Roger Bocksnick <roger.bocksnick@gmail.com>",
+    "VrôÕnsh <vroonsh@free.fr>",
+    "Rowlan",
+    "Kleis Auke Wolthuizen <info@kleisauke.nl>",
+    "Eli Curtz <eli@nuprometheus.com>",
+    "Pandeli",
+    "Arthur Kehrwald"
+  ],
+  "documentationUrl": "https://docs.visualpinball.org/",
+  "changelogUrl": "https://docs.visualpinball.org/CHANGELOG.html",
+  "licensesUrl": "https://github.com/VisualPinball/VisualPinball.Unity.Assets/blob/master/LICENSE.md",
+  "repository": {
+    "url": "https://github.com/VisualPinball/VisualPinball.Unity.Assets.git",
+    "type": "git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.visualpinball.org"
+  }
+}

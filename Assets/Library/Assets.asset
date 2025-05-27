@@ -22,11 +22,16 @@ MonoBehaviour:
     Assets:
       m_keys:
       - 655fc6f039583454190c8acfa7445703
+      - b0eeae103067a0d4f9f3519cea93697e
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
+      - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
+      - fe33e277-983b-4b5b-94bc-97dafca48623
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
+      - Id: fe33e277-983b-4b5b-94bc-97dafca48623
+        Name: Posts

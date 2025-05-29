@@ -44,8 +44,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.101960786}
     - _Color: {r: 1, g: 1, b: 1, a: 0.101960786}
-    - _ThicknessRemap: {r: 0, g: 0.026785672, b: 0, a: 0}
-    - _TransmittanceColor: {r: 0.385, g: 0.385, b: 0.385, a: 1}
+    - _ThicknessRemap: {r: 0, g: 0.10449149, b: 0, a: 0}
+    - _TransmittanceColor: {r: 0.737255, g: 0.737255, b: 0.737255, a: 0.9098039}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5688198111047547604

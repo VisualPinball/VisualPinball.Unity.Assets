@@ -57,7 +57,10 @@ Material:
     - _SmoothnessRemapMin: 0.18067752
     - _TransparentDepthPostpassEnable: 1
     m_Colors:
+    - _BaseColor: {r: 0.28235292, g: 0.49443477, b: 1, a: 0.101960786}
+    - _Color: {r: 0.2823529, g: 0.4944347, b: 1, a: 0.101960786}
     - _ThicknessRemap: {r: 0, g: 0.41588578, b: 0, a: 0}
+    - _TransmittanceColor: {r: 0.28235292, g: 0.66247743, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5688198111047547604

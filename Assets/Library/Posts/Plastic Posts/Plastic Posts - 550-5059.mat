@@ -218,7 +218,7 @@ Material:
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
-    - _NormalScale: 0.1
+    - _NormalScale: 1
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _OpaqueCullMode: 2
@@ -234,7 +234,7 @@ Material:
     - _RefractionModel: 2
     - _Smoothness: 0.933
     - _SmoothnessRemapMax: 1
-    - _SmoothnessRemapMin: 0.18067752
+    - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -286,8 +286,8 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ThicknessRemap: {r: 0, g: 0.41588578, b: 0, a: 0}
-    - _TransmittanceColor: {r: 0.7372549, g: 0, b: 0, a: 1}
+    - _ThicknessRemap: {r: 0, g: 0.36957568, b: 0, a: 0}
+    - _TransmittanceColor: {r: 0.83137256, g: 0.09019608, b: 0.06666667, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}

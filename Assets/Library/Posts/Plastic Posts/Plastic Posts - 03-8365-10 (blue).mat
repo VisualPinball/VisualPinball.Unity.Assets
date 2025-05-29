@@ -42,10 +42,10 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _BaseColor: {r: 0.28235292, g: 0.40614474, b: 1, a: 0.101960786}
-    - _Color: {r: 0.2823529, g: 0.4061447, b: 1, a: 0.101960786}
-    - _ThicknessRemap: {r: 0, g: 0.054790355, b: 0, a: 0}
-    - _TransmittanceColor: {r: 0, g: 0.08974769, b: 0.7372549, a: 1}
+    - _BaseColor: {r: 0.2823529, g: 0.49411765, b: 1, a: 0.101960786}
+    - _Color: {r: 0.28235286, g: 0.49411762, b: 1, a: 0.101960786}
+    - _ThicknessRemap: {r: 0, g: 0.22130278, b: 0, a: 0}
+    - _TransmittanceColor: {r: 0.28235295, g: 0.6627451, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5688198111047547604

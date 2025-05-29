@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131140127662850576}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7256464751643449063}
   - {fileID: 687335214737846166}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
 --- !u!33 &2937619901376614070
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57,16 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151fb873f4d60994e8bde3aff9af4ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isLocked: 0
   _editorLayer: 0
   _editorLayerName: 
   _editorLayerVisibility: 1
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0}
-  Size: {x: 1, y: 1, z: 1}
-  Translation: {x: 0, y: 0, z: 0}
-  ObjectRotation: {x: 0, y: 0, z: 0}
-  _originalRotateZ: 0
 --- !u!114 &5032039343834662761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882edbbe53953ef4ab3b3f846c4a5d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playfieldDimensions: {x: 0, y: 0}
   _instanceID: 120892
   UseLegacyMesh: 0
   Sides: 4
@@ -98,6 +92,7 @@ MonoBehaviour:
   ShowColliderMesh: 1
   ShowColliderOctree: 0
   ShowAabbs: 0
+  _isKinematic: 0
   HitEvent: 1
   Threshold: 2
   Elasticity: 0.3
@@ -164,6 +159,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:

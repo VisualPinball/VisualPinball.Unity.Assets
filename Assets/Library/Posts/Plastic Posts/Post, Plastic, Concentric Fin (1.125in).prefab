@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &819897499572060381
+--- !u!1 &4878683001666819339
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3080011124558464887}
-  - component: {fileID: 9212670378641922189}
-  - component: {fileID: 374219199621843023}
+  - component: {fileID: 5702682722634503321}
+  - component: {fileID: 7804337555597109033}
+  - component: {fileID: 2992441822217780547}
   m_Layer: 0
-  m_Name: Peg, Plastic, T14 (1.0625in)
+  m_Name: Post, Plastic, Concentric Fin (1.125in)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3080011124558464887
+--- !u!4 &5702682722634503321
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819897499572060381}
+  m_GameObject: {fileID: 4878683001666819339}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1898262381308341952}
+  - {fileID: 3528545054391289814}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
---- !u!33 &9212670378641922189
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7804337555597109033
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819897499572060381}
-  m_Mesh: {fileID: 7559107675678281444, guid: fbff0d12f7b25bd4f94cf73ccf4de5d9, type: 3}
---- !u!23 &374219199621843023
+  m_GameObject: {fileID: 4878683001666819339}
+  m_Mesh: {fileID: -7234488632679684076, guid: fbff0d12f7b25bd4f94cf73ccf4de5d9, type: 3}
+--- !u!23 &2992441822217780547
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819897499572060381}
+  m_GameObject: {fileID: 4878683001666819339}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bef0b9fa75339ce4e8b89754b373a719, type: 2}
+  - {fileID: 2100000, guid: b8b6c21e2f3af5347a3cc10810568c41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,29 +87,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &5064780491209779954
+--- !u!1001 &7847985904488121316
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3080011124558464887}
+    m_TransformParent: {fileID: 5702682722634503321}
     m_Modifications:
     - target: {fileID: 1112987385595951617, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
       propertyPath: m_Name
       value: Metal Peg
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,17 +139,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
---- !u!4 &1898262381308341952 stripped
+--- !u!4 &3528545054391289814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6637827089325999154, guid: 8475b3cc535b1994c8bc7aa92ed5aa2d, type: 3}
-  m_PrefabInstance: {fileID: 5064780491209779954}
+  m_PrefabInstance: {fileID: 7847985904488121316}
   m_PrefabAsset: {fileID: 0}

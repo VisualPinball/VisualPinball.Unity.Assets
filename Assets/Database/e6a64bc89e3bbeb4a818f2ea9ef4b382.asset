@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: e6a64bc89e3bbeb4a818f2ea9ef4b382
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 1673217450647454267, guid: e6a64bc89e3bbeb4a818f2ea9ef4b382, type: 3}
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _addedAt: 2022-10-04T09:15:24.5023297+02:00
+  Description: 'Plastic minipost 1 inch tall used in pinball machines.
+
+
+
+    Typically
+    uses a 27/64 inch white rubber ring (not included).'
+  Attributes:
+  - Key: Size
+    Value: 1"
+  - Key: Part Number
+    Value: 03-8044
+  Tags:
+  - TagName: Plastic
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/03-8044-9
+  - Name: Pinball Life
+    Url: https://www.pinballlife.com/translucent-plastic-mini-posts-1-tall.html
+  MaterialVariations:
+  - Name: Plastic
+    Object: {fileID: 1673217450647454267, guid: e6a64bc89e3bbeb4a818f2ea9ef4b382, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 8c6ed7e7dfed9a24086fc2c7ba3ad150, type: 2}
+      Id: 90207502-e4d6-4d7f-89d7-68b0ecdd2afb
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 9b7e78e2c37658640af49fabbb4dfbef, type: 2}
+      Id: cd81c31e-dd4a-404b-b67a-34c4da191da4
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  UnpackPrefab: 0
+  Quality: 2

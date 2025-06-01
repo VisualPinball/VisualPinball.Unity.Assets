@@ -54,6 +54,6 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0.69230765, b: 0, a: 0.101960786}
     - _Color: {r: 1, g: 0.69230765, b: 0, a: 0.101960786}
-    - _TransmittanceColor: {r: 0.85, g: 0.6242938, b: 0, a: 1}
+    - _TransmittanceColor: {r: 1, g: 0.84106404, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

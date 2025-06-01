@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
   m_Name: 2bcdb760250381f4da80432ca075fc81
   m_EditorClassIdentifier: 
-  Library: {fileID: 11400000, guid: a42f2c173b443374fab2544379eb3b0a, type: 2}
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
   Object: {fileID: 2716828627827821297, guid: 2bcdb760250381f4da80432ca075fc81, type: 3}
-  _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
   _addedAt: 2022-10-04T09:15:25.0762283+02:00
   Description: 'Star 1-1/16 inch post is common to late model Stern, Sega, Bally
     / Williams and other brand electronic pinball machines.
@@ -47,7 +47,7 @@ MonoBehaviour:
       Material: {fileID: 2100000, guid: 28b6cf1cd329c8141b4075beaf57dc79, type: 2}
       Id: 9b5965b5-9dec-41a6-8bee-d6da77f43d26
     - Name: Orange
-      Material: {fileID: 2100000, guid: 3a2701a0e4173794fbe74f129031708c, type: 2}
+      Material: {fileID: 2100000, guid: 24478af76706b374ab7b3322ceea42f8, type: 2}
       Id: 7d251dd7-63a4-4c9a-8db9-805f0dbf7aa0
     - Name: Yellow
       Material: {fileID: 2100000, guid: d7c5f527f627a934b86f5324650b9b7a, type: 2}

@@ -53,7 +53,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 1, g: 0.8605848, b: 0, a: 0.101960786}
+    - _Color: {r: 1, g: 0.94083434, b: 0, a: 0.101960786}
     - _ThicknessRemap: {r: 0, g: 0.16680908, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -53,7 +53,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _ThicknessRemap: {r: 0.14945894, g: 0.401811, b: 0, a: 0}
+    - _ThicknessRemap: {r: 0.19631104, g: 0.3491024, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5688198111047547604

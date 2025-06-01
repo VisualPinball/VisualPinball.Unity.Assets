@@ -56,7 +56,7 @@ Material:
     - _Ior: 1.005
     m_Colors:
     - _Color: {r: 0.20392153, g: 0.37914336, b: 0.7176471, a: 0.101960786}
-    - _ThicknessRemap: {r: 0, g: 0.8736455, b: 0, a: 0}
+    - _ThicknessRemap: {r: 0.029282466, g: 1.1079068, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5688198111047547604

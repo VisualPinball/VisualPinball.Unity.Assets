@@ -66,6 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats: []
-    m_Colors: []
+    m_Colors:
+    - _ThicknessRemap: {r: 0.08784771, g: 0.2641508, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

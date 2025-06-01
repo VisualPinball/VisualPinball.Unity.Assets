@@ -54,7 +54,7 @@ Material:
     m_Floats:
     - _SmoothnessRemapMax: 0.9237391
     m_Colors:
-    - _Color: {r: 1, g: 0.8605848, b: 0, a: 0.101960786}
+    - _Color: {r: 1, g: 0.94083434, b: 0, a: 0.101960786}
     - _ThicknessRemap: {r: 0, g: 0.3948338, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

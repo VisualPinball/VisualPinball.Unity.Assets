@@ -19,8 +19,7 @@ MonoBehaviour:
   Description: 
   Attributes: []
   Tags:
-  - TagName: Metal
-  - TagName: Plastic
+  - TagName: Sleeved
   Links: []
   MaterialVariations:
   - Name: Plastic

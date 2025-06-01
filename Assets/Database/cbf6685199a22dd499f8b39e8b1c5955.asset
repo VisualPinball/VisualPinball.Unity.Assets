@@ -23,8 +23,7 @@ MonoBehaviour:
   - Key: Author
     Value: freezy
   Tags:
-  - TagName: Metal
-  - TagName: Plastic
+  - TagName: Sleeved
   Links:
   - Name: Cliffy's Colored Sleeves
     Url: https://www.passionforpinball.com/colorsleeves.htm

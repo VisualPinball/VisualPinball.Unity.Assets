@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 2fc935c4805e9794f9706f0326dc23af
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 2718612168962085196, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _addedAt: 2022-10-31T23:18:53.0320746+01:00
+  Description: 
+  Attributes: []
+  Tags:
+  - TagName: Metal
+  - TagName: Plastic
+  Links: []
+  MaterialVariations:
+  - Name: Plastic
+    Object: {fileID: 5461651062572570980, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 3646a6796faa80d468c9ec1e49f922c1, type: 2}
+      Id: f8d9fc69-6c0b-46d6-8c3b-365aad2f7136
+    - Name: Black
+      Material: {fileID: 2100000, guid: cd7d1e06f01966945a2a32b90bedb4be, type: 2}
+      Id: 48e62e82-7e68-49ff-9212-c6d71f6bfa5f
+    - Name: Blue
+      Material: {fileID: 2100000, guid: b981d5fb0aaa1c440a0a1ba832c609a2, type: 2}
+      Id: f807228a-9c5b-41b8-9dba-03cc83bd322f
+    - Name: Chrome
+      Material: {fileID: 2100000, guid: a2bdcd21a8855204fa92d118b397a224, type: 2}
+      Id: c99722a2-036b-4b81-915e-d68397b4ddb6
+    - Name: Dark Green
+      Material: {fileID: 2100000, guid: d0653d8b39ea2c941888813d46bf9be2, type: 2}
+      Id: a56d8113-5e64-4173-806c-58ca50a8270d
+    - Name: Light Green
+      Material: {fileID: 2100000, guid: 380373a9ddd446b41a35c8ec065e1587, type: 2}
+      Id: 57b220ea-ba7f-4bb2-aa69-c2475bc49565
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 2bf053413aeaf494cb05830ac2b2c15f, type: 2}
+      Id: 78903bcd-156b-4fa9-a627-53d254d5daec
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  UnpackPrefab: 0
+  Quality: 2

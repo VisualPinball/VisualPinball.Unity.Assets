@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: cbf6685199a22dd499f8b39e8b1c5955
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 2718612168962085196, guid: cbf6685199a22dd499f8b39e8b1c5955, type: 3}
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _addedAt: 2022-10-31T23:14:07.6369182+01:00
+  Description: 
+  Attributes:
+  - Key: Part Number
+    Value: 545-5308
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Metal
+  - TagName: Plastic
+  Links:
+  - Name: Cliffy's Colored Sleeves
+    Url: https://www.passionforpinball.com/colorsleeves.htm
+  - Name: Pinball Life
+    Url: https://www.pinballlife.com/perfectplay-1-116-willamsbally-compatible-rubber-post-sleeve.html
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/545-5308-22
+  MaterialVariations:
+  - Name: Plastic
+    Object: {fileID: 5461651062572570980, guid: cbf6685199a22dd499f8b39e8b1c5955, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 3646a6796faa80d468c9ec1e49f922c1, type: 2}
+      Id: d2dacd7f-d5a2-446a-9fea-76229f0cdd2c
+    - Name: Black
+      Material: {fileID: 2100000, guid: cd7d1e06f01966945a2a32b90bedb4be, type: 2}
+      Id: 54895aa6-501d-4336-a65a-e1136f2dda25
+    - Name: Blue
+      Material: {fileID: 2100000, guid: b981d5fb0aaa1c440a0a1ba832c609a2, type: 2}
+      Id: 0883cefb-ba96-4e81-a18f-387ca09c891f
+    - Name: Chrome
+      Material: {fileID: 2100000, guid: a2bdcd21a8855204fa92d118b397a224, type: 2}
+      Id: dd47da86-8e03-4af2-b872-0322d7f4e83c
+    - Name: Dark Green
+      Material: {fileID: 2100000, guid: d0653d8b39ea2c941888813d46bf9be2, type: 2}
+      Id: 6daa4566-8794-404e-909d-7a91d9cfcc27
+    - Name: Light Green
+      Material: {fileID: 2100000, guid: 380373a9ddd446b41a35c8ec065e1587, type: 2}
+      Id: 9dae9897-571d-476f-bc5b-a3ffdfcb9ff0
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 2bf053413aeaf494cb05830ac2b2c15f, type: 2}
+      Id: d2599a2a-d839-4ae5-aadf-315f808a9679
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  UnpackPrefab: 0
+  Quality: 2

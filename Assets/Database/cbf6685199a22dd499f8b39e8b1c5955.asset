@@ -16,23 +16,17 @@ MonoBehaviour:
   Object: {fileID: 2718612168962085196, guid: cbf6685199a22dd499f8b39e8b1c5955, type: 3}
   _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
   _addedAt: 2022-10-31T23:14:07.6369182+01:00
-  Description: 
+  Description: Metal bumper post with sleeve, hex base, at 1-1/4"
   Attributes:
   - Key: Part Number
-    Value: 545-5308
+    Value: ' 530-5332-01'
   - Key: Author
     Value: freezy
   Tags:
   - TagName: Sleeved
-  Links:
-  - Name: Cliffy's Colored Sleeves
-    Url: https://www.passionforpinball.com/colorsleeves.htm
-  - Name: Pinball Life
-    Url: https://www.pinballlife.com/perfectplay-1-116-willamsbally-compatible-rubber-post-sleeve.html
-  - Name: Marco Specialties
-    Url: https://www.marcospecialties.com/pinball-parts/545-5308-22
+  Links: []
   MaterialVariations:
-  - Name: Plastic
+  - Name: Sleeve
     Object: {fileID: 5461651062572570980, guid: cbf6685199a22dd499f8b39e8b1c5955, type: 3}
     Slot: 0
     Overrides:

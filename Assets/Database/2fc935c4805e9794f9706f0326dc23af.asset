@@ -16,13 +16,15 @@ MonoBehaviour:
   Object: {fileID: 2718612168962085196, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
   _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
   _addedAt: 2022-10-31T23:18:53.0320746+01:00
-  Description: 
-  Attributes: []
+  Description: Metal bumper post with sleeve, roundbase, at 1-1/4"
+  Attributes:
+  - Key: Author
+    Value: freezy
   Tags:
   - TagName: Sleeved
   Links: []
   MaterialVariations:
-  - Name: Plastic
+  - Name: Sleeve
     Object: {fileID: 5461651062572570980, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
     Slot: 0
     Overrides:

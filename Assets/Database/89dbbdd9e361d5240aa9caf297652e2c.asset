@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
   Object: {fileID: 6042044929055217257, guid: 89dbbdd9e361d5240aa9caf297652e2c, type: 3}
-  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
   _addedAt: 2022-09-29T00:42:53.3768644+02:00
   Description: 'Long necked plastic post double star red 1-1/2 inch tall commonly
     used in late model Bally and Williams pinball machines.
@@ -40,8 +40,8 @@ MonoBehaviour:
     Object: {fileID: 6042044929055217257, guid: 89dbbdd9e361d5240aa9caf297652e2c, type: 3}
     Slot: 0
     Overrides:
-    - Name: Clear
-      Material: {fileID: 2100000, guid: f2cb8a88ff8e5b740813d7ebe3f09b40, type: 2}
+    - Name: Transparent
+      Material: {fileID: 2100000, guid: 8e70bd01e226f854b860c0f67c0ce623, type: 2}
       Id: 94302dd6-0cc0-4438-ad3c-0a57c3abab67
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}

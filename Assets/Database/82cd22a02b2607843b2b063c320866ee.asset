@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
   Object: {fileID: 8330624143551021313, guid: 82cd22a02b2607843b2b063c320866ee, type: 3}
-  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
   _addedAt: 2022-09-29T00:42:44.9961785+02:00
   Description: 'This post is common to late model Bally and Williams pinball machines
     and accommodates 2 rubber rings. '
@@ -36,31 +36,31 @@ MonoBehaviour:
     Slot: 0
     Overrides:
     - Name: Clear
-      Material: {fileID: 2100000, guid: d0dab6f86b482c241a8f9c8681bf419e, type: 2}
+      Material: {fileID: 2100000, guid: 8e70bd01e226f854b860c0f67c0ce623, type: 2}
       Id: 7720b6b6-d00d-454b-b30e-001450ede9b5
     - Name: Green
-      Material: {fileID: 2100000, guid: 468defaeeaa0d8746abdcc9250f3ccfe, type: 2}
+      Material: {fileID: 2100000, guid: af61f4e55b4098a41895bf6fe58a51c4, type: 2}
       Id: 100b5487-00a0-4b93-80a7-b8f7679f3ed4
     - Name: Blue
-      Material: {fileID: 2100000, guid: ccd11573c78df784b903c22190f7a830, type: 2}
+      Material: {fileID: 2100000, guid: 64a83c49a9d5c524ea04d5556eab8c3a, type: 2}
       Id: 827efc8d-6a4d-4ae5-8b5d-5c652ba95ee7
     - Name: Purple
-      Material: {fileID: 2100000, guid: c67e4c622397c68479c9f01d99043c44, type: 2}
+      Material: {fileID: 2100000, guid: d3e2031fac8f2fa4d9c568362bd9e33a, type: 2}
       Id: 8c7083cd-1991-4416-b23f-14f5cb0cef53
     - Name: Teal
-      Material: {fileID: 2100000, guid: 51228e3bcc963664ca4413bf7a171742, type: 2}
+      Material: {fileID: 2100000, guid: 7825d51f5decd48499203461a98e744f, type: 2}
       Id: f9e473f3-4a74-4bcb-82c3-b6be77d2d419
     - Name: Amber
-      Material: {fileID: 2100000, guid: 168b9529b0a964841845521bb31cb80f, type: 2}
+      Material: {fileID: 2100000, guid: 779e37cc7054f1841918632767c28508, type: 2}
       Id: 414a2b25-0218-4c86-987c-be0ebe4c5b6a
     - Name: Yellow
-      Material: {fileID: 2100000, guid: 1f81402a9411e8343ac676a9f257359a, type: 2}
+      Material: {fileID: 2100000, guid: 4a677b2cf1473f0409ef05622041f92f, type: 2}
       Id: ca358bd2-e2b2-41cd-9250-d213bc2e6ad4
     - Name: Orange
-      Material: {fileID: 2100000, guid: eb93fa118178b0049acd96a49153ff16, type: 2}
+      Material: {fileID: 2100000, guid: 3a2701a0e4173794fbe74f129031708c, type: 2}
       Id: f9c9dc77-bae3-4786-b465-5422e9780690
     - Name: Black
-      Material: {fileID: 2100000, guid: 8e01fe13ca4f4eb4e94a07418e722a26, type: 2}
+      Material: {fileID: 2100000, guid: b59d0fa73fffa7344ad56aecc99cc2e9, type: 2}
       Id: 3701b6a4-f8c2-4298-a718-b6c8a396a2b9
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: b0a6127a00824ac4b80948805da9fc9d
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 2718612168962085196, guid: b0a6127a00824ac4b80948805da9fc9d, type: 3}
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
+  _addedAt: 2025-06-06T10:31:51.5480542+02:00
+  Description: Metal bumper post with sleeve, round base, at 1-3/16"
+  Attributes:
+  - Key: Part Number
+    Value: 02-4036-1
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Sleeved
+  Links: []
+  MaterialVariations:
+  - Name: Sleeve
+    Object: {fileID: 5461651062572570980, guid: b0a6127a00824ac4b80948805da9fc9d, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 3646a6796faa80d468c9ec1e49f922c1, type: 2}
+      Id: 8f8b77af-e8b2-4f5d-815c-b39aac763722
+    - Name: Black
+      Material: {fileID: 2100000, guid: cd7d1e06f01966945a2a32b90bedb4be, type: 2}
+      Id: 5632a80e-38a4-4ad0-86f0-910c173bee31
+    - Name: Blue
+      Material: {fileID: 2100000, guid: b981d5fb0aaa1c440a0a1ba832c609a2, type: 2}
+      Id: 81e5eec0-6a99-45c4-aca0-468dcb2e4b7f
+    - Name: Chrome
+      Material: {fileID: 2100000, guid: a2bdcd21a8855204fa92d118b397a224, type: 2}
+      Id: 518dad4f-9093-49a9-9aac-6fe5b7a49c3a
+    - Name: Dark Green
+      Material: {fileID: 2100000, guid: d0653d8b39ea2c941888813d46bf9be2, type: 2}
+      Id: 91a92646-4e12-4176-9d56-6cb853efe4f4
+    - Name: Light Green
+      Material: {fileID: 2100000, guid: 380373a9ddd446b41a35c8ec065e1587, type: 2}
+      Id: 957404ca-9ce7-49c8-9c8b-7b57efcf864a
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 2bf053413aeaf494cb05830ac2b2c15f, type: 2}
+      Id: 96f83361-45f3-40f0-bb24-cb51a22a2d21
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  UnpackPrefab: 0
+  Quality: 2

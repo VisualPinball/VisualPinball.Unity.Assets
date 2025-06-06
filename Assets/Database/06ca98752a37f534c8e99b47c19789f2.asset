@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 06ca98752a37f534c8e99b47c19789f2
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 7527631211510752712, guid: 06ca98752a37f534c8e99b47c19789f2, type: 3}
+  _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
+  _addedAt: 2022-10-04T13:58:09.1856349+02:00
+  Description: 'Bumper post with 8-32 thread bottom and solid top.
+
+
+
+    2-1/4 inch
+    overall length used on Data East / Sega / Stern and other pinball machines. '
+  Attributes:
+  - Key: Size
+    Value: 1-1/4"
+  - Key: Part Number
+    Value: 530-5057-00
+  Tags:
+  - TagName: Metal
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/530-5057-00
+  MaterialVariations: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  UnpackPrefab: 0
+  Quality: 2

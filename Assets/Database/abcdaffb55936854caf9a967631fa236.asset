@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
   m_Name: abcdaffb55936854caf9a967631fa236
   m_EditorClassIdentifier: 
-  Library: {fileID: 11400000, guid: a42f2c173b443374fab2544379eb3b0a, type: 2}
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
   Object: {fileID: 8906608387015533096, guid: abcdaffb55936854caf9a967631fa236, type: 3}
   _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
   _addedAt: 2022-11-21T19:53:57.4639710+01:00
@@ -32,6 +32,7 @@ MonoBehaviour:
   - TagName: Plastic
   Links: []
   MaterialVariations: []
+  EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
   UnpackPrefab: 0

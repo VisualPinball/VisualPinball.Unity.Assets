@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 7dbf90d1bd64d0b4bb29ec4cc92116d2
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 6330113174452625187, guid: 7dbf90d1bd64d0b4bb29ec4cc92116d2, type: 3}
+  _categoryId: 3a20c7eb-a3df-4c2d-8886-462740389769
+  _addedAt: 2022-10-19T00:38:33.7333913+02:00
+  Description: Use this prefab to create custom-sized threads. Most screws already
+    use it, but if you need a longer (visible) thread, just add a bunch more of those.
+  Attributes:
+  - Key: Thread Size
+    Value: 10-24
+  - Key: Thread Length
+    Value: 1/4"
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Screw Thread
+  Links: []
+  MaterialVariations: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 227bb9df5028f714d9dd6dd47a69f1af, type: 2}
+  ThumbCameraHeight: 0.008
+  UnpackPrefab: 0
+  Quality: 4

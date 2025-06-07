@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 9980a414768c72046bbdc565cc7f35c8
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 3880759408324766794, guid: 9980a414768c72046bbdc565cc7f35c8, type: 3}
+  _categoryId: 3a20c7eb-a3df-4c2d-8886-462740389769
+  _addedAt: 2022-10-19T11:22:11.8201611+02:00
+  Description: A tall, domed head provides a finished appearance. These screws have
+    a zinc plating for corrosion resistance in wet environments. Length is measured
+    from under the head.
+  Attributes:
+  - Key: Part Number
+    Value: 90279A825
+  - Key: Thread Size
+    Value: 10-32
+  - Key: Thread Length
+    Value: 1/4"
+  - Key: Diameter
+    Value: 0.359"
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Phillips
+  Links:
+  - Name: McMaster-Carr
+    Url: https://www.mcmaster.com/90279A825/
+  MaterialVariations: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 38b1859491e4d7445a6280bcabc53742, type: 2}
+  ThumbCameraHeight: 0.008
+  UnpackPrefab: 0
+  Quality: 4

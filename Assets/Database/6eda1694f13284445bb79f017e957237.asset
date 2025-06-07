@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 6eda1694f13284445bb79f017e957237
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 8480354444098971714, guid: 6eda1694f13284445bb79f017e957237, type: 3}
+  _categoryId: 3a20c7eb-a3df-4c2d-8886-462740389769
+  _addedAt: 2022-10-24T17:44:02.6633536+02:00
+  Description: 'The flange distributes pressure where the nut meets the material
+    surface, eliminating the need for a separate washer. '
+  Attributes:
+  - Key: Author
+    Value: freezy
+  - Key: Thread Size
+    Value: 10-32
+  - Key: Part Number
+    Value: 94831A611
+  - Key: Width
+    Value: 3/8"
+  - Key: Height
+    Value: 7/32"
+  Tags:
+  - TagName: Hex Nut
+  - TagName: Flanged
+  - TagName: Top Rod
+  Links:
+  - Name: McMaster-Carr
+    Url: https://www.mcmaster.com/94831A611/
+  MaterialVariations: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 227bb9df5028f714d9dd6dd47a69f1af, type: 2}
+  ThumbCameraHeight: 0.0003
+  UnpackPrefab: 0
+  Quality: 4

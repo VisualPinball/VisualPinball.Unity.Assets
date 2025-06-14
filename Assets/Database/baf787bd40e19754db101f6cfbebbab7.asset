@@ -28,10 +28,10 @@ MonoBehaviour:
   - Name: Marco Specialties
     Url: https://www.marcospecialties.com/pinball-parts/03-8053
   MaterialVariations: []
-  EnvironmentGameObjectName: 
+  EnvironmentGameObjectName: Playfield - Kicker 1.25in, Beveled
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: e361b46afd684324dbc1ddcecd669c95, type: 2}
   ThumbCameraHeight: 0
-  ThumbCameraPos: {x: 0, y: -0.003, z: 0}
+  ThumbCameraPos: {x: 0, y: -0.004, z: 0}
   ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 1

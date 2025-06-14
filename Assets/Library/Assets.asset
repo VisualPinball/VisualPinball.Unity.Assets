@@ -206,6 +206,7 @@ MonoBehaviour:
       - 7bdfe8b135108dd43ad5e081179f88d5
       - fba64c75c01ff2d4fa3ee4f3798eb59c
       - 8cf66d3952d1045459cde2cef66e69db
+      - 536a6416134c3ef4885e5bdd21cb34cc
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -392,6 +393,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 25ba81d244ac6b44c8bd3ebb39df0164, type: 2}
       - {fileID: 11400000, guid: 6357d45feca656d4f9704c2ad8451a55, type: 2}
       - {fileID: 11400000, guid: 36af03a5f9677384b876163c0fb62456, type: 2}
+      - {fileID: 11400000, guid: 9d6b68552e549fd4b8f1b6a83ca68b09, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -401,6 +403,7 @@ MonoBehaviour:
       - c8de1076-9def-420b-a689-ab9a9e8c8667
       - 3f13eed9-75bf-4fc2-a288-e90644302f86
       - ee1a3ddd-c6ed-45c3-8c1f-97f4e97b331d
+      - c9aeb0cd-c183-4f61-917d-55b4b2ec9aca
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -416,3 +419,5 @@ MonoBehaviour:
         Name: Kickers
       - Id: ee1a3ddd-c6ed-45c3-8c1f-97f4e97b331d
         Name: Switches
+      - Id: c9aeb0cd-c183-4f61-917d-55b4b2ec9aca
+        Name: Targets

@@ -27,7 +27,70 @@ MonoBehaviour:
   Links:
   - Name: Pinball Life
     Url: https://www.pinballlife.com/PBL-300-0021-00-71
-  MaterialVariations: []
+  MaterialVariations:
+  - Name: Plastic
+    Object: {fileID: 744514571588013648, guid: 536a6416134c3ef4885e5bdd21cb34cc, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: cf2572b930fb62549b6a5b42cd9f70c5, type: 2}
+      Id: 0172dfc9-c08a-43f7-93c3-cd8468151b50
+    - Name: White
+      Material: {fileID: 2100000, guid: 85238b0b2e30f5c4aa3ed7f6d8772d04, type: 2}
+      Id: 870576ad-b327-4506-8d11-9b3110e96fd1
+  DecalVariations:
+  - Name: Bullseye
+    Object: {fileID: 4750508675693074685, guid: 536a6416134c3ef4885e5bdd21cb34cc, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 21801f3fe6e72724cab328956753bab4, type: 2}
+      Id: 3616a240-406c-414d-842e-a49fb73d2716
+    - Name: White
+      Material: {fileID: 2100000, guid: e0ffdcbadd62514449c7c7d3754d80e8, type: 2}
+      Id: f5f14616-6d74-4dcc-bfb5-536f2bb734aa
+    - Name: Gold
+      Material: {fileID: 2100000, guid: 90e889b43fdbb924c8d28abe4c07e477, type: 2}
+      Id: 715e8db8-cd22-40c7-b984-3cc5bf048505
+  - Name: Bronco
+    Object: {fileID: 4750508675693074685, guid: 536a6416134c3ef4885e5bdd21cb34cc, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: ef145d38aa23a2649bd671c9e7a1debe, type: 2}
+      Id: 725c134b-e3d1-48d7-ac86-5dbedc6e0446
+    - Name: White
+      Material: {fileID: 2100000, guid: de7e7aad4eb16a645a54a140625337c8, type: 2}
+      Id: 5775c945-1901-43bf-8d6b-1540ae2f5e75
+    - Name: Gold
+      Material: {fileID: 2100000, guid: 80a95b0f56c11694e8b784380ea774bf, type: 2}
+      Id: 5ea703c0-afc2-4f8e-9c64-eb9b35671b0f
+  - Name: Star 1
+    Object: {fileID: 4750508675693074685, guid: 536a6416134c3ef4885e5bdd21cb34cc, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: fd07ce54730ed774db6352d03cd6dcfa, type: 2}
+      Id: 9783985e-48ab-4e27-aac9-aee08fc3ddc8
+    - Name: White
+      Material: {fileID: 2100000, guid: 66fe74f7aef4109478231470a07e38c9, type: 2}
+      Id: 36f194ee-c126-4f72-a34c-2dc04b39c7ba
+    - Name: Gold
+      Material: {fileID: 2100000, guid: 4188982cecd4fec4cb0fb297f72e1150, type: 2}
+      Id: 4f85cf3c-c9ac-47c4-8f0f-da16a51d8340
+  - Name: Star 2
+    Object: {fileID: 4750508675693074685, guid: 536a6416134c3ef4885e5bdd21cb34cc, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 1b3a9a64c29d993468b510f4da29ecaa, type: 2}
+      Id: e1235567-6789-4800-b73e-e5bf42afc00b
+    - Name: White
+      Material: {fileID: 2100000, guid: 16a1b80e6d215eb4bb75e61719e91cf0, type: 2}
+      Id: 8061b13d-48b1-4e39-8528-875e14d53d46
+    - Name: Gold
+      Material: {fileID: 2100000, guid: 3635ec7aa8b8beb4d828ac3bfa1144b5, type: 2}
+      Id: 5c0d95d9-512d-40fb-8652-bed76e5c1e41
   EnvironmentGameObjectName: Playfield - Target 0.65in
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0

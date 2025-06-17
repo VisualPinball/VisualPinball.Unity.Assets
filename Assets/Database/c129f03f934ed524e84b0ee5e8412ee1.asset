@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: c129f03f934ed524e84b0ee5e8412ee1
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 4781968502162011993, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+  _categoryId: 1f7f05fd-7ad3-44d1-adcd-8cf7fee9b0e4
+  _addedAt: 2022-12-10T23:04:10.9524659+01:00
+  Description: 'Gottlieb Bumper Assembly.
+
+
+    Includes the lamp.
+
+
+    Check the
+    src~ folder for the Substance Materials used to texture. Should be easy to replace
+    the artwork.'
+  Attributes:
+  - Key: Part Number
+    Value: 10434-W,A-16883-GY,C-10433-W,10433Z,A-10436,C-115-1,A-16634,C-114-3
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Gottlieb
+  Links: []
+  MaterialVariations:
+  - Name: Skirt
+    Object: {fileID: 255393492460410650, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 199d6043047ba704aa2810f07f71e746, type: 2}
+      Id: 81fec900-2391-4ec8-afb5-726ca3b58ee0
+  DecalVariations:
+  - Name: Diamond
+    Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 6c061f5feb0432c43aee089f93421207, type: 2}
+      Id: 38d3440c-c1b4-48eb-b232-a318f425f5c8
+    - Name: Red
+      Material: {fileID: 2100000, guid: 0d14f2a97adac7c4f8464a6053c1c4fb, type: 2}
+      Id: eb4db4df-3d93-434a-b886-64d5666ac638
+  - Name: Rings
+    Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 775ad5ca48141a84fa3ad58530e6e268, type: 2}
+      Id: b829be74-cc08-4217-99a0-548aa9167478
+    - Name: Red
+      Material: {fileID: 2100000, guid: c040593c983d65b488452b0c10853844, type: 2}
+      Id: d643d43f-94b1-4279-94da-a5da876b03d0
+  - Name: Asterisk
+    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 76d9f28a121203c49990d921ccd65a7e, type: 2}
+      Id: 1801a9c9-403c-4c9a-ba94-3321f99884fe
+    - Name: Red
+      Material: {fileID: 2100000, guid: f91e631b534c6f14caaff4170230f32e, type: 2}
+      Id: 01ff2fd7-3b98-47f9-b957-c86e6b888193
+  - Name: 100 When Lit
+    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: a10337766586e024583bd6c6e21a8780, type: 2}
+      Id: 21c50b73-aae4-48af-be9d-9062a675d8c0
+    - Name: Red
+      Material: {fileID: 2100000, guid: 3cd80b0aad599aa4d8c76c4cba7eea79, type: 2}
+      Id: 7691cbb6-d68f-4901-a1f9-7064cff6c896
+  - Name: 1000 Points When Lit
+    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+    Slot: 0
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 68b70864df123c347bfd6892f7bbd7d7, type: 2}
+      Id: ee587323-30db-4872-afa8-cc6678b49051
+    - Name: Red
+      Material: {fileID: 2100000, guid: 520e2fba0c2eb69408e9549d29de2663, type: 2}
+      Id: 10dd2e6b-25d8-42d0-ac89-223e663fea7a
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

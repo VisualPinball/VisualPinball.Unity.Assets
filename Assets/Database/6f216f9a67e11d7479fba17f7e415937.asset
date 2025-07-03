@@ -29,10 +29,14 @@ MonoBehaviour:
   Links:
   - Name: Marco Specialties
     Url: https://www.marcospecialties.com/pinball-parts/C-952-7
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Plastic
-    Object: {fileID: 4878683001666819339, guid: 6f216f9a67e11d7479fba17f7e415937, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 4878683001666819339, guid: 6f216f9a67e11d7479fba17f7e415937, type: 3}
+      Slot: 0
     Overrides:
     - Name: Clear
       Material: {fileID: 2100000, guid: a84b4c79d557dec4f8218d9d2bfe27bc, type: 2}
@@ -43,8 +47,13 @@ MonoBehaviour:
     - Name: Blue
       Material: {fileID: 2100000, guid: f1099a6b2e2e9b048a07e8f94e9de001, type: 2}
       Id: 160cd94a-b7a8-4d16-833c-8d1cb04e7412
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

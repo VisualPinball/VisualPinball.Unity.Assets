@@ -30,10 +30,14 @@ MonoBehaviour:
     Url: https://www.marcospecialties.com/pinball-parts/C-11562-20
   - Name: Pinball Life
     Url: https://www.pinballlife.com/faceted-post-1-316-tall-white.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Plastic
-    Object: {fileID: 8739998644613467805, guid: 43def0056521bf44ab6121507675c535, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 8739998644613467805, guid: 43def0056521bf44ab6121507675c535, type: 3}
+      Slot: 0
     Overrides:
     - Name: Clear
       Material: {fileID: 2100000, guid: 39a7c8410eee9454f9cb59de4350bb69, type: 2}
@@ -50,8 +54,13 @@ MonoBehaviour:
     - Name: White
       Material: {fileID: 2100000, guid: c91d8114032efeb4faccf7a9cc25b720, type: 2}
       Id: a00c2d80-4801-4987-9473-2bcac79d8b09
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

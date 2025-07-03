@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 361bb24e3275b0b43a11efb9f3bf7de1
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 395010684244665192, guid: 361bb24e3275b0b43a11efb9f3bf7de1, type: 3}
+  _categoryId: 4411eccf-9a32-46fa-82d0-99a6ca93c790
+  _addedAt: 2025-07-06T00:44:56.8755937+02:00
+  Description: "Lower playfield apron cardholder for Gottlieb System 1 and electromechanical
+    pinball machines.\n\nStandard body size. Base color red. \nDimensions: 18-3/8\u2033
+    x 9\u2033 x 1-3/4\u2033"
+  Attributes:
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Standard Body
+  Links: []
+  GroupBy:
+    GroupBy: 1
+    Object: {fileID: 0}
+  MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: Playfield - Solid, Large
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 0d2c84dbec7fd3e4b86d0f8cd6adec09, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: -0.07}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

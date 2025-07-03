@@ -208,6 +208,8 @@ MonoBehaviour:
       - 8cf66d3952d1045459cde2cef66e69db
       - 536a6416134c3ef4885e5bdd21cb34cc
       - c129f03f934ed524e84b0ee5e8412ee1
+      - 98d7a62d04eb48840b2a6c6a4a1aeed1
+      - 361bb24e3275b0b43a11efb9f3bf7de1
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -396,6 +398,8 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 36af03a5f9677384b876163c0fb62456, type: 2}
       - {fileID: 11400000, guid: 9d6b68552e549fd4b8f1b6a83ca68b09, type: 2}
       - {fileID: 11400000, guid: e922bb6f73182fb40a3123113c88f0ec, type: 2}
+      - {fileID: 11400000, guid: 497797f19eb44914c936c9b8832480b8, type: 2}
+      - {fileID: 11400000, guid: 4f6ee76cc730b7746add89fed0cca470, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -407,6 +411,7 @@ MonoBehaviour:
       - ee1a3ddd-c6ed-45c3-8c1f-97f4e97b331d
       - c9aeb0cd-c183-4f61-917d-55b4b2ec9aca
       - c97e6a76-e785-495f-a990-d2664e620dc6
+      - 4411eccf-9a32-46fa-82d0-99a6ca93c790
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -426,3 +431,5 @@ MonoBehaviour:
         Name: Targets
       - Id: c97e6a76-e785-495f-a990-d2664e620dc6
         Name: Bumpers
+      - Id: 4411eccf-9a32-46fa-82d0-99a6ca93c790
+        Name: Aprons

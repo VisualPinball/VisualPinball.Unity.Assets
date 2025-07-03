@@ -23,10 +23,14 @@ MonoBehaviour:
   Tags:
   - TagName: Sleeved
   Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Sleeve
-    Object: {fileID: 5461651062572570980, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 8471102894792580994, guid: 2fc935c4805e9794f9706f0326dc23af, type: 3}
+      Slot: 0
     Overrides:
     - Name: Yellow
       Material: {fileID: 2100000, guid: 3646a6796faa80d468c9ec1e49f922c1, type: 2}
@@ -49,8 +53,13 @@ MonoBehaviour:
     - Name: Clear
       Material: {fileID: 2100000, guid: 2bf053413aeaf494cb05830ac2b2c15f, type: 2}
       Id: 78903bcd-156b-4fa9-a627-53d254d5daec
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

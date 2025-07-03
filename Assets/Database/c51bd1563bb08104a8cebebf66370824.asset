@@ -35,10 +35,14 @@ MonoBehaviour:
     Url: https://www.marcospecialties.com/pinball-parts/03-8365-9
   - Name: Pinball Life
     Url: https://www.pinballlife.com/williamsbally-1-14-narrow-plastic-posts.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Plastic
-    Object: {fileID: 3766792209538596551, guid: c51bd1563bb08104a8cebebf66370824, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 3766792209538596551, guid: c51bd1563bb08104a8cebebf66370824, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: ce42fda5aeb02a94a8f7314e36017c92, type: 2}
@@ -64,8 +68,13 @@ MonoBehaviour:
     - Name: Black
       Material: {fileID: 2100000, guid: 7b82a275086ebbc44ad2cc1bb4cbfccd, type: 2}
       Id: 56d4aafc-4339-4e43-ae41-996dba64695c
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

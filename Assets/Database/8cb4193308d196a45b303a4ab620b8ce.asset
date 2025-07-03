@@ -31,10 +31,14 @@ MonoBehaviour:
     Url: https://www.marcospecialties.com/pinball-parts/C-11561-20
   - Name: Pinball Life
     Url: https://www.pinballlife.com/faceted-post-1.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Plastic
-    Object: {fileID: 1994206309651177157, guid: 8cb4193308d196a45b303a4ab620b8ce, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 1994206309651177157, guid: 8cb4193308d196a45b303a4ab620b8ce, type: 3}
+      Slot: 0
     Overrides:
     - Name: Clear
       Material: {fileID: 2100000, guid: 61bd9c8b6aaa8724888322ef46cb2d21, type: 2}
@@ -51,8 +55,13 @@ MonoBehaviour:
     - Name: White
       Material: {fileID: 2100000, guid: 6cbdc15b31b0607489da925b3ab7aafc, type: 2}
       Id: 81be223e-d7f2-42e7-92ad-79739f22ad54
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

@@ -27,14 +27,21 @@ MonoBehaviour:
   Links:
   - Name: Pinball Life
     Url: https://www.pinballlife.com/williamsbally-ae-24-900-coil.html
+  GroupBy:
+    GroupBy: 1
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Wrapper
-    Object: {fileID: 5707054776026911499, guid: f20519aafa2a87b40b8d04e4f91050b9, type: 3}
-    Slot: 1
+    Target:
+      Object: {fileID: 5707054776026911499, guid: f20519aafa2a87b40b8d04e4f91050b9, type: 3}
+      Slot: 0
     Overrides:
-    - Name: AE-24-900 (white)
+    - Name: White (AE-24-900)
       Material: {fileID: 2100000, guid: e00ae29170c0de74483dfe2c28edfe4e, type: 2}
       Id: c6ffe548-3f0f-4339-9d4f-dcdbfeb0c9c6
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
   ThumbCameraHeight: 0

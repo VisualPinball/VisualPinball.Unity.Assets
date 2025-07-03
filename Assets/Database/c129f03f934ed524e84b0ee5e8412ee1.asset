@@ -33,28 +33,31 @@ MonoBehaviour:
   Tags:
   - TagName: Gottlieb
   Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
   MaterialVariations:
   - Name: Skirt
-    Object: {fileID: 255393492460410650, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 255393492460410650, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: 199d6043047ba704aa2810f07f71e746, type: 2}
       Id: 81fec900-2391-4ec8-afb5-726ca3b58ee0
   DecalVariations:
   - Name: Diamond
-    Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: 6c061f5feb0432c43aee089f93421207, type: 2}
       Id: 38d3440c-c1b4-48eb-b232-a318f425f5c8
-    - Name: Red
-      Material: {fileID: 2100000, guid: 0d14f2a97adac7c4f8464a6053c1c4fb, type: 2}
-      Id: eb4db4df-3d93-434a-b886-64d5666ac638
   - Name: Rings
-    Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: 775ad5ca48141a84fa3ad58530e6e268, type: 2}
@@ -63,18 +66,17 @@ MonoBehaviour:
       Material: {fileID: 2100000, guid: c040593c983d65b488452b0c10853844, type: 2}
       Id: d643d43f-94b1-4279-94da-a5da876b03d0
   - Name: Asterisk
-    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: 76d9f28a121203c49990d921ccd65a7e, type: 2}
       Id: 1801a9c9-403c-4c9a-ba94-3321f99884fe
-    - Name: Red
-      Material: {fileID: 2100000, guid: f91e631b534c6f14caaff4170230f32e, type: 2}
-      Id: 01ff2fd7-3b98-47f9-b957-c86e6b888193
-  - Name: 100 When Lit
-    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+  - Name: 500 When Lit
+    Target:
+      Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: a10337766586e024583bd6c6e21a8780, type: 2}
@@ -83,8 +85,9 @@ MonoBehaviour:
       Material: {fileID: 2100000, guid: 3cd80b0aad599aa4d8c76c4cba7eea79, type: 2}
       Id: 7691cbb6-d68f-4901-a1f9-7064cff6c896
   - Name: 1000 Points When Lit
-    Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
     Overrides:
     - Name: Blue
       Material: {fileID: 2100000, guid: 68b70864df123c347bfd6892f7bbd7d7, type: 2}
@@ -92,6 +95,31 @@ MonoBehaviour:
     - Name: Red
       Material: {fileID: 2100000, guid: 520e2fba0c2eb69408e9549d29de2663, type: 2}
       Id: 10dd2e6b-25d8-42d0-ac89-223e663fea7a
+  MaterialDefaults:
+  - VariationName: Solid Color
+    OverrideName: Red
+    Target:
+      Object: {fileID: 255393492460410650, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
+  - VariationName: Diamond
+    OverrideName: Red
+    Target:
+      Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
+  - VariationName: Asterisk
+    OverrideName: Red
+    Target:
+      Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
+  MaterialCombinationRules:
+  - Type: 0
+    Targets:
+    - Object: {fileID: 255393492460410650, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
+    - Object: {fileID: 4358882356645983593, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
+    - Object: {fileID: 6114163383582320303, guid: c129f03f934ed524e84b0ee5e8412ee1, type: 3}
+      Slot: 0
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
   ThumbCameraHeight: 0

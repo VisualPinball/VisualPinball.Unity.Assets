@@ -34,10 +34,14 @@ MonoBehaviour:
     Url: https://www.marcospecialties.com/pinball-parts/550-5059-02
   - Name: Pinball Life
     Url: https://www.pinballlife.com/data-eastsegastern-narrow-plastic-post-1-116-tall.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations:
   - Name: Plastic
-    Object: {fileID: 819897499572060381, guid: b0eeae103067a0d4f9f3519cea93697e, type: 3}
-    Slot: 0
+    Target:
+      Object: {fileID: 819897499572060381, guid: b0eeae103067a0d4f9f3519cea93697e, type: 3}
+      Slot: 0
     Overrides:
     - Name: Clear
       Material: {fileID: 2100000, guid: 53384cb9ffa709240853a39b1a2a11f6, type: 2}
@@ -45,8 +49,13 @@ MonoBehaviour:
     - Name: Blue
       Material: {fileID: 2100000, guid: dd719d8f973c7a749b62cbbcd8573078, type: 2}
       Id: e9258114-3fa1-41b7-a10d-f0de4cd32ec7
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 0}
   ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

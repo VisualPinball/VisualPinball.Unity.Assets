@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: e388ccfbdb61a7c48958e96533d9386e
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 1807799404462680055, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+  _categoryId: ddde19d2-b16e-4c4d-890c-3095b1e845c6
+  _addedAt: 2022-11-18T12:25:27.2572721+01:00
+  Description: 
+  Attributes: []
+  Tags:
+  - TagName: 2-7/8"
+  Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+  MaterialVariations:
+  - Name: Base
+    Target:
+      Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 28b28095fbf664c47b8204df87e5dcab, type: 2}
+      Id: 3cc81d9e-7c6c-4b4c-8e77-56dee8accf36
+    - Name: Red
+      Material: {fileID: 2100000, guid: 5e41f09b9389006409c64d0ece5b79a3, type: 2}
+      Id: d4272f39-a4f2-403d-8e56-08a9b0373e9f
+  - Name: Rubber
+    Target:
+      Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 5980ebb86cf38c849bf8ed8c44c7efd0, type: 2}
+      Id: c9a0a4db-05b9-41ab-b127-6cfef42d8a47
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 2a7f685fb5c54b84fb9642b17c942fc3, type: 2}
+      Id: 54889b11-d282-4d9e-a338-d8b611180995
+    - Name: Orange
+      Material: {fileID: 2100000, guid: aa54a814bd25b8a45b735f275056fca8, type: 2}
+      Id: 7bad6f0f-c92f-422e-a04d-1e753adae9c8
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 712be5ec295340e42a4ad2588490b7c5, type: 2}
+      Id: 643ae3b0-f65f-47b6-af06-aca763c4f1b1
+    - Name: White
+      Material: {fileID: 2100000, guid: 558bfed352ee2764d9fc5bfd7a93a1b9, type: 2}
+      Id: 34e0f950-3d45-4c8a-8f90-83648d78cf46
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Base
+    OverrideName: White
+    Target:
+      Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 1
+  - VariationName: Rubber
+    OverrideName: Red
+    Target:
+      Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 0
+  MaterialCombinationRules:
+  - Type: 1
+    Targets:
+    - Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 1
+    - Object: {fileID: 1267847461193035521, guid: e388ccfbdb61a7c48958e96533d9386e, type: 3}
+      Slot: 0
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 414d13c4ce29de24ba6b563c75651aaa, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0.001, z: 0}
+  ThumbCameraRot: {x: 0, y: 120, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

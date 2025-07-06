@@ -85,7 +85,7 @@ MonoBehaviour:
     - Object: {fileID: 416276529711251251, guid: d1f889a758493d44eaa9d655d0eca55b, type: 3}
       Slot: 1
   EnvironmentGameObjectName: 
-  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 414d13c4ce29de24ba6b563c75651aaa, type: 2}
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 30c355cd87a19b44e9f8d61d7b8a6cb1, type: 2}
   ThumbCameraHeight: 0.001
   ThumbCameraPos: {x: 0, y: 0.001, z: 0}
   ThumbCameraRot: {x: 0, y: 120, z: 0}

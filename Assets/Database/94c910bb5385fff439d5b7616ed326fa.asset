@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 94c910bb5385fff439d5b7616ed326fa
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 3862393827852141993, guid: 94c910bb5385fff439d5b7616ed326fa, type: 3}
+  _categoryId: ddde19d2-b16e-4c4d-890c-3095b1e845c6
+  _addedAt: 2022-12-17T16:27:16.4220562+01:00
+  Description: 
+  Attributes: []
+  Tags:
+  - TagName: 2"
+  Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Rubber
+    Target:
+      Object: {fileID: 4577448668935107180, guid: 94c910bb5385fff439d5b7616ed326fa, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: be1952b51fce28d4dba7779907057619, type: 2}
+      Id: e075d49a-3da2-4bf5-8272-d4b197dc38ba
+  DecalVariations:
+  - Name: Decal
+    Target:
+      Object: {fileID: 1127498527774693787, guid: 94c910bb5385fff439d5b7616ed326fa, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Red
+      Material: {fileID: 2100000, guid: 11b0ffa8363477148be5444f54d0ef76, type: 2}
+      Id: 4e5e1682-2ee1-4fc3-860f-850b5acfea96
+  MaterialDefaults:
+  - VariationName: Rubber
+    OverrideName: Red
+    Target:
+      Object: {fileID: 4577448668935107180, guid: 94c910bb5385fff439d5b7616ed326fa, type: 3}
+      Slot: 1
+  - VariationName: Decal
+    OverrideName: Blue
+    Target:
+      Object: {fileID: 1127498527774693787, guid: 94c910bb5385fff439d5b7616ed326fa, type: 3}
+      Slot: 0
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 414d13c4ce29de24ba6b563c75651aaa, type: 2}
+  ThumbCameraHeight: 0.001
+  ThumbCameraPos: {x: 0, y: 0.001, z: 0}
+  ThumbCameraRot: {x: 0, y: 120, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

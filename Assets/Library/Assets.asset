@@ -210,6 +210,7 @@ MonoBehaviour:
       - c129f03f934ed524e84b0ee5e8412ee1
       - 98d7a62d04eb48840b2a6c6a4a1aeed1
       - 361bb24e3275b0b43a11efb9f3bf7de1
+      - d1f889a758493d44eaa9d655d0eca55b
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -400,6 +401,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: e922bb6f73182fb40a3123113c88f0ec, type: 2}
       - {fileID: 11400000, guid: 497797f19eb44914c936c9b8832480b8, type: 2}
       - {fileID: 11400000, guid: 4f6ee76cc730b7746add89fed0cca470, type: 2}
+      - {fileID: 11400000, guid: 58aa93b0a822e3144ad0e463ce4b0896, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -412,6 +414,7 @@ MonoBehaviour:
       - c9aeb0cd-c183-4f61-917d-55b4b2ec9aca
       - c97e6a76-e785-495f-a990-d2664e620dc6
       - 4411eccf-9a32-46fa-82d0-99a6ca93c790
+      - ddde19d2-b16e-4c4d-890c-3095b1e845c6
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -433,3 +436,5 @@ MonoBehaviour:
         Name: Bumpers
       - Id: 4411eccf-9a32-46fa-82d0-99a6ca93c790
         Name: Aprons
+      - Id: ddde19d2-b16e-4c4d-890c-3095b1e845c6
+        Name: Flipper Bats

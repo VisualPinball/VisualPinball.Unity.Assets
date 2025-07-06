@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 73f0540fd5631734e96c16160a7ec9d8
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 2813248690767883892, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+  _categoryId: ddde19d2-b16e-4c4d-890c-3095b1e845c6
+  _addedAt: 2022-12-14T15:14:06.0097961+01:00
+  Description: Small flipper and 3/8 inch diameter shaft for Gottlieb.
+  Attributes:
+  - Key: Part Number
+    Value: A-21464
+  - Key: Manufacturer
+    Value: Gottlieb
+  - Key: Size
+    Value: 2-1/4"
+  - Key: Author
+    Value: Niwak,freezy
+  Tags:
+  - TagName: 2-1/4"
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/A-21464
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Base
+    Target:
+      Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: d4934eb7c40ede640b8f06ded85dc437, type: 2}
+      Id: 7c81929b-b088-4927-8a69-437ebd68146e
+    - Name: Red
+      Material: {fileID: 2100000, guid: 9b30b3a61ee4218498bd04b46a4f0992, type: 2}
+      Id: 7e7e67cc-30da-4e98-b0d9-cc0c51137e8c
+  - Name: Rubber
+    Target:
+      Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 8a44f267c3de48546a7605aca139d965, type: 2}
+      Id: 1395ba64-9330-46db-be29-811cf2a00ba1
+    - Name: Blue
+      Material: {fileID: 2100000, guid: c97cd280f62f63046bb2ad158871ae96, type: 2}
+      Id: ea62c2a8-2682-4ec6-9b26-33a24958815f
+    - Name: Orange
+      Material: {fileID: 2100000, guid: dc584b4f01f68a843a9e7cc0891f1277, type: 2}
+      Id: 503813e9-cb35-4a6c-afb3-06ecf812d33e
+    - Name: Purple
+      Material: {fileID: 2100000, guid: daf7796314fe2e44081ccee3989371ec, type: 2}
+      Id: 471ea600-8b8f-4ba1-862b-e23911f0e7b4
+    - Name: White
+      Material: {fileID: 2100000, guid: 393285cea3220a2499f8f0d9560ed322, type: 2}
+      Id: 005bd79e-c8a6-48f5-89a4-41e71c999414
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Rubber
+    OverrideName: Red
+    Target:
+      Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 0
+  - VariationName: Base
+    OverrideName: White
+    Target:
+      Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 1
+  MaterialCombinationRules:
+  - Type: 1
+    Targets:
+    - Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 0
+    - Object: {fileID: 8879842227237316232, guid: 73f0540fd5631734e96c16160a7ec9d8, type: 3}
+      Slot: 1
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 414d13c4ce29de24ba6b563c75651aaa, type: 2}
+  ThumbCameraHeight: 0.001
+  ThumbCameraPos: {x: 0, y: 0.001, z: 0}
+  ThumbCameraRot: {x: 0, y: 120, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

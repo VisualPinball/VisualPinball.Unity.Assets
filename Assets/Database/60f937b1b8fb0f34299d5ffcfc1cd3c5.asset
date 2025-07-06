@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 60f937b1b8fb0f34299d5ffcfc1cd3c5
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 7662790737776130916, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+  _categoryId: ddde19d2-b16e-4c4d-890c-3095b1e845c6
+  _addedAt: 2022-12-04T21:50:11.1153466+01:00
+  Description: 
+  Attributes: []
+  Tags:
+  - TagName: 3"
+  Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Base
+    Target:
+      Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 0cd13f8e585f6994f854dbc63dd8b7dc, type: 2}
+      Id: dcd42f02-e040-4dbe-8780-15439cb84186
+  - Name: Rubber
+    Target:
+      Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Blue
+      Material: {fileID: 2100000, guid: e311c016f34988b41bfe2cbfe2505ba0, type: 2}
+      Id: 934137b1-1e27-49ac-9e7d-f96f11cdabf3
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Base
+    OverrideName: White
+    Target:
+      Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 0
+  - VariationName: Rubber
+    OverrideName: Red
+    Target:
+      Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 1
+  MaterialCombinationRules:
+  - Type: 1
+    Targets:
+    - Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 0
+    - Object: {fileID: 6935690183551797313, guid: 60f937b1b8fb0f34299d5ffcfc1cd3c5, type: 3}
+      Slot: 1
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 414d13c4ce29de24ba6b563c75651aaa, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0.001, z: 0}
+  ThumbCameraRot: {x: 0, y: 120, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

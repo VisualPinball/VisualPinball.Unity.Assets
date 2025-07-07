@@ -272,6 +272,8 @@ MonoBehaviour:
       - 4a70f115eaba48d42906d983ebe72c1c
       - be3c6611172885246a5bdd56af1b2f79
       - 64d7efdd890744e4faf607890730f0d1
+      - 5e2d433e9e4424143a22c2defced2ac5
+      - 8898550ae22b9eb4999332ad8a2fc8ff
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -524,6 +526,8 @@ MonoBehaviour:
       - {fileID: 11400000, guid: f0dcc218c4e59864292de414eef41284, type: 2}
       - {fileID: 11400000, guid: ee2dee0ee8222d347a8daa1b4884e2c0, type: 2}
       - {fileID: 11400000, guid: cac5db73a7d4ae14bbd3738346c653cd, type: 2}
+      - {fileID: 11400000, guid: 291e1dd21330d384699aa4e6a1cfb08a, type: 2}
+      - {fileID: 11400000, guid: 110c3ef0ed9dbca4891bbbf1baea3ec5, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -538,6 +542,7 @@ MonoBehaviour:
       - 4411eccf-9a32-46fa-82d0-99a6ca93c790
       - ddde19d2-b16e-4c4d-890c-3095b1e845c6
       - 224a3782-bd39-4fdb-a002-7af9466be222
+      - 3d4b4a90-19e1-4935-80b1-f46e02c50168
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -563,3 +568,5 @@ MonoBehaviour:
         Name: Flipper Bats
       - Id: 224a3782-bd39-4fdb-a002-7af9466be222
         Name: Spacers
+      - Id: 3d4b4a90-19e1-4935-80b1-f46e02c50168
+        Name: Cabinet

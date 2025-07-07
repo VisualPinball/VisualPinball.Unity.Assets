@@ -27,7 +27,7 @@ MonoBehaviour:
   Links: []
   GroupBy:
     GroupBy: 0
-    Object: {fileID: 0}
+    Object: {fileID: 8464990054902542069, guid: 64d7efdd890744e4faf607890730f0d1, type: 3}
   MaterialVariations:
   - Name: Plastic
     Target:

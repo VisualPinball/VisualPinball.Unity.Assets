@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: ab374afe7061bc340b47cd8bf1118197
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 8640225935287977979, guid: ab374afe7061bc340b47cd8bf1118197, type: 3}
+  _categoryId: 224a3782-bd39-4fdb-a002-7af9466be222
+  _addedAt: 2023-03-31T19:50:53.9368094+02:00
+  Description: 
+  Attributes:
+  - Key: Part Number
+    Value: 254-5008-18
+  - Key: Size
+    Value: 2-1/4"
+  - Key: Width
+    Value: 1/4"
+  Tags:
+  - TagName: Metal
+  - TagName: Hex
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/254-5008-18
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

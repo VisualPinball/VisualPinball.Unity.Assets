@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: cc2bdaae0a13bf448b2a4409547409e7
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 456394838377703762, guid: cc2bdaae0a13bf448b2a4409547409e7, type: 3}
+  _categoryId: 224a3782-bd39-4fdb-a002-7af9466be222
+  _addedAt: 2022-11-04T10:44:35.8887317+01:00
+  Description: 'Snap-in nylon standoff used in display systems. '
+  Attributes:
+  - Key: Part Number
+    Value: 254-5007-01
+  - Key: Size
+    Value: 3/8"
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Plastic
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/254-5007-01
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Plastic
+    Target:
+      Object: {fileID: 456394838377703762, guid: cc2bdaae0a13bf448b2a4409547409e7, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 175cc4ba024820c4a85c14849e5a1847, type: 2}
+      Id: 4d1c7022-2c88-45e8-ad60-5c03c48aa4d1
+    - Name: Red
+      Material: {fileID: 2100000, guid: 93229c515ba5da14f96a45cc3bac1d03, type: 2}
+      Id: 5a1a894c-c908-4559-b9d8-e1dea8878f72
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

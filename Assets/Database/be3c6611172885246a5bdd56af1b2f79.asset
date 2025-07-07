@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: be3c6611172885246a5bdd56af1b2f79
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 1243652155191509856, guid: be3c6611172885246a5bdd56af1b2f79, type: 3}
+  _categoryId: 224a3782-bd39-4fdb-a002-7af9466be222
+  _addedAt: 2022-11-04T10:44:38.9577537+01:00
+  Description: Spacer spool used on Williams/Bally pinball machines.
+  Attributes:
+  - Key: Part Number
+    Value: 03-8371
+  - Key: Size
+    Value: 1-1/16"
+  - Key: Author
+    Value: Niwak
+  Tags:
+  - TagName: Plastic
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/03-8371
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Plastic
+    Target:
+      Object: {fileID: 1243652155191509856, guid: be3c6611172885246a5bdd56af1b2f79, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Black
+      Material: {fileID: 2100000, guid: 5e4747af723672945af633ee9a16aef6, type: 2}
+      Id: 20be21a6-2724-4ef7-87c1-bb5552b97d1a
+    - Name: Red
+      Material: {fileID: 2100000, guid: c5729257ec8432346a2a6f5442f1e82f, type: 2}
+      Id: 049917af-879f-48b6-9249-7ec52bdadac1
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 0}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

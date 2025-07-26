@@ -30,7 +30,9 @@ MonoBehaviour:
     Value: Gottlieb
   - Key: Author
     Value: freezy
-  Tags: []
+  Tags:
+  - TagName: Plate
+  - TagName: Right Side
   Links:
   - Name: Marco Specialties
     Url: https://www.marcospecialties.com/pinball-parts/19646

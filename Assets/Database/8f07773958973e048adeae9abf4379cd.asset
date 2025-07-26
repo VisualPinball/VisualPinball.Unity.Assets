@@ -25,7 +25,9 @@ MonoBehaviour:
     Value: Gottlieb
   - Key: Author
     Value: freezy
-  Tags: []
+  Tags:
+  - TagName: Plate
+  - TagName: Left Side
   Links:
   - Name: Marco Specialties
     Url: https://www.marcospecialties.com/pinball-parts/19645
@@ -39,7 +41,7 @@ MonoBehaviour:
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
   ThumbCameraHeight: 0
-  ThumbCameraPos: {x: 0.0047, y: 0, z: 0.0209}
-  ThumbCameraRot: {x: 0, y: 90, z: 0}
+  ThumbCameraPos: {x: -0.0035, y: 0, z: 0.0165}
+  ThumbCameraRot: {x: 0, y: -90, z: 0}
   UnpackPrefab: 0
   Quality: 2

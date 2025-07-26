@@ -16,10 +16,26 @@ MonoBehaviour:
   Object: {fileID: 9190679933859436225, guid: 85c4c3ddb71348f46b85e6a5e32d68b3, type: 3}
   _categoryId: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
   _addedAt: 2025-07-26T14:21:36.9309991+02:00
-  Description: 
-  Attributes: []
-  Tags: []
-  Links: []
+  Description: 'Gottlieb ball gate assembly.
+
+
+    Bracket thickness: 1.3mm
+
+    Plate
+    thicnkess: 0.8mm'
+  Attributes:
+  - Key: Part Number
+    Value: A-18469
+  - Key: Manufacturer
+    Value: Gottlieb
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Plate
+  - TagName: Left Side
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/A-18469
   GroupBy:
     GroupBy: 0
     Object: {fileID: 0}
@@ -31,6 +47,6 @@ MonoBehaviour:
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: b0032d5f974510d47a3825e7cf7b4ed7, type: 2}
   ThumbCameraHeight: 0
   ThumbCameraPos: {x: -0.0044, y: 0, z: 0.0032}
-  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 180, z: 0}
   UnpackPrefab: 0
   Quality: 2

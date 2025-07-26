@@ -27,9 +27,17 @@ MonoBehaviour:
   Links:
   - Name: Marco Specialties
     Url: https://www.marcospecialties.com/pinball-parts/A-13505-1
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
   MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
   EnvironmentGameObjectName: 
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: b0032d5f974510d47a3825e7cf7b4ed7, type: 2}
   ThumbCameraHeight: 0.0254
+  ThumbCameraPos: {x: 0, y: 0.0254, z: 0}
+  ThumbCameraRot: {x: 0, y: 180, z: 0}
   UnpackPrefab: 0
   Quality: 1

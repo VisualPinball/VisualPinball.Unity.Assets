@@ -10,30 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
-  m_Name: dda43cf260e5ba5409cce49eccbfe9d6
+  m_Name: 85c4c3ddb71348f46b85e6a5e32d68b3
   m_EditorClassIdentifier: 
   Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
-  Object: {fileID: 8715730025854075232, guid: dda43cf260e5ba5409cce49eccbfe9d6, type: 3}
+  Object: {fileID: 9190679933859436225, guid: 85c4c3ddb71348f46b85e6a5e32d68b3, type: 3}
   _categoryId: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
-  _addedAt: 2025-07-25T23:47:53.5685192+02:00
-  Description: 'Ball Gate Assembly (L) - Gottlieb
-
-
-    Arch thickness: 1.3mm
-
-    Plate
-    thicnkess: 0.8mm'
-  Attributes:
-  - Key: Part Number
-    Value: A-19646
-  - Key: Manufacturer
-    Value: Gottlieb
-  - Key: Author
-    Value: freezy
+  _addedAt: 2025-07-26T14:21:36.9309991+02:00
+  Description: 
+  Attributes: []
   Tags: []
-  Links:
-  - Name: Marco Specialties
-    Url: https://www.marcospecialties.com/pinball-parts/19646
+  Links: []
   GroupBy:
     GroupBy: 0
     Object: {fileID: 0}
@@ -42,9 +28,9 @@ MonoBehaviour:
   MaterialDefaults: []
   MaterialCombinationRules: []
   EnvironmentGameObjectName: 
-  ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: b0032d5f974510d47a3825e7cf7b4ed7, type: 2}
   ThumbCameraHeight: 0
-  ThumbCameraPos: {x: 0.0118, y: 0, z: 0.0042}
-  ThumbCameraRot: {x: 0, y: 180, z: 0}
+  ThumbCameraPos: {x: -0.0044, y: 0, z: 0.0032}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
   Quality: 2

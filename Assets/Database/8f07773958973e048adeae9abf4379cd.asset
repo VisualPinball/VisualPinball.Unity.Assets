@@ -16,7 +16,8 @@ MonoBehaviour:
   Object: {fileID: 2067438533862366885, guid: 8f07773958973e048adeae9abf4379cd, type: 3}
   _categoryId: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
   _addedAt: 2025-07-25T23:47:53.7406944+02:00
-  Description: 'Ball Gate Assembly (R) - Gottlieb '
+  Description: "Ball Gate Assembly (R) - Gottlieb \n\nArch thickness: 1.3mm\nPlate
+    thicnkess: 0.8mm"
   Attributes:
   - Key: Part Number
     Value: A-19645

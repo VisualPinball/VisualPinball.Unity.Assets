@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 72a9e6afad86e1042b38da4b347f440f
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 7085640759655817956, guid: 72a9e6afad86e1042b38da4b347f440f, type: 3}
+  _categoryId: 3f13eed9-75bf-4fc2-a288-e90644302f86
+  _addedAt: 2025-08-19T01:00:15.5750654+02:00
+  Description: 
+  Attributes: []
+  Tags: []
+  Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: Playfield - Kicker 1.25in, Beveled
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: e361b46afd684324dbc1ddcecd669c95, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0.0005, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

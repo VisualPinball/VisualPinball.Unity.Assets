@@ -280,6 +280,7 @@ MonoBehaviour:
       - 85c4c3ddb71348f46b85e6a5e32d68b3
       - 62c7b38e3573af74fa27e910d8da5d11
       - 3722883961c3a4843a71adf9c0e1c74a
+      - cd916c544eedbfd458d633029918d6cd
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -540,6 +541,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: aa338df69b8f2e44da858278f7086a1c, type: 2}
       - {fileID: 11400000, guid: b82f702b4dfe6d542a1aedbf6c633501, type: 2}
       - {fileID: 11400000, guid: ee1ce5d922ea1a041aca0ee58d1a3e0a, type: 2}
+      - {fileID: 11400000, guid: 16fb39a4deb0b1342aa497cb4c94f8cc, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -555,6 +557,7 @@ MonoBehaviour:
       - ddde19d2-b16e-4c4d-890c-3095b1e845c6
       - 224a3782-bd39-4fdb-a002-7af9466be222
       - 3d4b4a90-19e1-4935-80b1-f46e02c50168
+      - da4947e6-70e4-4592-9c94-dd7ee1013084
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -582,3 +585,5 @@ MonoBehaviour:
         Name: Spacers
       - Id: 3d4b4a90-19e1-4935-80b1-f46e02c50168
         Name: Cabinet
+      - Id: da4947e6-70e4-4592-9c94-dd7ee1013084
+        Name: Spinners

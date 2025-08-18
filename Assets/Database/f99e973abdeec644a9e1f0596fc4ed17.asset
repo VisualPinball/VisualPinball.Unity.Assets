@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
-  m_Name: 0a09f823654858140b82af99f00b1650
+  m_Name: f99e973abdeec644a9e1f0596fc4ed17
   m_EditorClassIdentifier: 
   Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
-  Object: {fileID: 398764112358096283, guid: 0a09f823654858140b82af99f00b1650, type: 3}
-  _categoryId: 3f13eed9-75bf-4fc2-a288-e90644302f86
-  _addedAt: 2025-08-19T01:07:58.7595101+02:00
-  Description: 
+  Object: {fileID: 6563151203485904801, guid: f99e973abdeec644a9e1f0596fc4ed17, type: 3}
+  _categoryId: da4947e6-70e4-4592-9c94-dd7ee1013084
+  _addedAt: 2025-08-19T01:25:25.8860210+02:00
+  Description: The original VPX Spinner.
   Attributes: []
   Tags: []
   Links: []
@@ -27,10 +27,10 @@ MonoBehaviour:
   DecalVariations: []
   MaterialDefaults: []
   MaterialCombinationRules: []
-  EnvironmentGameObjectName: Playfield - Kicker 1.25in, Beveled
-  ThumbCameraPreset: {fileID: 2655988077585873504, guid: e361b46afd684324dbc1ddcecd669c95, type: 2}
+  EnvironmentGameObjectName: 
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: ee98116218811694c856c46eb912660d, type: 2}
   ThumbCameraHeight: 0
-  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraPos: {x: 0, y: 0.0259, z: 0}
   ThumbCameraRot: {x: 0, y: 0, z: 0}
   UnpackPrefab: 0
-  Quality: 2
+  Quality: 4

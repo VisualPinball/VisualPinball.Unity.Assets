@@ -1,0 +1,65 @@
+name: Publish
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true 
+      - name: Fetch next version
+        id: nextVersion
+        uses: VisualPinball/next-version-action@v0.1.6
+        with:
+          tagPrefix: 'v'
+      - name: Bump
+        if: ${{ steps.nextVersion.outputs.isBump == 'true' }} 
+        run: |
+          npm version ${{ steps.nextVersion.outputs.nextVersion }} --no-git-tag-version    
+      - name: Commit
+        id: commit
+        if: ${{ steps.nextVersion.outputs.isBump == 'true' }} 
+        run: |
+          git config user.name "github-actions"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "release: ${{ steps.nextVersion.outputs.nextTag }}."
+          git push
+          commitish=$(git rev-parse HEAD)
+          echo ::set-output name=commitish::${commitish}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.nextVersion.outputs.nextTag }}
+          release_name: ${{ steps.nextVersion.outputs.nextTag }}
+          prerelease: ${{ steps.nextVersion.outputs.isPrerelease }}
+          commitish: ${{ steps.commit.outputs.commitish }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Archive
+        run: |
+          echo "//registry.visualpinball.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm pack
+          NPM_ARCHIVE=$(ls org.visualpinball.unity.assets*.tgz)
+          export NEW_SHA1=($(sha1sum $NPM_ARCHIVE))
+          rm -rf Assets
+          echo Publishing dummy...
+          npm publish
+          echo Patching package.json...
+          sudo apt-get install sshpass
+          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} scp -v -o StrictHostKeyChecking=no $REGISTRY_SSH_USERNAME@registry.visualpinball.org:$REGISTRY_SSH_PATH/$NPM_ARCHIVE dummyarch
+          export OLD_SHA1=($(sha1sum dummyarch))
+          echo SHA: $OLD_SHA1 $NEW_SHA1
+          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} scp -o StrictHostKeyChecking=no $NPM_ARCHIVE $REGISTRY_SSH_USERNAME@registry.visualpinball.org:$REGISTRY_SSH_PATH
+          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no $REGISTRY_SSH_USERNAME@registry.visualpinball.org "sed -i s/$OLD_SHA1/$NEW_SHA1/g $REGISTRY_SSH_PATH/package.json"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          REGISTRY_SSH_USERNAME: ${{ secrets.REGISTRY_SSH_USERNAME }}
+          REGISTRY_SSH_PATH: ${{ secrets.REGISTRY_SSH_PATH }}

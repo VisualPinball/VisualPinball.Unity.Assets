@@ -14,7 +14,7 @@ jobs:
           lfs: true 
       - name: Fetch next version
         id: nextVersion
-        uses: VisualPinball/next-version-action@v0.1.6
+        uses: VisualPinball/next-version-action@v0.1.8
         with:
           tagPrefix: 'v'
       - name: Bump
@@ -43,23 +43,12 @@ jobs:
           commitish: ${{ steps.commit.outputs.commitish }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Archive
-        run: |
-          echo "//registry.visualpinball.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm pack
-          NPM_ARCHIVE=$(ls org.visualpinball.unity.assets*.tgz)
-          export NEW_SHA1=($(sha1sum $NPM_ARCHIVE))
-          rm -rf Assets
-          echo Publishing dummy...
-          npm publish
-          echo Patching package.json...
-          sudo apt-get install sshpass
-          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} scp -v -o StrictHostKeyChecking=no $REGISTRY_SSH_USERNAME@registry.visualpinball.org:$REGISTRY_SSH_PATH/$NPM_ARCHIVE dummyarch
-          export OLD_SHA1=($(sha1sum dummyarch))
-          echo SHA: $OLD_SHA1 $NEW_SHA1
-          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} scp -o StrictHostKeyChecking=no $NPM_ARCHIVE $REGISTRY_SSH_USERNAME@registry.visualpinball.org:$REGISTRY_SSH_PATH
-          sshpass -p ${{ secrets.REGISTRY_SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no $REGISTRY_SSH_USERNAME@registry.visualpinball.org "sed -i s/$OLD_SHA1/$NEW_SHA1/g $REGISTRY_SSH_PATH/package.json"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.visualpinball.org'
+      - name: Publish
+        run: npm publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          REGISTRY_SSH_USERNAME: ${{ secrets.REGISTRY_SSH_USERNAME }}
-          REGISTRY_SSH_PATH: ${{ secrets.REGISTRY_SSH_PATH }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

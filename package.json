@@ -1,25 +1,17 @@
 {
   "name": "org.visualpinball.unity.assets",
   "version": "0.0.1-preview.1",
-  "displayName": "Visual Pinball Engine (Optimized Assets)",
-  "description": "Common assets for all render pipelines.",
+  "displayName": "Visual Pinball Engine (Assets)",
+  "description": "Common assets for HDRP.",
   "keywords": [
     "Assets",
     "Unity"
   ],
-  "unity": "6000.0",
-  "unityRelease": "42f1",
+  "unity": "6000.2",
+  "unityRelease": "0f1",
   "dependencies": {},
   "author": "freezy <freezy@vpdb.io>",
   "contributors": [
-    "ravarcade <ravarcade@gmail.com>",
-    "shaderbytes",
-    "jsm174 <jsm174@gmail.com>",
-    "Roger Bocksnick <roger.bocksnick@gmail.com>",
-    "VrôÕnsh <vroonsh@free.fr>",
-    "Rowlan",
-    "Kleis Auke Wolthuizen <info@kleisauke.nl>",
-    "Eli Curtz <eli@nuprometheus.com>",
     "Pandeli",
     "Arthur Kehrwald"
   ],

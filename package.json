@@ -1,6 +1,6 @@
 {
   "name": "org.visualpinball.unity.assets",
-  "version": "0.0.1-preview.4",
+  "version": "0.0.1-preview.5",
   "displayName": "Visual Pinball Engine (Assets)",
   "description": "Common assets for HDRP.",
   "keywords": [

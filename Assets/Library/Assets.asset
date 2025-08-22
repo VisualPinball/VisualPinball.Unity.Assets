@@ -290,6 +290,11 @@ MonoBehaviour:
       - f99e973abdeec644a9e1f0596fc4ed17
       - 80dfb8c29241ad14e87ea88a33d7d7bc
       - 8bb700b62a717004eb3596b4c016d465
+      - 77c2746b9fa752e418ebbfcdbfda9025
+      - 73a1f3dac7cd979428967e4772500f18
+      - 06189cf62a7b4f54c965b1a7115bd7f1
+      - 001532c90ef156948b9c490ea8030b70
+      - 0922f66779c7c1b49861c5ad8d1065cb
       m_values:
       - {fileID: 11400000, guid: da7e4504494c87149bdbdda5e140d7c7, type: 2}
       - {fileID: 11400000, guid: 183c586d87590a941a922d4d2ef87241, type: 2}
@@ -560,6 +565,11 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 0a2ad60620c144f46aadda69714b74cf, type: 2}
       - {fileID: 11400000, guid: 7dfbaa48caafe614bac64b464805e823, type: 2}
       - {fileID: 11400000, guid: 3a3e37ec6a81fa74caf7dbccbe1fde71, type: 2}
+      - {fileID: 11400000, guid: 026abc91b6f1c6145a91e0f7c93e51ab, type: 2}
+      - {fileID: 11400000, guid: 9c1c044addf0ab9479718b2444d9c4cd, type: 2}
+      - {fileID: 11400000, guid: 2188635307e87a34c84d886b1f30bf97, type: 2}
+      - {fileID: 11400000, guid: 6b7c93eb862f3e84b8dbaba3407197d2, type: 2}
+      - {fileID: 11400000, guid: a9e96dfdd97c6884fbcf1cf71e9b5566, type: 2}
     Categories:
       m_keys:
       - 2b89c0c0-bcd2-4f42-a86c-d16244241e00
@@ -576,6 +586,7 @@ MonoBehaviour:
       - 224a3782-bd39-4fdb-a002-7af9466be222
       - 3d4b4a90-19e1-4935-80b1-f46e02c50168
       - da4947e6-70e4-4592-9c94-dd7ee1013084
+      - 33824790-9a35-4e71-a513-a86672759d67
       m_values:
       - Id: 2b89c0c0-bcd2-4f42-a86c-d16244241e00
         Name: Gates
@@ -605,3 +616,5 @@ MonoBehaviour:
         Name: Cabinet
       - Id: da4947e6-70e4-4592-9c94-dd7ee1013084
         Name: Spinners
+      - Id: 33824790-9a35-4e71-a513-a86672759d67
+        Name: Inserts

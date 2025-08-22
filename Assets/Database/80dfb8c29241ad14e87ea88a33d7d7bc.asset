@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 80dfb8c29241ad14e87ea88a33d7d7bc
+  m_EditorClassIdentifier: 
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 1927814795608290801, guid: 80dfb8c29241ad14e87ea88a33d7d7bc, type: 3}
+  _categoryId: 3d4b4a90-19e1-4935-80b1-f46e02c50168
+  _addedAt: 2025-08-22T12:30:46.0905903+02:00
+  Description: "A standard Gottlieb cabinet leg, at 27-\u215C\".\n\nUsed on multiplayer
+    Electromechanical and Solid State Gottlieb games ~1968 to 1990.\n\nUsually used
+    as front legs."
+  Attributes:
+  - Key: Manufacturer
+    Value: Gottlieb
+  - Key: Height
+    Value: 27.375"
+  - Key: Part Number
+    Value: D-4337
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Cabinet Leg
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/D-4337
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: Playfield - Solid, Large
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 134d53ae37a2565439b8e853b641959f, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: -0.0377, y: 0, z: -0.0273}
+  ThumbCameraRot: {x: 0, y: 195.04149, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

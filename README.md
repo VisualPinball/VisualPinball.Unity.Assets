@@ -12,7 +12,7 @@ You'll need [git LFS](https://git-lfs.github.com/) in order to use this repo. [I
 
 ```sh
 git lfs install
-git clone https://github.com/VisualPinball/VisualPinball.Unity.AssetLibrary.git
+git clone https://github.com/VisualPinball/VisualPinball.Unity.Assets.git
 ```
 
 ## Credits
@@ -22,5 +22,6 @@ Many of the assets in this library are derivations of [pinball-parts](https://gi
 Other credits are marked in each asset individually.
 
 ## License
+
 
 [Creative Commons Attribution-ShareAlike 4.0](LICENSE.md)

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: bdc9f58683bf9c8449fd8846f93a53ef
+  m_EditorClassIdentifier: VisualPinball.Unity.Editor::VisualPinball.Unity.Editor.Asset
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 3440699910907911264, guid: bdc9f58683bf9c8449fd8846f93a53ef, type: 3}
+  _categoryId: 67bdee63-f92c-4aca-92f5-1e16a66a8c45
+  _addedAt: 2026-03-21T22:15:04.9706240+01:00
+  Description: Slingshot crank arm assembly used in late model Bally/Williams pinball
+    games.
+  Attributes:
+  - Key: Part Number
+    Value: B-12665,A-17811,B-12664,#03-7501
+  - Key: Manufacturer
+    Value: Bally,Williams
+  Tags:
+  - TagName: Slingshot
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/A-12664
+  - Name: Pinball Life
+    Url: https://www.pinballlife.com/williamsbally-slingshot-assembly.html
+  - Name: Mission Pinball
+    Url: https://hardware.missionpinball.org/cad_models/kicker-arm-slingshot-assembly-b-12665.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations: []
+  DecalVariations: []
+  MaterialDefaults: []
+  MaterialCombinationRules: []
+  EnvironmentGameObjectName: Playfield - Insert - Circle - 1in
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: 42ff1390796e56943a02edf674c5cc7e, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0.00214, y: -0.0289, z: 0.00328}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 4

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
   Object: {fileID: 7527631211510752712, guid: 06ca98752a37f534c8e99b47c19789f2, type: 3}
-  _categoryId: bf9edf8f-2103-40ab-a0bb-ca5638d4ecd3
+  _categoryId: fe33e277-983b-4b5b-94bc-97dafca48623
   _addedAt: 2022-10-04T13:58:09.1856349+02:00
   Description: 'Bumper post with 8-32 thread bottom and solid top.
 

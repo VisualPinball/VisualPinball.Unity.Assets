@@ -148,7 +148,12 @@ namespace VisualPinball.Unity.Assets.Editor
 				ApplyPreset(preset);
 			}
 			using (new EditorGUI.DisabledScope(isReadOnly)) {
-				if (GUILayout.Button(new GUIContent("Rename", $"Rename \"{preset.name}\"."), EditorStyles.miniButtonLeft, GUILayout.Width(55), GUILayout.Height(EditorGUIUtility.singleLineHeight + 2))) {
+				using (new EditorGUI.DisabledScope(isCurrent)) {
+					if (GUILayout.Button(new GUIContent("Set", $"Save the camera's current position and rotation into \"{preset.name}\". Assets using it get the new view with their next thumbnail."), EditorStyles.miniButtonLeft, GUILayout.Width(40), GUILayout.Height(EditorGUIUtility.singleLineHeight + 2))) {
+						SetPreset(preset);
+					}
+				}
+				if (GUILayout.Button(new GUIContent("Rename", $"Rename \"{preset.name}\"."), EditorStyles.miniButtonMid, GUILayout.Width(55), GUILayout.Height(EditorGUIUtility.singleLineHeight + 2))) {
 					_renaming = preset;
 					_renameName = preset.name;
 					_focusRename = true;
@@ -166,6 +171,17 @@ namespace VisualPinball.Unity.Assets.Editor
 		{
 			Undo.RecordObject(Controller.transform, $"Apply camera preset \"{preset.name}\"");
 			preset.ApplyTo(Controller.transform);
+		}
+
+		private void SetPreset(Preset preset)
+		{
+			Undo.RecordObject(preset, $"Set camera preset \"{preset.name}\"");
+			if (!preset.UpdateProperties(Controller.transform)) {
+				EditorUtility.DisplayDialog("Set Camera Preset", $"Could not update \"{preset.name}\" from the camera.", "OK");
+				return;
+			}
+			EditorUtility.SetDirty(preset);
+			AssetDatabase.SaveAssetIfDirty(preset);
 		}
 
 		private void SavePreset(string presetName)

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 3dff690843968374eaad89f7c97c6ef1
+  m_EditorClassIdentifier: VisualPinball.Unity.Editor::VisualPinball.Unity.Editor.Asset
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+  _categoryId: 33824790-9a35-4e71-a513-a86672759d67
+  _addedAt: 2026-09-30T17:55:06.3866801+02:00
+  Description: Playfield insert triangle 2 inch red transparent.
+  Attributes:
+  - Key: Part Number
+    Value: 03-7730-9
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Triangle
+  - TagName: Starburst
+  - TagName: 2"
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/03-7730-9
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+  MaterialVariations:
+  - Name: Body
+    Target:
+      Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Green
+      Material: {fileID: 2100000, guid: 9bd8dab71c68aa9438d3c0b9da24f363, type: 2}
+      Id: 9ebf3d9b-688a-4059-ba94-0836f2b274fa
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 31c29e23a8ae4c44dbe159c9df632c63, type: 2}
+      Id: 00785546-18fd-4fe6-aec7-766ce668521f
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 9bdd1642fe201dc428e5704ac641be5c, type: 2}
+      Id: 72af61d1-fb03-47c8-8561-ef1194c83ad2
+    - Name: Amber
+      Material: {fileID: 2100000, guid: 96996da8241251a428434512bf912c3e, type: 2}
+      Id: 8aaefb5b-27f0-4b40-bf12-9846fec87b6e
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 57002ad77ca75544dbdf1762260dc7b6, type: 2}
+      Id: 4ad09438-eed1-4d40-a13a-0ba58cdd58ca
+    - Name: Teal
+      Material: {fileID: 2100000, guid: a6571db2c0f402145a855f6911708989, type: 2}
+      Id: 59834b3e-246f-4706-a1a8-d24c3567acf3
+    - Name: Blue
+      Material: {fileID: 2100000, guid: df8ec3e6a18557742a877cb1386f6894, type: 2}
+      Id: 0f933367-4326-46e7-925f-d312cedc4818
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 6a75ebdd34422c34fa8781e41c8a183c, type: 2}
+      Id: f8b4af8d-a375-4add-9431-235c06ced74b
+  - Name: Cover
+    Target:
+      Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Green
+      Material: {fileID: 2100000, guid: 4c027d0040968ea4d97648419fc3031e, type: 2}
+      Id: 7663c4bf-2762-4521-99a2-fe706701e0f5
+    - Name: Clear
+      Material: {fileID: 2100000, guid: a9d81cb0ecb937a42bc5c03a892faa66, type: 2}
+      Id: 17124633-3136-48f0-9f97-4adfd19f4b67
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 9cfb08a0195873a4cac34604d3771ac1, type: 2}
+      Id: e08d39fb-26fa-46a4-94a7-0561d652991c
+    - Name: Amber
+      Material: {fileID: 2100000, guid: e4dbf7cf2914fff419df89e11f85f140, type: 2}
+      Id: d7d0d484-be0f-4f9f-9f27-83f79b17e169
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 6bc7730df6f26b64689a3ba951e0c8f8, type: 2}
+      Id: b1e452fd-79e1-4598-8421-a6f8c8ea7306
+    - Name: Teal
+      Material: {fileID: 2100000, guid: de669ddb364ccc1429a1f851a5d82483, type: 2}
+      Id: fb9c8958-bd1f-4bb4-838e-254356ec81c1
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 67db3f7256ab467418b2a23e00bf28f0, type: 2}
+      Id: d682cfbf-882c-4cbd-95e9-372899e555fd
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 7ac267f1621e961488f792716559d647, type: 2}
+      Id: 157a0abc-6d17-4bd0-8991-2de97a047539
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Body
+    OverrideName: Red
+    Target:
+      Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 0
+  - VariationName: Cover
+    OverrideName: Red
+    Target:
+      Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 1
+  MaterialCombinationRules:
+  - Type: 0
+    Targets:
+    - Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 0
+    - Object: {fileID: 2708595091589922291, guid: 3dff690843968374eaad89f7c97c6ef1, type: 3}
+      Slot: 1
+  EnvironmentGameObjectName: Playfield - Insert - Triangle - 2in
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

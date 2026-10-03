@@ -25,11 +25,10 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - TransparentDepthPrepass
+  - MOTIONVECTORS
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -58,8 +57,11 @@ Material:
     - _AlphaSrcBlend: 1
     - _BlendMode: 0
     - _ConservativeDepthOffsetEnable: 0
+    - _CoverIor: 1.49
     - _CoverNormalStrength: 1
     - _CoverOpacity: 0.01
+    - _CoverThickness: 4
+    - _CoverTintDepth: 3
     - _CullMode: 2
     - _CullModeForward: 2
     - _DepthOffsetEnable: 0
@@ -88,12 +90,12 @@ Material:
     - _Smoothness: 0.96
     - _SrcBlend: 1
     - _StencilRef: 0
-    - _StencilRefDepth: 0
+    - _StencilRefDepth: 16
     - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 32
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskDepth: 25
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
@@ -113,6 +115,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
+    - _CoverTint: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _HazeColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}

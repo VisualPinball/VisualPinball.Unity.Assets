@@ -25,11 +25,10 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - TransparentDepthPrepass
+  - MOTIONVECTORS
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -37,9 +36,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _RefractionModel: 1
+    - _StencilRefDepth: 16
+    - _StencilWriteMaskDepth: 25
     m_Colors:
-    - _CoverTint: {r: 0.05, g: 0.85, b: 0.08, a: 1}
-    - _HazeColor: {r: 0, g: 0.20899996, b: 0.003906519, a: 1}
+    - _CoverTint: {r: 0.00664148, g: 0.78436655, b: 0.6, a: 1}
+    - _HazeColor: {r: 0.06302448, g: 0.6226415, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5100468051680248110

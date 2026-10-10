@@ -57,7 +57,7 @@ Material:
     - _StencilRefDepth: 16
     - _StencilWriteMaskDepth: 25
     m_Colors:
-    - _CoverTint: {r: 0.9019608, g: 0.29999945, b: 0.45, a: 1}
+    - _CoverTint: {r: 0.9019608, g: 0.29999918, b: 0.45, a: 1}
     - _HazeColor: {r: 0.5411765, g: 0, b: 0.008971344, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

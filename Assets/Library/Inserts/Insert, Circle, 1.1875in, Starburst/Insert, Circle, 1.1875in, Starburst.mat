@@ -92,18 +92,25 @@ Material:
     - _InsertCavityContrast: 0.3
     - _InsertCavitySpread: 4
     - _InsertClarity: 0
-    - _InsertFacetFlatten: 0
+    - _InsertFacetFlatten: 0.8
     - _InsertLampLevel: 1
+    - _InsertLampOutput: 1
     - _InsertLampTint: 0
     - _InsertLuminosity: 1
     - _InsertMinBrightness: 0.531
+    - _InsertRoomBlur: 3
+    - _InsertRoomReturn: 0
+    - _InsertRoomReturnEV: 0
+    - _InsertRoughness: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _NormalStrength: 0.15
     - _OpaqueCullMode: 2
     - _OpticalBulbDefinition: 2.53
-    - _OpticalContrast: 0.8
+    - _OpticalContrast: 0.5
     - _OpticalEdgeGlow: 0.035
+    - _OpticalFleckSize: 1
+    - _OpticalFlecks: 0
     - _OpticalGrain: 0.25
     - _OpticalIor: 1.49
     - _OpticalLampGain: 0.9
@@ -111,7 +118,7 @@ Material:
     - _OpticalScatter: 0.1
     - _OpticalSeed: 7
     - _OpticalSpread: 0
-    - _OpticalVariation: 0.4
+    - _OpticalVariation: 0.6
     - _OpticalWarp: 1
     - _PerPixelSorting: 0
     - _RayTracing: 0
@@ -133,6 +140,8 @@ Material:
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
+    - _SurfaceGrain: 0
+    - _SurfaceGrainSize: 0.75
     - _SurfaceType: 0
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0

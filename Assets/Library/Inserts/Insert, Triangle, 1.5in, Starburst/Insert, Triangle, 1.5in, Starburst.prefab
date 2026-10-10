@@ -108,18 +108,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.InsertLightComponent
   Intensity: 1
   Color: {r: 1, g: 1, b: 1, a: 1}
+  Lamp: 
+  Output: 1
   State: 0
   BlinkPattern: 
   BlinkInterval: 0
-  FadeSpeedUp: 0.2
+  FadeSpeedUp: 0.12
   FadeSpeedDown: 0.2
   ExtraBulbs:
-  - Intensity: 1
-    Color: {r: 1, g: 1, b: 1, a: 1}
-  - Intensity: 1
-    Color: {r: 1, g: 1, b: 1, a: 1}
-  - Intensity: 1
-    Color: {r: 1, g: 1, b: 1, a: 1}
+  - Intensity: 0
+    Color: {r: 1, g: 0.64, b: 0.35, a: 1}
+  - Intensity: 0
+    Color: {r: 1, g: 0.64, b: 0.35, a: 1}
+  - Intensity: 0
+    Color: {r: 1, g: 0.64, b: 0.35, a: 1}
   BulbNames:
   - 
   - 
@@ -170,6 +172,7 @@ MonoBehaviour:
   _flashTip: 10
   _flashNotch: 16
   _flashStep: -8
+  _flashMirror: 0
   _flashTipCorner:
     Radius: 5.2
     Segments: 4
@@ -211,11 +214,11 @@ MonoBehaviour:
     Segments: 8
   _diameter: 47.05883
   _circleVertices: 32
+  _bananaDiameter: 47.05883
   _bananaThickness: 23.529415
   _bananaAngle: 90
   _bananaSegments: 24
   _bananaEndSegments: 8
-  _sideSegments: 1
   _depth: 4.68
   _channel: 1
   _channelWidth: 2.83
@@ -225,7 +228,7 @@ MonoBehaviour:
   _starburst: 1
   _starburstBursts: 92
   _starburstCenter: {x: 0, y: 62.6}
-  _starburstOffset: 1.4
+  _starburstOffset: 1
   _ribbed: 0
   _ribAngle: 90
   _ribWidth: 4
@@ -277,11 +280,12 @@ MonoBehaviour:
     HybridOptics: 1
   _bake: {fileID: 11400000, guid: e5ea48c9b754c994eaf2a47c80a1128f, type: 2}
   _unbakedMaterial: {fileID: 0}
-  _id: b36fa1da879943dbae3b5ca7c2b3393a
+  _id: 6514f179440049dfb38e10559416ecaf
   _coverMaterial: {fileID: 2100000, guid: 01ed3f552cc7f464d8133fce6aa115d3, type: 2}
   _usePlayfieldNormals: 0
   _coverPlayfield: {fileID: 0}
   _usesPackagedMesh: 0
+  _version: 1
 --- !u!1 &8383067305970296880
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,8 +329,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 0
-  m_Color: {r: 1, g: 0.60957974, b: 0.35321236, a: 0.000731464}
-  m_Intensity: 1.665
+  m_Color: {r: 1, g: 1, b: 1, a: 0.0007314647}
+  m_Intensity: 0.585
   m_Range: 0.1
   m_SpotAngle: 147
   m_InnerSpotAngle: 91.14

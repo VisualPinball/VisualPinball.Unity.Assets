@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 031a7529657e2ca4fa842fe80d2ec2b4
+  m_EditorClassIdentifier: VisualPinball.Unity.Editor::VisualPinball.Unity.Editor.Asset
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+  _categoryId: 33824790-9a35-4e71-a513-a86672759d67
+  _addedAt: 2026-10-08T18:04:20.0029121+02:00
+  Description: 
+  Attributes: []
+  Tags:
+  - TagName: Rectangle
+  - TagName: "2-\xBC\""
+  Links: []
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 0}
+  MaterialVariations:
+  - Name: Body
+    Target:
+      Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Clear
+      Material: {fileID: 2100000, guid: f38dbe612decf7943bebcbc6bf1562ec, type: 2}
+      Id: 117d2a37-ae72-45c1-81b2-bbf0b49071b8
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 5f91fcc2bbf8e6244bf99435408ede3c, type: 2}
+      Id: 40333577-cd43-4f7d-94d2-6f80558451d5
+    - Name: Amber
+      Material: {fileID: 2100000, guid: 188a4167ca75ae04abb793b2e81ae3f8, type: 2}
+      Id: 56f8e381-00f3-451f-abc3-21ee3013ab03
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 4c02ba69e403d074f855e0050b5c97fc, type: 2}
+      Id: b07e87f4-daeb-4bd9-a154-6396149e880d
+    - Name: Green
+      Material: {fileID: 2100000, guid: 37b2215e03779574dae493a07847e7c8, type: 2}
+      Id: 4d16b991-157d-498f-8f9d-dc2da1dd6894
+    - Name: Teal
+      Material: {fileID: 2100000, guid: 9875db41826dad247837a29fcb2d6bc6, type: 2}
+      Id: 0b67691e-308a-464e-b572-5a1f09a1a203
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 814ec171c845bca42859ea05f2e5197e, type: 2}
+      Id: eb513fec-0ed7-43e8-82b4-104dfd102804
+    - Name: Purple
+      Material: {fileID: 2100000, guid: a73d208bce8c3b544a654aec98fcf95e, type: 2}
+      Id: d8e2d0ed-59a3-435b-b95a-e0d903dc17a4
+  - Name: Cover
+    Target:
+      Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Clear
+      Material: {fileID: 2100000, guid: a9d81cb0ecb937a42bc5c03a892faa66, type: 2}
+      Id: 213a7c6f-b48d-4f23-95ef-70b436039099
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 9cfb08a0195873a4cac34604d3771ac1, type: 2}
+      Id: 07581a9c-6fc8-482b-b96a-84d89ebe0c8c
+    - Name: Amber
+      Material: {fileID: 2100000, guid: e4dbf7cf2914fff419df89e11f85f140, type: 2}
+      Id: 822fd994-23da-4e50-8871-d648c66a2d10
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 6bc7730df6f26b64689a3ba951e0c8f8, type: 2}
+      Id: 443e4775-1855-473a-9a9e-c961f9bd3a85
+    - Name: Green
+      Material: {fileID: 2100000, guid: 4c027d0040968ea4d97648419fc3031e, type: 2}
+      Id: 14af8f0a-e140-4aed-a9d4-928072b36500
+    - Name: Teal
+      Material: {fileID: 2100000, guid: de669ddb364ccc1429a1f851a5d82483, type: 2}
+      Id: 69141e10-599a-4b11-b1eb-611dee804387
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 67db3f7256ab467418b2a23e00bf28f0, type: 2}
+      Id: 99f2ce69-082d-4d79-b5bd-c3e05e40f5e8
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 7ac267f1621e961488f792716559d647, type: 2}
+      Id: 9b88341e-df4d-4b47-b729-58a447f0b760
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Body
+    OverrideName: Red
+    Target:
+      Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 0
+  - VariationName: Cover
+    OverrideName: Red
+    Target:
+      Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 1
+  MaterialCombinationRules:
+  - Type: 0
+    Targets:
+    - Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 0
+    - Object: {fileID: 8686091093023937651, guid: 031a7529657e2ca4fa842fe80d2ec2b4, type: 3}
+      Slot: 1
+  EnvironmentGameObjectName: Playfield - Inserts
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 90, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

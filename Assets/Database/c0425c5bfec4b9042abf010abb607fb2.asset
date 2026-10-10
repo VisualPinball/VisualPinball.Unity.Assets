@@ -16,7 +16,8 @@ MonoBehaviour:
   Object: {fileID: 7667813891082733006, guid: c0425c5bfec4b9042abf010abb607fb2, type: 3}
   _categoryId: 33824790-9a35-4e71-a513-a86672759d67
   _addedAt: 2026-10-02T11:41:10.9904938+02:00
-  Description: 2-1/4" x 1-1/8" Rectangle Transparent Starburst Red Playfield Insert
+  Description: "2-\xBC\" x 1-\u215B\" Rectangle Transparent Starburst Red Playfield
+    Insert"
   Attributes:
   - Key: Part Number
     Value: 03-8188-9
@@ -114,7 +115,7 @@ MonoBehaviour:
       Slot: 0
     - Object: {fileID: 7667813891082733006, guid: c0425c5bfec4b9042abf010abb607fb2, type: 3}
       Slot: 1
-  EnvironmentGameObjectName: Playfield - Insert - Rectangle - 2.25x1.125in
+  EnvironmentGameObjectName: Playfield - Inserts
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
   ThumbCameraHeight: 0
   ThumbCameraPos: {x: 0, y: 0, z: 0}

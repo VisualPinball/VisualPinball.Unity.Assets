@@ -110,7 +110,7 @@ MonoBehaviour:
       Slot: 0
     - Object: {fileID: 7431299397630166413, guid: 68453195433e35d44a6427d444d243dc, type: 3}
       Slot: 1
-  EnvironmentGameObjectName: Playfield - Insert - Triangle - 1.5in
+  EnvironmentGameObjectName: Playfield - Inserts
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
   ThumbCameraHeight: 0
   ThumbCameraPos: {x: 0, y: 0, z: 0}

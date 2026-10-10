@@ -108,17 +108,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.InsertLightComponent
   Intensity: 1
   Color: {r: 1, g: 1, b: 1, a: 1}
+  Lamp: 
+  Output: 1
   State: 0
   BlinkPattern: 
   BlinkInterval: 0
   FadeSpeedUp: 0.2
   FadeSpeedDown: 0.2
   ExtraBulbs:
-  - Intensity: 1
+  - Intensity: 0
     Color: {r: 1, g: 1, b: 1, a: 1}
-  - Intensity: 1
+  - Intensity: 0
     Color: {r: 1, g: 1, b: 1, a: 1}
-  - Intensity: 1
+  - Intensity: 0
     Color: {r: 1, g: 1, b: 1, a: 1}
   BulbNames:
   - 
@@ -170,6 +172,7 @@ MonoBehaviour:
   _flashTip: 10
   _flashNotch: 16
   _flashStep: -8
+  _flashMirror: 0
   _flashTipCorner:
     Radius: 5.2
     Segments: 4
@@ -211,11 +214,11 @@ MonoBehaviour:
     Segments: 8
   _diameter: 47.05883
   _circleVertices: 32
+  _bananaDiameter: 47.05883
   _bananaThickness: 23.529415
   _bananaAngle: 90
   _bananaSegments: 24
   _bananaEndSegments: 8
-  _sideSegments: 1
   _depth: 4.68
   _channel: 1
   _channelWidth: 3.48
@@ -272,6 +275,7 @@ MonoBehaviour:
   _usePlayfieldNormals: 0
   _coverPlayfield: {fileID: 0}
   _usesPackagedMesh: 0
+  _version: 1
 --- !u!1 &6320114753789722629
 GameObject:
   m_ObjectHideFlags: 0

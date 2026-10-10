@@ -25,7 +25,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Insert Cover, Red
   m_Shader: {fileID: -6465566751694194690, guid: e23e1e894fc3bcd47ae3d63d8abc3cd0, type: 3}
-  m_Parent: {fileID: 2100000, guid: 7e37e07b4a212c24e8618468e69ce9d8, type: 2}
+  m_Parent: {fileID: 2100000, guid: 6bc7730df6f26b64689a3ba951e0c8f8, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -57,7 +57,7 @@ Material:
     - _StencilRefDepth: 16
     - _StencilWriteMaskDepth: 25
     m_Colors:
-    - _CoverTint: {r: 0.9019608, g: 0.3, b: 0.45, a: 1}
+    - _CoverTint: {r: 0.9019608, g: 0.29999945, b: 0.45, a: 1}
     - _HazeColor: {r: 0.5411765, g: 0, b: 0.008971344, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -110,7 +110,7 @@ MonoBehaviour:
       Slot: 0
     - Object: {fileID: 3091953091087149026, guid: 5b70dfaca84f3a64393b9642be6ddb5b, type: 3}
       Slot: 1
-  EnvironmentGameObjectName: Playfield - Insert - Circle - 1in
+  EnvironmentGameObjectName: Playfield - Inserts
   ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
   ThumbCameraHeight: 0
   ThumbCameraPos: {x: 0, y: 0, z: 0}

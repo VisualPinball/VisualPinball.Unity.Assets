@@ -21,6 +21,7 @@ Material:
   stringTagMap:
     MotionVector: User
     VPEInsertColorPreset: b79fc1c5da424765834b9706b9b3ac46
+    VPEInsertLookPreset: 0aa5d20d5084aaa4abac5c9134d04e98
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -77,19 +78,26 @@ Material:
     - _InsertCavityContrast: 0.3
     - _InsertCavitySpread: 4
     - _InsertClarity: 0
-    - _InsertFacetFlatten: 0
+    - _InsertFacetFlatten: 0.8
     - _InsertLampLevel: 1
+    - _InsertLampOutput: 1
     - _InsertLampTint: 0
     - _InsertLuminosity: 1.11
     - _InsertMinBrightness: 0.485
+    - _InsertRoomBlur: 3
+    - _InsertRoomReturn: 0
+    - _InsertRoomReturnEV: 0
+    - _InsertRoughness: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _NormalStrength: 0.15
     - _OpaqueCullMode: 2
     - _OpticalBulbDefinition: 3.7
     - _OpticalBulbWarmth: 0
-    - _OpticalContrast: 1
+    - _OpticalContrast: 0.5
     - _OpticalEdgeGlow: 0.22
+    - _OpticalFleckSize: 1
+    - _OpticalFlecks: 0
     - _OpticalGrain: 0.147
     - _OpticalIor: 1.586
     - _OpticalLampGain: 5
@@ -97,7 +105,7 @@ Material:
     - _OpticalScatter: 0.68
     - _OpticalSeed: 3.32
     - _OpticalSpread: 17.2
-    - _OpticalVariation: 0.908
+    - _OpticalVariation: 0.6
     - _OpticalWarp: 0.88
     - _PerPixelSorting: 0
     - _RayTracing: 0
@@ -149,7 +157,7 @@ Material:
     - _OpticalLampB: {r: 0, g: 0, b: 0, a: 0}
     - _OpticalLampC: {r: 0, g: 0, b: 0, a: 0}
     - _OpticalLampD: {r: 0, g: 0, b: 0, a: 0}
-    - _OpticalStarburst: {r: 0, g: 0.033788346, b: 184, a: -0.0032816795}
+    - _OpticalStarburst: {r: 0, g: 0.033788346, b: 184, a: -0.0030657793}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &9169081422265324254

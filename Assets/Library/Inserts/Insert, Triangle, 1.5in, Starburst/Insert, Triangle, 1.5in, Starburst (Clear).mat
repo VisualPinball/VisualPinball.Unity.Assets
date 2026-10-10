@@ -37,6 +37,7 @@ Material:
   stringTagMap:
     MotionVector: User
     VPEInsertColorPreset: b9ac1ee2a7044bea921b07d094fb0260
+    VPEInsertLookPreset: ae3824bb39515fa4ebab1332370c10ca
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -90,23 +91,30 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
-    - _InsertCavityContrast: 0.3
-    - _InsertCavitySpread: 4
-    - _InsertClarity: 0
-    - _InsertFacetFlatten: 0.85
+    - _InsertCavityContrast: 0.9
+    - _InsertCavitySpread: 2.5
+    - _InsertClarity: 1
+    - _InsertFacetFlatten: 0.2
     - _InsertLampLevel: 1
+    - _InsertLampOutput: 1
     - _InsertLampTint: 0
-    - _InsertLuminosity: 16
+    - _InsertLuminosity: 0.39
     - _InsertMinBrightness: 0.485
+    - _InsertRoomBlur: 3
+    - _InsertRoomReturn: 0.775
+    - _InsertRoomReturnEV: 0
+    - _InsertRoughness: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _NormalStrength: 0.15
+    - _NormalStrength: 1
     - _OpaqueCullMode: 2
     - _OpticalBulbDefinition: 3.7
     - _OpticalBulbWarmth: 0
     - _OpticalContrast: 0.25
     - _OpticalEdgeGlow: 0.22
-    - _OpticalGrain: 0.62
+    - _OpticalFleckSize: 0.2
+    - _OpticalFlecks: 0.841
+    - _OpticalGrain: 0.6
     - _OpticalIor: 1.586
     - _OpticalLampGain: 2
     - _OpticalMottleSize: 0.2
@@ -122,7 +130,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.3
+    - _Smoothness: 0.65
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
@@ -155,8 +163,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 85.445015, g: 85.445015, b: 85.445015, a: 1}
-    - _InsertCavityColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    - _EmissiveColor: {r: 1367.12, g: 1367.12, b: 1367.12, a: 1}
+    - _InsertCavityColor: {r: 0.7, g: 0.76, b: 0.86, a: 1}
     - _InsertLampColor: {r: 1, g: 1, b: 1, a: 1}
     - _InsertLampColorB: {r: 1, g: 1, b: 1, a: 0}
     - _InsertLampColorC: {r: 1, g: 1, b: 1, a: 0}
@@ -165,6 +173,6 @@ Material:
     - _OpticalLampB: {r: 0, g: 0, b: 0, a: 0}
     - _OpticalLampC: {r: 0, g: 0, b: 0, a: 0}
     - _OpticalLampD: {r: 0, g: 0, b: 0, a: 0}
-    - _OpticalStarburst: {r: 0, g: 0.033788346, b: 184, a: -0.0032816795}
+    - _OpticalStarburst: {r: 0, g: 0.033788346, b: 184, a: -0.0030657793}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

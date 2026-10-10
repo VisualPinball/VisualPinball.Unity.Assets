@@ -51,11 +51,20 @@ Material:
     m_Floats:
     - _InsertClarity: 1
     - _InsertFacetFlatten: 0.85
+    - _InsertLuminosity: 0.39
+    - _InsertRoomBlur: 3
+    - _InsertRoomReturn: 0.775
+    - _InsertRoomReturnEV: 0
     - _OpticalContrast: 0.25
-    - _OpticalLampGain: 2
-    - _OpticalScatter: 1.2
+    - _OpticalEdgeGlow: 0.17870311
+    - _OpticalFleckSize: 0.2
+    - _OpticalFlecks: 0.841
+    - _OpticalLampGain: 1.6245738
+    - _OpticalScatter: 0.9747443
     - _OpticalSpread: 0
     - _Smoothness: 0.3
-    m_Colors: []
+    m_Colors:
+    - _EmissiveColor: {r: 1367.12, g: 1367.12, b: 1367.12, a: 1}
+    - _InsertCavityColor: {r: 0.7, g: 0.76, b: 0.86, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

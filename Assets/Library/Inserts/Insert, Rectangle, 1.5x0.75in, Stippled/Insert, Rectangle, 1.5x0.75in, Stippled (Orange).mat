@@ -34,6 +34,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _InsertLuminosity: 1.17
+    - _OpticalEdgeGlow: 0.14198478
+    - _OpticalLampGain: 2.9613967
+    - _OpticalScatter: 0.4056708
     m_Colors:
     - _BaseColor: {r: 1, g: 0.51106536, b: 0, a: 1}
     - _EmissiveColor: {r: 1315.5309, g: 750.046, b: 0, a: 1}

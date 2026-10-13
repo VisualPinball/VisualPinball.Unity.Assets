@@ -30,7 +30,8 @@ float3 FD_Sigma() { return -log(max(_DomeColor.rgb, 1e-5)) / FD_WALL_NOM; }
 // red-tuned colour C (C.r = 1) -> the same stage for the plastic whose per-channel leak (max 1) is q; qRef = the red leak
 float3 FD_Remap(float3 C, float3 q, float3 qRef)
 {
-    float xg = log(qRef.g), xb = log(qRef.b), yg = log(C.g), yb = log(C.b);
+    float xg = log(qRef.g), xb = log(qRef.b), yg = log(max(C.g, 1e-6)), yb = log(max(C.b, 1e-6));
+    yb = min(yb, yg);                                           // a user colour with B > G would flip the sign of the extension slope
     float3 x = log(max(q, 1e-6));
     float3 yHi = yg * x / xg;                                   // (ln q_G, ln C_G) .. (0, 0)
     float3 yLo = yg + (x - xg) * ((yb - yg) / (xb - xg));       // through the G and B anchors, extended below

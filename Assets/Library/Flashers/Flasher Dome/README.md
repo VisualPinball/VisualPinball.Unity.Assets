@@ -57,27 +57,38 @@ the intensity if it reads too strong.
 ## Make another dome
 
 - **Another colour:** pick a preset, or follow "Custom colour" above.
-- **Another flute count or shape:** the optics are procedural in `_FluteCount` (default 36), but three things are baked
-  per mesh:
-  1. **Mesh.** Model the dome:
-     - outer shell + inner surface (flutes and cap rays);
-     - the inner surface needs the mask atlas as UV channel 1 (Blender UV layer `UVMap`);
-     - dome axis up, groove roots at azimuth 0 mod the pitch;
-     - dome48 template: `params.py` / `build.py` in the AttackFromMars `blender/hardware/flashers/dome48/` folder.
-  2. **Masks (≈1 min, Blender, CPU):**
-     `blender -b --factory-startup --python bake_masks.py -- OUTDIR 1024 --flutes N --blend dome.blend --object Dome --cap-z 20`
-     writes `<name>_masks.exr` (thick_n, thick_h, phase, flank) + `<name>_parity.png`. Use them as `Masks.exr` / `Parity.png`
-     (import them like the existing ones: sRGB off, settings in the `.meta`). With `--flutes 36` on dome48 it reproduces the
-     shipped `Masks.exr` / `Parity.png` exactly.
-  3. **Set `_FluteCount` = N** on the Glow and Outer materials (Outer's flute lines are procedural; Glow reads the masks).
-     The groove width stays a fixed fraction (±0.125) of the pitch.
-  4. **Cookie:** the burst-light cookie is baked for 36 beams. Regenerate it with
-     `FlasherDomeCookie.MakeBoth(N, "<folder>/<name>")`, an editor script. It writes Cookie Open + Cookie Saucer, and with
-     N = 36 reproduces the shipped cookies exactly.
-  5. **Inner thickness map:** a Unity ray-cast through the new mesh (AFM-VPE `AFMDomeWW.Build`).
-  - Tools (`bake_masks.py`, `FlasherDomeCookie.cs`, `dome_colour.py`) live outside this package with the build recipe
-    (pinball-rebuild `recipes/flasher-dome-tools/`), because this repo has no tools folder convention. Ask if you want
-    them added here.
+- **Another flute count or shape:** the optics are procedural in `_FluteCount` (default 36), but a few things are baked per
+  mesh. The generator tools are in `Tools~/` (Unity ignores `~` folders, so nothing there is imported or compiled).
+  1. **Mesh.** Model the dome in any DCC tool with N flutes:
+     - outer shell + inner surface (flutes and cap), exported as separate meshes (`Outer`, `Inner`);
+     - Unity object space: +Y up, origin at the centre of the base (the shader assumes the filament about 15.6 mm above it);
+     - dimensions the shader assumes (the #89 mini-saucer dome): outer radius about 15.5 mm, wall about 2.2-2.4 mm,
+       inner groove root radius 13.95 mm and flat radius 13.25 mm, grooves about +-1.25 deg wide at N = 36 (+-0.125 of the pitch);
+     - groove roots at azimuth theta = 0 mod pitch, with theta = atan2(-z, -x) in Unity object space;
+     - the inner surface needs an unwrapped atlas (no overlaps) as **UV1**, used to sample the masks (in Blender: UV layer `UVMap`).
+  2. **Masks (about 1 min, Blender, CPU).** In Blender terms the dome axis is +Z and theta = atan2(y, x):
+     `blender -b --factory-startup --python Tools~/bake_masks.py -- OUTDIR 1024 --blend dome.blend --object Dome --flutes N --cap-z 20 --name mydome`
+     writes `mydome_masks.exr` (R thick_n, G thick_h, B phase, A flank), `mydome_parity.png`, `mydome_coverage.png` and previews.
+     Import them as the Masks / Parity textures (sRGB off, no compression for the EXR) and assign them on the Glow and Outer
+     materials. With `--flutes 36` on the original dome it reproduces the shipped `Masks.exr` / `Parity.png`.
+  3. **Inner thickness map** (the Inner HDRP Lit material's `_ThicknessMap`; the shipped one is `* - Thickness.png`, 512 px). It is
+     the wall thickness along the inward normal, per texel of the Inner mesh's UV set: for each surface point, ray-cast along the
+     inward normal to the opposite wall and store the distance. Encode it as a linear (sRGB off) 8-bit grey PNG,
+     value = thickness / TMAX (TMAX = 6 mm, rays that escape are clamped to it), and set the material's
+     `_ThicknessRemap` max to match your TMAX in HDRP thickness units (Red uses (0, 0.1119)). The `thick_n` channel of the
+     masks baked above is the same quantity in mm, so you can also derive the PNG from it (R / 6 mm), resampled to the Inner UVs.
+  4. **Set `_FluteCount` = N** on the Glow and Outer materials (Outer's flute lines are procedural; Glow reads the masks).
+     The groove width stays a fixed fraction (+-0.125) of the pitch.
+  5. **Cookie.** The burst-light cookie is baked for 36 beams. Copy `Tools~/FlasherDomeCookie.cs` into an Editor folder of your
+     project (it is an Editor script, so it must not sit in a runtime folder) and run
+     `FlasherDomeCookie.MakeBoth(N, "Assets/MyDome/MyDome")`. It writes `... - Cookie Open.asset` and `... - Cookie Saucer.asset`;
+     with N = 36 it reproduces the shipped cookies. Assign one to the `Source` light's Cookie slot.
+  6. **Custom plastic colour:** `python3 Tools~/dome_colour.py 100 1400 1500` takes the absorption sigma (R G B, 1/m; Red shown), or
+     `python3 Tools~/dome_colour.py --t R G B` takes the linear transmittance through the 2.4 mm wall. It prints `_DomeColor` for the
+     Glow and Outer materials, the `Source` light colour, the Outer `_TransmittanceColor` and the Inner `_BaseColor` / `_TransmittanceColor`.
+     The formula: T = exp(-sigma * 2.4 mm) per channel, and the red-tuned colours are remapped by how much light each channel leaks
+     (see `FD_Remap` in `FlasherDome.hlsl`); the light colour is the 2900 K filament colour (1, 0.682, 0.403) times the red-tuned
+     (1, 0.0127, 0.0028) leak, remapped the same way.
 
 ## What's in the folder
 
@@ -109,7 +120,7 @@ the intensity if it reads too strong.
 The `Source` light renders on **light layer 3 only** ("flash receivers"). The dome's own renderers are on layers **0 + 1**
 (mask 3) and never on layer 3, so they are never lit by any burst light, their own or a neighbour's.
 
-Layer 0 is the HDRP default layer, which a table's GI lights normally use: with it, the unlit dome picks up a faint red body and
+Layer 0 is the HDRP default layer, which a table's GI lights normally use: with it, the unlit dome picks up a faint body colour (faint red on Red) and
 bulb reflections from nearby GI, as a real dome does, and goes dark when the GI is off. Layer 1 is kept for a sun/room light
 on that layer. If your GI lights use another layer, add it to the Inner, Glow and Outer renderers.
 
@@ -122,9 +133,9 @@ This is a table-level choice, so the prefab does not set it on anything outside 
 ## Notes
 
 - **Peak behaviour:** the shaders react to the lamp level alone.
-  - Above level ~0.9 a short "peak flash" and a white-hot body term clip the dome cream-white with red edges, like a
+  - Above level ~0.9 a short "peak flash" and a white-hot body term clip the dome cream-white with coloured edges (red edges on Red), like a
     camera at the moment a #89 fires.
-  - Below that it is deep red with yellow hot bars on the flutes.
+  - Below that the body shows the plastic colour with warm hot bars on the flutes (deep red with yellow bars on Red).
   - Knobs on the Glow/Outer materials: `_PeakFlash` and `_WhiteHot`. Set either to 0 to turn that term off.
-- **Tonemapping:** tuned under HDRP **Custom** tonemapping (per-channel filmic). ACES pulls the bright red toward salmon.
+- **Tonemapping:** tuned under HDRP **Custom** tonemapping (per-channel filmic). ACES desaturates bright saturated colours (on Red it pulls the bright red toward salmon).
 - **Filament:** `_OpticalLamp` on the Glow/Outer materials is the filament position in object space. Both materials use 0.0156 (tuned on Glow, whose mesh is scaled 1.065 in y, where it matches the `Source` light). Outer shares the value, so its filament sits ~0.9 mm lower; that is how the look was tuned.

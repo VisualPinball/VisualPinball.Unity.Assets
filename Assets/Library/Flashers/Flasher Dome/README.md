@@ -17,7 +17,7 @@ modelled on the real 36-flute dome ("dome48"): an outer shell, a fitted inner su
 - HDRP **Light Layers** enabled in the HDRP asset (the default `HDRP.asset` has them off; VPE table projects normally have them on). The burst light and the dome renderers depend on them.
 - VPE's `ThickerPlastic` diffusion profile registered in the HDRP global settings (Inner material).
 - Inner also uses two textures from `_Generic/Tileable Textures` in this package, so copy those along if you move the folder out of the package.
-- The burst light's cookie cuts off below the saucer lip, so a dome placed straight on a flat surface leaves a dark disc around its base. On a real saucer mount the saucer hides it.
+- The prefab's `Source` light uses `Cookie Open` (no cut-off), which works on any mount. Use `Cookie Saucer` when the dome sits in a saucer: it cuts the light off below the saucer lip like the real part. On a flat surface it leaves a dark disc around the base.
 
 ## What's in the folder
 
@@ -31,18 +31,24 @@ modelled on the real 36-flute dome ("dome48"): an outer shell, a fitted inner su
 | `* - Outer.mat` | `FlasherDomeOuter` ShaderGraph: refractive red shell, which also emits the bright flute lines, glints and the peak white-hot term |
 | `FlasherDome.hlsl` | Shared custom function for both graphs (procedural 36-fold flute optics) |
 | `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, flute masks (`Emissive.png` sits on Inner's `_EmissiveColorMap` but Inner's emission is 0, so it is unused) |
-| `* - Cookie.asset` | Burst-light cookie: 36 equal flute beams (floor .76) and the saucer-lip cut-off 16.7° below the filament |
+| `* - Cookie Open.asset` | Burst-light cookie (prefab default): 36 equal flute beams (floor .76), no cut-off |
+| `* - Cookie Saucer.asset` | Same beams plus the saucer-lip cut-off 16.7° below the filament (8° soft edge), for saucer-mounted domes |
 
 ## Light
 
 - 85 lm, colour (1, .0127, .0028): measured red-dome spill (LuxCore).
 - Range 1 m, no shadows, contact shadows off.
+- Cookie: `Cookie Open` by default. Swap in `Cookie Saucer` on the `Source` light (HDRP light > Emission > Cookie) when the dome sits in a saucer: the saucer lip blocks the light below 16.7° under the filament, and the cookie reproduces that.
 - `LightComponent` scales the intensity by the lamp level.
 
 ## Rendering layers (convention, set per table)
 
-The `Source` light renders on **light layer 3 only** ("flash receivers"). The dome's own renderers are on layer 1, so they are
-never lit by any burst light, their own or a neighbour's.
+The `Source` light renders on **light layer 3 only** ("flash receivers"). The dome's own renderers are on layers **0 + 1**
+(mask 3) and never on layer 3, so they are never lit by any burst light, their own or a neighbour's.
+
+Layer 0 is the HDRP default layer, which a table's GI lights normally use: with it, the unlit dome picks up a faint red body and
+bulb reflections from nearby GI, as a real dome does, and goes dark when the GI is off. Layer 1 is kept for a sun/room light
+on that layer. If your GI lights use another layer, add it to the Inner, Glow and Outer renderers.
 
 On your table, add layer 3 to every renderer that should receive flasher light: cabinet walls, back panel, plastics,
 ramps, toys, posts and so on. Leave the playfield, ink overlay and inserts off layer 3 and light them with their own

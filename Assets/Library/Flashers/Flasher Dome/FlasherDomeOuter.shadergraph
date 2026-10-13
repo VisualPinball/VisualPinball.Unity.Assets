@@ -380,6 +380,12 @@
         },
         {
             "m_Id": "7f02b004d37a1408ef44c692b343af31"
+        },
+        {
+            "m_Id": "320c34b14ef1ed2e6f07b1bffdda2b7c"
+        },
+        {
+            "m_Id": "53bc615ee5508068bba4a8ee8f299381"
         }
     ],
     "m_Keywords": [],
@@ -7348,6 +7354,76 @@
         },
         {
             "m_Id": "7f02b004d37a1408ef44c692b343af31"
+        },
+        {
+            "m_Id": "320c34b14ef1ed2e6f07b1bffdda2b7c"
+        },
+        {
+            "m_Id": "53bc615ee5508068bba4a8ee8f299381"
         }
     ]
+}
+
+{
+    "m_SGVersion": 3,
+    "m_ObjectId": "320c34b14ef1ed2e6f07b1bffdda2b7c",
+    "m_Guid": {
+        "m_GuidSerialized": "320c34b1-4ef1-ed2e-6f07-b1bffdda2b7c"
+    },
+    "m_Name": "Dome Colour (transmitted through the 2.4 mm wall)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Dome Colour (transmitted through the 2.4 mm wall)",
+    "m_DefaultReferenceName": "_DomeColor",
+    "m_OverrideReferenceName": "_DomeColor",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_Value": {
+        "r": 0.8996035,
+        "g": 0.2051598,
+        "b": 0.1804023,
+        "a": 1
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "53bc615ee5508068bba4a8ee8f299381",
+    "m_Guid": {
+        "m_GuidSerialized": "53bc615e-e550-8068-bba4-a8ee8f299381"
+    },
+    "m_Name": "Flute count (must match the mesh + masks; cookie baked for it)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Flute count (must match the mesh + masks; cookie baked for it)",
+    "m_DefaultReferenceName": "_FluteCount",
+    "m_OverrideReferenceName": "_FluteCount",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 36.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
 }

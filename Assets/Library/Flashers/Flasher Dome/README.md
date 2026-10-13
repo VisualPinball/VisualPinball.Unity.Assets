@@ -12,6 +12,13 @@ modelled on the real 36-flute dome ("dome48"): an outer shell, a fitted inner su
 3. Use fade times that match an incandescent #89 flasher, roughly 0.015 s up and 0.03 s down (VPE fade fields are in seconds; the prefab leaves them at 0). The look is tuned for a
    physical (PWM / bulb-model) level, so a plain on/off coil also works.
 
+## Requirements
+
+- HDRP **Light Layers** enabled in the HDRP asset (the default `HDRP.asset` has them off; VPE table projects normally have them on). The burst light and the dome renderers depend on them.
+- VPE's `ThickerPlastic` diffusion profile registered in the HDRP global settings (Inner material).
+- Inner also uses two textures from `_Generic/Tileable Textures` in this package, so copy those along if you move the folder out of the package.
+- The burst light's cookie cuts off below the saucer lip, so a dome placed straight on a flat surface leaves a dark disc around its base. On a real saucer mount the saucer hides it.
+
 ## What's in the folder
 
 | File | What |

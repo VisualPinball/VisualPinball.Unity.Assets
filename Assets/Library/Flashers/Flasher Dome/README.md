@@ -60,23 +60,26 @@ the intensity if it reads too strong.
 - **Another flute count or shape:** the optics are procedural in `_FluteCount` (default 36), but a few things are baked per
   mesh. The generator tools are in `Tools~/` (Unity ignores `~` folders, so nothing there is imported or compiled).
   1. **Mesh.** Model the dome in any DCC tool with N flutes:
-     - outer shell + inner surface (flutes and cap), exported as separate meshes (`Outer`, `Inner`);
+     - the wall as one closed solid (outer shell + inner surface with flutes and cap, carrying the `UVMap` atlas): the mask
+       bake ray-casts against this one mesh, so both surfaces must be in it. Split it into `Outer` and `Inner` only for the
+       Unity export;
      - Unity object space: +Y up, origin at the centre of the base (the shader assumes the filament about 15.6 mm above it);
      - dimensions the shader assumes (the #89 mini-saucer dome): outer radius about 15.5 mm, wall about 2.2-2.4 mm,
        inner groove root radius 13.95 mm and flat radius 13.25 mm, grooves about +-1.25 deg wide at N = 36 (+-0.125 of the pitch);
      - groove roots at azimuth theta = 0 mod pitch, with theta = atan2(-z, -x) in Unity object space;
      - the inner surface needs an unwrapped atlas (no overlaps) as **UV1**, used to sample the masks (in Blender: UV layer `UVMap`).
   2. **Masks (about 1 min, Blender, CPU).** In Blender terms the dome axis is +Z and theta = atan2(y, x):
-     `blender -b --factory-startup --python Tools~/bake_masks.py -- OUTDIR 1024 --blend dome.blend --object Dome --flutes N --cap-z 20 --name mydome`
+     `blender -b --factory-startup --python Tools~/bake_masks.py -- OUTDIR 1024 --blend dome.blend --object DomeWall --flutes N --cap-z 20 --name mydome`
      writes `mydome_masks.exr` (R thick_n, G thick_h, B phase, A flank), `mydome_parity.png`, `mydome_coverage.png` and previews.
      Import them as the Masks / Parity textures (sRGB off, no compression for the EXR) and assign them on the Glow and Outer
      materials. With `--flutes 36` on the original dome it reproduces the shipped `Masks.exr` / `Parity.png`.
   3. **Inner thickness map** (the Inner HDRP Lit material's `_ThicknessMap`; the shipped one is `* - Thickness.png`, 512 px). It is
      the wall thickness along the inward normal, per texel of the Inner mesh's UV set: for each surface point, ray-cast along the
      inward normal to the opposite wall and store the distance. Encode it as a linear (sRGB off) 8-bit grey PNG,
-     value = thickness / TMAX (TMAX = 6 mm, rays that escape are clamped to it), and set the material's
-     `_ThicknessRemap` max to match your TMAX in HDRP thickness units (Red uses (0, 0.1119)). The `thick_n` channel of the
-     masks baked above is the same quantity in mm, so you can also derive the PNG from it (R / 6 mm), resampled to the Inner UVs.
+     value = clamp(thickness / 3 mm, 0, 1) (cast rays up to 6 mm; store rays that miss as 3 mm), then dilate empty texels a
+     few passes so the seams don't bleed. With that encoding keep Red's `_ThicknessRemap` (0, 0.1119). The `thick_n` channel
+     of the masks baked above is the same quantity in mm, so you can also derive the PNG from it as min(R / 3, 1), resampled
+     to the Inner UVs.
   4. **Set `_FluteCount` = N** on the Glow and Outer materials (Outer's flute lines are procedural; Glow reads the masks).
      The groove width stays a fixed fraction (+-0.125) of the pitch.
   5. **Cookie.** The burst-light cookie is baked for 36 beams. Copy `Tools~/FlasherDomeCookie.cs` into an Editor folder of your

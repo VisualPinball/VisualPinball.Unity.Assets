@@ -1,13 +1,14 @@
-// AFM dome round 8 (2026-10-11, AFMOps2): LIT layer over Ben's White Water dome recipe (AFMDomeWW). Additive, emission
-// only, on dome48's inner surface (uv1 = dome48 UVMap atlas). Target: Ben's LuxCore render (lux/preview/cmpG1 far left,
-// cmpK): whole dome glows red, white-hot streak segments on the flutes at bulb height, radial cap rays, bright core band.
-// Masks (lux/masks, DOME-BAKE / bake_masks.py, geometry only - no radiance baked):
+// Flasher dome (fluted #89 mini-saucer dome) - shared custom function for FlasherDomeGlow / FlasherDomeOuter.
+// Additive emission on the dome's inner surface (uv1 = inner-surface atlas), driven by _InsertLampLevel.
+// Masks (geometry only, no radiance baked):
 //   _DomeMasks  R thick_n mm (along the inward normal), G thick_h mm (hemisphere mean), B phase in the flute (0 groove root,
 //               0.5 flat centre), A flank 0..1 (-1 left / +1 right tangential tilt of the inner facet)
 //   _DomeParity flute index parity (alternate-flute zebra)
-// Unity <- Blender: Blender theta = atan2(-z, -x); the mask's +flank tilts toward Unity (-z, 0, x) (checked by parity).
-#ifndef AFM_FLASHER_DOME_GLOW
-#define AFM_FLASHER_DOME_GLOW
+// Frame: Blender theta = atan2(-z, -x); the mask's +flank tilts toward Unity (-z, 0, x).
+#ifndef VPE_FLASHER_DOME
+#define VPE_FLASHER_DOME
+
+#define FD_SQ(x) ((x) * (x))
 
 void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3 TangentOS, float3 BitangentOS, float2 UV,
     UnityTexture2D Masks, UnityTexture2D Parity,
@@ -74,7 +75,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float capW = smoothstep(F.y + 0.0055, F.y + 0.0105, Position.y);
     float capFaceW = smoothstep(0.0235, 0.0265, Position.y);
     float rC0 = length(Position.xz) / 0.0145, phi0 = atan2(Position.z, Position.x);
-    float xRoomS = 1.0 - _XRoom * exp(-pow((rC0 - 0.52) / 0.25, 2.0)) * (1.0 - pow(abs(sin(2.0 * phi0 + _XPhase)), 3.0));   // r18: same off-beam dim for the cap rays
+    float xRoomS = 1.0 - _XRoom * exp(-FD_SQ((rC0 - 0.52) / 0.25)) * (1.0 - pow(abs(sin(2.0 * phi0 + _XPhase)), 3.0));   // r18: same off-beam dim for the cap rays
 
     // blackbody colour (normalised so max channel = 1), T from the level: T = 2900 K * level^0.1235 (L ~ V^3.4, T ~ V^0.42)
     float T = 2900.0 * pow(max(lvl, 1e-3), 0.1235);
@@ -92,7 +93,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // flute structure: groove roots / ray ridges read as bright lines (light concentrates along the edges), flats softer
     float ph = m.b; float e = min(ph, 1.0 - ph);
     float edge = exp(-(e / 0.09) * (e / 0.09));
-    // loop r00 (AFMOps3, Ben r9 note): steep peak curve. Mid/fade levels keep the r9 look (boost = _CoreBoost); above the
+    // loop r00: steep peak curve. Mid/fade levels keep the r9 look (boost = _CoreBoost); above the
     // knee the boost log-lerps to _BoostPeak at level 1 with weight w = (lvl^p - knee^p)/(1 - knee^p), so only the true
     // peak blows the core out white. Desat and glow follow the same weight.
     float bp = max(_BoostPow, 1.0);
@@ -194,7 +195,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float side = flank > 0.3 ? 1.0 : (flank < -0.3 ? 0.2 : 0.35);
         float hsh = frac(sin(fluteIdx * 12.9898 + 4.1) * 43758.5453);
         float spark = lerp(0.12, 2.2, pow(hsh, 8.0));                                    // r06: few hot ridges, most dim
-        spark *= 1.0 + _GlintBand * exp(-pow((Position.y - 0.0245) / 0.0018, 2.0)) * (1.0 - capW);   // brighter band under the cap edge (Lux)
+        spark *= 1.0 + _GlintBand * exp(-FD_SQ((Position.y - 0.0245) / 0.0018)) * (1.0 - capW);   // brighter band under the cap edge (Lux)
         float ledge = 1.0 - smoothstep(0.4, 0.6, abs(normalize(NormalOS).y)) * (1.0 - capW);   // r07: no "doorframe" bar on barrel ledges
         float shoulder = 1.0 - 0.85 * saturate(4.0 * capW * (1.0 - capW));   // r08: glints fade across the shoulder blend (doorframe bar)
         float capEnv = lerp(env, min(env, 1.0), capW);                         // r08: key card can't blow one cap facet up (red wedge)
@@ -261,7 +262,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
                 float hc = frac(sin((cI + ridgeId * 17.0) * 12.9898) * 43758.5453), hc2 = frac(sin((cI + ridgeId * 17.0) * 78.233) * 24634.6345);
                 float u = (cFz - 0.5) / (0.5 / 1.7);
                 float taper = exp(-2.5 * u * u) * (abs(u) < 1.3 ? 1.0 : 0.0);
-                float hot = lerp(0.3, 1.0, pow(hc2, 2.0));
+                float hot = lerp(0.3, 1.0, FD_SQ(hc2));
                 float3 rCol = lerp(tint, float3(1.0, 0.55, 0.4) * tint.r, 0.25 * taper);
                 g += _RidgeNits * (hc < 0.45 ? 1.0 : 0.0) * taper * acrossR * hot * max(Fr, 0.2) * rCol * (1.0 - capW) * ledge * facing;
             }
@@ -276,7 +277,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
                 float mid = y0 + 0.5 * Ln;
                 float lin = saturate(1.0 - abs(Position.y - mid) / (0.5 * Ln));               // linear taper -> sharp tips
                 float hcN = mid + _NeedleSlide * 0.5 * Ln * clamp(viewShift - 1.6 * 0.7, -1.0, 1.0);
-                float slide = exp(-pow((Position.y - hcN) / (0.3 * Ln), 2.0));
+                float slide = exp(-FD_SQ((Position.y - hcN) / (0.3 * Ln)));
                 float br = lerp(0.35, 1.0, frac(sin(fluteIdx * 5.13 + 1.1) * 43758.5453));
                 float3 nCol = lerp(tint, float3(1.0, 0.6, 0.45) * tint.r, 0.4 * lin * lin * slide);
                 g += _NeedleNits * lin * lerp(0.3, 1.0, slide) * acrossN * br * max(Fr, 0.2) * nCol * lerp(1.0, 0.3, capW) * ledge * facing;
@@ -321,12 +322,12 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float phiX = atan2(Position.z, Position.x);
     // r24: X-beams scale up with level (soft at L0.4/0.7) and carry a heat path: on the ray cores of the beam the colour
     // leaks G/B like the bars (deep red -> yellow, white only where it clips), the gaps stay red
-    float xw = pow(abs(sin(2.0 * phiX + _XPhase)), 12.0) * exp(-pow((rC - 0.52) / 0.18, 2.0)) * smoothstep(0.65, 0.92, v.y);
+    float xw = pow(abs(sin(2.0 * phiX + _XPhase)), 12.0) * exp(-FD_SQ((rC - 0.52) / 0.18)) * smoothstep(0.65, 0.92, v.y);
     float xCore = xw * edge * edge * edge * edge;
     float3 xCol = lerp(bb * trH, float3(1.0, 0.62, 0.10), saturate(_XHeat * xCore));
     float3 capX = _CapXBeam * pow(lvlE, max(_XPow, 1.0)) * capTop * xCol * xw * (0.5 + 0.5 * edge * edge);
     // r18: room for the X-beams: dim the cap glow/rays off-beam on the beam ring (dark gaps between beams)
-    float xRoom = 1.0 - _XRoom * capTop * exp(-pow((rC - 0.52) / 0.25, 2.0)) * (1.0 - pow(abs(sin(2.0 * phiX + _XPhase)), 3.0));
+    float xRoom = 1.0 - _XRoom * capTop * exp(-FD_SQ((rC - 0.52) / 0.25)) * (1.0 - pow(abs(sin(2.0 * phiX + _XPhase)), 3.0));
     float3 capBody = capX + xRoom * _CapGlow * lvlE * capTop * bb * trH * (0.4 + 0.6 * exp(-rC * rC / 0.35)) * (0.08 + edge * edge)
                      + _CapGlow * 2.0 * lvlE * capFaceW * bb * float3(1.0, 0.5, 0.22) * exp(-rC * rC / 0.037);   // r13: centre back to r08 size (capCream r 2.8 mm)
     // r11b spectral veil for the r08 path: a gain on the transmitted glow (no uniform white layer)
@@ -358,7 +359,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
             float3 toLb = F + float3(kb * 0.0008, 0, 0) - Pc; float3 Lb = normalize(float3(toLb.x, 0, toLb.z));
             float3 hB = normalize(1.49 * (-woB) - Lb); if (dot(hB, NfB) < 0.0) hB = -hB;
             float nh = saturate(dot(NfB, hB));
-            float DB = aB2 / (3.14159 * pow(nh * nh * (aB2 - 1.0) + 1.0, 2.0));
+            float DB = aB2 / (3.14159 * FD_SQ(nh * nh * (aB2 - 1.0) + 1.0));
             sB += DB * 3.14159 * aB2 * saturate(dot(Lb, NfB) * 4.0);   // normalised: 1 at the lobe centre
         }
         float acrossB = 1.0 - smoothstep(_BarWidth * 0.6, _BarWidth, abs(eP));
@@ -419,7 +420,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // orange -> yellow -> white while the dimmer walls stay red. 1 = off
     float heat = lerp(1.0, max(_HeatPeak, 1.0), smoothstep(0.85, 1.0, lvl));
     heat = lerp(heat, 1.0 + (heat - 1.0) * 0.5, 1.0 - smoothstep(0.2, 0.5, v.y));   // r21: side views get half the extra heat (x1.5 at x2)
-    body *= lerp(1.0, heat, (0.05 + 0.95 * edge * edge * edge) * (1.0 - 0.8 * capFaceW) * _HeatBodyW);   // _HeatBodyW 0 = bar-only heat (tonemap A/B)   // r21: edges/bars only, base faces stay deep red   // r20: heat on the lit flute faces/lines more than the gaps lines = lines + (heat - 1.0) * fbar * rimDim * max(_LinesGain, 0.0);   // r21: the extra peak heat goes on the bars only (not streak/halo/cap spot)
+    body *= lerp(1.0, heat, (0.05 + 0.95 * edge * edge * edge) * (1.0 - 0.8 * capFaceW) * _HeatBodyW);   // _HeatBodyW 0 = no extra peak heat   // r21: edges/bars only, base faces stay deep red   // r20: heat on the lit flute faces/lines more than the gaps
     // r22 (Ben: 'the dome turns into a light for 1-3 frames'): short peak-only gain on ALL dome emission (glints excluded),
     // shaped by the flutes (edges carry it, flats less) - not a flat layer
     float flash = 1.0 + _PeakFlash * smoothstep(0.9, 1.0, lvl) * (0.25 + 0.75 * edge);
@@ -466,23 +467,23 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
             float3 toL = Fk - Position; float d2 = max(dot(toL, toL), 1e-5); float3 L = toL * rsqrt(d2);
             float3 hT = normalize(1.49 * (-wo) - L);          // -(eta_i wi + eta_o wo), wi = L (air), wo (plastic, eta 1.49)
             float fall2 = (0.012 * 0.012) / d2;
-            float cLh = abs(dot(L, hT)); float FT = 1.0 - (0.04 + 0.96 * pow(1.0 - cLh, 5.0));
+            float cLh = abs(dot(L, hT)); float FT = 1.0 - (0.04 + 0.96 * pow(saturate(1.0 - cLh), 5.0));
             // r09: anisotropic GGX - across the flute alpha = _FluteAlpha, along it (the flank's vertical/radial-in-cap axis)
             // _FluteAlphaV: the flute is an extruded V, roughness + inter-flank scattering smear the filament image along it
             float ax = max(_FluteAlpha, 0.01), ay = max(_FluteAlphaV, 0.01);
             float3 hA = dot(hT, Nf) < 0.0 ? -hT : hT;
             float3 TvA = normalize(lerp(float3(0, 1, 0), -radIn, capW)); float3 BhA = normalize(cross(Nf, TvA));
             float hxA = dot(hA, BhA) / ax, hyA = dot(hA, TvA) / ay, hnA = dot(hA, Nf);
-            float DA = 1.0 / (3.14159 * ax * ay * pow(hxA * hxA + hyA * hyA + hnA * hnA, 2.0)) * (hnA > 0.0 ? 1.0 : 0.0);
+            float DA = 1.0 / (3.14159 * ax * ay * FD_SQ(hxA * hxA + hyA * hyA + hnA * hnA)) * (hnA > 0.0 ? 1.0 : 0.0);
             barA += DA * FT * fall2 * saturate(dot(L, Nf) * 4.0) * saturate(-dot(wo, Nf) * 4.0 + 0.2);
             float3 hB = dot(hT, NfM) < 0.0 ? -hT : hT;
             float3 BhB = normalize(cross(NfM, TvA));
             float hxB = dot(hB, BhB) / ax, hyB = dot(hB, TvA) / ay, hnB = dot(hB, NfM);
-            float DB = 1.0 / (3.14159 * ax * ay * pow(hxB * hxB + hyB * hyB + hnB * hnB, 2.0)) * (hnB > 0.0 ? 1.0 : 0.0);
+            float DB = 1.0 / (3.14159 * ax * ay * FD_SQ(hxB * hxB + hyB * hyB + hnB * hnB)) * (hnB > 0.0 ? 1.0 : 0.0);
             barB += DB * FT * fall2 * saturate(dot(L, NfM) * 4.0) * saturate(-dot(wo, NfM) * 4.0 + 0.2);
             // r11: rough-flute scatter (broad isotropic GGX on the radial normal) - fills the bulb-height band over 5-6 flutes
             float3 hS = dot(hT, radIn) < 0.0 ? -hT : hT; float nhS = saturate(dot(radIn, hS));
-            float DS = aS2 / (3.14159 * pow(nhS * nhS * (aS2 - 1.0) + 1.0, 2.0));
+            float DS = aS2 / (3.14159 * FD_SQ(nhS * nhS * (aS2 - 1.0) + 1.0));
             scat += DS * FT * fall2 * saturate(dot(L, radIn) * 4.0);
         }
         float3 tau = exp(-sigma * thN);
@@ -499,8 +500,8 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float spokeFade = lerp(1.0, 1.0 - 0.8 * smoothstep(_SpokeFade, _SpokeFade + 0.25, rCap), capFaceW * (1.0 - smoothstep(0.8, 0.95, rCap)));   // not on the shoulder   // r11: weaker cap spokes past r ~0.5
         float3 scatT = _ScatterNits * lvlP * gainT * bb * tau * scat / 5.0 * (1.0 - capW);
         float3 bars = spokeFade * _FilamentNits * lvlP * gainT * lerp(1.0, _CapRays, capW) * capFlat * bb * tau * (barA + _FlankFill * barB) / 5.0;
-        float rimT = pow(1.0 - abs(dot(Nshell, v)), 4.0);
-        float3 rim = _RimRing * lvlP * gainT * bb * tau * capW * exp(-pow((rCap - _RimRadius) / 0.06, 2.0));   // r11: ring at the Lux radius on the cap
+        float rimT = pow(saturate(1.0 - abs(dot(Nshell, v))), 4.0);
+        float3 rim = _RimRing * lvlP * gainT * bb * tau * capW * exp(-FD_SQ((rCap - _RimRadius) / 0.06));   // r11: ring at the Lux radius on the cap
         float phiF = atan2(Position.z, Position.x);
         float3 xb = _XBeam * lvlP * gainT * bb * tau * capW * pow(abs(sin(2.0 * phiF)), 48.0) * saturate(v.y) * saturate(v.y);
         // cap centre spot: the filament seen straight down through the cap (red-transmission spectrum, not cream)

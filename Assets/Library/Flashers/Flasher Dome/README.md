@@ -8,8 +8,8 @@ modelled on the real 36-flute dome ("dome48"): an outer shell, a fitted inner su
 
 1. Drop `Flasher Dome, Red.prefab` onto the table, on the flasher's saucer/base (the prefab origin is the dome base, +Y up).
 2. Map it in the **Lamp Manager** or **Coil Manager** to the flasher's lamp/coil. The root carries a VPE `LightComponent`.
-   It drives `_InsertLampLevel` on the three dome renderers and the intensity of the `Source` light. No other script is needed.
-3. Use fade times that match an incandescent #89 flasher, roughly 15 ms up and 30 ms down. The look is tuned for a
+   It drives `_InsertLampLevel` on the Glow and Outer renderers (Inner is a static HDRP Lit surface) and the intensity of the `Source` light. No other script is needed.
+3. Use fade times that match an incandescent #89 flasher, roughly 0.015 s up and 0.03 s down (VPE fade fields are in seconds; the prefab leaves them at 0). The look is tuned for a
    physical (PWM / bulb-model) level, so a plain on/off coil also works.
 
 ## What's in the folder
@@ -23,7 +23,7 @@ modelled on the real 36-flute dome ("dome48"): an outer shell, a fitted inner su
 | `* - Glow.mat` | `FlasherDomeGlow` ShaderGraph: lit body glow, additive, PreRefraction queue |
 | `* - Outer.mat` | `FlasherDomeOuter` ShaderGraph: refractive red shell, which also emits the bright flute lines, glints and the peak white-hot term |
 | `FlasherDome.hlsl` | Shared custom function for both graphs (procedural 36-fold flute optics) |
-| `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, emissive mask, flute masks |
+| `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, flute masks (`Emissive.png` sits on Inner's `_EmissiveColorMap` but Inner's emission is 0, so it is unused) |
 | `* - Cookie.asset` | Burst-light cookie: 36 equal flute beams (floor .76) and the saucer-lip cut-off 16.7° below the filament |
 
 ## Light
@@ -51,5 +51,4 @@ This is a table-level choice, so the prefab does not set it on anything outside 
   - Below that it is deep red with yellow hot bars on the flutes.
   - Knobs on the Glow/Outer materials: `_PeakFlash` and `_WhiteHot`. Set either to 0 to turn that term off.
 - **Tonemapping:** tuned under HDRP **Custom** tonemapping (per-channel filmic). ACES pulls the bright red toward salmon.
-- **Filament:** `_OpticalLamp` on the Glow/Outer materials is the filament position in the dome's own space. The default
-  matches the prefab's `Source` position.
+- **Filament:** `_OpticalLamp` on the Glow/Outer materials is the filament position in object space. Both materials use 0.0156 (tuned on Glow, whose mesh is scaled 1.065 in y, where it matches the `Source` light). Outer shares the value, so its filament sits ~0.9 mm lower; that is how the look was tuned.

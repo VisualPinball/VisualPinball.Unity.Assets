@@ -9,7 +9,7 @@ Usage:
 The object must carry the inner-surface atlas as UV layer "UVMap" (the Glow/Inner mesh's UV1 in Unity), dome axis +Z (Blender),
 groove roots at theta = atan2(y, x) = 0 mod pitch, base at z = 0, units metres.
 Per texel of every dome face:
-  thick_n   wall thickness along the inward normal (mm)            -> HDRP _ThicknessMap (remap 0..TMAX)
+  thick_n   wall thickness along the inward normal (mm)            -> source for an Inner thickness map; see README step 3 (not a drop-in _ThicknessMap)
   thick_h   mean thickness over 16 cosine-weighted inward rays    (softer, closer to what transmission 'sees')
   phase     position inside the flute period (0 = groove root, 0.5 = flat centre), from theta
   flank     tangential tilt of the INNER surface under this texel (-1 left flank, 0 flat, +1 right flank) -> 0..1

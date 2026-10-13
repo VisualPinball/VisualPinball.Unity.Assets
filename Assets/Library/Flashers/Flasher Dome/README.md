@@ -73,13 +73,12 @@ the intensity if it reads too strong.
      writes `mydome_masks.exr` (R thick_n, G thick_h, B phase, A flank), `mydome_parity.png`, `mydome_coverage.png` and previews.
      Import them as the Masks / Parity textures (sRGB off, no compression for the EXR) and assign them on the Glow and Outer
      materials. With `--flutes 36` on the original dome it reproduces the shipped `Masks.exr` / `Parity.png`.
-  3. **Inner thickness map** (the Inner HDRP Lit material's `_ThicknessMap`; the shipped one is `* - Thickness.png`, 512 px). It is
-     the wall thickness along the inward normal, per texel of the Inner mesh's UV set: for each surface point, ray-cast along the
-     inward normal to the opposite wall and store the distance. Encode it as a linear (sRGB off) 8-bit grey PNG,
-     value = clamp(thickness / 3 mm, 0, 1) (cast rays up to 6 mm; store rays that miss as 3 mm), then dilate empty texels a
-     few passes so the seams don't bleed. With that encoding keep Red's `_ThicknessRemap` (0, 0.1119). The `thick_n` channel
-     of the masks baked above is the same quantity in mm, so you can also derive the PNG from it as min(R / 3, 1), resampled
-     to the Inner UVs.
+  3. **Inner thickness map** (the Inner HDRP Lit material's `_ThicknessMap`, sampled with the Inner mesh's **UV0**; the shipped
+     one is `* - Thickness.png`, 512 px, linear 8-bit grey, value = clamp(thickness / 3 mm, 0, 1)). The shipped map was baked in
+     Unity by ray-casting from each texel along the interpolated inward vertex normal against the dome's MeshCollider (rays up
+     to 6 mm, misses stored as 3 mm, 6 dilation passes), which reads near 0 mm over about half the inner surface. A map
+     baked another way (e.g. a flat-normal ray cast to the opposite wall, or the masks' `thick_n` channel) comes out thicker
+     overall, so retune the Inner material's `_ThicknessRemap` by eye against the Red preset rather than keeping (0, 0.1119).
   4. **Set `_FluteCount` = N** on the Glow and Outer materials (Outer's flute lines are procedural; Glow reads the masks).
      The groove width stays a fixed fraction (+-0.125) of the pitch.
   5. **Cookie.** The burst-light cookie is baked for 36 beams. Copy `Tools~/FlasherDomeCookie.cs` into an Editor folder of your

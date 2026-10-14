@@ -1,10 +1,15 @@
 """Flasher Dome mask baker: geometry-derived masks for the live dome materials (no lighting baked). Blender, CPU, ~1 min.
 Usage:
   blender -b --factory-startup --python bake_masks.py -- OUTDIR [RES] --blend dome.blend --object DomeObject --flutes N [--cap-z MM] [--name PREFIX]
+          [--inner axis|sphere] [--centre-z MM]
     OUTDIR  output folder            RES  texture size (default 1024)
     --blend / --object  .blend file and the dome mesh object in it (both required)
     --flutes N  flute count (default 36)     --cap-z MM  height above which downward-facing inner faces count as the cap underside (default 20)
     --name PREFIX  output file prefix (default "dome"); writes <PREFIX>_masks.exr, <PREFIX>_parity.png, <PREFIX>_coverage.png and previews
+    --inner    how a face is classified as INNER surface. axis (default, the shipped dome48 rule: normal against the horizontal
+               radial, or facing down above --cap-z) | sphere (normal points toward the centre (0, 0, --centre-z): right for a
+               hemisphere "hat" at every latitude incl. the pole; --cap-z is then unused)
+    --centre-z MM  sphere centre height for --inner sphere (default 0 = centre on the base plane)
   Needs Blender's bundled Python modules (bpy, OpenImageIO, numpy, PIL).
 The object must carry the inner-surface atlas as UV layer "UVMap" (the Glow/Inner mesh's UV1 in Unity), dome axis +Z (Blender),
 groove roots at theta = atan2(y, x) = 0 mod pitch, base at z = 0, units metres.
@@ -31,6 +36,10 @@ BLEND = opt("--blend", None)
 OBJ = opt("--object", None)
 CAPZ = float(opt("--cap-z", "20"))      # mm: inner faces facing down above this height are the cap underside (default 20)
 NAME = opt("--name", "dome")          # output prefix
+INNER = opt("--inner", "axis")        # axis (default: shipped output unchanged) | sphere
+CENTRE_Z = float(opt("--centre-z", "0"))   # mm, sphere centre for --inner sphere
+if INNER not in ("axis", "sphere"):
+    sys.exit("--inner must be axis or sphere")
 if not BLEND or not OBJ or not A:
     sys.exit("usage: ... -- OUTDIR [RES] --blend dome.blend --object NAME [--flutes N] [--cap-z MM] [--name PREFIX]")
 OUT = A[0]; RES = int(A[1]) if len(A) > 1 else 1024
@@ -40,7 +49,7 @@ ob = bpy.data.objects[OBJ]
 me = ob.data
 MM = 0.001
 PITCH = 2 * math.pi / N_FLUTE
-print("bake_masks:", BLEND, OBJ, N_FLUTE, "flutes", RES, "px ->", OUT)
+print("bake_masks:", BLEND, OBJ, N_FLUTE, "flutes", RES, "px ->", OUT, "inner test", INNER)
 bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces[:])
 bm.normal_update()
 uvl = bm.loops.layers.uv["UVMap"]
@@ -84,7 +93,11 @@ for f in bm.faces:
     k = int(th // PITCH); phase = (th % PITCH) / PITCH
     radial = Vector((c.x, c.y, 0)); rr = radial.length
     tang = Vector((-c.y, c.x, 0)).normalized() if rr > 1e-7 else Vector((0, 0, 0))
-    inner = rr > 1e-7 and (n.dot(radial / rr) < -0.3 or (n.z < -0.5 and c.z > CAPZ * MM))
+    if INNER == "sphere":
+        dc = c - Vector((0, 0, CENTRE_Z * MM))
+        inner = rr > 1e-7 and dc.length > 1e-7 and n.dot(dc.normalized()) < -0.3
+    else:
+        inner = rr > 1e-7 and (n.dot(radial / rr) < -0.3 or (n.z < -0.5 and c.z > CAPZ * MM))
     flank = n.dot(tang) if inner else 0.0  # inner-surface facet tilt; outer texels get it from the facing inner facet below
     for yy in range(y0, y1 + 1):
         for xx in range(x0, x1 + 1):

@@ -9,10 +9,12 @@ using UnityEngine;
 // one radial beam per flute (cos^sharp around the flute azimuth, floor between beams), a soft wash through the cap, and
 // optionally the saucer-lip cut-off cutDeg below the filament horizon with a softDeg soft edge.
 // Library values: Open = (floor .76, sharp 10, altDim 1, no cut), Saucer = same + cut 16.7 / soft 8. 256 px cubemap.
+// capWash (default 1 = the shipped cookies): weight of the soft wash toward .55 at elevations ~20-49 deg (the tall dome's cap,
+// where the flutes stop). 0 = beams run up to the zenith (a hemisphere "hat" whose flutes converge at the pole).
 // Single cookie: FlasherDomeCookie.Make(24, "Assets/MyDome/Open.asset");
 public static class FlasherDomeCookie
 {
-	public static Cubemap Make(int flutes, string path, float cutDeg = 0f, float softDeg = 8f, float floor = 0.76f, float sharp = 10f, float altDim = 1f, int size = 256)
+	public static Cubemap Make(int flutes, string path, float cutDeg = 0f, float softDeg = 8f, float floor = 0.76f, float sharp = 10f, float altDim = 1f, int size = 256, float capWash = 1f)
 	{
 		var cm = new Cubemap(size, TextureFormat.RGBA32, true);
 		var faces = new[] { CubemapFace.PositiveX, CubemapFace.NegativeX, CubemapFace.PositiveY, CubemapFace.NegativeY, CubemapFace.PositiveZ, CubemapFace.NegativeZ };
@@ -34,7 +36,7 @@ public static class FlasherDomeCookie
 				var k = Mathf.FloorToInt(phi / (2f * Mathf.PI / flutes));
 				var beam = Mathf.Pow(0.5f + 0.5f * Mathf.Cos(flutes * phi), sharp) * ((k & 1) == 0 ? 1f : altDim);
 				var side = Mathf.Lerp(floor, 1f, beam);
-				var w = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.35f, 0.75f, d.y));
+				var w = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.35f, 0.75f, d.y)) * capWash;   // x 1 is exact
 				var val = Mathf.Lerp(side, 0.55f, w);
 				if (cutDeg > 0f) { var el = Mathf.Asin(Mathf.Clamp(d.y, -1f, 1f)) * Mathf.Rad2Deg; val *= Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(-cutDeg - softDeg * 0.5f, -cutDeg + softDeg * 0.5f, el)); }
 				px[y * size + x] = new Color(val, val, val, 1f);
@@ -49,9 +51,9 @@ public static class FlasherDomeCookie
 	}
 
 	// both library cookies for a flute count: "<prefix> - Cookie Open.asset" + "<prefix> - Cookie Saucer.asset"
-	public static void MakeBoth(int flutes, string prefix)
+	public static void MakeBoth(int flutes, string prefix, float capWash = 1f)
 	{
-		Make(flutes, prefix + " - Cookie Open.asset");
-		Make(flutes, prefix + " - Cookie Saucer.asset", 16.7f, 8f);
+		Make(flutes, prefix + " - Cookie Open.asset", capWash: capWash);
+		Make(flutes, prefix + " - Cookie Saucer.asset", 16.7f, 8f, capWash: capWash);
 	}
 }

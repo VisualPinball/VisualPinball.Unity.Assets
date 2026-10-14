@@ -91,6 +91,19 @@ the intensity if it reads too strong.
      The formula: T = exp(-sigma * 2.4 mm) per channel, and the red-tuned colours are remapped by how much light each channel leaks
      (see `FD_Remap` in `FlasherDome.hlsl`); the light colour is the 2900 K filament colour (1, 0.682, 0.403) times the red-tuned
      (1, 0.0127, 0.0028) leak, remapped the same way.
+- **A hemisphere ("hat", e.g. Stern 550-5510 half dome):** set `_ProfileMode` = 1 on the Glow and Outer materials. Mode 0 (default)
+  is the tall barrel + cap dome above, unchanged; mode 1 treats the wall as a sphere / ellipsoid with flutes along the meridians
+  converging at the pole (the pole region plays the cap: rays, cap spot, X-beams). Mode-1 knobs, read only in mode 1:
+  `_SphereY` (centre height; a vertical skirt below it), `_InnerR` / `_InnerRY` (inner groove-root semi-axes, horizontal /
+  vertical), `_CapR` (radius that normalises the top-view cap terms), `_CapBlend` (barrel-to-cap blends on the wall normal's y:
+  x..y for the ray/streak weights, z..w for the cap-face terms), `_OuterTh` (Outer's wall model: groove-root and flat thickness,
+  mean thickness), `_GrooveHalf` (groove half-width in periods), `_FluteLen` (flute length along the meridian, for glints/needles),
+  `_GlintBandY`, `_BarR0` (bars cut only inside this radius at the pole hub). `_FluteOffset` (rad, both modes, default 0) shifts
+  the procedural flute coordinates only; the masks are not shifted, so keep the mesh's groove roots at theta = 0 instead.
+  Bake the masks with `--inner sphere` (`--centre-z` = sphere centre height in mm), and the cookie with
+  `FlasherDomeCookie.MakeBoth(N, prefix, capWash: 0)` if the beams should continue to the zenith. Set `_OpticalLamp` to the real
+  filament position (base plane = y 0). Tall-dome-only gates (`_ShoulderAlpha`, `_WallEdge`, `_BarShoulder`, `_RimDim`,
+  `_XRoom`/`_CapXBeam`, `_GlintBand`, `_HotZone`) start at 0 and come back one at a time against references.
 
 ## What's in the folder
 

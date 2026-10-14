@@ -386,6 +386,42 @@
         },
         {
             "m_Id": "53bc615ee5508068bba4a8ee8f299381"
+        },
+        {
+            "m_Id": "94d2c9795e5804ff2aaca1d7a8bb7616"
+        },
+        {
+            "m_Id": "17764782d20d2985c0724b8c60358c02"
+        },
+        {
+            "m_Id": "fe59df79306550c27502477fbe4a09f9"
+        },
+        {
+            "m_Id": "1662f444c6e960afd456f8d8a46cf1df"
+        },
+        {
+            "m_Id": "064a44acb4fa023d5e6b3f5d1bd398f4"
+        },
+        {
+            "m_Id": "cf29d5dfe269fb1901c683e91a30f9a0"
+        },
+        {
+            "m_Id": "8a10a80455e9cd60ced658b7705f57e0"
+        },
+        {
+            "m_Id": "5ca58ee30f801d906e8fabc6f36a737f"
+        },
+        {
+            "m_Id": "de6744d83f344b0e611c09878a7156e3"
+        },
+        {
+            "m_Id": "25e8999ac9811f9c80f765e57c116211"
+        },
+        {
+            "m_Id": "2f60c291e8795b5a39e6dbaedb5c7d3e"
+        },
+        {
+            "m_Id": "92efb54bcf1d483c67f4dd369f870e24"
         }
     ],
     "m_Keywords": [],
@@ -7360,6 +7396,42 @@
         },
         {
             "m_Id": "53bc615ee5508068bba4a8ee8f299381"
+        },
+        {
+            "m_Id": "94d2c9795e5804ff2aaca1d7a8bb7616"
+        },
+        {
+            "m_Id": "17764782d20d2985c0724b8c60358c02"
+        },
+        {
+            "m_Id": "fe59df79306550c27502477fbe4a09f9"
+        },
+        {
+            "m_Id": "1662f444c6e960afd456f8d8a46cf1df"
+        },
+        {
+            "m_Id": "064a44acb4fa023d5e6b3f5d1bd398f4"
+        },
+        {
+            "m_Id": "cf29d5dfe269fb1901c683e91a30f9a0"
+        },
+        {
+            "m_Id": "8a10a80455e9cd60ced658b7705f57e0"
+        },
+        {
+            "m_Id": "5ca58ee30f801d906e8fabc6f36a737f"
+        },
+        {
+            "m_Id": "de6744d83f344b0e611c09878a7156e3"
+        },
+        {
+            "m_Id": "25e8999ac9811f9c80f765e57c116211"
+        },
+        {
+            "m_Id": "2f60c291e8795b5a39e6dbaedb5c7d3e"
+        },
+        {
+            "m_Id": "92efb54bcf1d483c67f4dd369f870e24"
         }
     ]
 }
@@ -7415,6 +7487,402 @@
     "m_Hidden": false,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_Value": 36.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "94d2c9795e5804ff2aaca1d7a8bb7616",
+    "m_Guid": {
+        "m_GuidSerialized": "94d2c979-5e58-04ff-2aac-a1d7a8bb7616"
+    },
+    "m_Name": "Shape: profile (0 tall barrel+cap, 1 sphere / hemisphere hat)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Shape: profile (0 tall barrel+cap, 1 sphere / hemisphere hat)",
+    "m_DefaultReferenceName": "_ProfileMode",
+    "m_OverrideReferenceName": "_ProfileMode",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "17764782d20d2985c0724b8c60358c02",
+    "m_Guid": {
+        "m_GuidSerialized": "17764782-d20d-2985-c072-4b8c60358c02"
+    },
+    "m_Name": "Shape: flute azimuth offset (rad; procedural coordinates only, masks are not shifted)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Shape: flute azimuth offset (rad; procedural coordinates only, masks are not shifted)",
+    "m_DefaultReferenceName": "_FluteOffset",
+    "m_OverrideReferenceName": "_FluteOffset",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "fe59df79306550c27502477fbe4a09f9",
+    "m_Guid": {
+        "m_GuidSerialized": "fe59df79-3065-50c2-7502-477fbe4a09f9"
+    },
+    "m_Name": "Sphere: centre height (m; vertical skirt below it)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: centre height (m; vertical skirt below it)",
+    "m_DefaultReferenceName": "_SphereY",
+    "m_OverrideReferenceName": "_SphereY",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "1662f444c6e960afd456f8d8a46cf1df",
+    "m_Guid": {
+        "m_GuidSerialized": "1662f444-c6e9-60af-d456-f8d8a46cf1df"
+    },
+    "m_Name": "Sphere: inner groove-root semi-axis, horizontal (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: inner groove-root semi-axis, horizontal (m)",
+    "m_DefaultReferenceName": "_InnerR",
+    "m_OverrideReferenceName": "_InnerR",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.01395,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "064a44acb4fa023d5e6b3f5d1bd398f4",
+    "m_Guid": {
+        "m_GuidSerialized": "064a44ac-b4fa-023d-5e6b-3f5d1bd398f4"
+    },
+    "m_Name": "Sphere: inner groove-root semi-axis, vertical (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: inner groove-root semi-axis, vertical (m)",
+    "m_DefaultReferenceName": "_InnerRY",
+    "m_OverrideReferenceName": "_InnerRY",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.01395,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "cf29d5dfe269fb1901c683e91a30f9a0",
+    "m_Guid": {
+        "m_GuidSerialized": "cf29d5df-e269-fb19-01c6-83e91a30f9a0"
+    },
+    "m_Name": "Sphere: cap radius for rC (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: cap radius for rC (m)",
+    "m_DefaultReferenceName": "_CapR",
+    "m_OverrideReferenceName": "_CapR",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0145,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "8a10a80455e9cd60ced658b7705f57e0",
+    "m_Guid": {
+        "m_GuidSerialized": "8a10a804-55e9-cd60-ced6-58b7705f57e0"
+    },
+    "m_Name": "Sphere: cap blends on wall normal y (capW x..y, capFace z..w)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: cap blends on wall normal y (capW x..y, capFace z..w)",
+    "m_DefaultReferenceName": "_CapBlend",
+    "m_OverrideReferenceName": "_CapBlend",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_Value": {
+        "x": 0.5,
+        "y": 0.85,
+        "z": 0.8,
+        "w": 0.95
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "5ca58ee30f801d906e8fabc6f36a737f",
+    "m_Guid": {
+        "m_GuidSerialized": "5ca58ee3-0f80-1d90-6e8f-abc6f36a737f"
+    },
+    "m_Name": "Sphere: Outer wall model m (thN root, thN flat, thH, unused)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: Outer wall model m (thN root, thN flat, thH, unused)",
+    "m_DefaultReferenceName": "_OuterTh",
+    "m_OverrideReferenceName": "_OuterTh",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_Value": {
+        "x": 0.00205,
+        "y": 0.00275,
+        "z": 0.0038,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "de6744d83f344b0e611c09878a7156e3",
+    "m_Guid": {
+        "m_GuidSerialized": "de6744d8-3f34-4b0e-611c-09878a7156e3"
+    },
+    "m_Name": "Sphere: groove half-width (flute periods)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: groove half-width (flute periods)",
+    "m_DefaultReferenceName": "_GrooveHalf",
+    "m_OverrideReferenceName": "_GrooveHalf",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.125,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "25e8999ac9811f9c80f765e57c116211",
+    "m_Guid": {
+        "m_GuidSerialized": "25e8999a-c981-1f9c-80f7-65e57c116211"
+    },
+    "m_Name": "Sphere: flute length along the meridian (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: flute length along the meridian (m)",
+    "m_DefaultReferenceName": "_FluteLen",
+    "m_OverrideReferenceName": "_FluteLen",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.025,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "2f60c291e8795b5a39e6dbaedb5c7d3e",
+    "m_Guid": {
+        "m_GuidSerialized": "2f60c291-e879-5b5a-39e6-dbaedb5c7d3e"
+    },
+    "m_Name": "Sphere: glint band height (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: glint band height (m)",
+    "m_DefaultReferenceName": "_GlintBandY",
+    "m_OverrideReferenceName": "_GlintBandY",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0245,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "92efb54bcf1d483c67f4dd369f870e24",
+    "m_Guid": {
+        "m_GuidSerialized": "92efb54b-cf1d-483c-67f4-dd369f870e24"
+    },
+    "m_Name": "Sphere: bar cut radius at the pole hub (m)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Sphere: bar cut radius at the pole hub (m)",
+    "m_DefaultReferenceName": "_BarR0",
+    "m_OverrideReferenceName": "_BarR0",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0118,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,

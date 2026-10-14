@@ -5,6 +5,14 @@
 //               0.5 flat centre), A flank 0..1 (-1 left / +1 right tangential tilt of the inner facet)
 //   _DomeParity flute index parity (alternate-flute zebra)
 // Frame: Blender theta = atan2(-z, -x); the mask's +flank tilts toward Unity (-z, 0, x).
+// Shape profile (2026-10-14, half-dome "hat" port): _ProfileMode 0 = the tall barrel + cap dome (dome48). Every mode-0 line is
+// the shipped code verbatim; mode-1 code only ever OVERRIDES a value after the old line computed it (if (FD_SPH) x = ...;) or
+// takes an if/else whose else is the old text, so a material without the new properties (defaults, mode 0) renders exactly as
+// before. _ProfileMode 1 = sphere (hemisphere hat): centre (0, _SphereY, 0), a vertical cylinder below it (skirt), continuous
+// wall normal nS, flutes along the meridians to the pole (the pole = the cap: rays = the converging flutes), cap blends on nS.y.
+// The inner (groove-root) surface may be an ellipsoid: _InnerR horizontal, _InnerRY vertical semi-axis (= _InnerR for a sphere).
+// Mode-1-only knobs (_SphereY, _InnerR, _InnerRY, _CapR, _CapBlend, _OuterTh, _GrooveHalf, _FluteLen, _GlintBandY, _BarR0) default to the
+// tall dome's own literal (where one exists) but are not read in mode 0. _FluteOffset is read in both modes (default 0 = exact).
 #ifndef VPE_FLASHER_DOME
 #define VPE_FLASHER_DOME
 
@@ -44,6 +52,55 @@ float3 FD_Abs(float3 C) { return FD_Remap(C, FD_Norm(FD_BB2900 * _DomeColor.rgb)
 float FD_Y(float3 c) { return dot(c, float3(0.2126, 0.7152, 0.0722)); }
 float3 FD_AbsY(float3 C) { float3 c = FD_Abs(C); return c * (FD_Y(C) / max(FD_Y(c), 1e-6)); }
 
+#define FD_SPH (_ProfileMode > 0.5)
+// ridge glints, needles, cap-ray glints (r08): one text, expanded twice (old literals / mode-1 knobs)
+#define FD_RIDGE_NEEDLE_CAP(FD_YC, FD_HH, FD_EDGE) \
+            /* D (r08 judge): ONE edge per flute (random flank), segments 15-60 % of the height, tapered, view-sliding */ \
+            if (_RidgeNits > 0.0 && edgeSide == (hF0 < 0.5 ? 0.0 : 1.0)) { \
+                float ridgeId = fluteIdx * 2.0 + edgeSide; \
+                float dE = (abs(eP) - FD_EDGE) / 0.022; \
+                float acrossR = exp(-dE * dE); \
+                float Lseg = FD_HH * lerp(0.15, 0.6, hF1) * max(_RidgeLen, 0.05); \
+                float cellLen = Lseg * 1.7; \
+                float zc = FD_YC / cellLen + hF3 * 7.0 + viewShift; \
+                float cI = floor(zc), cFz = frac(zc); \
+                float hc = frac(sin((cI + ridgeId * 17.0) * 12.9898) * 43758.5453), hc2 = frac(sin((cI + ridgeId * 17.0) * 78.233) * 24634.6345); \
+                float u = (cFz - 0.5) / (0.5 / 1.7); \
+                float taper = exp(-2.5 * u * u) * (abs(u) < 1.3 ? 1.0 : 0.0); \
+                float hot = lerp(0.3, 1.0, FD_SQ(hc2)); \
+                float3 rCol = lerp(tint, FD_Filter(float3(1.0, 0.55, 0.4)) * FD_Max3(tint), 0.25 * taper); \
+                g += _RidgeNits * (hc < 0.45 ? 1.0 : 0.0) * taper * acrossR * hot * max(Fr, 0.2) * rCol * (1.0 - capW) * ledge * facing; \
+            } \
+            /* E (Ben): NEEDLES - sparse (<= 1 edge per flute, fraction _NeedleDensity), 50-100 % of the barrel height, very thin, */ \
+            /* LINEAR taper to sharp points, hot core; the bright part slides along the needle with the view, fades when the flank */ \
+            /* turns away. Never both flanks of one flute. */ \
+            if (_NeedleNits > 0.0 && hF2 < _NeedleDensity && edgeSide == (hF1 < 0.5 ? 1.0 : 0.0)) { \
+                float dN = (abs(eP) - FD_EDGE) / max(_NeedleWidth, 0.002); \
+                float acrossN = exp(-dN * dN); \
+                float Ln = FD_HH * lerp(0.5, 1.0, hF3) * max(_NeedleLen, 0.05); \
+                float y0 = 0.0015 + (FD_HH - min(Ln, FD_HH)) * hF0; \
+                float mid = y0 + 0.5 * Ln; \
+                float lin = saturate(1.0 - abs(FD_YC - mid) / (0.5 * Ln));               /* linear taper -> sharp tips */ \
+                float hcN = mid + _NeedleSlide * 0.5 * Ln * clamp(viewShift - 1.6 * 0.7, -1.0, 1.0); \
+                float slide = exp(-FD_SQ((FD_YC - hcN) / (0.3 * Ln))); \
+                float br = lerp(0.35, 1.0, frac(sin(fluteIdx * 5.13 + 1.1) * 43758.5453)); \
+                float3 nCol = lerp(tint, FD_Filter(float3(1.0, 0.6, 0.45)) * FD_Max3(tint), 0.4 * lin * lin * slide); \
+                g += _NeedleNits * lin * lerp(0.3, 1.0, slide) * acrossN * br * max(Fr, 0.2) * nCol * lerp(1.0, 0.3, capW) * ledge * facing; \
+            } \
+            /* cap rays (r08 judge: cap read like a line drawing): a few short tapered glints along the ray edges, coordinate = radius */ \
+            if (_CapGlintNits > 0.0 && capW > 0.01) { \
+                float rr = length(Position.xz); \
+                float dE = (abs(eP) - FD_EDGE) / 0.03; \
+                float acrossC = exp(-dE * dE); \
+                float rayId = fluteIdx * 2.0 + edgeSide + 500.0; \
+                float hcA = frac(sin(rayId * 33.1) * 43758.5453), hcB = frac(sin(rayId * 71.9) * 24634.6345); \
+                float Lc = lerp(0.002, 0.006, hcB); \
+                float rc = 0.004 + 0.009 * frac(hcA * 7.3 + 0.35 * viewShift);              /* slides with view */ \
+                float uc = (rr - rc) / (0.5 * Lc); \
+                float tc = saturate(1.0 - abs(uc)); \
+                g += _CapGlintNits * (hcA < 0.35 ? 1.0 : 0.0) * tc * tc * acrossC * max(Fr, 0.2) * tint * capW * facing; \
+            }
+
 void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3 TangentOS, float3 BitangentOS, float2 UV,
     UnityTexture2D Masks, UnityTexture2D Parity,
     out float3 BaseColor, out float3 NormalTS, out float3 Emission, out float Alpha)
@@ -73,7 +130,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     if (dot(VrIn, VrIn) < 1e-4) VrIn = -Nshell;
     VrIn = normalize(VrIn);
     if (_GlowPart > 3.5) Position = Position + VrIn * (_Wall / max(dot(-VrIn, Nshell), 0.2));
-    float thetaP = atan2(-Position.z, -Position.x); if (thetaP < 0.0) thetaP += 6.2831853;
+    float thetaP = atan2(-Position.z, -Position.x) - _FluteOffset; if (thetaP < 0.0) thetaP += 6.2831853;   // _FluteOffset (rad, 0 = roots at theta 0; x - 0 is exact)
     float pitchF = 6.2831853 / max(_FluteCount, 1.0);            // flute pitch (rad); 36 -> 0.17453293
     float fluteF = thetaP / pitchF;                              // in flute periods
     float fluteIdx = floor(fluteF);
@@ -91,12 +148,25 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         // Outer ShaderGraph path: the Outer's uv0 is not the mask atlas -> everything procedural, geometry projected onto the
         // inner surface (r 13.95 mm barrel, cap underside 27.3 mm) so the streak maths sees the facet it would refract through
         float rxz = length(Position.xz);
+        if (FD_SPH) {
+            // sphere: project (from the centre; horizontally on the skirt below it) onto the inner groove-root ellipsoid, points
+            // already inside stay (as the old min(r, 13.95 mm))
+            float3 cP = float3(0, min(Position.y, _SphereY), 0); float3 dP = Position - cP;
+            float lP = length(dP / float3(max(_InnerR, 1e-4), max(_InnerRY, 1e-4), max(_InnerR, 1e-4)));
+            Position = cP + dP / max(lP, 1.0);
+            float gh = max(_GrooveHalf, 1e-3);
+            float inGroove = abs(eP) < gh ? 1.0 : 0.0;
+            flank = -sign(eP) * inGroove * smoothstep(0.0015, 0.004, rxz);   // pole: azimuth undefined (flutes converge)
+            thN = lerp(_OuterTh.x, _OuterTh.y, saturate(abs(eP) / gh));
+            thH = _OuterTh.z;
+        } else {
         Position.xz *= min(rxz, 0.01395) / max(rxz, 1e-5);
         Position.y = min(Position.y, 0.0273);
         float inGroove = abs(eP) < 0.125 ? 1.0 : 0.0;
         flank = -sign(eP) * inGroove * smoothstep(0.0015, 0.004, rxz);   // no flank at the cap centre (azimuth undefined)
         thN = lerp(0.00205, 0.00275, saturate(abs(eP) / 0.125));
         thH = 0.0038;
+        }
         m.b = frac(fluteF);                                     // phase: 0 groove root, 0.5 flat centre
         par = fmod(fluteIdx, 2.0);
     }
@@ -104,12 +174,28 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // r18: closest approach of the refracted view ray (into the dome) to the filament: vertical offset dvF, horizontal dhF
     float3 wF = F - Position; float tF = max(dot(wF, VrIn), 0.0); float3 qF = Position + VrIn * tF;
     float dvF = qF.y - F.y, dhF = length(qF.xz - F.xz);
+    // mode 1 frame at this (projected) point: outward wall normal nS, azimuthal tangent tgS, meridian tangent TmS (along the
+    // flute, toward the pole), yA = arc length along the flute from the base (the sphere's analogue of the barrel height y)
+    // nO = radial direction (the smooth outer sphere's normal), nS = inner-ellipsoid normal (= nO for a sphere)
+    float3 cS = float3(0, min(Position.y, _SphereY), 0);
+    float3 dS = Position - cS + float3(1e-6, 0, 0);
+    float3 nO = normalize(dS);
+    float iRx = max(_InnerR, 1e-4), iRy = max(_InnerRY, 1e-4);
+    float3 nS = normalize(dS / float3(iRx * iRx, iRy * iRy, iRx * iRx));
+    float3 tgS = normalize(float3(-Position.z, 0, Position.x) + float3(1e-6, 0, 0));
+    float3 TmS = normalize(cross(tgS, nS));
+    float yA = Position.y <= _SphereY ? Position.y : _SphereY + 0.5 * (iRx + iRy) * asin(saturate(nO.y));
+    // mode 1: the filament-image offsets are measured in the local flute frame - along the flute (dvF, = height on a vertical
+    // flute) and across it (dhF) - so the bar/halo/hot-zone maths stays 'where the view ray passes the filament'
+    if (FD_SPH) { float3 oF = qF - F; dvF = dot(oF, TmS); dhF = length(oF - TmS * dvF); }
     float isCap = Position.y > F.y + 0.008 ? 1.0 : 0.0;
     // r06: smooth barrel -> cap blend across the rounded shoulder (the hard switch gave white "hooks" off the cap edge and a
     // flat-topped side-view core): capW for the facet/view normals and ray weight, capFaceW for lobe length and boost cap
     float capW = smoothstep(F.y + 0.0055, F.y + 0.0105, Position.y);
     float capFaceW = smoothstep(0.0235, 0.0265, Position.y);
+    if (FD_SPH) { capW = smoothstep(_CapBlend.x, _CapBlend.y, nS.y); capFaceW = smoothstep(_CapBlend.z, _CapBlend.w, nS.y); }   // pole = cap
     float rC0 = length(Position.xz) / 0.0145, phi0 = atan2(Position.z, Position.x);
+    if (FD_SPH) rC0 = length(Position.xz) / max(_CapR, 1e-4);
     float xRoomS = 1.0 - _XRoom * exp(-FD_SQ((rC0 - 0.52) / 0.25)) * (1.0 - pow(abs(sin(2.0 * phi0 + _XPhase)), 3.0));   // r18: same off-beam dim for the cap rays
 
     // blackbody colour (normalised so max channel = 1), T from the level: T = 2900 K * level^0.1235 (L ~ V^3.4, T ~ V^0.42)
@@ -147,6 +233,10 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float3 nOut = normalize(lerp(rad, float3(0, 1, 0), capW));
     float3 tg = float3(-rad.z, 0, rad.x);                     // Unity side of the mask's +flank (parity-checked)
     float3 nIn = normalize(lerp(normalize(-rad * (1.0 - 0.45 * abs(flank)) + tg * flank * 1.3), normalize(float3(0, -1, 0) + tg * flank * 0.9), capW));
+    if (FD_SPH) {   // continuous wall normal: the barrel (horizontal radial) and cap (up) normals both become nS
+        nOut = nO;
+        nIn = normalize(lerp(normalize(-nS * (1.0 - 0.45 * abs(flank)) + tg * flank * 1.3), normalize(-nS + tg * flank * 0.9), capW));
+    }
     float3 d0 = -v;
     float3 d1 = refract(d0, nOut, 1.0 / 1.49);
     if (dot(d1, d1) < 1e-4) d1 = d0;
@@ -157,6 +247,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // (horizontal) -> white-hot vertical streak segments, not a round blob. On the cap the roles turn radial/tangential.
     float w = max(_BandSigma, 0.01);
     float3 axA = normalize(lerp(normalize(cross(float3(0, 1, 0), d2) + float3(1e-6, 0, 0)), tg, capW));   // "across" direction
+    if (FD_SPH) axA = normalize(cross(TmS, d2) + float3(1e-6, 0, 0));   // across the meridian flute (= the barrel rule with up -> TmS; -> tg at the pole)
     float3 dd = d2 - toF;
     float aA = dot(dd, axA), aL = length(dd - axA * aA);
     // r01: along-flute length is its own knob (_StreakLen x w); widening w fattened the streaks into white bars
@@ -179,6 +270,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float boostS = lerp(boost, min(boost, _CapBoostMax), capFace);
     // r03: the peak boost above _CoreBoost stays near bulb height (no white spindle from base to cap centre)
     float hy = (Position.y - F.y) / max(_PeakHeight, 1e-4);
+    if (FD_SPH) hy = dvF / max(_PeakHeight, 1e-4);   // filament at the base plane: 'bulb height' = where the view ray passes the bulb along the flute
     float gy = exp(-hy * hy);
     boostS = lerp(min(boostS, max(_CoreBoost, 1e-3)), boostS, gy);
     // r04: vertical Gaussian on the whole streak/core boost (blob at bulb height, Lux), floor _CoreFloor away from it
@@ -227,11 +319,15 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         env += 2.0 * pow(saturate(dot(wd, normalize(float3(-0.8, 0.3, -0.5)))), 60.0);     // left card
         float3 tint = exp(-sigma * 2.0 * thN);
         float capTaper = lerp(1.0, max(0.35, saturate(length(Position.xz) / 0.0145)), capW);   // r05: no dark pupil
+        if (FD_SPH) capTaper = lerp(1.0, max(0.35, saturate(length(Position.xz) / max(_CapR, 1e-4))), capW);
         float side = flank > 0.3 ? 1.0 : (flank < -0.3 ? 0.2 : 0.35);
         float hsh = frac(sin(fluteIdx * 12.9898 + 4.1) * 43758.5453);
         float spark = lerp(0.12, 2.2, pow(hsh, 8.0));                                    // r06: few hot ridges, most dim
+        float spark0 = spark;
         spark *= 1.0 + _GlintBand * exp(-FD_SQ((Position.y - 0.0245) / 0.0018)) * (1.0 - capW);   // brighter band under the cap edge (Lux)
+        if (FD_SPH) spark = spark0 * (1.0 + _GlintBand * exp(-FD_SQ((Position.y - _GlintBandY) / 0.0018)) * (1.0 - capW));
         float ledge = 1.0 - smoothstep(0.4, 0.6, abs(normalize(NormalOS).y)) * (1.0 - capW);   // r07: no "doorframe" bar on barrel ledges
+        if (FD_SPH) ledge = 1.0 - smoothstep(0.4, 0.6, length(cross(normalize(NormalOS), nS)));   // ledge = surface tilted off the sphere (rim, tab), not 'normal.y'
         float shoulder = 1.0 - 0.85 * saturate(4.0 * capW * (1.0 - capW));   // r08: glints fade across the shoulder blend (doorframe bar)
         float capEnv = lerp(env, min(env, 1.0), capW);                         // r08: key card can't blow one cap facet up (red wedge)
         g = _GlintNits * Fr * capEnv * tint * capTaper * side * spark * facetGain * ledge * lerp(1.0, 0.8, capW) * shoulder;
@@ -285,51 +381,10 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
             float hF2 = frac(sin(fluteIdx * 47.9 + 8.1) * 43758.5453), hF3 = frac(sin(fluteIdx * 11.7 + 2.6) * 24634.6345);
             float viewShift = 2.2 * dot(-v, tgR) * sgnE + 1.6 * v.y;
             const float H = 0.025;                                                          // barrel height used (m)
-            // D (r08 judge): ONE edge per flute (random flank), segments 15-60 % of the height, tapered, view-sliding
-            if (_RidgeNits > 0.0 && edgeSide == (hF0 < 0.5 ? 0.0 : 1.0)) {
-                float ridgeId = fluteIdx * 2.0 + edgeSide;
-                float dE = (abs(eP) - 0.115) / 0.022;
-                float acrossR = exp(-dE * dE);
-                float Lseg = H * lerp(0.15, 0.6, hF1) * max(_RidgeLen, 0.05);
-                float cellLen = Lseg * 1.7;
-                float zc = Position.y / cellLen + hF3 * 7.0 + viewShift;
-                float cI = floor(zc), cFz = frac(zc);
-                float hc = frac(sin((cI + ridgeId * 17.0) * 12.9898) * 43758.5453), hc2 = frac(sin((cI + ridgeId * 17.0) * 78.233) * 24634.6345);
-                float u = (cFz - 0.5) / (0.5 / 1.7);
-                float taper = exp(-2.5 * u * u) * (abs(u) < 1.3 ? 1.0 : 0.0);
-                float hot = lerp(0.3, 1.0, FD_SQ(hc2));
-                float3 rCol = lerp(tint, FD_Filter(float3(1.0, 0.55, 0.4)) * FD_Max3(tint), 0.25 * taper);
-                g += _RidgeNits * (hc < 0.45 ? 1.0 : 0.0) * taper * acrossR * hot * max(Fr, 0.2) * rCol * (1.0 - capW) * ledge * facing;
-            }
-            // E (Ben): NEEDLES - sparse (<= 1 edge per flute, fraction _NeedleDensity), 50-100 % of the barrel height, very thin,
-            // LINEAR taper to sharp points, hot core; the bright part slides along the needle with the view, fades when the flank
-            // turns away. Never both flanks of one flute.
-            if (_NeedleNits > 0.0 && hF2 < _NeedleDensity && edgeSide == (hF1 < 0.5 ? 1.0 : 0.0)) {
-                float dN = (abs(eP) - 0.115) / max(_NeedleWidth, 0.002);
-                float acrossN = exp(-dN * dN);
-                float Ln = H * lerp(0.5, 1.0, hF3) * max(_NeedleLen, 0.05);
-                float y0 = 0.0015 + (H - min(Ln, H)) * hF0;
-                float mid = y0 + 0.5 * Ln;
-                float lin = saturate(1.0 - abs(Position.y - mid) / (0.5 * Ln));               // linear taper -> sharp tips
-                float hcN = mid + _NeedleSlide * 0.5 * Ln * clamp(viewShift - 1.6 * 0.7, -1.0, 1.0);
-                float slide = exp(-FD_SQ((Position.y - hcN) / (0.3 * Ln)));
-                float br = lerp(0.35, 1.0, frac(sin(fluteIdx * 5.13 + 1.1) * 43758.5453));
-                float3 nCol = lerp(tint, FD_Filter(float3(1.0, 0.6, 0.45)) * FD_Max3(tint), 0.4 * lin * lin * slide);
-                g += _NeedleNits * lin * lerp(0.3, 1.0, slide) * acrossN * br * max(Fr, 0.2) * nCol * lerp(1.0, 0.3, capW) * ledge * facing;
-            }
-            // cap rays (r08 judge: cap read like a line drawing): a few short tapered glints along the ray edges, coordinate = radius
-            if (_CapGlintNits > 0.0 && capW > 0.01) {
-                float rr = length(Position.xz);
-                float dE = (abs(eP) - 0.115) / 0.03;
-                float acrossC = exp(-dE * dE);
-                float rayId = fluteIdx * 2.0 + edgeSide + 500.0;
-                float hcA = frac(sin(rayId * 33.1) * 43758.5453), hcB = frac(sin(rayId * 71.9) * 24634.6345);
-                float Lc = lerp(0.002, 0.006, hcB);
-                float rc = 0.004 + 0.009 * frac(hcA * 7.3 + 0.35 * viewShift);              // slides with view
-                float uc = (rr - rc) / (0.5 * Lc);
-                float tc = saturate(1.0 - abs(uc));
-                g += _CapGlintNits * (hcA < 0.35 ? 1.0 : 0.0) * tc * tc * acrossC * max(Fr, 0.2) * tint * capW * facing;
-            }
+            // mode 0: the old text expanded with its literals (y, 25 mm barrel height, edge at .115 period); mode 1: meridian arc
+            // coordinate yA, flute length _FluteLen, edge at _GrooveHalf - .01 period
+            if (FD_SPH) { FD_RIDGE_NEEDLE_CAP(yA, _FluteLen, (_GrooveHalf - 0.01)) }
+            else { FD_RIDGE_NEEDLE_CAP(Position.y, H, 0.115) }
         }
         nIn = nInKeep;
     }
@@ -348,6 +403,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float kG = max(_GlowKnee, 1e-3), gk = pow(kG, max(_GlowGamma, 0.1));
     float lvlG = lvlE >= kG ? pow(lvlE, max(_GlowGamma, 0.1)) : gk * pow(saturate(lvlE / kG), max(_GlowLowPow, 0.1));
     float rC = length(Position.xz) / 0.0145;
+    if (FD_SPH) rC = length(Position.xz) / max(_CapR, 1e-4);
     // r12: confined to the RAYS (gaps stay dark), stops at the cap edge (capFaceW, cap top only), small hot orange centre
     float capTop = capFaceW * (1.0 - smoothstep(_CapEdge0, 0.99, rC));   // r15: fade start is a knob (r12 .85, r13/14 .95)
     // r15 (judge): the top view's rim annulus (shoulder seen from above) reads bright vs the cap mid (rim/mid .79, ref .22) ->
@@ -381,21 +437,43 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float3 fbar = 0;
     if (_BarNits > 0.0) {
         float gi = round(fluteF);
-        float thG = gi * pitchF;
+        float thG = gi * pitchF + _FluteOffset;   // + 0 is exact
         float sgn = eP >= 0.0 ? 1.0 : -1.0;
+        float aB = max(_BarAlpha, 0.02), aB2 = aB * aB;
+        float sB = 0;
+        if (FD_SPH) {
+            // mode 1: the flute is extruded along the MERIDIAN, so the elevation mismatch is smeared along the local flute axis
+            // TmC, not along y: project light and view onto the plane across the flute (normal + azimuthal tangent) at the root
+            // point at this pixel's latitude. On a vertical flute (TmC = up) this is exactly the old horizontal-plane lobe.
+            float3 hR = float3(-cos(thG), 0, -sin(thG));           // outward horizontal at the root azimuth
+            // root point = this pixel rotated to the root azimuth (same latitude, same surface); wall normal rotated with it
+            float sH = length(nS.xz), rhoP = length(Position.xz);
+            float3 nR = normalize(hR * sH + float3(0, nS.y, 0));
+            float3 TmC = normalize(float3(0, sH, 0) - hR * nS.y + float3(0, 1e-6, 0));   // along the flute toward the pole (up on a vertical flute)
+            float3 Pc = float3(hR.x * rhoP, Position.y, hR.z * rhoP) + TmC * _BarY;
+            float3 tgR = float3(hR.z, 0, -hR.x);                     // = the old (-radInB.z, 0, radInB.x)
+            float3 NfB = normalize(-nR + tgR * sgn * tan(radians(_BarTilt)));
+            float3 wvB = -VrIn; float3 woB = normalize(wvB - TmC * dot(wvB, TmC) + float3(1e-6, 0, 0));
+            [unroll] for (int kb = -2; kb <= 2; kb++) {
+                float3 toLb = F + float3(kb * 0.0008, 0, 0) - Pc; float3 Lb = normalize(toLb - TmC * dot(toLb, TmC) + float3(1e-6, 0, 0));
+                float3 hB = normalize(1.49 * (-woB) - Lb); if (dot(hB, NfB) < 0.0) hB = -hB;
+                float nh = saturate(dot(NfB, hB));
+                float DB = aB2 / (3.14159 * FD_SQ(nh * nh * (aB2 - 1.0) + 1.0));
+                sB += DB * 3.14159 * aB2 * saturate(dot(Lb, NfB) * 4.0);
+            }
+        } else {
         float3 radInB = float3(cos(thG), 0, sin(thG));            // inward radial at the root (thetaP = atan2(-z,-x))
         float3 Pc = float3(-0.01395 * cos(thG), F.y + _BarY, -0.01395 * sin(thG));
         float3 tgR = float3(-radInB.z, 0, radInB.x);
         float3 NfB = normalize(radInB + tgR * sgn * tan(radians(_BarTilt)));
         float3 woB = normalize(float3(-VrIn.x, 0, -VrIn.z) + float3(1e-6, 0, 0));   // vertical flute = extruded V: elevation mismatch is smeared along it -> lobe in the horizontal plane
-        float aB = max(_BarAlpha, 0.02), aB2 = aB * aB;
-        float sB = 0;
         [unroll] for (int kb = -2; kb <= 2; kb++) {
             float3 toLb = F + float3(kb * 0.0008, 0, 0) - Pc; float3 Lb = normalize(float3(toLb.x, 0, toLb.z));
             float3 hB = normalize(1.49 * (-woB) - Lb); if (dot(hB, NfB) < 0.0) hB = -hB;
             float nh = saturate(dot(NfB, hB));
             float DB = aB2 / (3.14159 * FD_SQ(nh * nh * (aB2 - 1.0) + 1.0));
             sB += DB * 3.14159 * aB2 * saturate(dot(Lb, NfB) * 4.0);   // normalised: 1 at the lobe centre
+        }
         }
         float acrossB = 1.0 - smoothstep(_BarWidth * 0.6, _BarWidth, abs(eP));
         // r15 (judge + LED photo): staggered, longer, broken, YELLOW-hot bars. Per flank hash: centre height jitter and length;
@@ -407,7 +485,9 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float yP = F.y + dvF;   // r18: bar profile in the view-ray frame (parallax: at 45 the bars sit higher, where the bulb shows)
         float hl = max(_BarHeight, 1e-4) * (0.6 + 0.9 * hb2);
         float hB2 = (yP - yc) / hl;
-        float sN = Position.y / max(_BarSeg, 1e-4) + hb2 * 17.0; float i0 = floor(sN), fN = frac(sN);
+        float sN = Position.y / max(_BarSeg, 1e-4) + hb2 * 17.0;
+        if (FD_SPH) sN = yA / max(_BarSeg, 1e-4) + hb2 * 17.0;   // breaks along the meridian
+        float i0 = floor(sN), fN = frac(sN);
         float n0 = frac(sin((i0 + fid * 13.0) * 12.9898) * 43758.5453), n1 = frac(sin((i0 + 1.0 + fid * 13.0) * 12.9898) * 43758.5453);
         float brk = lerp(1.0, smoothstep(0.2, 0.7, lerp(n0, n1, smoothstep(0.0, 1.0, fN))), saturate(_BarBreak));
         float prof = exp(-pow(abs(hB2), 3.0));
@@ -431,6 +511,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         // removed. Cut on the unprojected radius instead (never the cap face), and fade the shoulder part out for top views
         float barCut = smoothstep(0.0118, 0.0132, rRaw) * (1.0 - smoothstep(0.0280, 0.0292, yRaw))
                        * lerp(1.0, 1.0 - smoothstep(0.80, 0.93, v.y), smoothstep(0.0245, 0.0271, yRaw));
+        if (FD_SPH) barCut = smoothstep(_BarR0, _BarR0 + 0.0014, rRaw);   // only the pole hub is cut (flutes run to the pole; the y gates were the tall shoulder)
         // r18: white only in each bar's hot core
         float coreW = saturate(_BarCoreW * exp(-yh * yh * 6.0)) * step(0.65, hb1);
         float3 bCol = lerp(bb * trN, FD_Abs(float3(1.0, 0.62, 0.10)), saturate(_BarDesat));
@@ -466,7 +547,9 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float whF = saturate(dot(Nshell, v)); float whS = (1.0 - 0.45 * edge) * (0.15 + 0.85 * whF);   // r25b: no fall term (it made a hot ring at the shoulder in top views); edges via facing
     lines += _WhiteHot * smoothstep(0.9, 1.0, lvl) * whS * FD_AbsY(float3(1.0, 0.05, 0.018)) * max(_LinesGain, 0.0);   // warm leak (bulb spectrum x red wall): clips cream, not pink
     // r24 peak sweep: white-hot ZONE around where the view ray passes the bulb - a band across 3-5 adjacent bars, peak only
-    lines += _HotZone * smoothstep(0.9, 1.0, lvl) * exp(-(dvF * dvF) / (0.0045 * 0.0045)) * pow(saturate(dot(normalize(Position.xz + 1e-6), normalize(v.xz + 1e-6))), 14.0) * (0.35 + 0.65 * edge) * (1.0 - capFaceW) * FD_AbsY(float3(1.0, 0.8, 0.55)) * max(_LinesGain, 0.0);
+    float hzA = saturate(dot(normalize(Position.xz + 1e-6), normalize(v.xz + 1e-6)));
+    if (FD_SPH) hzA = saturate(dot(nO, v));   // facing the wall normal, not the horizontal azimuth
+    lines += _HotZone * smoothstep(0.9, 1.0, lvl) * exp(-(dvF * dvF) / (0.0045 * 0.0045)) * pow(hzA, 14.0) * (0.35 + 0.65 * edge) * (1.0 - capFaceW) * FD_AbsY(float3(1.0, 0.8, 0.55)) * max(_LinesGain, 0.0);
     float3 gL = g * max(_LinesGain, 0.0) * (_DbgTerm > 2.5 ? 0.0 : 1.0);
     // r25 white-hot A/B: at the peak, give the transmitted light the PHYSICAL red-wall leak (.79/.035/.027 -> G/B = 4.4 %/3.4 %
     // of R) instead of the thick-wall model's ~0.5 %, so a large peak gain clips G/B too (cream-white) - no overlay
@@ -493,6 +576,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float tt = tan(radians(_FlankTilt));
         float3 Nf  = normalize(lerp(normalize(radIn + tgB * par2 * tt), normalize(float3(0, -1, 0) + tgB * par2 * tt), capW));
         float3 NfM = normalize(lerp(normalize(radIn - tgB * par2 * tt), normalize(float3(0, -1, 0) - tgB * par2 * tt), capW));
+        if (FD_SPH) { radIn = -nS; Nf = normalize(radIn + tgB * par2 * tt); NfM = normalize(radIn - tgB * par2 * tt); }
         float3 wo = -VrIn;                                   // toward the viewer, inside the plastic
         wo = normalize(float3(wo.x, wo.y * _LobeV, wo.z));   // r10: elevation weight of the view in the lobe (1 physical)
         float a2 = max(_FluteAlpha * _FluteAlpha, 1e-4);
@@ -508,7 +592,9 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
             // _FluteAlphaV: the flute is an extruded V, roughness + inter-flank scattering smear the filament image along it
             float ax = max(_FluteAlpha, 0.01), ay = max(_FluteAlphaV, 0.01);
             float3 hA = dot(hT, Nf) < 0.0 ? -hT : hT;
-            float3 TvA = normalize(lerp(float3(0, 1, 0), -radIn, capW)); float3 BhA = normalize(cross(Nf, TvA));
+            float3 TvA = normalize(lerp(float3(0, 1, 0), -radIn, capW));
+            if (FD_SPH) TvA = TmS;   // along the meridian flute
+            float3 BhA = normalize(cross(Nf, TvA));
             float hxA = dot(hA, BhA) / ax, hyA = dot(hA, TvA) / ay, hnA = dot(hA, Nf);
             float DA = 1.0 / (3.14159 * ax * ay * FD_SQ(hxA * hxA + hyA * hyA + hnA * hnA)) * (hnA > 0.0 ? 1.0 : 0.0);
             barA += DA * FT * fall2 * saturate(dot(L, Nf) * 4.0) * saturate(-dot(wo, Nf) * 4.0 + 0.2);
@@ -533,6 +619,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float gainT = peakGain + _VeilNits * wvT * wvT;
         float capFlat = lerp(1.0, inGrooveS, capFaceW);   // r11: only the cap top proper (not the shoulder) loses its flat-face lobe
         float rCap = length(Position.xz) / 0.0145;
+        if (FD_SPH) rCap = length(Position.xz) / max(_CapR, 1e-4);
         float spokeFade = lerp(1.0, 1.0 - 0.8 * smoothstep(_SpokeFade, _SpokeFade + 0.25, rCap), capFaceW * (1.0 - smoothstep(0.8, 0.95, rCap)));   // not on the shoulder   // r11: weaker cap spokes past r ~0.5
         float3 scatT = _ScatterNits * lvlP * gainT * bb * tau * scat / 5.0 * (1.0 - capW);
         float3 bars = spokeFade * _FilamentNits * lvlP * gainT * lerp(1.0, _CapRays, capW) * capFlat * bb * tau * (barA + _FlankFill * barB) / 5.0;

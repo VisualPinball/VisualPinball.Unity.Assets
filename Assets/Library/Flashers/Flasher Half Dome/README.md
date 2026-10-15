@@ -14,15 +14,39 @@ mesh: the same shaders (`FlasherDomeGlow` / `FlasherDomeOuter`, `FlasherDome.hls
 2. Map it in the **Lamp Manager** or **Coil Manager** like the full dome. The root `LightComponent` drives `_InsertLampLevel`
    on Glow and Outer, the emission of `Tabs`, and the `Source` light.
 3. Same fade advice as the full dome (#89: about 0.015 s up, 0.03 s down).
-4. Requirements as the full dome: HDRP Light Layers enabled, VPE `ThickerPlastic` diffusion profile, the two `_Generic`
-   textures for Inner.
+
+## Requirements
+
+- HDRP **Light Layers** enabled in the HDRP asset (the default `HDRP.asset` has them off; VPE table projects normally have them on).
+  Without them the `Source` light also lights the dome's own Inner and the dome reads as a flat saturated red.
+- VPE's `ThickerPlastic` diffusion profile registered in the HDRP global settings (Inner and Tabs).
+- The `Flasher Dome` folder next to this one: the half dome reuses its shaders (`FlasherDomeGlow`, `FlasherDomeOuter`,
+  `FlasherDome.hlsl`) with `_ProfileMode` = 1 on Glow and Outer. Do not set `_ProfileMode` back to 0 here (that is the tall
+  barrel + cap model); the mode-1 knobs are listed under "Differences" below.
+- Inner also uses two textures from `_Generic/Tileable Textures` in this package.
+- Rendering layers: as the full dome (dome renderers on layers 0 + 1, the `Source` light on layer 3 only).
 
 ## Colours
 
-`Flasher Half Dome, Red.prefab` is the base. `Flasher Half Dome, Yellow.prefab` is a prefab variant of it: material variants
-(parent = the Red Glow/Outer/Inner/Tabs) that override only colour properties (`_DomeColor`, `_TransmittanceColor`,
-`_BaseColor`/`_Color`, the Tabs emissive colour) plus the `Source` light colour, with the Yellow row of the Flasher Dome
-README table. Other colours: same recipe with that table's values (or `Tools~/dome_colour.py` in `../Flasher Dome/`).
+`Flasher Half Dome, Red.prefab` is the base. The other colours are prefab variants of it: each swaps in material variants
+(`Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat`, parent = the Red material) that override only the colour
+properties (`_DomeColor`, `_TransmittanceColor`, `_BaseColor`/`_Color`, the Tabs emissive colour) and set the `Source` light
+colour. Edit the Red prefab or materials and every colour follows. Values come from `Tools~/dome_colour.py` in
+`../Flasher Dome/` (the same colour model as the full dome; see its "Custom colour" section for a new plastic).
+
+| Preset | `_DomeColor` (sRGB) | σ (1/m, R G B) | Light colour |
+|---|---|---|---|
+| Red | (0.8996, 0.2052, 0.1804) | 100, 1400, 1500 | (1, 0.0127, 0.0028) |
+| Orange | (0.9485, 0.6522, 0.1804) | 50, 400, 1500 | (1, 0.2177, 0.0022) |
+| Yellow | (0.9688, 0.8530, 0.2052) | 30, 150, 1400 | (1, 0.4332, 0.0032) |
+| Olive | (0.7666, 0.7266, 0.1804) | 250, 300, 1500 | (1, 0.5341, 0.0057) |
+| Green | (0.2628, 0.8807, 0.3739) | 1200, 120, 900 | (0.0637, 1, 0.0504) |
+| Blue | (0.2325, 0.5849, 0.9386) | 1300, 500, 60 | (0.0760, 0.5160, 1) |
+| Clear | (0.9968, 0.9968, 0.9958) | 3, 3, 4 | (1, 0.6203, 0.3214) |
+| Purple | (0.7266, 0.1194, 0.8088) | 300, 1800, 200 | (1, 0.0049, 0.4347) |
+
+Purple matches the Stern -09 hat (violet: passes blue and some red, absorbs green). It is only in this folder; the full dome
+has no purple preset. All presets keep the 85 lm light; as for the full dome, a clear dome blows out white at the peak.
 
 ## Differences from Flasher Dome, Red (everything else is Red's value)
 
@@ -48,7 +72,8 @@ the OFF glints/needles and all gains are Red's.
 | File | What |
 |---|---|
 | `Flasher Half Dome, Red.prefab` | Dome (Inner + Glow + Outer + Tabs) + `Source` point light: the base prefab |
-| `Flasher Half Dome, Yellow.prefab` (+ `... Yellow - *.mat`) | Yellow preset: prefab variant + material variants |
+| `Flasher Half Dome, <Colour>.prefab` | Orange, Yellow, Olive, Green, Blue, Clear, Purple: prefab variants of Red |
+| `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only) |
 | `* - Inner.asset` / `* - Outer.asset` / `* - Tabs.asset` | inner fluted surface (UV0 = UV1 = mask atlas), smooth outer shell, the two tabs |
 | `* - Glow.mat` / `* - Outer.mat` / `* - Inner.mat` / `* - Tabs.mat` | as the full dome, plus the Tabs plastic |
 | `* - Masks.exr`, `* - Parity.png`, `* - Thickness.png`, `* - Tabs Emissive.png` | baked from the mesh: `bake_masks.py --flutes 32 --cap-z 5`, Inner thickness ray cast (README method), tab root glow mask |

@@ -55,14 +55,16 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _EmissiveColorMap:
+        m_Texture: {fileID: 2800000, guid: f2d94ebb909a4925a9209ca5b6323824, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats: []
     m_Colors:
     - _BaseColor: {r: 0.0162, g: 0.1937, b: 0.4642, a: 0.49803922}
     - _Color: {r: 0.0162, g: 0.19369996, b: 0.4641999, a: 0.49803922}
-    - _EmissiveColor: {r: 0.76232, g: 23.02012, b: 150.00000, a: 150}
-    - _EmissiveColorLDR: {r: 0.0618, g: 0.4282, b: 1.0000, a: 1}
     - _TransmittanceColor: {r: 0.0019, g: 0.2251, b: 0.9717, a: 0.25490198}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

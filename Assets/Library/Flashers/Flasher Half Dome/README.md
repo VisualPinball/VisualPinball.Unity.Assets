@@ -30,7 +30,7 @@ mesh: the same shaders (`FlasherDomeGlow` / `FlasherDomeOuter`, `FlasherDome.hls
 
 `Flasher Half Dome, Red.prefab` is the base. The other colours are prefab variants of it: each swaps in material variants
 (`Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat`, parent = the Red material) that override only the colour
-properties (`_DomeColor`, `_TransmittanceColor`, `_BaseColor`/`_Color`, the Tabs emissive colour) and set the `Source` light
+properties (`_DomeColor`, `_TransmittanceColor`, `_BaseColor`/`_Color`, the Tabs emissive colour map) and set the `Source` light
 colour. Edit the Red prefab or materials and every colour follows. Values come from `Tools~/dome_colour.py` in
 `../Flasher Dome/` (the same colour model as the full dome; see its "Custom colour" section for a new plastic).
 
@@ -62,9 +62,9 @@ has no purple preset. All presets keep the 85 lm light; as for the full dome, a 
 | `Source` position | at the filament, 18 mm up | 4 mm above the base | the filament is below the plastic; a light at the base plane only grazes the surroundings |
 | Cookie | `Cookie Open` (36 beams) | `Cookie Base`: 32 beams, no cap wash, cut at the base plane (15 deg below the light, 8 deg soft) | flute count; flutes run to the pole; nothing lit below the plastic |
 | `Tabs` renderer | tabs are part of Outer | separate renderer: Red's Inner material made Transparent, with a lamp-driven emissive mask brightest at the root; no thickness map (the Inner map's UVs don't fit the tab mesh), flat `_Thickness` | under the refractive Outer the tabs read black when off and carried flute lines when lit |
-| `Tabs Emissive.png` import | (Red's `Emissive.png`: sRGB, repeat, compressed) | linear, clamp, uncompressed | a baked linear 0..1 glow mask for the tab mesh, not a colour image |
+| `* - Tabs Emissive.png` (one per colour) | (Red's `Emissive.png`: sRGB, repeat U / clamp V, compressed) | sRGB, clamp, uncompressed: the baked root-glow mask x that plastic's tab colour | the tab glow colour lives in the map (next row) |
 | Inner `_EmissiveColorMap` | `* - Emissive.png` (unused: Inner emission is 0) | none | no visual effect |
-| `Tabs` emissive colour (variants) | - | Red's (1, .05, .02) remapped per colour like Inner `_BaseColor` (`dome_colour.py` prints it), HDR × 150 | tab glow follows each plastic |
+| `Tabs` emission | - | `_EmissiveColor` white x 150 on every colour; the colour (Red's (1, .05, .02) remapped per plastic, as `dome_colour.py` prints) is in the emissive map | VPE's `LightComponent` drives an HDRP Lit emissive renderer as `_EmissionColor` x intensity x level, and HDRP forces `_EmissionColor` to white, so a coloured `_EmissiveColor` glowed white in play. White x 150 + a coloured map gives the same result in the editor and at runtime |
 | Shader (mode 1 only) | - | the streak/bar gate uses the full miss distance of the view ray to the bulb; the pole cap spot shows in top views only | hemisphere geometry; mode 0 (the tall dome) is unchanged |
 
 The light (85 lm, colour, range, contact shadows off, light layer 3), the peak (`_WhiteHot`, `_PeakFlash`, `_HeatPeak`),
@@ -79,6 +79,7 @@ the OFF glints/needles and all gains are Red's.
 | `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only) |
 | `* - Inner.asset` / `* - Outer.asset` / `* - Tabs.asset` | inner fluted surface (UV0 = UV1 = mask atlas), smooth outer shell, the two tabs |
 | `* - Glow.mat` / `* - Outer.mat` / `* - Inner.mat` / `* - Tabs.mat` | as the full dome, plus the Tabs plastic |
-| `* - Masks.exr`, `* - Parity.png`, `* - Thickness.png`, `* - Tabs Emissive.png` | baked from the mesh: `bake_masks.py --flutes 32 --cap-z 5`, Inner thickness ray cast (README method), tab root glow mask |
+| `* - Masks.exr`, `* - Parity.png`, `* - Thickness.png` | baked from the mesh: `bake_masks.py --flutes 32 --cap-z 5`, Inner thickness ray cast (README method) |
+| `Flasher Half Dome, <Colour> - Tabs Emissive.png` | tab root-glow mask x the plastic's tab colour (the Tabs material's emissive map, one per colour) |
 | `* - Cookie Base.asset` | prefab cookie (above) |
 | `* - Cookie Open.asset` | same beams without the cut, for a mount where the light should also reach below the base plane |

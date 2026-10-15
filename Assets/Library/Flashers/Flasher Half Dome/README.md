@@ -63,7 +63,6 @@ has no purple preset. All presets keep the 85 lm light; as for the full dome, a 
 | Cookie | `Cookie Open` (36 beams) | `Cookie Base`: 32 beams, no cap wash, cut at the base plane (15 deg below the light, 8 deg soft) | flute count; flutes run to the pole; nothing lit below the plastic |
 | `Tabs` renderer | tabs are part of Outer | separate renderer: Red's Inner material made Transparent, with a lamp-driven emissive mask brightest at the root | under the refractive Outer the tabs read black when off and carried flute lines when lit |
 | Inner `_EmissiveColorMap` | `* - Emissive.png` (unused: Inner emission is 0) | none | no visual effect |
-| `* - Thickness.png` import | sRGB on | sRGB off (linear, as the full-dome README describes), same `_ThicknessRemap` | baked for this mesh and judged with linear sampling |
 | `Tabs` emissive colour (variants) | - | Red's (1, .05, .02) remapped per colour like Inner `_BaseColor` (`dome_colour.py` prints it), HDR × 150 | tab glow follows each plastic |
 | Shader (mode 1 only) | - | the streak/bar gate uses the full miss distance of the view ray to the bulb; the pole cap spot shows in top views only | hemisphere geometry; mode 0 (the tall dome) is unchanged |
 

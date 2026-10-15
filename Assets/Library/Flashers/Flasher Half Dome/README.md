@@ -61,7 +61,8 @@ has no purple preset. All presets keep the 85 lm light; as for the full dome, a 
 | Dome node offset, Inner/Glow scale | +1.5 mm, (1.03, 1.065, 1.03) | 0, 1 | dome48 seat and fit; not needed here |
 | `Source` position | at the filament, 18 mm up | 4 mm above the base | the filament is below the plastic; a light at the base plane only grazes the surroundings |
 | Cookie | `Cookie Open` (36 beams) | `Cookie Base`: 32 beams, no cap wash, cut at the base plane (15 deg below the light, 8 deg soft) | flute count; flutes run to the pole; nothing lit below the plastic |
-| `Tabs` renderer | tabs are part of Outer | separate renderer: Red's Inner material made Transparent, with a lamp-driven emissive mask brightest at the root | under the refractive Outer the tabs read black when off and carried flute lines when lit |
+| `Tabs` renderer | tabs are part of Outer | separate renderer: Red's Inner material made Transparent, with a lamp-driven emissive mask brightest at the root; no thickness map (the Inner map's UVs don't fit the tab mesh), flat `_Thickness` | under the refractive Outer the tabs read black when off and carried flute lines when lit |
+| `Tabs Emissive.png` import | (Red's `Emissive.png`: sRGB, repeat, compressed) | linear, clamp, uncompressed | a baked linear 0..1 glow mask for the tab mesh, not a colour image |
 | Inner `_EmissiveColorMap` | `* - Emissive.png` (unused: Inner emission is 0) | none | no visual effect |
 | `Tabs` emissive colour (variants) | - | Red's (1, .05, .02) remapped per colour like Inner `_BaseColor` (`dome_colour.py` prints it), HDR × 150 | tab glow follows each plastic |
 | Shader (mode 1 only) | - | the streak/bar gate uses the full miss distance of the view ray to the bulb; the pole cap spot shows in top views only | hemisphere geometry; mode 0 (the tall dome) is unchanged |

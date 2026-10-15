@@ -41,7 +41,7 @@ CENTRE_Z = float(opt("--centre-z", "0"))   # mm, sphere centre for --inner spher
 if INNER not in ("axis", "sphere"):
     sys.exit("--inner must be axis or sphere")
 if not BLEND or not OBJ or not A:
-    sys.exit("usage: ... -- OUTDIR [RES] --blend dome.blend --object NAME [--flutes N] [--cap-z MM] [--name PREFIX]")
+    sys.exit("usage: ... -- OUTDIR [RES] --blend dome.blend --object NAME [--flutes N] [--cap-z MM] [--name PREFIX] [--inner axis|sphere] [--centre-z MM]")
 OUT = A[0]; RES = int(A[1]) if len(A) > 1 else 1024
 os.makedirs(OUT, exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=BLEND)

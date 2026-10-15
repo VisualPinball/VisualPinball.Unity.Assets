@@ -98,12 +98,14 @@ the intensity if it reads too strong.
   vertical), `_CapR` (radius that normalises the top-view cap terms), `_CapBlend` (barrel-to-cap blends on the wall normal's y:
   x..y for the ray/streak weights, z..w for the cap-face terms), `_OuterTh` (Outer's wall model: groove-root and flat thickness,
   mean thickness), `_GrooveHalf` (groove half-width in periods), `_FluteLen` (flute length along the meridian, for glints/needles),
-  `_GlintBandY`, `_BarR0` (bars cut only inside this radius at the pole hub). `_FluteOffset` (rad, both modes, default 0) shifts
+  `_GlintBandY`, `_BarR0` (bars cut only inside this radius at the pole hub). `_FluteOffset` (rad, both modes, default 0, keep within -pi..pi) shifts
   the procedural flute coordinates only; the masks are not shifted, so keep the mesh's groove roots at theta = 0 instead.
-  Bake the masks with `--inner sphere` (`--centre-z` = sphere centre height in mm), and the cookie with
+  Bake the masks with `--inner sphere` (`--centre-z` = sphere centre height in mm) or, as the shipped Flasher Half Dome was,
+  with the default axis rule and a low cap height (`--flutes 32 --cap-z 5`), and the cookie with
   `FlasherDomeCookie.MakeBoth(N, prefix, capWash: 0)` if the beams should continue to the zenith. Set `_OpticalLamp` to the real
-  filament position (base plane = y 0). Tall-dome-only gates (`_ShoulderAlpha`, `_WallEdge`, `_BarShoulder`, `_RimDim`,
-  `_XRoom`/`_CapXBeam`, `_GlintBand`, `_HotZone`) start at 0 and come back one at a time against references.
+  filament position (base plane = y 0). Keep every other value at the Red dome's (the Flasher Half Dome
+  does): the in-game look carries over between domes of the same style. On a short part some tall-dome terms simply have no
+  effect, e.g. `_ShoulderAlpha`, `_WallEdge`, `_BarShoulder` and `_GlintBand` (its band sits at `_GlintBandY` = 24.5 mm).
 
 ## What's in the folder
 

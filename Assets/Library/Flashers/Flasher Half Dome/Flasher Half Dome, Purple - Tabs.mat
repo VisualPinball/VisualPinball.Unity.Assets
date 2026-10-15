@@ -45,8 +45,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.3842, g: 0, b: 0.4642, a: 0.49803922}
     - _Color: {r: 0.38419995, g: 0, b: 0.4641999, a: 0.49803922}
-    - _EmissiveColor: {r: 150, g: 0.056888543, b: 23.774841, a: 150}
-    - _EmissiveColorLDR: {r: 1, g: 0.0049, b: 0.4347, a: 1}
+    - _EmissiveColor: {r: 97.97042, g: 0.03592, b: 150.00000, a: 150}
+    - _EmissiveColorLDR: {r: 0.8284, g: 0.0031, b: 1.0000, a: 1}
     - _TransmittanceColor: {r: 0.7093, g: 0.0012, b: 0.9717, a: 0.25490198}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -101,6 +101,20 @@ float3 FD_AbsY(float3 C) { float3 c = FD_Abs(C); return c * (FD_Y(C) / max(FD_Y(
                 g += _CapGlintNits * (hcA < 0.35 ? 1.0 : 0.0) * tc * tc * acrossC * max(Fr, 0.2) * tint * capW * facing; \
             }
 
+// _AmbientGlow helper (2026-10-15): isotropic room irradiance / pi at the dome, in nits for a white diffuser = the sky ambient probe's
+// L0 term (the renderer's SH, what HDRP Lit uses for ambient; L0 = the average over all directions: light diffused through the wall
+// comes from every side) + each directional light's diffuse irradiance / (2 pi) (it leaves both faces). Forward pass only (0 elsewhere).
+// (SampleBakedGI here instead moved 1 Red pixel by 1 LSB at _AmbientGlow 0; the direct SH read keeps the presets bit-identical.)
+float3 FD_RoomIrr()
+{
+    float3 e = 0;
+#if defined(SHADERPASS) && (SHADERPASS == SHADERPASS_FORWARD)
+    e = float3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) + float3(unity_SHBr.z, unity_SHBg.z, unity_SHBb.z) / 3.0;
+    for (uint li = 0; li < _DirectionalLightCount; li++) e += _DirectionalLightDatas[li].color * _DirectionalLightDatas[li].diffuseDimmer * (0.5 / PI);
+#endif
+    return max(e, 0.0);
+}
+
 void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3 TangentOS, float3 BitangentOS, float2 UV,
     UnityTexture2D Masks, UnityTexture2D Parity,
     out float3 BaseColor, out float3 NormalTS, out float3 Emission, out float Alpha)
@@ -655,5 +669,19 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         Emission *= max(_OuterAlpha, 1e-3) / max(Alpha, 1e-3);
         BaseColor = lerp(float3(1.0, 1.0, 1.0), 0.05 * FD_Filter(float3(1.0, 0.04, 0.02)), saturate(shA * 20.0));   // r23: darker under Custom
     }
+    // 2026-10-15 (Clear look-dev) _AmbientGlow: clear plastic lights up with the room - light enters the wall, scatters in the flute
+    // structure and leaves toward the viewer. Emission = _AmbientGlow x room irradiance at the dome (FD_RoomIrr: the sky ambient
+    // probe's all-directions average + the directional lights, so it follows the room light and the HDRI exposure)
+    // x the plastic's own transmission through the wall (from _DomeColor: a red dome would glow red) x a wall mask: brighter where the
+    // wall is thicker (flute flats vs groove roots) and at grazing view (longer path in the plastic). _AmbientGlow is an albedo-like
+    // gain (1 = a white diffuser). Glow layer only; 0 (default) = off, every preset unchanged.
+    float3 ambE = 0;
+    [branch] if (_AmbientGlow > 0.0 && _GlowPart > 0.5 && _GlowPart < 1.5) {
+        float3 tauA = exp(-FD_Sigma() * thN);
+        float wallA = lerp(0.55, 1.0, saturate((thN - 0.0013) / 0.0014));
+        float rimA = 1.0 + 0.8 * FD_SQ(1.0 - saturate(abs(dot(Nshell, v))));
+        ambE = _AmbientGlow * FD_RoomIrr() * tauA * wallA * rimA;
+    }
+    Emission += ambE;   // thN / Nshell: the Glow path's own mask thickness and wall normal (unchanged in _GlowPart 1)
 }
 #endif

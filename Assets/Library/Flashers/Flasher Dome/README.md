@@ -107,6 +107,12 @@ the intensity if it reads too strong.
   does): the in-game look carries over between domes of the same style. On a short part some tall-dome terms simply have no
   effect, e.g. `_ShoulderAlpha`, `_WallEdge`, `_BarShoulder` and `_GlintBand` (its band sits at `_GlintBandY` = 24.5 mm).
 
+## Ambient glow
+
+`_AmbientGlow` (Glow material, default 0 = off) adds the room light diffused through the plastic: emission = `_AmbientGlow` x the
+sky ambient probe (all-directions average) + directional lights x the wall transmission from `_DomeColor` x a thickness/grazing mask.
+It follows the room light and the HDRI exposure. 1 = a white diffuser.
+
 ## What's in the folder
 
 | File | What |
@@ -120,6 +126,9 @@ the intensity if it reads too strong.
 | `* - Glow.mat` | `FlasherDomeGlow` ShaderGraph: lit body glow, additive, PreRefraction queue |
 | `* - Outer.mat` | `FlasherDomeOuter` ShaderGraph: refractive shell (colour from `_DomeColor` + `_TransmittanceColor`), which also emits the bright flute lines, glints and the peak white-hot term |
 | `FlasherDome.hlsl` | Shared custom function for both graphs (procedural `_FluteCount`-fold flute optics, colour model) |
+| `FlasherDomeFrost.shadergraph` + `FlasherDomeFrost.hlsl` | Frosted inner for a clear dome: transparent, rough thin refraction (blurred see-through) when OFF, blends with the lamp level (`_FrostLitRamp`) to an opaque smooth darker wall when lit so the flute glow stays structured |
+| `FlasherDomeOuterFrost.shadergraph` | `FlasherDomeOuter` without refraction, to sit over the frosted inner (a refractive Outer would overwrite it) |
+| `FlasherDomeGlowFrost.shadergraph` | `FlasherDomeGlow` in the default transparent pass (sort priority -1), drawn crisp after the frosted inner |
 | `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, flute masks (`Emissive.png` sits on Inner's `_EmissiveColorMap` but Inner's emission is 0, so it is unused) |
 | `* - Cookie Open.asset` | Burst-light cookie (prefab default): 36 equal flute beams (floor .76), no cut-off |
 | `* - Cookie Saucer.asset` | Same beams plus the saucer-lip cut-off 16.7° below the filament (8° soft edge), for saucer-mounted domes |

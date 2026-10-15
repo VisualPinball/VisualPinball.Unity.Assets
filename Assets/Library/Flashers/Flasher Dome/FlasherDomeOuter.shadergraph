@@ -422,6 +422,9 @@
         },
         {
             "m_Id": "92efb54bcf1d483c67f4dd369f870e24"
+        },
+        {
+            "m_Id": "2c8857a34d19695cd6cebbb6f1708699"
         }
     ],
     "m_Keywords": [],
@@ -7432,6 +7435,9 @@
         },
         {
             "m_Id": "92efb54bcf1d483c67f4dd369f870e24"
+        },
+        {
+            "m_Id": "2c8857a34d19695cd6cebbb6f1708699"
         }
     ]
 }
@@ -7883,6 +7889,40 @@
     "m_Hidden": false,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_Value": 0.0118,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "2c8857a34d19695cd6cebbb6f1708699",
+    "m_Guid": {
+        "m_GuidSerialized": "2c8857a3-4d19-695c-d6ce-bbb6f1708699"
+    },
+    "m_Name": "Ambient glow (room light diffused through the wall, Glow layer; 0 = off)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Ambient glow (room light diffused through the wall, Glow layer; 0 = off)",
+    "m_DefaultReferenceName": "_AmbientGlow",
+    "m_OverrideReferenceName": "_AmbientGlow",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,

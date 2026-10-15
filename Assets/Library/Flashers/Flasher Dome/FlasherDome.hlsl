@@ -271,6 +271,9 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // r03: the peak boost above _CoreBoost stays near bulb height (no white spindle from base to cap centre)
     float hy = (Position.y - F.y) / max(_PeakHeight, 1e-4);
     if (FD_SPH) hy = dvF / max(_PeakHeight, 1e-4);   // filament at the base plane: 'bulb height' = where the view ray passes the bulb along the flute
+    // loop r01 (hat): the whole miss distance of the refracted view ray to the filament, not only its along-flute part - on a
+    // hemisphere centred on the bulb the left/right limbs miss it ACROSS the flute (dhF) with dvF ~ 0, so a dvF-only gate lit them
+    if (FD_SPH) hy = length(float2(dvF, dhF)) / max(_PeakHeight, 1e-4);
     float gy = exp(-hy * hy);
     boostS = lerp(min(boostS, max(_CoreBoost, 1e-3)), boostS, gy);
     // r04: vertical Gaussian on the whole streak/core boost (blob at bulb height, Lux), floor _CoreFloor away from it
@@ -491,6 +494,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float n0 = frac(sin((i0 + fid * 13.0) * 12.9898) * 43758.5453), n1 = frac(sin((i0 + 1.0 + fid * 13.0) * 12.9898) * 43758.5453);
         float brk = lerp(1.0, smoothstep(0.2, 0.7, lerp(n0, n1, smoothstep(0.0, 1.0, fN))), saturate(_BarBreak));
         float prof = exp(-pow(abs(hB2), 3.0));
+        if (FD_SPH) prof *= exp(-FD_SQ(dhF / hl));   // loop r01 (hat): bars only where the view ray passes near the filament across the flute too
         // r16: hot point + intensity peak at the filament height seen through the parallax (F.y + _BarHotY), not the bar centre
         // r18: hot point where the VIEW RAY passes the filament (parallax: at 45 the bulb shows higher on the wall)
         // r19 (judge: 'string of pearls'): per-flank random hot height and length -> slivers at varied heights; white core
@@ -527,6 +531,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // radius + a tiny white core (rC < .035); view gate v.y^2 so the 45 cap star comes back
     float3 capSpot = _CapSpotNits * lvlG * capFaceW * saturate(v.y) * saturate(v.y) * bb
                      * (FD_Filter(float3(1.0, 0.42, 0.10)) * exp(-rC / max(_SpotLen, 0.01)) * (0.1 + 0.9 * edge * edge) + FD_Filter(float3(1.0, 0.85, 0.6)) * _SpotCore * exp(-(rC / 0.05) * (rC / 0.05)));
+    if (FD_SPH) capSpot *= pow(saturate(v.y), 6.0);   // loop r02 (hat): the pole spot is the bulb seen down the axis - top views only (LuxCore 45 shows no pole spot)
     // r18 (judge): the bulb itself seen through the wall - orange halo where the view ray passes the filament, broken by
     // the flutes (groove lines carry it, flats mostly dark), barrel only
     float3 halo = _BulbHalo * lvlG * exp(-(dvF * dvF + 3.0 * dhF * dhF) / (0.0025 * 0.0025)) * pow(edge, 3.0) * (1.0 - capFaceW) * bb * FD_Filter(float3(1.0, 0.35, 0.06));   // r19: per-flute (groove lines only, dark gaps), deep orange not cream

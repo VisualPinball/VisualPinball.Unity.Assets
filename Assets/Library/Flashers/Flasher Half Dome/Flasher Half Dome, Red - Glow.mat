@@ -60,22 +60,22 @@ Material:
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 1
     - _AlphaSrcBlend: 1
-    - _BandSigma: 0.06
+    - _BandSigma: 0.35
     - _BarAlpha: 0.22
     - _BarBreak: 0.4
     - _BarCoreW: 0
     - _BarDesat: 0.9
-    - _BarHeight: 0.01
+    - _BarHeight: 0.003
     - _BarHot: 1.5
-    - _BarHotY: 0.003
-    - _BarJitter: 0.008
+    - _BarHotY: 0
+    - _BarJitter: 0.002
     - _BarNits: 30000
     - _BarR0: 0.003
     - _BarSeg: 0.006
     - _BarShoulder: 0
     - _BarTilt: 30
     - _BarWidth: 0.07
-    - _BarY: 0.002
+    - _BarY: 0
     - _BlendMode: 1
     - _BodyKnee: 0
     - _BoostKnee: 0.3
@@ -89,22 +89,22 @@ Material:
     - _CapGlintNits: 0
     - _CapGlow: 0
     - _CapR: 0.0128
-    - _CapRays: 0.2
-    - _CapSpotNits: 2500
+    - _CapRays: 0.05
+    - _CapSpotNits: 3000
     - _CapStreakLen: 3.5
     - _CapXBeam: 0
     - _ConservativeDepthOffsetEnable: 0
-    - _CoreBelow: 0.03
+    - _CoreBelow: 1
     - _CoreBoost: 2
-    - _CoreFloor: 0.06
+    - _CoreFloor: 0
     - _CoreOver: 15
     - _CoreWhite: 1
     - _CullMode: 0
     - _CullModeForward: 0
     - _DbgTerm: 0
     - _DepthOffsetEnable: 0
-    - _Desat: 1
-    - _DesatPeak: 0.25
+    - _Desat: 0.4
+    - _DesatPeak: 0
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
@@ -136,13 +136,13 @@ Material:
     - _GlowGamma: 0.5
     - _GlowKnee: 0.45
     - _GlowLowPow: 1.5
-    - _GlowNits: 1550
+    - _GlowNits: 250
     - _GlowPart: 1
     - _GlowPeak: 1
     - _GrooveHalf: 0.41
     - _HeatBodyW: 1
-    - _HeatPeak: 3
-    - _HotJitter: 0.008
+    - _HeatPeak: 1
+    - _HotJitter: 0.002
     - _HotZone: 0
     - _InnerR: 0.0132
     - _InnerRY: 0.01365
@@ -163,7 +163,7 @@ Material:
     - _NeedleWidth: 0.012
     - _OpaqueCullMode: 2
     - _OuterAlpha: 0.03
-    - _PeakFlash: 8
+    - _PeakFlash: 1
     - _PeakHeight: 0.0025
     - _PeakNits: 0
     - _PeakPhys: 0
@@ -188,8 +188,8 @@ Material:
     - _Sparkle: 0.5
     - _SphereY: 0
     - _SpokeFade: 0.5
-    - _SpotCore: 1.2
-    - _SpotLen: 0.1
+    - _SpotCore: 0.6
+    - _SpotLen: 0.25
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -201,9 +201,9 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
-    - _StreakBarrel: 0.15
-    - _StreakLen: 5
-    - _StreakNits: 25000
+    - _StreakBarrel: 1
+    - _StreakLen: 3
+    - _StreakNits: 1000000
     - _SupportDecals: 1
     - _SurfaceType: 1
     - _TransmissionEnable: 0
@@ -220,7 +220,7 @@ Material:
     - _VeilNits: 0
     - _Wall: 0.0022
     - _WallEdge: 0
-    - _WhiteHot: 2400
+    - _WhiteHot: 0
     - _XBeam: 0
     - _XHeat: 4
     - _XPhase: 0.052
@@ -233,7 +233,7 @@ Material:
     - _Zebra: 0.9
     - _ZebraPeak: 0.9
     m_Colors:
-    - _CapBlend: {r: 0.5, g: 0.85, b: 0.8, a: 0.95}
+    - _CapBlend: {r: 0.1, g: 0.6, b: 0.8, a: 0.95}
     - _DomeColor: {r: 0.8996035, g: 0.2051598, b: 0.1804023, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

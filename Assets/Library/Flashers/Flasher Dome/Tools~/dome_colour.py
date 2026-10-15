@@ -50,7 +50,7 @@ def preset(T):
     out["Outer _TransmittanceColor"] = srgb(lin_colour_remap(s2lin([0.737, 0, 0]), T))
     out["Inner _BaseColor/_Color"] = srgb(lin_colour_remap(s2lin([0.46415097, 0.0127414, 0]), T))
     out["Inner _TransmittanceColor"] = srgb(lin_colour_remap(s2lin([0.9716981, 0, 0]), T))
-    out["Half Dome Tabs _EmissiveColorLDR (HDR x150)"] = srgb(lin_colour_remap(s2lin([1.0, 0.05, 0.02]), T))
+    out["Half Dome Tabs emissive-map tint (sRGB; map = glow mask x this; keep _EmissiveColor white x150)"] = srgb(lin_colour_remap(s2lin([1.0, 0.05, 0.02]), T))
     out["bar colour (1,.62,.10)"] = "(%.3f, %.3f, %.3f)" % tuple(absc([1, .62, .10], T))
     out["halo filter (1,.35,.06)"] = "(%.3f, %.3f, %.3f)" % tuple(filt([1, .35, .06], T))
     return out

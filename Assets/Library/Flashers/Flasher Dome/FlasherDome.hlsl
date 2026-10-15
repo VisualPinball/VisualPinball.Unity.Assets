@@ -678,9 +678,12 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float3 ambE = 0;
     [branch] if (_AmbientGlow > 0.0 && _GlowPart > 0.5 && _GlowPart < 1.5) {
         float3 tauA = exp(-FD_Sigma() * thN);
-        float wallA = lerp(0.55, 1.0, saturate((thN - 0.0013) / 0.0014));
-        float rimA = 1.0 + 0.8 * FD_SQ(1.0 - saturate(abs(dot(Nshell, v))));
-        ambE = _AmbientGlow * FD_RoomIrr() * tauA * wallA * rimA;
+        // _AmbientShape (2026-10-15 P4, OFF depth): x flute-edge brightening (mask phase near the groove root), y facet-centre murk,
+        // z rim/grazing gain, w thickness contrast. Default (0, 0, 0.8, 0.45) = the first _AmbientGlow formula.
+        float wallA = lerp(1.0 - _AmbientShape.w, 1.0, saturate((thN - 0.0013) / 0.0014));
+        float rimA = 1.0 + _AmbientShape.z * FD_SQ(1.0 - saturate(abs(dot(Nshell, v))));
+        float edgeA = (1.0 + _AmbientShape.x * (1.0 - smoothstep(0.02, 0.18, m.b))) * (1.0 - _AmbientShape.y * smoothstep(0.22, 0.5, m.b));
+        ambE = _AmbientGlow * FD_RoomIrr() * tauA * wallA * rimA * edgeA;
     }
     Emission += ambE;   // thN / Nshell: the Glow path's own mask thickness and wall normal (unchanged in _GlowPart 1)
 }

@@ -425,6 +425,9 @@
         },
         {
             "m_Id": "2c8857a34d19695cd6cebbb6f1708699"
+        },
+        {
+            "m_Id": "320b3203dbd3f8955b9e4c548d1653d8"
         }
     ],
     "m_Keywords": [],
@@ -7438,6 +7441,9 @@
         },
         {
             "m_Id": "2c8857a34d19695cd6cebbb6f1708699"
+        },
+        {
+            "m_Id": "320b3203dbd3f8955b9e4c548d1653d8"
         }
     ]
 }
@@ -7934,4 +7940,32 @@
     "m_CSharpEnumString": "",
     "m_EnumNames": [],
     "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "320b3203dbd3f8955b9e4c548d1653d8",
+    "m_Guid": {
+        "m_GuidSerialized": "320b3203-dbd3-f895-5b9e-4c548d1653d8"
+    },
+    "m_Name": "Ambient glow shape (x edge, y centre murk, z rim, w thickness)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Ambient glow shape (x edge, y centre murk, z rim, w thickness)",
+    "m_DefaultReferenceName": "_AmbientShape",
+    "m_OverrideReferenceName": "_AmbientShape",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.8,
+        "w": 0.45
+    }
 }

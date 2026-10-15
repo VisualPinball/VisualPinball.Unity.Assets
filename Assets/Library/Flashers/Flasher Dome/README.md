@@ -112,6 +112,8 @@ the intensity if it reads too strong.
 `_AmbientGlow` (Glow material, default 0 = off) adds the room light diffused through the plastic: emission = `_AmbientGlow` x the
 sky ambient probe (all-directions average) + directional lights x the wall transmission from `_DomeColor` x a thickness/grazing mask.
 It follows the room light and the HDRI exposure. 1 = a white diffuser.
+`_AmbientShape` shapes it: x brightens the flute edges (mask phase near the groove root), y darkens the facet centres, z is the
+rim/grazing gain, w the thickness contrast. The default (0, 0, 0.8, 0.45) is the plain form.
 
 ## What's in the folder
 

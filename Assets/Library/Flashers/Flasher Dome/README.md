@@ -118,6 +118,32 @@ rim/grazing gain, w the thickness contrast. The default (0, 0, 0.8, 0.45) is the
 `_BBTemp` (Glow and Outer, default 0 = 2900 K) sets the filament temperature at level 1 for the dome's own emission. Lower it when
 the preset's Source light is warmer than a 2900 K body, so the dome stays at least as warm as its spill while it cools.
 
+## Clear plastic (lens inner, skin milk)
+
+Knobs for a clear dome, all default off (every preset unchanged):
+
+- `FlasherDomeLens.shadergraph` (+ `FlasherDomeLens.hlsl`) is an inner for a clear dome. Each flute acts as a cylinder lens that shows a
+  strip of the live environment (colour pyramid on the table plane, else the HDRP sky), with Fresnel/TIR paths. `_LensEnv` 0 = the
+  plain frosted inner. It takes the flute geometry of the Glow material (`_FluteCount`, `_FluteOffset`, `_ProfileMode`, `_SphereY`,
+  `_InnerR`, `_InnerRY`) and its `_DomeMasks` (uv1).
+  - `_LensMilk` (x gain, y/z path in mm where the white starts/saturates, w crest sharpen) with `_LensMilkShape` (x crest half-width in
+    flute periods, y flank floor, z mask channel 0 thick_n .. 1 thick_h, w base fade height m) and `_LensMilkColor`: clear acrylic reads
+    white where it is thick. The path through the wall (mask thickness along the refracted view ray) and a crest line at each rib
+    centre mix the room light (sky ambient probe + directional lights) into the lens image. So the ridge tips go white, the thin
+    flanks stay clear, and the white follows the room. The base fade (w) hides the fluted base contour of the inner.
+  - `_LensParallax` (x outer radius in this renderer's object units, y outer vertical semi-axis (hat) / top plane (tall dome)) takes the
+    flute coordinate where the view ray enters the outer skin. The scaled inner then agrees with the Outer's own flute lines; otherwise
+    the groove line is doubled.
+  - `_LensFloorFill` (x weight, y mip, z radius m): downward lookups that leave the screen or graze use the table near the dome instead
+    of the sky's lower half (which darkened the lower dome).
+  - `_ProfileMode` 2 = flat part (e.g. the half dome's `Tabs` on this graph). There are no flutes: the mesh normal refracts the view to
+    the table under the part, the milk path is the distance to the part's bottom (capped at `_LensGlow.w` mm), and `_LensGlow`
+    (x nits at level 1, y root radius m, z falloff m) x `_LensGlowColor` is the lamp light carried into the tab, brightest at the root.
+- `_SkinMilk` (Outer only; Glow/Outer graphs and their Frost variants declare it) has x gain, y base band height m, z silhouette (grazing)
+  gain and w mounting-tab gain. `_SkinFoot` (x rho min m, y top m, z side-face boost) sets the tab region of the tall dome's Outer mesh,
+  and `_SkinMilkColor` the tint. Together they make the Outer skin milky where it is thick or seen edge-on: the base ring, the
+  silhouette, and the full dome's tabs (part of the Outer mesh) with brighter side faces.
+
 ## What's in the folder
 
 | File | What |
@@ -134,6 +160,7 @@ the preset's Source light is warmer than a 2900 K body, so the dome stays at lea
 | `FlasherDomeFrost.shadergraph` + `FlasherDomeFrost.hlsl` | Frosted inner for a clear dome: transparent, rough thin refraction (blurred see-through) when OFF, blends with the lamp level (`_FrostLitRamp`) to an opaque smooth darker wall when lit so the flute glow stays structured |
 | `FlasherDomeOuterFrost.shadergraph` | `FlasherDomeOuter` without refraction, to sit over the frosted inner (a refractive Outer would overwrite it) |
 | `FlasherDomeGlowFrost.shadergraph` | `FlasherDomeGlow` in the default transparent pass (sort priority -1), drawn crisp after the frosted inner |
+| `FlasherDomeLens.shadergraph` + `FlasherDomeLens.hlsl` | Clear-dome inner: per-flute environment lens + thickness milk, flat-part mode for tabs (see "Clear plastic") |
 | `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, flute masks (`Emissive.png` sits on Inner's `_EmissiveColorMap` but Inner's emission is 0, so it is unused) |
 | `* - Cookie Open.asset` | Burst-light cookie (prefab default): 36 equal flute beams (floor .76), no cut-off |
 | `* - Cookie Saucer.asset` | Same beams plus the saucer-lip cut-off 16.7° below the filament (8° soft edge), for saucer-mounted domes |

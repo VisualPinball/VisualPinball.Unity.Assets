@@ -410,6 +410,15 @@
         },
         {
             "m_Id": "b0bfc962051abb3510ab650d55ac5070"
+        },
+        {
+            "m_Id": "ba505b2147ecd8875f6291f503ab5fdb"
+        },
+        {
+            "m_Id": "85e69eb8d89e52c58e883d32947c82e8"
+        },
+        {
+            "m_Id": "9914773da387e372bd7c68b4f8a89ea9"
         }
     ],
     "m_Keywords": [],
@@ -6828,6 +6837,15 @@
         },
         {
             "m_Id": "b0bfc962051abb3510ab650d55ac5070"
+        },
+        {
+            "m_Id": "ba505b2147ecd8875f6291f503ab5fdb"
+        },
+        {
+            "m_Id": "85e69eb8d89e52c58e883d32947c82e8"
+        },
+        {
+            "m_Id": "9914773da387e372bd7c68b4f8a89ea9"
         }
     ]
 }
@@ -7386,4 +7404,90 @@
     "m_CSharpEnumString": "",
     "m_EnumNames": [],
     "m_EnumValues": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "ba505b2147ecd8875f6291f503ab5fdb",
+    "m_Guid": {
+        "m_GuidSerialized": "ba505b21-47ec-d887-5f62-91f503ab5fdb"
+    },
+    "m_Name": "Skin milk (x gain 0 = off, y base band m, z silhouette, w tab gain)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Skin milk (x gain 0 = off, y base band m, z silhouette, w tab gain)",
+    "m_DefaultReferenceName": "_SkinMilk",
+    "m_OverrideReferenceName": "_SkinMilk",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.002,
+        "z": 0.0,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "85e69eb8d89e52c58e883d32947c82e8",
+    "m_Guid": {
+        "m_GuidSerialized": "85e69eb8-d89e-52c5-8e88-3d32947c82e8"
+    },
+    "m_Name": "Skin milk tab region (x rho min m, y top m, z side-face boost)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Skin milk tab region (x rho min m, y top m, z side-face boost)",
+    "m_DefaultReferenceName": "_SkinFoot",
+    "m_OverrideReferenceName": "_SkinFoot",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_Value": {
+        "x": 0.0165,
+        "y": 0.003,
+        "z": 1.0,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 3,
+    "m_ObjectId": "9914773da387e372bd7c68b4f8a89ea9",
+    "m_Guid": {
+        "m_GuidSerialized": "9914773d-a387-e372-bd7c-68b4f8a89ea9"
+    },
+    "m_Name": "Skin milk colour (x room irradiance)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Skin milk colour (x room irradiance)",
+    "m_DefaultReferenceName": "_SkinMilkColor",
+    "m_OverrideReferenceName": "_SkinMilkColor",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_Value": {
+        "r": 1.0,
+        "g": 0.97,
+        "b": 0.93,
+        "a": 1.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
 }

@@ -677,6 +677,24 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         Emission *= max(_OuterAlpha, 1e-3) / max(Alpha, 1e-3);
         BaseColor = lerp(float3(1.0, 1.0, 1.0), 0.05 * FD_Filter(float3(1.0, 0.04, 0.02)), saturate(shA * 20.0));   // r23: darker under Custom
     }
+    // 2026-10-16 P7 (Clear look-dev, "plastic, not blown glass") _SkinMilk: the Outer skin reads milky white where the plastic is thick or
+    // seen edge-on. x gain (0 = off, the default: nothing below runs), y base band height (m: the thick foot of the wall at the base plane,
+    // fading up), z silhouette gain (grazing view, (1 - |N.v|)^3), w mounting-tab gain (the full dome's tabs are part of this mesh: the
+    // region rho > _SkinFoot.x and y < _SkinFoot.y, side faces x (1 + _SkinFoot.z) so the edges catch the light). The white is
+    // _SkinMilkColor x the room irradiance (FD_RoomIrr: follows the room); alpha rises to the milk weight, emission rescaled as for the
+    // shoulder alpha (HDRP premultiplies transparent emission by alpha). Outer only (_GlowPart 2).
+    [branch] if (_SkinMilk.x > 0.0 && _GlowPart > 1.5 && _GlowPart < 2.5) {
+        float cvS = saturate(abs(dot(Nshell, v)));
+        float wB = 1.0 - smoothstep(0.0, max(_SkinMilk.y, 1e-5), yRaw);
+        float wS = _SkinMilk.z * FD_SQ(1.0 - cvS) * (1.0 - cvS);
+        float footM = smoothstep(_SkinFoot.x, _SkinFoot.x + 0.0004, rRaw) * (1.0 - smoothstep(_SkinFoot.y, _SkinFoot.y + 0.0004, yRaw));
+        float wF = _SkinMilk.w * footM * (1.0 + _SkinFoot.z * (1.0 - abs(Nshell.y)));
+        float wM = saturate(_SkinMilk.x * max(max(wB, wS), wF));
+        float aM = max(Alpha, wM);
+        Emission = (Emission * Alpha + wM * _SkinMilkColor.rgb * FD_RoomIrr()) / max(aM, 1e-3);
+        BaseColor *= Alpha / max(aM, 1e-3);   // keep the lit (translucent) diffuse at its old weight: the milk is all emission (else lilac)
+        Alpha = aM;
+    }
     // 2026-10-15 (Clear look-dev) _AmbientGlow: clear plastic lights up with the room - light enters the wall, scatters in the flute
     // structure and leaves toward the viewer. Emission = _AmbientGlow x room irradiance at the dome (FD_RoomIrr: the sky ambient
     // probe's all-directions average + the directional lights, so it follows the room light and the HDRI exposure)

@@ -428,6 +428,9 @@
         },
         {
             "m_Id": "320b3203dbd3f8955b9e4c548d1653d8"
+        },
+        {
+            "m_Id": "b5f92afd85811db9ff2c17298cdb9754"
         }
     ],
     "m_Keywords": [],
@@ -7444,6 +7447,9 @@
         },
         {
             "m_Id": "320b3203dbd3f8955b9e4c548d1653d8"
+        },
+        {
+            "m_Id": "b5f92afd85811db9ff2c17298cdb9754"
         }
     ]
 }
@@ -7968,4 +7974,38 @@
         "z": 0.8,
         "w": 0.45
     }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_ObjectId": "b5f92afd85811db9ff2c17298cdb9754",
+    "m_Guid": {
+        "m_GuidSerialized": "b5f92afd-8581-1db9-ff2c-17298cdb9754"
+    },
+    "m_Name": "Blackbody temperature at level 1 (K, 0 = 2900)",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Blackbody temperature at level 1 (K, 0 = 2900)",
+    "m_DefaultReferenceName": "_BBTemp",
+    "m_OverrideReferenceName": "_BBTemp",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "m_SliderType": 0,
+    "m_SliderPower": 3.0,
+    "m_EnumType": 0,
+    "m_CSharpEnumString": "",
+    "m_EnumNames": [],
+    "m_EnumValues": []
 }

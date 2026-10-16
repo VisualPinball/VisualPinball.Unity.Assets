@@ -115,6 +115,9 @@ It follows the room light and the HDRI exposure. 1 = a white diffuser.
 `_AmbientShape` shapes it: x brightens the flute edges (mask phase near the groove root), y darkens the facet centres, z is the
 rim/grazing gain, w the thickness contrast. The default (0, 0, 0.8, 0.45) is the plain form.
 
+`_BBTemp` (Glow and Outer, default 0 = 2900 K) sets the filament temperature at level 1 for the dome's own emission. Lower it when
+the preset's Source light is warmer than a 2900 K body, so the dome stays at least as warm as its spill while it cools.
+
 ## What's in the folder
 
 | File | What |

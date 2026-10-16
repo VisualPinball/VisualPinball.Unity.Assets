@@ -219,6 +219,14 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     bb.r = 1.0;
     bb.g = saturate((99.4708025861 * log(t) - 161.1195681661) / 255.0);
     bb.b = t <= 19.0 ? 0.0 : saturate((138.5177312231 * log(t - 10.0) - 305.0447927307) / 255.0);
+    // _BBTemp (2026-10-15 P5): filament temperature at level 1 for the dome's own emission (K); 0 (default) = the 2900 K above, unchanged
+    // (the override recomputes bb after the original lines). A preset whose Source light is warmer than the 2900 K body (Clear: light
+    // (1, .62, .32)) sets it lower so the dome stays at least as warm as its own spill through the cool-down.
+    if (_BBTemp > 0.0) {
+        float tB = _BBTemp * pow(max(lvl, 1e-3), 0.1235) / 100.0;
+        bb.g = saturate((99.4708025861 * log(tB) - 161.1195681661) / 255.0);
+        bb.b = tB <= 19.0 ? 0.0 : saturate((138.5177312231 * log(tB - 10.0) - 305.0447927307) / 255.0);
+    }
     float3 sigma = FD_Sigma();
     float3 trH = exp(-sigma * thH), trN = exp(-sigma * thN);
 

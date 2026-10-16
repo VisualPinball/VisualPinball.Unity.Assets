@@ -37,11 +37,10 @@ float3 FDL_Env(float3 P, float3 d, float lod)
     c = SampleSkyTexture(dW, lod, 0).rgb;
     if (d.y < -1e-3) {
         float3 H = P + d * (max(P.y, 0.0) / -d.y);
-        // _LensFloor: a hit inside the dome's own footprint (the mounting hole / socket in a real table) is mirrored out across the
-        // base circle onto the table just outside it (0 = the true hit, 1 = mirrored: the dome's floor reads like the table around it)
+        // _LensFloor f: a hit inside the dome's own footprint (the mounting hole / socket of a real table) is mirrored out across the
+        // base circle onto the table around it, radius rF + f (rF - r) (0 = the true hit, 1 = a plain mirror: the floor reads like the table)
         float rF = _ProfileMode > 0.5 ? _InnerR : 0.01395, rH = length(H.xz);
-        // (mirrored to 1.25 rF .. : clear of the hole rim and the dome's own contact shadow, which read as dark teeth)
-        if (rH < 1.25 * rF && _LensFloor > 0.0) H.xz *= lerp(1.0, (2.5 * rF - rH) / max(rH, 1e-5), _LensFloor);
+        if (rH < rF && _LensFloor > 0.0) H.xz *= (rF + (rF - rH) * _LensFloor) / max(rH, 1e-5);
         float3 hW = TransformObjectToWorld(H);
         float4 hC = TransformWorldToHClip(hW);
         if (hC.w > 0.0) {
@@ -84,6 +83,10 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW)
     nearW = smoothstep(-0.02, 0.06, dot(v, nOut));               // near wall (seen from outside); the far wall is looked through
     float rWall = _ProfileMode > 0.5 ? _InnerR * 1.12 : 0.0156;   // the inner mesh's base flange / rim outside the wall: no lens (a flat disc)
     nearW *= 1.0 - smoothstep(rWall, rWall + 0.0006, rxz);
+    // geometric face normal: horizontal faces below the cap (base flange, the tall dome's inner ledge ring) get no lens - they drew a flat disc
+    float3 nG = cross(ddx(Position), ddy(Position));
+    float yCap = _ProfileMode > 0.5 ? 0.0 : 0.020;               // the hat has no ledge; its pole region is near-horizontal and keeps the lens
+    nearW *= 1.0 - smoothstep(0.85, 0.95, abs(nG.y) / max(length(nG), 1e-12)) * (1.0 - smoothstep(max(yCap, 0.001), max(yCap, 0.001) + 0.001, Position.y));
     float3 d0 = -v;
     float F1; float3 d1 = FDL_Refract(d0, nOut, 1.0 / 1.49, F1);  // in at the smooth skin
     float F2; float3 d2 = FDL_Refract(d1, -nIn, 1.49, F2);        // out through the flute (F2 = 1 at TIR)

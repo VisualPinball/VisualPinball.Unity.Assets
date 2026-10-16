@@ -11,6 +11,7 @@
 // continuous. The far wall's fragments go transparent (the near wall's lookup already looks through it).
 #ifndef VPE_FLASHER_DOME_LENS
 #define VPE_FLASHER_DOME_LENS
+#define FD_LSQ(x) ((x) * (x))
 
 float FDL_Fresnel(float ci, float ct, float eta)   // unpolarised dielectric Fresnel, eta = n_incident / n_transmitted
 {
@@ -77,7 +78,7 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW)
     // rib (cylinder-lens) normal into the cavity: tilts toward -theta just past a root (= FlasherDome.hlsl flank convention);
     // sin(tilt) = sign(u) |2u|^shape sin(_LensShape.x): shape 1 = circular rib, < 1 = flatter centre / steeper edges (V-ish)
     float pp = (length(ddx(Position.xz)) + length(ddy(Position.xz))) / max(rxz, 1e-4) / pitch;   // flute periods per pixel
-    float aa = saturate(1.6 - 1.2 * pp);                          // flutes under ~1.3 px: fade the lens toward the smooth wall
+    float aa = saturate(2.5 - pp);                                // flute periods per pixel 1.5 .. 2.5 (sub-pixel flutes): fade the lens toward the smooth wall
     float sa = sign(u) * pow(saturate(abs(2.0 * u)), max(_LensShape.y, 0.05)) * sin(radians(_LensShape.x)) * smoothstep(0.0015, 0.004, rxz) * aa;
     float3 nIn = normalize(-nB * sqrt(1.0 - sa * sa) + tg * sa);
     nearW = smoothstep(-0.02, 0.06, dot(v, nOut));               // near wall (seen from outside); the far wall is looked through
@@ -98,6 +99,10 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW)
     // trapped (TIR at the flute and again at the skin): guided along the wall to the base -> the table right under this wall point
     float3 eB = (_LensTrap > 0.0 && F2 * F3 > 0.001) ? FDL_Env(Position, float3(0, -1, 0), lod + 1.0) : 0;
     float3 E = (1.0 - F1) * ((1.0 - F2) * 0.92 * eT + _LensShape.w * F2 * (1.0 - F3) * eR + _LensTrap * F2 * F3 * eB);   // .92: far wall
+    // _LensCrease (x strength, y half-width in flute periods): the groove root reads as a dark crease between the rods (the real V-groove
+    // flanks are steep enough to send most rays into the wall); 0 = off
+    float eRt = 0.5 - abs(u);                                     // 0 at the groove root
+    E *= 1.0 - saturate(_LensCrease.x) * exp(-FD_LSQ(eRt / max(_LensCrease.y, 1e-3))) * smoothstep(0.0015, 0.004, rxz);
     // weak isotropic murk: the sky ambient probe (L0) diffused by the flute roughness
     float3 amb = float3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) + float3(unity_SHBr.z, unity_SHBg.z, unity_SHBb.z) / 3.0;
     return E + _FluteScatter * max(amb, 0.0);

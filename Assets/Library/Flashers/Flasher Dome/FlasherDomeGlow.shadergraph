@@ -7440,9 +7440,9 @@
     "m_Guid": {
         "m_GuidSerialized": "85e69eb8-d89e-52c5-8e88-3d32947c82e8"
     },
-    "m_Name": "Skin milk tab region (x rho min m, y top m, z side-face boost)",
+    "m_Name": "Skin milk tab region (x rho min m, y top m, z side-face boost, w far-tab hide)",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Skin milk tab region (x rho min m, y top m, z side-face boost)",
+    "m_RefNameGeneratedByDisplayName": "Skin milk tab region (x rho min m, y top m, z side-face boost, w far-tab hide)",
     "m_DefaultReferenceName": "_SkinFoot",
     "m_OverrideReferenceName": "_SkinFoot",
     "m_GeneratePropertyBlock": true,

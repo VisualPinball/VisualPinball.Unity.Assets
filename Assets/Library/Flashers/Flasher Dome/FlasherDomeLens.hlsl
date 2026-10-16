@@ -24,6 +24,14 @@
 //    refracted in at the face and samples the table where it reaches the part's bottom (object y = 0); milk path = that distance (capped
 //    at _LensGlow.w mm); _LensGlow (x nits at level 1, y root radius m, z falloff m) x _LensGlowColor = lamp light conducted out into
 //    the tab, brightest at the root (the Red tabs' emissive map, analytic here).
+// P8 (2026-10-16), every knob defaults to off (free z/w slots of existing vectors, no new properties):
+//  - far-tab hide, flat part only: _LensParallax (unused by the flat part's lens) x, y = the dome's OUTER ellipsoid semi-axes (m,
+//    horizontal / vertical, centre = object origin), z hide strength (0 = off), w edge softness (m). A tab fragment whose ray toward the
+//    camera passes through the dome body is faded out: the Tabs renderer (transparent, queue 3000, no depth writes) is drawn after
+//    the lens Inner (2998), so the far tab otherwise lies ON TOP of the dome body as a sharp pale shape; a real dome's flutes scramble
+//    it beyond recognition (the colour pyramid the lens samples holds no transparents, so the far tab simply drops out of the body).
+//  - _LensCrease z: crease strength applied AFTER the milk (the milk lerp otherwise paints over the groove-root crease); w its half-width
+//    in flute periods (0 = _LensCrease.y). x/y (the pre-milk crease on the lens image) are unchanged.
 #ifndef VPE_FLASHER_DOME_LENS
 #define VPE_FLASHER_DOME_LENS
 #define FD_LSQ(x) ((x) * (x))
@@ -159,6 +167,19 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
     float3 amb = float3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) + float3(unity_SHBr.z, unity_SHBg.z, unity_SHBb.z) / 3.0;
     return E + _FluteScatter * max(amb, 0.0);
 }
+// P8: 1 where the ray P -> camera (direction v, unit, object space) passes through the dome's outer ellipsoid (R, RY, R) about the
+// origin, upper half only; P outside it. Soft over `soft` m at the silhouette and at the base plane.
+float FDL_Behind(float3 P, float3 v, float R, float RY, float soft)
+{
+    float3 sR = float3(1.0 / max(R, 1e-4), 1.0 / max(RY, 1e-4), 1.0 / max(R, 1e-4));
+    float3 p0 = P * sR, d0 = v * sR;
+    float a = max(dot(d0, d0), 1e-8), b = dot(p0, d0);
+    if (b >= 0.0) return 0.0;                                     // heading away from the dome (the near tab)
+    float m = sqrt(max(dot(p0, p0) - b * b / a, 0.0));            // closest approach, unit-sphere space
+    float yC = P.y + v.y * (-b / a);                              // height of that point (the dome is the y >= 0 half)
+    float s = max(soft, 1e-5);
+    return (1.0 - smoothstep(1.0 - s / max(R, 1e-4), 1.0, m)) * smoothstep(-s, s, yC);
+}
 // flat part (_ProfileMode 2, the tabs): parallel faces, so the transmitted ray leaves the bottom along the refracted in-part ray d1
 float3 FDL_Flat(float3 Position, float3 View, float3 NormalOS, out float nearW, out float3 d1, out float3 nOut)
 {
@@ -200,10 +221,18 @@ void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2
             float W = saturate(_LensMilk.x * (wT * lerp(1.0, crest, saturate(_LensMilk.w)) + _LensMilkShape.y));
             Emission = lerp(Emission, _LensMilkColor.rgb * FDL_RoomIrr(), W);
         }
+        // P8 crease after the milk (z strength, w half-width in flute periods; 0 = y), faded with the sub-pixel lens (aa)
+        [branch] if (!flat && _LensCrease.z > 0.0) {
+            float cwP = _LensCrease.w > 0.0 ? _LensCrease.w : _LensCrease.y;
+            Emission *= 1.0 - saturate(_LensCrease.z) * exp(-FD_LSQ((0.5 - abs(u)) / max(cwP, 1e-3))) * smoothstep(0.0015, 0.004, rxz) * aa;
+        }
         // P7 flat part: lamp light conducted out into the tab, brightest at the root
         [branch] if (flat && _LensGlow.x > 0.0)
             Emission += saturate(_InsertLampLevel) * _LensGlow.x * _LensGlowColor.rgb * exp(-max(length(Position.xz) - _LensGlow.y, 0.0) / max(_LensGlow.z, 1e-4));
         Alpha *= nearW;
+        // P8 far-tab hide (flat part): faded where the dome body stands between the tab and the camera
+        [branch] if (flat && _LensParallax.z > 0.0)
+            Alpha *= 1.0 - saturate(_LensParallax.z) * FDL_Behind(Position, normalize(View + float3(0, 1e-6, 0)), _LensParallax.x, _LensParallax.y, _LensParallax.w);
         // P7: the inner's fluted base contour fades out over the bottom _LensMilkShape.w (m) - no serrated edge at the base
         if (!flat && _LensMilkShape.w > 0.0) Alpha *= smoothstep(0.0, _LensMilkShape.w, Position.y);
     }

@@ -143,6 +143,14 @@ Knobs for a clear dome, all default off (every preset unchanged):
   gain and w mounting-tab gain. `_SkinFoot` (x rho min m, y top m, z side-face boost) sets the tab region of the tall dome's Outer mesh,
   and `_SkinMilkColor` the tint. Together they make the Outer skin milky where it is thick or seen edge-on: the base ring, the
   silhouette, and the full dome's tabs (part of the Outer mesh) with brighter side faces.
+- Far-tab hide (all default off). Every Clear dome renderer is transparent without depth writes, and the tabs draw after the lens
+  Inner, so the far tab otherwise lies on top of the dome body as a sharp shape. A real dome's flutes scramble it.
+  - `_SkinFoot.w` (Outer, tall dome): strength. A tab fragment whose ray to the camera passes through the barrel (outer radius
+    15.43 mm, up to 29.0 mm) loses its milk, line emission and alpha.
+  - Flat part (`_ProfileMode` 2) on `FlasherDomeLens`: `_LensParallax` x, y = the dome's outer ellipsoid semi-axes (m, centre at the
+    object origin), z = strength, w = edge softness (m).
+- `_LensCrease` z, w: a second crease applied after the milk (z strength, w half-width in flute periods, 0 = y). The milk otherwise
+  paints over the groove-root crease.
 
 ## What's in the folder
 

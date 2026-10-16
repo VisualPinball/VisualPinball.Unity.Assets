@@ -1967,9 +1967,9 @@
     "m_Guid": {
         "m_GuidSerialized": "fa9402b4-1850-c681-d8f0-9d513705f8c1"
     },
-    "m_Name": "Lens: groove crease (x strength, y half-width in flute periods)",
+    "m_Name": "Lens: groove crease (x strength, y half-width in flute periods; P8 z after-milk strength, w its half-width, 0 = y)",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Lens: groove crease (x strength, y half-width in flute periods)",
+    "m_RefNameGeneratedByDisplayName": "Lens: groove crease (x strength, y half-width in flute periods; P8 z after-milk strength, w its half-width, 0 = y)",
     "m_DefaultReferenceName": "_LensCrease",
     "m_OverrideReferenceName": "_LensCrease",
     "m_GeneratePropertyBlock": true,
@@ -2402,9 +2402,9 @@
     "m_Guid": {
         "m_GuidSerialized": "a2503534-b553-a8a4-7a70-aac59a615181"
     },
-    "m_Name": "Lens: parallax (flute azimuth at the outer skin: x outer radius in object units, 0 = off; y outer vertical semi-axis / top plane)",
+    "m_Name": "Lens: parallax (flute azimuth at the outer skin: x outer radius in object units, 0 = off; y outer vertical semi-axis / top plane; flat part: x y dome outer ellipsoid, z far-tab hide, w softness m)",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Lens: parallax (flute azimuth at the outer skin: x outer radius in object units, 0 = off; y outer vertical semi-axis / top plane)",
+    "m_RefNameGeneratedByDisplayName": "Lens: parallax (flute azimuth at the outer skin: x outer radius in object units, 0 = off; y outer vertical semi-axis / top plane; flat part: x y dome outer ellipsoid, z far-tab hide, w softness m)",
     "m_DefaultReferenceName": "_LensParallax",
     "m_OverrideReferenceName": "_LensParallax",
     "m_GeneratePropertyBlock": true,

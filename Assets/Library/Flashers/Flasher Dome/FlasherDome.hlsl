@@ -115,6 +115,17 @@ float3 FD_RoomIrr()
     return max(e, 0.0);
 }
 
+// P8: 1 where the ray P -> camera (v, unit, object space) passes through the vertical barrel rho < R below yTop (P outside it), soft
+// over `soft` m at the silhouette and at the top
+float FD_BehindBarrel(float3 P, float3 v, float R, float yTop, float soft)
+{
+    float a = dot(v.xz, v.xz), b = dot(P.xz, v.xz);
+    if (a < 1e-6 || b >= 0.0) return 0.0;                         // straight down/up, or heading away from the dome (the near tabs)
+    float m2 = max(dot(P.xz, P.xz) - b * b / a, 0.0);             // closest approach to the axis, squared (xz)
+    float side = 1.0 - smoothstep(R - soft, R, sqrt(m2));
+    float y1 = P.y + v.y * (-b - sqrt(max((R * R - m2) * a, 0.0))) / a;   // height where the ray enters the barrel
+    return side * (1.0 - smoothstep(yTop - soft, yTop, y1));
+}
 void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3 TangentOS, float3 BitangentOS, float2 UV,
     UnityTexture2D Masks, UnityTexture2D Parity,
     out float3 BaseColor, out float3 NormalTS, out float3 Emission, out float Alpha)
@@ -683,6 +694,11 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // region rho > _SkinFoot.x and y < _SkinFoot.y, side faces x (1 + _SkinFoot.z) so the edges catch the light). The white is
     // _SkinMilkColor x the room irradiance (FD_RoomIrr: follows the room); alpha rises to the milk weight, emission rescaled as for the
     // shoulder alpha (HDRP premultiplies transparent emission by alpha). Outer only (_GlowPart 2).
+    // P8 (2026-10-16) _SkinFoot.w: far-tab hide strength (0 = off, the default). The full dome's tabs are part of this mesh, drawn after
+    // the Inner/Glow (transparent queue, no depth writes), so the FAR tab's front-facing top and end faces lie on top of the dome body
+    // as a sharp pale shape. Where the ray from a tab fragment (tab region, footM) toward the camera passes through the dome's barrel
+    // (mode 0 literal: outer radius 15.43 mm up to 29.0 mm, the shipped Outer mesh), its milk, line emission and alpha fade by w. Mode 0
+    // only (the half dome's tabs are their own renderer: FlasherDomeLens flat part, _LensParallax z).
     [branch] if (_SkinMilk.x > 0.0 && _GlowPart > 1.5 && _GlowPart < 2.5) {
         float cvS = saturate(abs(dot(Nshell, v)));
         float wB = 1.0 - smoothstep(0.0, max(_SkinMilk.y, 1e-5), yRaw);
@@ -690,6 +706,10 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float footM = smoothstep(_SkinFoot.x, _SkinFoot.x + 0.0004, rRaw) * (1.0 - smoothstep(_SkinFoot.y, _SkinFoot.y + 0.0004, yRaw));
         float wF = _SkinMilk.w * footM * (1.0 + _SkinFoot.z * (1.0 - abs(Nshell.y)));
         float wM = saturate(_SkinMilk.x * max(max(wB, wS), wF));
+        [branch] if (_SkinFoot.w > 0.0 && !FD_SPH && footM > 0.0) {
+            float hideF = 1.0 - saturate(_SkinFoot.w) * footM * FD_BehindBarrel(Position, v, 0.01543, 0.0290, 0.0004);
+            wM *= hideF; Emission *= hideF; Alpha *= hideF;
+        }
         float aM = max(Alpha, wM);
         Emission = (Emission * Alpha + wM * _SkinMilkColor.rgb * FD_RoomIrr()) / max(aM, 1e-3);
         BaseColor *= Alpha / max(aM, 1e-3);   // keep the lit (translucent) diffuse at its old weight: the milk is all emission (else lilac)

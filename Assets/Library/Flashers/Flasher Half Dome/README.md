@@ -31,7 +31,7 @@ mesh: the same shaders (`FlasherDomeGlow` / `FlasherDomeOuter`, `FlasherDome.hls
 `Flasher Half Dome, Red.prefab` is the base. The other colours are prefab variants of it: each swaps in material variants
 (`Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat`, parent = the Red material) that override only the colour
 properties (`_DomeColor`, `_TransmittanceColor`, `_BaseColor`/`_Color`, the Tabs emissive colour map) and set the `Source` light
-colour. Edit the Red prefab or materials and every colour follows. Values come from `Tools~/dome_colour.py` in
+colour. Edit the Red prefab or materials and every colour follows. Clear is the exception (next section). Values come from `Tools~/dome_colour.py` in
 `../Flasher Dome/` (the same colour model as the full dome; see its "Custom colour" section for a new plastic).
 
 | Preset | `_DomeColor` (sRGB) | σ (1/m, R G B) | Light colour |
@@ -47,6 +47,17 @@ colour. Edit the Red prefab or materials and every colour follows. Values come f
 
 Purple matches the Stern -09 hat (violet: passes blue and some red, absorbs green). It is only in this folder; the full dome
 has no purple preset. All presets keep the 85 lm light; as for the full dome, a clear dome blows out white at the peak.
+
+## Clear
+
+`Flasher Half Dome, Clear` is the full dome's Clear preset on this mesh (`../Flasher Dome/README.md`, "Clear plastic"):
+standalone materials (Inner on `FlasherDomeLens`, Glow/Outer on the Frost graphs), the bulb-inside lens (`_LensInterior`
+(1, 2, 0, 1)) and Inner depth write, with the same known limit (transparent objects behind it are not refracted).
+- Inner and Glow are scaled (1.110, 1.049, 1.110).
+- `Tabs` uses `FlasherDomeLens` in flat-part mode (`_ProfileMode` 2), the same clear-plastic model as the dome. They are milky
+  where thick, lamp-lit at the root (`_LensGlow`), and the far tab fades where the dome covers it (`_LensParallax` z, w).
+- The tabs have their own mesh, `Flasher Half Dome, Clear - Tabs.asset`, with a 0.45 mm bevel on the edges. A bevel reads on
+  clear plastic, so only Clear has it: Red and the coloured presets keep the square-edged `Red - Tabs.asset`.
 
 ## Differences from Flasher Dome, Red (everything else is Red's value)
 
@@ -78,6 +89,7 @@ the OFF glints/needles and all gains are Red's.
 | `Flasher Half Dome, <Colour>.prefab` | Orange, Yellow, Olive, Green, Blue, Clear, Purple: prefab variants of Red |
 | `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only) |
 | `* - Inner.asset` / `* - Outer.asset` / `* - Tabs.asset` | inner fluted surface (UV0 = UV1 = mask atlas), smooth outer shell, the two tabs |
+| `Flasher Half Dome, Clear - Tabs.asset` | the Clear preset's tabs: the same tabs with a 0.45 mm edge bevel |
 | `* - Glow.mat` / `* - Outer.mat` / `* - Inner.mat` / `* - Tabs.mat` | as the full dome, plus the Tabs plastic |
 | `* - Masks.exr`, `* - Parity.png`, `* - Thickness.png` | baked from the mesh: `bake_masks.py --flutes 32 --cap-z 5`, Inner thickness ray cast (README method) |
 | `Flasher Half Dome, <Colour> - Tabs Emissive.png` | tab root-glow mask x the plastic's tab colour (the Tabs material's emissive map, one per colour) |

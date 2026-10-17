@@ -24,7 +24,8 @@ it ships as Red (the tuned original) plus Orange, Yellow, Olive, Green, Blue and
 
 - **Pick a preset:** `Flasher Dome, Red.prefab` is the base. Orange, Yellow, Olive, Green, Blue and Clear are prefab
   variants of it. Each variant swaps in material variants (`Flasher Dome, <Colour> - Glow/Outer/Inner.mat`, parent = the
-  Red material) and sets the `Source` light colour. Edit the Red prefab or materials and every colour follows.
+  Red material) and sets the `Source` light colour. Edit the Red prefab or materials and every colour follows. Clear is the
+  exception: its materials are standalone (see "Clear plastic").
 - **Custom colour:** make a material variant of the Red Glow and Outer and set **Dome Colour** (`_DomeColor`) on both.
   This is the colour of the plastic held up to white light, i.e. its transmittance through the 2.4 mm wall. The shader
   turns it into an absorption coefficient (Beer–Lambert) and derives every term from it:
@@ -120,7 +121,22 @@ the preset's Source light is warmer than a 2900 K body, so the dome stays at lea
 
 ## Clear plastic (lens inner, skin milk)
 
-Knobs for a clear dome, all default off (every preset unchanged):
+**The Clear preset** (`Flasher Dome, Clear`, and `Flasher Half Dome, Clear` in the next folder) uses the knobs below. Every
+other preset leaves them off and is unchanged.
+- Its materials are standalone, not Red variants: Inner on `FlasherDomeLens`, Glow on `FlasherDomeGlowFrost`, Outer on
+  `FlasherDomeOuterFrost` (no refraction). Queues: Inner 2998 (sort priority -2), Glow 2999 (-1), Outer 3000. The prefab
+  scales Inner and Glow to (1.108, 1.042, 1.108) so they fill the non-refracting Outer.
+- **OFF:** each flute shows a blurred, mirrored strip of the table, dark creases between the rods, and white where the plastic
+  is thick (ridge tips, base, tabs). The dome takes the room's colour. **Lit:** a 2585 K filament (`_BBTemp`), lamp-lit milk
+  (`_LensGlow`).
+- **Bulb inside:** `_LensInterior` (1, 2, 0, 1). A bulb or socket inside the dome shows through the flutes as refracted
+  streaks, and a hot filament keeps its white core.
+- **Depth write:** the Inner writes depth (`_TransparentZWrite` 1). A Clear dome behind another Clear dome is hidden by it
+  instead of drawn crisp on top. Known limit: transparent objects behind a Clear dome are not refracted (the lens only sees
+  opaque objects).
+- To make your own clear look, start from the Clear materials.
+
+Knobs for a clear dome, all default off:
 
 - `FlasherDomeLens.shadergraph` (+ `FlasherDomeLens.hlsl`) is an inner for a clear dome. Each flute acts as a cylinder lens that shows a
   strip of the live environment (colour pyramid on the table plane, else the HDRP sky), with Fresnel/TIR paths. `_LensEnv` 0 = the
@@ -143,13 +159,13 @@ Knobs for a clear dome, all default off (every preset unchanged):
   gain and w mounting-tab gain. `_SkinFoot` (x rho min m, y top m, z side-face boost) sets the tab region of the tall dome's Outer mesh,
   and `_SkinMilkColor` the tint. Together they make the Outer skin milky where it is thick or seen edge-on: the base ring, the
   silhouette, and the full dome's tabs (part of the Outer mesh) with brighter side faces.
-- Far-tab hide (all default off). Every Clear dome renderer is transparent without depth writes, and the tabs draw after the lens
-  Inner, so the far tab otherwise lies on top of the dome body as a sharp shape. A real dome's flutes scramble it.
+- Far-tab hide (all default off). The tabs are transparent and draw after the lens Inner, so the far tab otherwise lies on top of
+  the dome body as a sharp shape. A real dome's flutes scramble it.
   - `_SkinFoot.w` (Outer, tall dome): strength. A tab fragment whose ray to the camera passes through the barrel (outer radius
     15.43 mm, up to 29.0 mm) loses its milk, line emission and alpha.
   - Flat part (`_ProfileMode` 2) on `FlasherDomeLens`: `_LensParallax` x, y = the dome's outer ellipsoid semi-axes (m, centre at the
     object origin), z = strength, w = edge softness (m).
-- `_LensInterior` (x weight, 0 = off; y blur mip; z hot-core mip; w hot-core gain): opaque objects inside the dome (a bulb, a socket,
+- `_LensInterior` (x weight, 0 = off; y blur mip; z hot-core mip; w hot-core gain; default (0, 2, 0, 1)): opaque objects inside the dome (a bulb, a socket,
   a toy) show through the flutes. The transmitted ray is marched through the cavity against the camera depth (opaques only) and,
   where it passes behind an opaque surface, the colour pyramid is read there instead of the floor: refracted, blurred at mip y,
   with a blown-out core kept as max(blurred, w x mip z).
@@ -162,7 +178,7 @@ Knobs for a clear dome, all default off (every preset unchanged):
 |---|---|
 | `Flasher Dome, Red.prefab` | Dome (Inner + Glow + Outer) + `Source` point light: the base prefab |
 | `Flasher Dome, <Colour>.prefab` | Prefab variants of Red: Orange, Yellow, Olive, Green, Blue, Clear (materials + light colour) |
-| `Flasher Dome, <Colour> - Glow/Outer/Inner.mat` | Material variants of the Red materials (only the colour properties overridden) |
+| `Flasher Dome, <Colour> - Glow/Outer/Inner.mat` | Material variants of the Red materials (only the colour properties overridden); Clear's are standalone (Lens/Frost graphs, "Clear plastic") |
 | `* - Outer.asset` | Outer shell mesh, smooth outer skin + mounting tab |
 | `* - Inner.asset` | Inner surface: flutes, cap rays, inner wall (used by Inner and Glow, scaled 1.03/1.065/1.03) |
 | `* - Inner.mat` | HDRP Lit, translucent, thickness map, VPE `ThickerPlastic` diffusion profile |

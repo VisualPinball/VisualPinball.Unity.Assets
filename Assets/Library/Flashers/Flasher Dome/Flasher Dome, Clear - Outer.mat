@@ -24,35 +24,251 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Flasher Dome, Clear - Outer
-  m_Shader: {fileID: -6465566751694194690, guid: 9c26427eb018a4a4ca1cf37069f247cc, type: 3}
-  m_Parent: {fileID: 2100000, guid: d0a12cf2720d39eaa8a6a41cb54596a6, type: 2}
+  m_Shader: {fileID: -6465566751694194690, guid: e85e7fbe3a477751c9fb8d188b66f2d7, type: 3}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _ENABLE_FOG_ON_TRANSPARENT
   - _MATERIAL_FEATURE_TRANSMISSION
-  - _REFRACTION_THIN
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
-  - RayTracingPrepass
+  - TransparentDepthPrepass
   - TransparentDepthPostpass
+  - TransparentBackface
+  - RayTracingPrepass
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _DomeMasks:
+        m_Texture: {fileID: 2800000, guid: 668ba89e0e7d7835788342d5c63cc2fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DomeParity:
+        m_Texture: {fileID: 2800000, guid: 4e60b0bd6dba225678578da6b63919ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _ATDistance: 0.56
+    - _AddPrecomputedVelocity: 0
+    - _Alpha: 0.03
+    - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 10
+    - _AlphaSrcBlend: 1
+    - _AmbientGlow: 0
+    - _BBTemp: 2585
+    - _BandSigma: 0.06
+    - _BarAlpha: 0.22
+    - _BarBreak: 0.4
+    - _BarCoreW: 0
+    - _BarDesat: 0.2
+    - _BarHeight: 0.01
+    - _BarHot: 1.5
+    - _BarHotY: 0.003
+    - _BarJitter: 0.008
+    - _BarNits: 46800
+    - _BarR0: 0.0118
+    - _BarSeg: 0.006
+    - _BarShoulder: 0
+    - _BarTilt: 30
+    - _BarWidth: 0.07
+    - _BarY: 0.002
+    - _BlendMode: 0
+    - _BodyKnee: 0
+    - _BoostKnee: 0.3
+    - _BoostPeak: 2
+    - _BoostPow: 2.5
+    - _BulbHalo: 2500
+    - _CapBodyW: 0.35
+    - _CapBoostMax: 5
+    - _CapCenterNits: 0
+    - _CapEdge0: 0.75
+    - _CapGlintNits: 900.00006
+    - _CapGlow: 0
+    - _CapR: 0.0145
+    - _CapRays: 0.2
+    - _CapSpotNits: 2500
+    - _CapStreakLen: 3.5
+    - _CapXBeam: 10000
+    - _ConservativeDepthOffsetEnable: 0
+    - _CoreBelow: 0.03
+    - _CoreBoost: 2
+    - _CoreFloor: 0.06
+    - _CoreOver: 5
+    - _CoreWhite: 1
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _DbgTerm: 0
+    - _DepthOffsetEnable: 0
+    - _Desat: 0.3
+    - _DesatPeak: 0.25
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 2
+    - _DstBlend: 10
+    - _DstBlend2: 10
+    - _EdgeGlowW: 0.9
+    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
+    - _FacetJitter: 1
+    - _FacetShade: 0.6
+    - _FilamentNits: 0
+    - _FlakeAspect: 1
+    - _FlakeCell: 0.0004
+    - _FlakeDensity: 0
+    - _FlakeNits: 0
+    - _FlakeSoft: 1
+    - _FlakeStreakMix: 0
+    - _FlankFill: 0.3
+    - _FlankTilt: 30
+    - _FluteAlpha: 0.22
+    - _FluteAlphaV: 0.22
+    - _FluteCount: 36
+    - _FluteLen: 0.025
+    - _FluteOffset: 0
+    - _GlintBand: 2.5
+    - _GlintBandY: 0.0245
+    - _GlintNits: 1800.0001
+    - _GlowGamma: 0.91
+    - _GlowKnee: 0.45
+    - _GlowLowPow: 0.3
+    - _GlowNits: 1550
+    - _GlowPart: 2
+    - _GlowPeak: 1
+    - _GrooveHalf: 0.125
+    - _HeatBodyW: 1
+    - _HeatPeak: 3
+    - _HotJitter: 0.008
+    - _HotZone: 0
+    - _InnerR: 0.01395
+    - _InnerRY: 0.01395
+    - _InsertLampLevel: 0
+    - _Ior: 1.228
+    - _LevelFade: 0.3
+    - _LevelGamma: 0.9
+    - _LevelToe: 0
+    - _LiftFlat: 0.7
+    - _LinesGain: 33
+    - _LobeLift: 0
+    - _LobeV: 1
+    - _MaterialID: 5
+    - _MaterialTypeMask: 32
+    - _NeedleDensity: 0.5
+    - _NeedleLen: 1
+    - _NeedleNits: 3600.0002
+    - _NeedleSlide: 1
+    - _NeedleWidth: 0.04
+    - _OpaqueCullMode: 2
+    - _OuterAlpha: 0.03
+    - _PeakFlash: 8
+    - _PeakHeight: 0.0025
+    - _PeakNits: 0
+    - _PeakPhys: 0
+    - _PeakPow: 8
+    - _PerPixelSorting: 0
+    - _ProfileMode: 0
+    - _RayTracing: 0
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
+    - _RenderQueueType: 4
+    - _RequireSplitLighting: 0
+    - _RidgeLen: 1
+    - _RidgeNits: 600
+    - _RimDim: 1
+    - _RimR0: 0.7
+    - _RimRadius: 0.6
+    - _RimRing: 0
+    - _ScatterAlpha: 0.6
+    - _ScatterNits: 0
+    - _ShoulderAlpha: 1
+    - _Smoothness: 0.97
+    - _Sparkle: 0.5
+    - _SphereY: 0
+    - _SpokeFade: 0.5
+    - _SpotCore: 1.2
+    - _SpotLen: 0.1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
+    - _StreakBarrel: 0.15
+    - _StreakLen: 5
+    - _StreakNits: 25000
+    - _SupportDecals: 1
+    - _SurfaceType: 1
+    - _Thickness: 0.19
+    - _TransmissionEnable: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UseShadowThreshold: 0
+    - _VeilGain: 0
+    - _VeilLevel: -1
+    - _VeilNits: 0
+    - _Wall: 0.0022
+    - _WallEdge: 0
+    - _WhiteHot: 2400
+    - _XBeam: 0
+    - _XHeat: 4
+    - _XPhase: 0.052
+    - _XPow: 2.5
+    - _XRoom: 0.85
+    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 0
+    - _Zebra: 0.9
+    - _ZebraPeak: 0.9
     m_Colors:
-    - _DomeColor: {r: 0.9968, g: 0.9968, b: 0.9958, a: 1}
-    - _TransmittanceColor: {r: 0.737, g: 0.737, b: 0.7347, a: 1}
+    - _AmbientShape: {r: 0, g: 0, b: 0.8, a: 0.45}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CapBlend: {r: 0.5, g: 0.85, b: 0.8, a: 0.95}
+    - _DomeColor: {r: 0.9968, g: 0.9968, b: 0.99579996, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OpticalLamp: {r: 0, g: 0.0156, b: 0, a: 0}
+    - _OuterTh: {r: 0.00205, g: 0.00275, b: 0.0038, a: 0}
+    - _ShellBase: {r: 0.5499999, g: 0.02, b: 0.01, a: 1}
+    - _SkinFoot: {r: 0.0161, g: 0.0087, b: 2, a: 0.8}
+    - _SkinMilk: {r: 0.462, g: 0.01, b: 0.3, a: 0.3}
+    - _SkinMilkColor: {r: 1.34992, g: 1.3, b: 1.25008, a: 1}
+    - _TransmittanceColor: {r: 0.7369999, g: 0.7369999, b: 0.7347, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

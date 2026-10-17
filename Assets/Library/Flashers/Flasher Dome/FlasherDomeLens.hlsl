@@ -1,5 +1,5 @@
-// Flasher dome LENS INNER (2026-10-15 P6, Clear preset) - custom function for FlasherDomeLens.shadergraph (= FlasherDomeFrost without HDRP
-// refraction, generator make_dome_frost_graph.py --lens). _LensEnv 0 = a plain frosted inner (no refraction).
+// Flasher dome LENS INNER (2026-10-15 P6, Clear preset) - custom function for FlasherDomeLens.shadergraph (transparent HDRP Lit, no HDRP
+// refraction, alpha clipping; generator make_dome_frost_graph.py --lens). _LensEnv 0 = a plain frosted inner (lamp-blended colour/alpha).
 // Per-flute ENVIRONMENT LENS (_LensEnv > 0): a real clear fluted dome is not see-through and not white - every flute is a cylindrical lens
 // that shows a compressed, mirrored strip of the surroundings, with glints and dark bands where the ray is reflected inside (TIR).
 // Per pixel of the NEAR wall: the view ray is refracted in at the smooth outer skin (IOR 1.49) and out through the inner flute, whose
@@ -163,7 +163,7 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
             t = max((-b + sqrt(max(b * b - a * c, 0.0))) / max(a, 1e-8), 0.0);
         } else {                    // barrel r = R (xz) up to the top plane
             float a = dot(v.xz, v.xz), b = dot(Position.xz, v.xz), c = dot(Position.xz, Position.xz) - _LensParallax.x * _LensParallax.x;
-            t = a > 1e-8 ? max((-b + sqrt(max(b * b - a * c, 0.0))) / a, 0.0) : 1e9;
+            t = a > 1e-8 ? max((-b + sqrt(max(b * b - a * c, 0.0))) / a, 0.0) : ((v.y > 1e-4 && _LensParallax.y > 0.0) ? 1e9 : 0.0);   // vertical view: the top plane (below) or this point
             if (v.y > 1e-4 && _LensParallax.y > 0.0) t = min(t, max((_LensParallax.y - Position.y) / v.y, 0.0));
         }
         Pf = Position + v * t;

@@ -696,7 +696,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // shoulder alpha (HDRP premultiplies transparent emission by alpha). Outer only (_GlowPart 2).
     // P8 (2026-10-16) _SkinFoot.w: far-tab hide strength (0 = off, the default). The full dome's tabs are part of this mesh, drawn after
     // the Inner/Glow (transparent queue, no depth writes), so the FAR tab's front-facing top and end faces lie on top of the dome body
-    // as a sharp pale shape. Where the ray from a fragment outside the barrel (rho > 15.48 mm) toward the camera passes through the barrel
+    // as a sharp pale shape. Where the ray from a fragment outside the barrel (rho > 16.0 mm: the tabs) toward the camera passes through the barrel
     // (mode 0 literal: outer radius 16.0 mm up to 28.0 mm = the shipped Outer mesh's barrel into its shoulder), its milk, line emission
     // and alpha fade by w (once: the emission is premultiplied by the faded alpha below). Mode 0
     // only (the half dome's tabs are their own renderer: FlasherDomeLens flat part, _LensParallax z).
@@ -707,8 +707,8 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float footM = smoothstep(_SkinFoot.x, _SkinFoot.x + 0.0004, rRaw) * (1.0 - smoothstep(_SkinFoot.y, _SkinFoot.y + 0.0004, yRaw));
         float wF = _SkinMilk.w * footM * (1.0 + _SkinFoot.z * (1.0 - abs(Nshell.y)));
         float wM = saturate(_SkinMilk.x * max(max(wB, wS), wF));
-        [branch] if (_SkinFoot.w > 0.0 && !FD_SPH && rRaw > 0.01548) {
-            float hideA = saturate(_SkinFoot.w) * smoothstep(0.01548, 0.01568, rRaw) * FD_BehindBarrel(Position, v, 0.0160, 0.0280, 0.0004);
+        [branch] if (_SkinFoot.w > 0.0 && !FD_SPH && rRaw > 0.0160) {
+            float hideA = saturate(_SkinFoot.w) * smoothstep(0.0160, 0.0162, rRaw) * FD_BehindBarrel(Position, v, 0.0160, 0.0280, 0.0004);
             float hideF = 1.0 - hideA;
             wM *= hideF; Alpha *= hideF;   // Emission is premultiplied by Alpha below: fades by hideF once
         }

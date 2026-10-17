@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Flasher Dome, Red - Glow
+  m_Shader: {fileID: -6465566751694194690, guid: ce03a7636707d12b5893dbce3587a357, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _DOUBLESIDED_ON
+  - _ENABLE_FOG_ON_TRANSPARENT
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 2750
+  stringTagMap:
+    MotionVector: User
+    RenderType: Transparent
+  disabledShaderPasses:
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - RayTracingPrepass
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DomeMasks:
+        m_Texture: {fileID: 2800000, guid: 668ba89e0e7d7835788342d5c63cc2fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DomeParity:
+        m_Texture: {fileID: 2800000, guid: 4e60b0bd6dba225678578da6b63919ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddPrecomputedVelocity: 0
+    - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 1
+    - _AlphaSrcBlend: 1
+    - _BandSigma: 0.06
+    - _BarAlpha: 0.22
+    - _BarBreak: 0.4
+    - _BarCoreW: 0
+    - _BarDesat: 0.9
+    - _BarHeight: 0.01
+    - _BarHot: 1.5
+    - _BarHotY: 0.003
+    - _BarJitter: 0.008
+    - _BarNits: 30000
+    - _BarSeg: 0.006
+    - _BarShoulder: 0
+    - _BarTilt: 30
+    - _BarWidth: 0.07
+    - _BarY: 0.002
+    - _BlendMode: 1
+    - _BodyKnee: 0
+    - _BoostKnee: 0.3
+    - _BoostPeak: 2
+    - _BoostPow: 2.5
+    - _BulbHalo: 2500
+    - _CapBodyW: 0.35
+    - _CapBoostMax: 5
+    - _CapCenterNits: 0
+    - _CapEdge0: 0.75
+    - _CapGlintNits: 0
+    - _CapGlow: 0
+    - _CapRays: 0.2
+    - _CapSpotNits: 2500
+    - _CapStreakLen: 3.5
+    - _CapXBeam: 10000
+    - _ConservativeDepthOffsetEnable: 0
+    - _CoreBelow: 0.03
+    - _CoreBoost: 2
+    - _CoreFloor: 0.06
+    - _CoreOver: 15
+    - _CoreWhite: 1
+    - _CullMode: 0
+    - _CullModeForward: 0
+    - _DbgTerm: 0
+    - _DepthOffsetEnable: 0
+    - _Desat: 1
+    - _DesatPeak: 0.25
+    - _DoubleSidedEnable: 1
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 2
+    - _DstBlend: 1
+    - _DstBlend2: 10
+    - _EdgeGlowW: 0.9
+    - _EnableBlendModePreserveSpecularLighting: 0
+    - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
+    - _FacetJitter: 1
+    - _FacetShade: 0.6
+    - _FilamentNits: 0
+    - _FlakeAspect: 1
+    - _FlakeCell: 0.0004
+    - _FlakeDensity: 0.05
+    - _FlakeNits: 0
+    - _FlakeSoft: 1
+    - _FlakeStreakMix: 0
+    - _FlankFill: 0.3
+    - _FlankTilt: 30
+    - _FluteAlpha: 0.22
+    - _FluteAlphaV: 0.22
+    - _FluteCount: 36
+    - _GlintBand: 2.5
+    - _GlintNits: 12000
+    - _GlowGamma: 0.5
+    - _GlowKnee: 0.45
+    - _GlowLowPow: 1.5
+    - _GlowNits: 1550
+    - _GlowPart: 1
+    - _GlowPeak: 1
+    - _HeatBodyW: 1
+    - _HeatPeak: 3
+    - _HotJitter: 0.008
+    - _HotZone: 0
+    - _InsertLampLevel: 0
+    - _LevelFade: 0.3
+    - _LevelGamma: 0.9
+    - _LevelToe: 0.01
+    - _LiftFlat: 0.7
+    - _LinesGain: 1
+    - _LobeLift: 0
+    - _LobeV: 1
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
+    - _NeedleDensity: 0.25
+    - _NeedleLen: 1
+    - _NeedleNits: 0
+    - _NeedleSlide: 1
+    - _NeedleWidth: 0.012
+    - _OpaqueCullMode: 2
+    - _OuterAlpha: 0.03
+    - _PeakFlash: 8
+    - _PeakHeight: 0.0025
+    - _PeakNits: 0
+    - _PeakPhys: 0
+    - _PeakPow: 8
+    - _PerPixelSorting: 0
+    - _RayTracing: 0
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
+    - _RenderQueueType: 3
+    - _RequireSplitLighting: 0
+    - _RidgeLen: 1
+    - _RidgeNits: 0
+    - _RimDim: 1
+    - _RimR0: 0.7
+    - _RimRadius: 0.6
+    - _RimRing: 0
+    - _ScatterAlpha: 0.6
+    - _ScatterNits: 0
+    - _ShoulderAlpha: 1
+    - _Sparkle: 0.5
+    - _SpokeFade: 0.5
+    - _SpotCore: 1.2
+    - _SpotLen: 0.1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
+    - _StreakBarrel: 0.15
+    - _StreakLen: 5
+    - _StreakNits: 25000
+    - _SupportDecals: 1
+    - _SurfaceType: 1
+    - _TransmissionEnable: 0
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UseShadowThreshold: 0
+    - _VeilGain: 0
+    - _VeilLevel: 0
+    - _VeilNits: 0
+    - _Wall: 0.0022
+    - _WallEdge: 0
+    - _WhiteHot: 2400
+    - _XBeam: 0
+    - _XHeat: 4
+    - _XPhase: 0.052
+    - _XPow: 2.5
+    - _XRoom: 0.85
+    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 0
+    - _Zebra: 0.9
+    - _ZebraPeak: 0.9
+    m_Colors:
+    - _DomeColor: {r: 0.8996035, g: 0.2051598, b: 0.1804023, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OpticalLamp: {r: 0, g: 0.0156, b: 0, a: 0}
+    - _ShellBase: {r: 0.54999995, g: 0.02, b: 0.01, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &8711203719815053721
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Editor::UnityEditor.Rendering.HighDefinition.AssetVersion
+  version: 13
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 

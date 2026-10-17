@@ -30,6 +30,7 @@
 //    camera passes through the dome body is faded out: the Tabs renderer (transparent, queue 3000, no depth writes) is drawn after
 //    the lens Inner (2998), so the far tab otherwise lies ON TOP of the dome body as a sharp pale shape; a real dome's flutes scramble
 //    it beyond recognition (the colour pyramid the lens samples holds no transparents, so the far tab simply drops out of the body).
+//  - _LensGlow x on the DOME (not only the flat part): lamp-lit milk, x nits at level 1 x _LensGlowColor x the milk weight (0 = off).
 //  - _LensCrease z: crease strength applied AFTER the milk (the milk lerp otherwise paints over the groove-root crease); w its half-width
 //    in flute periods (0 = _LensCrease.y). x/y (the pre-milk crease on the lens image) are unchanged.
 #ifndef VPE_FLASHER_DOME_LENS
@@ -206,6 +207,7 @@ void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2
         else E = FDL_Lens(Position, View, nearW, u, d1, nOut, rxz, aa);
         Emission = _LensEnv * lerp(1.0, _LensLitK, w) * E;   // HDRP scales transparent emission by Alpha
         // P7 milk: path through the plastic along the refracted view ray (mm) -> white scatter of the room light
+        float Wm = 0.0;   // P8: the milk weight, reused by the lamp-lit milk below
         [branch] if (_LensMilk.x > 0.0) {
             float pathMM;
             if (flat) pathMM = min(max(Position.y, 0.0) / max(-d1.y, 0.05) * 1000.0, _LensGlow.w);
@@ -220,7 +222,12 @@ void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2
             float crest = flat ? 1.0 : lerp(min(cw * 1.7725, 1.0), exp(-FD_LSQ(u / cw)), aa);
             float W = saturate(_LensMilk.x * (wT * lerp(1.0, crest, saturate(_LensMilk.w)) + _LensMilkShape.y));
             Emission = lerp(Emission, _LensMilkColor.rgb * FDL_RoomIrr(), W);
+            Wm = W;
         }
+        // P8 lamp-lit milk (dome, not the flat part): the thick plastic that scatters the room light also scatters the bulb light,
+        // linear in the lamp level, so the milky body glows with the bulb through the whole cool-down (the glow terms are steep at low
+        // levels). _LensGlow.x nits at level 1 (0 = off, the default) x _LensGlowColor x the milk weight; y/z/w stay flat-part only.
+        [branch] if (!flat && _LensGlow.x > 0.0) Emission += saturate(_InsertLampLevel) * _LensGlow.x * _LensGlowColor.rgb * Wm;
         // P8 crease after the milk (z strength, w half-width in flute periods; 0 = y), faded with the sub-pixel lens (aa)
         [branch] if (!flat && _LensCrease.z > 0.0) {
             float cwP = _LensCrease.w > 0.0 ? _LensCrease.w : _LensCrease.y;

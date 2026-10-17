@@ -163,9 +163,14 @@ Knobs for a clear dome, all default off:
 - Far-tab hide (all default off). The tabs are transparent and draw after the lens Inner, so the far tab otherwise lies on top of
   the dome body as a sharp shape. A real dome's flutes scramble it.
   - `_SkinFoot.w` (Outer, tall dome): strength. A tab fragment whose ray to the camera passes through the barrel (outer radius
-    16.0 mm, up to 28.0 mm: the shipped Outer mesh's barrel) loses its milk, line emission and alpha.
+    16.0 mm, up to 28.0 mm: the shipped Outer mesh's barrel) loses its milk, line emission and alpha. It only takes effect
+    when `_SkinMilk.x` > 0 (the Clear preset uses 0.462). Known limit: the Outer graphs keep HDRP preserve-specular lighting, so
+    the far tab's specular reflection still draws through the hide as a thin highlight outline; only its milk, emission and
+    diffuse are hidden. Removing it would need a specular-occlusion output in the Glow/Outer function shared with every
+    preset, so it is left as is.
   - Flat part (`_ProfileMode` 2) on `FlasherDomeLens`: `_LensParallax` x, y = the dome's outer ellipsoid semi-axes (m, centre at the
-    object origin), z = strength, w = edge softness (m).
+    object origin), z = strength, w = edge softness (m). `FlasherDomeLens` does not preserve specular, so this hide is complete
+    (the half dome's tabs).
 - `_LensInterior` (x weight, 0 = off; y blur mip; z hot-core mip; w hot-core gain; default (0, 2, 0, 1)): opaque objects inside the dome (a bulb, a socket,
   a toy) show through the flutes. The transmitted ray is marched through the cavity against the camera depth (opaques only) and,
   where it passes behind an opaque surface, the colour pyramid is read there instead of the floor: refracted, blurred at mip y,

@@ -55,7 +55,8 @@ standalone materials (Inner on `FlasherDomeLens`, Glow/Outer on the Frost graphs
 (1, 2, 0, 1)) and Inner depth write, with the same known limit (other transparent objects behind it are hidden within its visible footprint).
 - Inner and Glow are scaled (1.110, 1.049, 1.110).
 - `Tabs` uses `FlasherDomeLens` in flat-part mode (`_ProfileMode` 2), the same clear-plastic model as the dome. They are milky
-  where thick, lamp-lit at the root (`_LensGlow`), and the far tab fades where the dome covers it (`_LensParallax` z, w).
+  where thick, lamp-lit at the root (`_LensGlow`), and the far tab fades where the dome covers it (`_LensParallax` z, w), completely, highlights included (the lens graph does not
+  preserve specular; the full dome's far-tab hide leaves a thin highlight outline, see its README).
 - The tabs have their own mesh, `Flasher Half Dome, Clear - Tabs.asset`, with a 0.45 mm bevel on the edges. A bevel reads on
   clear plastic, so only Clear has it: Red and the coloured presets keep the square-edged `Red - Tabs.asset`.
 

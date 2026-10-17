@@ -246,7 +246,7 @@ float3 FDL_Flat(float3 Position, float3 View, float3 NormalOS, out float nearW, 
     return (1.0 - F1) * FDL_Env(Position, d1, _FluteBlur);
 }
 
-void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2 UV, UnityTexture2D Masks,
+void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2 UV, UnityTexture2D Masks, bool IsFront,
     out float3 BaseColor, out float Smoothness, out float Alpha, out float3 Emission)
 {
     float w = smoothstep(_FrostLitRamp.x, max(_FrostLitRamp.y, _FrostLitRamp.x + 1e-4), saturate(_InsertLampLevel));
@@ -257,7 +257,10 @@ void FlasherDomeLens_float(float3 Position, float3 View, float3 NormalOS, float2
     [branch] if (_LensEnv > 0.0) {
         float nearW, u = 0, rxz = 0, aa = 1; float3 d1, nOut; float3 E;
         bool flat = _ProfileMode > 1.5;
-        if (flat) E = FDL_Flat(Position, View, NormalOS, nearW, d1, nOut);
+        // audit r5: HDRP mirrors the normal of back faces before the graph (double-sided mirror mode), so a flat part's back faces
+        // arrive camera-facing; drop them (the tabs' bottom face, coplanar with the board, and far faces near the edges). The dome
+        // modes (0/1) need both sides and ignore IsFront.
+        if (flat) { E = FDL_Flat(Position, View, NormalOS, nearW, d1, nOut); nearW *= IsFront ? 1.0 : 0.0; }
         else E = FDL_Lens(Position, View, nearW, u, d1, nOut, rxz, aa);
         Emission = _LensEnv * lerp(1.0, _LensLitK, w) * E;   // HDRP scales transparent emission by Alpha
         // P7 milk: path through the plastic along the refracted view ray (mm) -> white scatter of the room light

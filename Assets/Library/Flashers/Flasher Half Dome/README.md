@@ -88,7 +88,7 @@ the OFF glints/needles and all gains are Red's.
 |---|---|
 | `Flasher Half Dome, Red.prefab` | Dome (Inner + Glow + Outer + Tabs) + `Source` point light: the base prefab |
 | `Flasher Half Dome, <Colour>.prefab` | Orange, Yellow, Olive, Green, Blue, Clear, Purple: prefab variants of Red |
-| `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only) |
+| `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only); Clear's are standalone (Lens/Frost graphs, see Clear) |
 | `* - Inner.asset` / `* - Outer.asset` / `* - Tabs.asset` | inner fluted surface (UV0 = UV1 = mask atlas), smooth outer shell, the two tabs |
 | `Flasher Half Dome, Clear - Tabs.asset` | the Clear preset's tabs: the same tabs with a 0.45 mm edge bevel |
 | `* - Glow.mat` / `* - Outer.mat` / `* - Inner.mat` / `* - Tabs.mat` | as the full dome, plus the Tabs plastic |

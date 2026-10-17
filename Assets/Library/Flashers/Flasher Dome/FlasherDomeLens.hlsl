@@ -30,6 +30,12 @@
 //    camera passes through the dome body is faded out: the Tabs renderer (transparent, queue 3000, no depth writes) is drawn after
 //    the lens Inner (2998), so the far tab otherwise lies ON TOP of the dome body as a sharp pale shape; a real dome's flutes scramble
 //    it beyond recognition (the colour pyramid the lens samples holds no transparents, so the far tab simply drops out of the body).
+//  - _LensInterior (P8 bulb, default x 0 = off): DEPTH-AWARE interior. The transmitted ray (out of the flute into the cavity) is
+//    marched through the dome volume against the opaque depth (HDRP camera depth pyramid = opaques only; the dome's own ZWrite is
+//    not in it). Where it passes behind an opaque surface inside the dome (the bulb, a lamp socket, any toy inside), the colour
+//    pyramid is read there instead of the floor projection: refracted by the flute (the ray already is), blurred at mip y, with the
+//    hot core kept: max(blurred, w x the mip-z sample) per channel, so a blown-out filament survives the flute blur. x = blend weight.
+//    Volume: hat = the inner ellipsoid (_InnerR, _InnerRY about (0, _SphereY, 0)) x 1.03; tall dome = rho < 14.0 mm, y < 27.3 mm.
 //  - _LensGlow x on the DOME (not only the flat part): lamp-lit milk, x nits at level 1 x _LensGlowColor x the milk weight (0 = off).
 //  - _LensCrease z: crease strength applied AFTER the milk (the milk lerp otherwise paints over the groove-root crease); w its half-width
 //    in flute periods (0 = _LensCrease.y). x/y (the pre-milk crease on the lens image) are unchanged.
@@ -96,6 +102,49 @@ float3 FDL_Env(float3 P, float3 d, float lod)
 #endif
     return c;
 }
+// P8 bulb: inside the dome's cavity (object space of this renderer)
+bool FDL_InVol(float3 P)
+{
+    if (P.y < 0.0) return false;
+    if (_ProfileMode > 0.5) {
+        float3 q = (P - float3(0, _SphereY, 0)) / (float3(_InnerR, _InnerRY, _InnerR) * 1.03);
+        return dot(q, q) <= 1.0 || (P.y < _SphereY && dot(P.xz, P.xz) <= FD_LSQ(_InnerR * 1.03));
+    }
+    return dot(P.xz, P.xz) <= FD_LSQ(0.0140) && P.y <= 0.0273;
+}
+// P8 bulb: march P + t d through the cavity; returns weight 1 and the colour where the ray first passes behind an opaque surface
+float4 FDL_Interior(float3 P, float3 d)
+{
+    float4 r = 0;
+#if defined(SHADERPASS) && (SHADERPASS == SHADERPASS_FORWARD)
+    float3 w0 = TransformObjectToWorld(P);
+    float eye0 = LinearEyeDepth(w0, UNITY_MATRIX_V);
+    float tMax = _ProfileMode > 0.5 ? 2.2 * max(_InnerR, _InnerRY) : 0.034;
+    [loop] for (int i = 1; i <= 12; i++) {
+        float3 Pt = P + d * (tMax * i / 12.0);
+        if (!FDL_InVol(Pt)) break;
+        float3 wt = TransformObjectToWorld(Pt);
+        float2 uv = ComputeNormalizedDeviceCoordinates(wt, UNITY_MATRIX_VP);
+        if (any(uv < 0.0) || any(uv > 1.0)) break;
+        float sceneEye = LinearEyeDepth(SampleCameraDepth(uv), _ZBufferParams);
+        float eyeT = LinearEyeDepth(wt, UNITY_MATRIX_V);
+        if (eyeT >= sceneEye && sceneEye > eye0) {   // passed behind an opaque surface that lies beyond this wall point
+            // refine between the previous step and this one (3 bisections): the lookup lands on the surface, not up to a step behind it
+            float ta = tMax * (i - 1) / 12.0, tb = tMax * i / 12.0;
+            [unroll] for (int k = 0; k < 3; k++) {
+                float tm = 0.5 * (ta + tb); float3 wm = TransformObjectToWorld(P + d * tm); float2 um = ComputeNormalizedDeviceCoordinates(wm, UNITY_MATRIX_VP);
+                if (LinearEyeDepth(wm, UNITY_MATRIX_V) >= LinearEyeDepth(SampleCameraDepth(saturate(um)), _ZBufferParams)) tb = tm; else ta = tm;
+            }
+            uv = saturate(ComputeNormalizedDeviceCoordinates(TransformObjectToWorld(P + d * tb), UNITY_MATRIX_VP));
+            float3 cB = SampleCameraColor(uv, _LensInterior.y);
+            float3 cS = SampleCameraColor(uv, _LensInterior.z);
+            r = float4(max(cB, cS * _LensInterior.w) * GetInverseCurrentExposureMultiplier(), 1.0);
+            break;
+        }
+    }
+#endif
+    return r;
+}
 // flute lens of the dome wall; also returns the near-wall weight, the rib coordinate u (0 rib centre, +-0.5 groove roots), the refracted
 // in-wall ray d1 and the smooth outer normal (for the milk path)
 float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out float3 d1, out float3 nOut, out float rxz, out float aa)
@@ -156,6 +205,11 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
     float F3; float3 ro = FDL_Refract(r2, -nOut, 1.49, F3);       // out through the skin (F3 = 1: trapped in the wall -> dark)
     float lod = _FluteBlur;
     float3 eT = F2 < 0.999 ? FDL_Env(Position, d2, lod) : 0;
+    // P8 bulb: an opaque object inside the cavity along the transmitted ray replaces the floor lookup (refracted, flute-blurred, hot core kept)
+    [branch] if (_LensInterior.x > 0.0 && F2 < 0.999) {
+        float4 eI = FDL_Interior(Position, d2);
+        eT = lerp(eT, eI.rgb, saturate(_LensInterior.x) * eI.a);
+    }
     float3 eR = F3 < 0.999 ? FDL_Env(Position, ro, lod) : 0;
     // trapped (TIR at the flute and again at the skin): guided along the wall to the base -> the table right under this wall point
     float3 eB = (_LensTrap > 0.0 && F2 * F3 > 0.001) ? FDL_Env(Position, float3(0, -1, 0), lod + 1.0) : 0;

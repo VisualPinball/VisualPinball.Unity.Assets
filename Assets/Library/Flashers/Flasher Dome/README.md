@@ -149,6 +149,10 @@ Knobs for a clear dome, all default off (every preset unchanged):
     15.43 mm, up to 29.0 mm) loses its milk, line emission and alpha.
   - Flat part (`_ProfileMode` 2) on `FlasherDomeLens`: `_LensParallax` x, y = the dome's outer ellipsoid semi-axes (m, centre at the
     object origin), z = strength, w = edge softness (m).
+- `_LensInterior` (x weight, 0 = off; y blur mip; z hot-core mip; w hot-core gain): opaque objects inside the dome (a bulb, a socket,
+  a toy) show through the flutes. The transmitted ray is marched through the cavity against the camera depth (opaques only) and,
+  where it passes behind an opaque surface, the colour pyramid is read there instead of the floor: refracted, blurred at mip y,
+  with a blown-out core kept as max(blurred, w x mip z).
 - `_LensCrease` z, w: a second crease applied after the milk (z strength, w half-width in flute periods, 0 = y). The milk otherwise
   paints over the groove-root crease.
 

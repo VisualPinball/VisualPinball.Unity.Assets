@@ -169,6 +169,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     float shoulderM = smoothstep(0.0235, 0.0270, Position.y) * smoothstep(0.0120, 0.0150, length(Position.xz));   // r23: a little wider (top views only)
     shoulderM = max(shoulderM, _WallEdge * smoothstep(0.0150, 0.0158, length(Position.xz)));   // r25: the barrel's outer wall seen edge-on from above (refracts the lit saucer collar into a thin ring)
     float yRaw = Position.y, rRaw = length(Position.xz);   // r18: unprojected (Outer) height/radius for the shoulder bars
+    float3 Praw = Position;                                   // audit r3: unprojected position (the Outer path below projects Position onto the inner surface)
     if (_GlowPart > 1.5) {
         // Outer ShaderGraph path: the Outer's uv0 is not the mask atlas -> everything procedural, geometry projected onto the
         // inner surface (r 13.95 mm barrel, cap underside 27.3 mm) so the streak maths sees the facet it would refract through
@@ -708,7 +709,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
         float wF = _SkinMilk.w * footM * (1.0 + _SkinFoot.z * (1.0 - abs(Nshell.y)));
         float wM = saturate(_SkinMilk.x * max(max(wB, wS), wF));
         [branch] if (_SkinFoot.w > 0.0 && !FD_SPH && rRaw > 0.0160) {
-            float hideA = saturate(_SkinFoot.w) * smoothstep(0.0160, 0.0162, rRaw) * FD_BehindBarrel(Position, v, 0.0160, 0.0280, 0.0004);
+            float hideA = saturate(_SkinFoot.w) * smoothstep(0.0160, 0.0162, rRaw) * FD_BehindBarrel(Praw, v, 0.0160, 0.0280, 0.0004);
             float hideF = 1.0 - hideA;
             wM *= hideF; Alpha *= hideF;   // Emission is premultiplied by Alpha below: fades by hideF once
         }

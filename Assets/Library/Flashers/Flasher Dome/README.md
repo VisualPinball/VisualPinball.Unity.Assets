@@ -131,9 +131,10 @@ other preset leaves them off and is unchanged.
   (`_LensGlow`).
 - **Bulb inside:** `_LensInterior` (1, 2, 0, 1). A bulb or socket inside the dome shows through the flutes as refracted
   streaks, and a hot filament keeps its white core.
-- **Depth write:** the Inner writes depth (`_TransparentZWrite` 1). A Clear dome behind another Clear dome is hidden by it
-  instead of drawn crisp on top. Known limit: transparent objects behind a Clear dome are not refracted (the lens only sees
-  opaque objects).
+- **Depth write:** the Inner writes depth (`_TransparentZWrite` 1) where its alpha is above `_LensAlphaClip` (0.02; the lens graph
+  has alpha clipping, default threshold 0 = every fragment). A Clear dome behind another Clear dome is hidden by it instead of
+  drawn crisp on top. Known limit: other transparent objects behind a Clear dome (drawn after it) are hidden within the dome's
+  visible footprint; the lens only shows opaque objects through the dome.
 - To make your own clear look, start from the Clear materials.
 
 Knobs for a clear dome, all default off:
@@ -162,7 +163,7 @@ Knobs for a clear dome, all default off:
 - Far-tab hide (all default off). The tabs are transparent and draw after the lens Inner, so the far tab otherwise lies on top of
   the dome body as a sharp shape. A real dome's flutes scramble it.
   - `_SkinFoot.w` (Outer, tall dome): strength. A tab fragment whose ray to the camera passes through the barrel (outer radius
-    15.43 mm, up to 29.0 mm) loses its milk, line emission and alpha.
+    16.0 mm, up to 28.0 mm: the shipped Outer mesh's barrel) loses its milk, line emission and alpha.
   - Flat part (`_ProfileMode` 2) on `FlasherDomeLens`: `_LensParallax` x, y = the dome's outer ellipsoid semi-axes (m, centre at the
     object origin), z = strength, w = edge softness (m).
 - `_LensInterior` (x weight, 0 = off; y blur mip; z hot-core mip; w hot-core gain; default (0, 2, 0, 1)): opaque objects inside the dome (a bulb, a socket,
@@ -185,9 +186,8 @@ Knobs for a clear dome, all default off:
 | `* - Glow.mat` | `FlasherDomeGlow` ShaderGraph: lit body glow, additive, PreRefraction queue |
 | `* - Outer.mat` | `FlasherDomeOuter` ShaderGraph: refractive shell (colour from `_DomeColor` + `_TransmittanceColor`), which also emits the bright flute lines, glints and the peak white-hot term |
 | `FlasherDome.hlsl` | Shared custom function for both graphs (procedural `_FluteCount`-fold flute optics, colour model) |
-| `FlasherDomeFrost.shadergraph` + `FlasherDomeFrost.hlsl` | Frosted inner for a clear dome: transparent, rough thin refraction (blurred see-through) when OFF, blends with the lamp level (`_FrostLitRamp`) to an opaque smooth darker wall when lit so the flute glow stays structured |
-| `FlasherDomeOuterFrost.shadergraph` | `FlasherDomeOuter` without refraction, to sit over the frosted inner (a refractive Outer would overwrite it) |
-| `FlasherDomeGlowFrost.shadergraph` | `FlasherDomeGlow` in the default transparent pass (sort priority -1), drawn crisp after the frosted inner |
+| `FlasherDomeOuterFrost.shadergraph` | `FlasherDomeOuter` without refraction, to sit over the Clear lens inner (a refractive Outer would overwrite it) |
+| `FlasherDomeGlowFrost.shadergraph` | `FlasherDomeGlow` in the default transparent pass (sort priority -1), drawn crisp after the Clear lens inner |
 | `FlasherDomeLens.shadergraph` + `FlasherDomeLens.hlsl` | Clear-dome inner: per-flute environment lens + thickness milk, flat-part mode for tabs (see "Clear plastic") |
 | `* - Thickness.png`, `* - Emissive.png`, `* - Masks.exr`, `* - Parity.png` | Baked wall thickness, flute masks (`Emissive.png` sits on Inner's `_EmissiveColorMap` but Inner's emission is 0, so it is unused) |
 | `* - Cookie Open.asset` | Burst-light cookie (prefab default): 36 equal flute beams (floor .76), no cut-off |

@@ -83,6 +83,7 @@ Material:
     - _InnerRY: 0.01395
     - _InsertLampLevel: 0
     - _Ior: 1.49
+    - _LensAlphaClip: 0
     - _LensEnv: 1
     - _LensFloor: 0
     - _LensLitK: 1
@@ -139,7 +140,7 @@ Material:
     - _LensGlowColor: {r: 1, g: 0.62, b: 0.32, a: 1}
     - _LensInterior: {r: 0, g: 2, b: 0, a: 1}
     - _LensMilk: {r: 0.294, g: 2.6, b: 6, a: 0}
-    - _LensMilkColor: {r: 1.34992, g: 1.3, b: 1.25008, a: 1}
+    - _LensMilkColor: {r: 1.9349854, g: 1.7810469, b: 1.6340418, a: 1}
     - _LensMilkShape: {r: 0, g: 0, b: 0, a: 0}
     - _LensParallax: {r: 0.01491, g: 0.01491, b: 0.8, a: 0.0004}
     - _LensShape: {r: 40, g: 1, b: 1, a: 1}

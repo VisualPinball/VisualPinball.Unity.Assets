@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
   - _ENABLE_FOG_ON_TRANSPARENT
@@ -55,7 +56,7 @@ Material:
     m_Floats:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
-    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffEnable: 1
     - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
     - _BlendMode: 0
@@ -83,6 +84,7 @@ Material:
     - _InnerRY: 0.01395
     - _InsertLampLevel: 0
     - _Ior: 1.49
+    - _LensAlphaClip: 0.02
     - _LensEnv: 1
     - _LensFloor: 1
     - _LensLitK: 0.3
@@ -123,7 +125,7 @@ Material:
     - _TransparentZWrite: 1
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 4
-    - _ZTestGBuffer: 4
+    - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
@@ -139,7 +141,7 @@ Material:
     - _LensGlowColor: {r: 1, g: 0.62, b: 0.32, a: 1}
     - _LensInterior: {r: 1, g: 2, b: 0, a: 1}
     - _LensMilk: {r: 0.672, g: 1, b: 2, a: 0.7}
-    - _LensMilkColor: {r: 0.87745, g: 0.845, b: 0.81255, a: 1}
+    - _LensMilkColor: {r: 0.7435248, g: 0.68293, b: 0.62531805, a: 1}
     - _LensMilkShape: {r: 0.1, g: 0.29, b: 0, a: 0}
     - _LensParallax: {r: 0.01447, g: 0.0285, b: 0, a: 0}
     - _LensShape: {r: 55, g: 3, b: 2, a: 1}

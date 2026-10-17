@@ -1,5 +1,5 @@
 // Flasher dome LENS INNER (2026-10-15 P6, Clear preset) - custom function for FlasherDomeLens.shadergraph (= FlasherDomeFrost without HDRP
-// refraction, generator make_dome_frost_graph.py --lens). _LensEnv 0 = the plain frosted inner of FlasherDomeFrost.hlsl (no refraction).
+// refraction, generator make_dome_frost_graph.py --lens). _LensEnv 0 = a plain frosted inner (no refraction).
 // Per-flute ENVIRONMENT LENS (_LensEnv > 0): a real clear fluted dome is not see-through and not white - every flute is a cylindrical lens
 // that shows a compressed, mirrored strip of the surroundings, with glints and dark bands where the ray is reflected inside (TIR).
 // Per pixel of the NEAR wall: the view ray is refracted in at the smooth outer skin (IOR 1.49) and out through the inner flute, whose
@@ -163,7 +163,7 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
             t = max((-b + sqrt(max(b * b - a * c, 0.0))) / max(a, 1e-8), 0.0);
         } else {                    // barrel r = R (xz) up to the top plane
             float a = dot(v.xz, v.xz), b = dot(Position.xz, v.xz), c = dot(Position.xz, Position.xz) - _LensParallax.x * _LensParallax.x;
-            t = max((-b + sqrt(max(b * b - a * c, 0.0))) / max(a, 1e-8), 0.0);
+            t = a > 1e-8 ? max((-b + sqrt(max(b * b - a * c, 0.0))) / a, 0.0) : 1e9;
             if (v.y > 1e-4 && _LensParallax.y > 0.0) t = min(t, max((_LensParallax.y - Position.y) / v.y, 0.0));
         }
         Pf = Position + v * t;
@@ -206,7 +206,7 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
     float lod = _FluteBlur;
     float3 eT = F2 < 0.999 ? FDL_Env(Position, d2, lod) : 0;
     // P8 bulb: an opaque object inside the cavity along the transmitted ray replaces the floor lookup (refracted, flute-blurred, hot core kept)
-    [branch] if (_LensInterior.x > 0.0 && F2 < 0.999) {
+    [branch] if (_LensInterior.x > 0.0 && F2 < 0.999 && IsPerspectiveProjection()) {   // ortho: the floor path
         float4 eI = FDL_Interior(Position, d2);
         eT = lerp(eT, eI.rgb, saturate(_LensInterior.x) * eI.a);
     }
@@ -217,7 +217,7 @@ float3 FDL_Lens(float3 Position, float3 View, out float nearW, out float u, out 
     // _LensCrease (x strength, y half-width in flute periods): the groove root reads as a dark crease between the rods (the real V-groove
     // flanks are steep enough to send most rays into the wall); 0 = off
     float eRt = 0.5 - abs(u);                                     // 0 at the groove root
-    E *= 1.0 - saturate(_LensCrease.x) * exp(-FD_LSQ(eRt / max(_LensCrease.y, 1e-3))) * smoothstep(0.0015, 0.004, rxz);
+    E *= 1.0 - saturate(_LensCrease.x) * exp(-FD_LSQ(eRt / max(_LensCrease.y, 1e-3))) * smoothstep(0.0015, 0.004, rxz) * aa;
     // weak isotropic murk: the sky ambient probe (L0) diffused by the flute roughness
     float3 amb = float3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) + float3(unity_SHBr.z, unity_SHBg.z, unity_SHBb.z) / 3.0;
     return E + _FluteScatter * max(amb, 0.0);

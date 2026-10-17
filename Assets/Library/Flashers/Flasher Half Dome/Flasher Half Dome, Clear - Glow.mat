@@ -262,6 +262,6 @@ Material:
     - _ShellBase: {r: 0.5499999, g: 0.02, b: 0.01, a: 1}
     - _SkinFoot: {r: 0.0165, g: 0.003, b: 1, a: 0}
     - _SkinMilk: {r: 0, g: 0.002, b: 0, a: 0}
-    - _SkinMilkColor: {r: 1, g: 0.96999997, b: 0.93, a: 1}
+    - _SkinMilkColor: {r: 1, g: 0.9331069, b: 0.8480884, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

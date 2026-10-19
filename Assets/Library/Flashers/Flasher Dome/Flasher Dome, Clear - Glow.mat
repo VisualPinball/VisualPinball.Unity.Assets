@@ -167,7 +167,7 @@ Material:
     - _InsertLampLevel: 0
     - _LevelFade: 0.3
     - _LevelGamma: 0.9
-    - _LevelToe: 0
+    - _LevelToe: -0.001
     - _LiftFlat: 0.7
     - _LinesGain: 1
     - _LobeLift: 0

@@ -300,7 +300,11 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // r9 V1: _CoreBoost scales the dome's own core/streak emission only (the burst light is separate)
     // loop r00: emission black below _LevelToe (the #89 tail otherwise stays visible at <0.5 % level: streaks are ~1e6 nits at
     // peak); colour temperature still follows the raw level
-    float lvlE = saturate((lvl - _LevelToe) / max(1.0 - _LevelToe, 1e-4));
+    // Clear 10-18: a NEGATIVE _LevelToe = a smooth fade-out instead (in the dark room the tail snapped to OFF in one frame at the
+    // #89 curve's last 1e-5 step, because the _GlowLowPow tail is still visible there): every emission term fades to 0 between
+    // level -_LevelToe and 2 % of it, in log2(level) = eased in time on an exponential cool-down. _LevelToe >= 0 (Red) unchanged.
+    float lvlF = _LevelToe < 0.0 ? smoothstep(log2(-_LevelToe * 0.02), log2(-_LevelToe), log2(max(lvl, 1e-12))) : 1.0;
+    float lvlE = _LevelToe < 0.0 ? lvl * lvlF : saturate((lvl - _LevelToe) / max(1.0 - _LevelToe, 1e-4));
     float boostS = lerp(boost, min(boost, _CapBoostMax), capFace);
     // r03: the peak boost above _CoreBoost stays near bulb height (no white spindle from base to cap centre)
     float hy = (Position.y - F.y) / max(_PeakHeight, 1e-4);
@@ -438,7 +442,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // r14: two-segment level map for body glow + bars: pow(l, _GlowGamma) above the knee (static L0.4 lift), below it a
     // steeper continuation (gk * (l/k)^_GlowLowPow) so the cooling tail darkens like the clip
     float kG = max(_GlowKnee, 1e-3), gk = pow(kG, max(_GlowGamma, 0.1));
-    float lvlG = lvlE >= kG ? pow(lvlE, max(_GlowGamma, 0.1)) : gk * pow(saturate(lvlE / kG), max(_GlowLowPow, 0.1));
+    float lvlG = (lvlE >= kG ? pow(lvlE, max(_GlowGamma, 0.1)) : gk * pow(saturate(lvlE / kG), max(_GlowLowPow, 0.1))) * lvlF;
     float rC = length(Position.xz) / 0.0145;
     if (FD_SPH) rC = length(Position.xz) / max(_CapR, 1e-4);
     // r12: confined to the RAYS (gaps stay dark), stops at the cap edge (capFaceW, cap top only), small hot orange centre
@@ -603,7 +607,7 @@ void FlasherDomeGlow_float(float3 Position, float3 View, float3 NormalOS, float3
     // +-_FlankTilt from the inward radial; flanks inside the filament's GGX transmission cone glow over their whole height
     // (bars), the neighbour flank stays dark (gaps), several adjacent flutes overlap into the broad cream core.
     if (_GlowPart > 3.5) {
-        float lt = saturate((lvl - _LevelToe) / max(1.0 - _LevelToe, 1e-4));
+        float lt = _LevelToe < 0.0 ? lvl * lvlF : saturate((lvl - _LevelToe) / max(1.0 - _LevelToe, 1e-4));
         float lvlP = pow(lt, max(_LevelGamma, 0.05)) * smoothstep(0.0, max(_LevelFade, 0.01), lt);   // r09b: gamma fitted at L>=0.4 (Lux refs); below 0.3 fade to ~linear so the cooling tail ends by ~200 ms
         // r09b: real dome48 flute = flat face (radial normal, ~75 % of the period) + a narrow V-groove whose two flanks are
         // steep; flats transmit the filament straight through (centre core), groove flanks tilt the lobe off-axis (bars)

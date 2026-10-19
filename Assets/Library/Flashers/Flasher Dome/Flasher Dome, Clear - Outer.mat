@@ -170,7 +170,7 @@ Material:
     - _Ior: 1.228
     - _LevelFade: 0.3
     - _LevelGamma: 0.9
-    - _LevelToe: 0
+    - _LevelToe: -0.001
     - _LiftFlat: 0.7
     - _LinesGain: 33
     - _LobeLift: 0

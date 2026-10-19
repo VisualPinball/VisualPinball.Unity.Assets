@@ -160,6 +160,11 @@ Knobs for a clear dome, all default off:
   gain and w mounting-tab gain. `_SkinFoot` (x rho min m, y top m, z side-face boost) sets the tab region of the tall dome's Outer mesh,
   and `_SkinMilkColor` the tint. Together they make the Outer skin milky where it is thick or seen edge-on: the base ring, the
   silhouette, and the full dome's tabs (part of the Outer mesh) with brighter side faces.
+- Tail fade-out (Glow/Outer `_LevelToe` < 0; the Clear preset uses -0.001). A positive `_LevelToe` (Red 0.01) blacks the emission
+  out below that level. A negative one instead fades every Glow/Outer emission term smoothly to 0 between level -`_LevelToe` and
+  2 % of it, eased in log2(level), so it is eased in time on an exponential cool-down. Clear's low-level glow curve
+  (`_GlowLowPow` 0.3) is still visible at a level of 1e-5, so without this the last step of a #89 cool-down to 0 turns the glowing
+  dome into the OFF look in one frame, which is plain in a dark room. Levels above -`_LevelToe` render as with a toe of 0.
 - Far-tab hide (all default off). The tabs are transparent and draw after the lens Inner, so the far tab otherwise lies on top of
   the dome body as a sharp shape. A real dome's flutes scramble it.
   - `_SkinFoot.w` (Outer, tall dome): strength. A tab fragment whose ray to the camera passes through the barrel (outer radius

@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 7134110309355167430}
   - component: {fileID: 530792776143360218}
   - component: {fileID: 396633086941765575}
+  - component: {fileID: 4014658643394227679}
   m_Layer: 0
   m_Name: Drop Target (parent)
   m_TagString: Untagged
@@ -267,3 +268,23 @@ MonoBehaviour:
   OverwritePhysics: 1
   Threshold: 2
   UseHitEvent: 1
+--- !u!114 &4014658643394227679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811490838886355864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8636086609386b04ea0fb6c9091f243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SwitchSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 3781115c406c40343ac63a2f7d184adf, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  StartWhen: 0
+  StopWhen: 0
+  SwitchName: target_switch

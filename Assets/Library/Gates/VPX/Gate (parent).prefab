@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8636086609386b04ea0fb6c9091f243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundAsset: {fileID: 0}
+  SoundAsset: {fileID: 11400000, guid: aafa254e77d261d4db240c8f042d5dad, type: 2}
   MultiPlayMode: 0
-  Volume: 1
+  Volume: 0.1
   Priority: 2
   CalloutMaxQueueTime: -1
   StartWhen: 0

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ad37c5157a844b9026bfcfe140656, type: 3}
+  m_Name: Slingshot Left
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SoundEffectAsset
+  _description: Original g5k 1.25 / Fleep sample bank; see Mechanical/README.md for
+    provenance.
+  Clips:
+  - {fileID: 8300000, guid: f619fc053fa6b3449932f9695af81c3d, type: 3}
+  - {fileID: 8300000, guid: 17282ae2828882b47b9c97a4bc6de8b8, type: 3}
+  - {fileID: 8300000, guid: 42be8fa6286420e4a873218d5ebc630f, type: 3}
+  - {fileID: 8300000, guid: 6475f6136552b7d41b4fb5c8eb956745, type: 3}
+  - {fileID: 8300000, guid: 780d1fab5baccc946ba917908a4328b6, type: 3}
+  - {fileID: 8300000, guid: ddfbb271bab9f4f43aaee76a06412766, type: 3}
+  - {fileID: 8300000, guid: a154f5652ab290741b11c7f6039570d4, type: 3}
+  - {fileID: 8300000, guid: a74b1e4a1b1de2d408b3dbf2d0d17e13, type: 3}
+  - {fileID: 8300000, guid: 5699264ce949b9045b01b4f5a84f76d2, type: 3}
+  - {fileID: 8300000, guid: 2c743ff3276f6dc4d9a6f2b15e650978, type: 3}
+  _clipSelectionMethod: 1
+  _audioMixerGroup: {fileID: -6565917931112018152, guid: 9784dda595e200a4dbef54316a45f16e, type: 2}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0

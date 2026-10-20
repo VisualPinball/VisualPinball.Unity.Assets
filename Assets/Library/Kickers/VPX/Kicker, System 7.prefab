@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5174706748909591881}
   - component: {fileID: 4276896933361540240}
   - component: {fileID: 6486905572688686004}
+  - component: {fileID: 2951111116938291502}
+  - component: {fileID: 1169353199562079091}
   m_Layer: 0
   m_Name: Kicker, System 7
   m_TagString: Untagged
@@ -132,3 +134,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2951111116938291502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398764112358096283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8636086609386b04ea0fb6c9091f243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SwitchSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 8e61311e3baa69b4cb054b10a92444ee, type: 2}
+  MultiPlayMode: 0
+  Volume: 0.8
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  StartWhen: 0
+  StopWhen: 0
+  SwitchName: kicker_switch
+--- !u!114 &1169353199562079091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398764112358096283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b4677b6b0e8bc419afb6cd7a22cf3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CoilSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 56d815ef084d97a41885b07372308230, type: 2}
+  MultiPlayMode: 0
+  Volume: 0.8
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  StartWhen: 0
+  StopWhen: 0
+  CoilName: coil_142261ec

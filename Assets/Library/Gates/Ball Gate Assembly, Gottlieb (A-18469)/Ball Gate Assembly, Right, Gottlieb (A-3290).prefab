@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3456145019612560995}
   - component: {fileID: 554554365530154534}
   - component: {fileID: 5372998485813756702}
+  - component: {fileID: 5578420204933784067}
   m_Layer: 0
   m_Name: Ball Gate Assembly, Right, Gottlieb (A-3290)
   m_TagString: Untagged
@@ -479,3 +480,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8328944892739800535, guid: a74fe79b6e5dfdd43840bf3f7edc21ae, type: 3}
   m_PrefabInstance: {fileID: 7129775625949852401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5578420204933784067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264652156320823834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8636086609386b04ea0fb6c9091f243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SwitchSoundComponent
+  SoundAsset: {fileID: 11400000, guid: aafa254e77d261d4db240c8f042d5dad, type: 2}
+  MultiPlayMode: 0
+  Volume: 0.1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  StartWhen: 0
+  StopWhen: 0
+  SwitchName: gate_switch

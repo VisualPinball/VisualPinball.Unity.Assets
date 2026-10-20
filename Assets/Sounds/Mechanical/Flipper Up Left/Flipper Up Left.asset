@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ad37c5157a844b9026bfcfe140656, type: 3}
+  m_Name: Flipper Up Left
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SoundEffectAsset
+  _description: Original g5k 1.25 / Fleep sample bank; see Mechanical/README.md for
+    provenance.
+  Clips:
+  - {fileID: 8300000, guid: 56be394c7188ae445ba92d79c0f2a1f6, type: 3}
+  - {fileID: 8300000, guid: 6f58ea2b94171db4aa39e8edcf0c84d1, type: 3}
+  - {fileID: 8300000, guid: 39681de99bffe0d4891d74b69a612440, type: 3}
+  - {fileID: 8300000, guid: 57d0e497bfdc83c49be588969f5c1965, type: 3}
+  - {fileID: 8300000, guid: c6d910b3c123d9648bf7b83a4094f07c, type: 3}
+  - {fileID: 8300000, guid: 04e601c20392f7c44afd4457841a3f64, type: 3}
+  - {fileID: 8300000, guid: 3cb040b0893054945b4513e65e85000c, type: 3}
+  - {fileID: 8300000, guid: 79bc1ae88f3eeeb49a55a184eb4ccaf4, type: 3}
+  - {fileID: 8300000, guid: 95a9e122991b8814c89785d67cdbad2a, type: 3}
+  _clipSelectionMethod: 1
+  _audioMixerGroup: {fileID: -6565917931112018152, guid: 9784dda595e200a4dbef54316a45f16e, type: 2}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0

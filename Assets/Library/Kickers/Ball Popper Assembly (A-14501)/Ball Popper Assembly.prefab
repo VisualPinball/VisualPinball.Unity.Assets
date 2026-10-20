@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 8076728348751618553}
   - component: {fileID: 2742533247777095544}
   - component: {fileID: 1209959768890162486}
+  - component: {fileID: 3084220608236048807}
+  - component: {fileID: 895640496724065168}
   m_Layer: 0
   m_Name: Ball Popper Assembly
   m_TagString: Untagged
@@ -339,3 +341,41 @@ MonoBehaviour:
   EnterAnimationDurationSeconds: 0.08
   ExitAnimationDurationSeconds: 0.3
   Direction: {x: 0, y: 0.02, z: 0}
+--- !u!114 &3084220608236048807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223933295347391504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8636086609386b04ea0fb6c9091f243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SwitchSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 8e61311e3baa69b4cb054b10a92444ee, type: 2}
+  MultiPlayMode: 0
+  Volume: 0.8
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  StartWhen: 0
+  StopWhen: 0
+  SwitchName: kicker_switch
+--- !u!114 &895640496724065168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223933295347391504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613c1748d231e004b80ec14fc7f21b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.KickerReleaseSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 56d815ef084d97a41885b07372308230, type: 2}
+  MultiPlayMode: 0
+  Volume: 0.8
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  CoilName: 

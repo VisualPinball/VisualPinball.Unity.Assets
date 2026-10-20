@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ad37c5157a844b9026bfcfe140656, type: 3}
+  m_Name: Drain
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SoundEffectAsset
+  _description: Original g5k 1.25 / Fleep sample bank; see Mechanical/README.md for
+    provenance.
+  Clips:
+  - {fileID: 8300000, guid: 20f9c04d98191c34b9a2d1cdda337e23, type: 3}
+  - {fileID: 8300000, guid: 53df4191b9a329e419df69b07634235b, type: 3}
+  - {fileID: 8300000, guid: b8eb3723bee6c984780a4536c66d92fd, type: 3}
+  - {fileID: 8300000, guid: 2eaaf03065c8dfd4db3c99655b8d4db9, type: 3}
+  - {fileID: 8300000, guid: ccb6d19a75d563e4dbd3f4ee47434da8, type: 3}
+  - {fileID: 8300000, guid: 3236bc6ede2ed10449e2d732e0b2aead, type: 3}
+  - {fileID: 8300000, guid: c938a705ce3da074599d6eb52d9feda9, type: 3}
+  - {fileID: 8300000, guid: fa966d155eed72e4b92c9f304861c59a, type: 3}
+  - {fileID: 8300000, guid: 69d0aa9b1ee208f4588e0468e6013262, type: 3}
+  - {fileID: 8300000, guid: 8b98a85e26ae4054a953de855a4dda65, type: 3}
+  - {fileID: 8300000, guid: e11f161a73e869646952e18b8c5b3361, type: 3}
+  _clipSelectionMethod: 1
+  _audioMixerGroup: {fileID: -6565917931112018152, guid: 9784dda595e200a4dbef54316a45f16e, type: 2}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0

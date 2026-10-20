@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 197865258511769274}
   - component: {fileID: 1813312543483188556}
   - component: {fileID: 7219178748928036222}
+  - component: {fileID: 7931448999860917862}
   m_Layer: 0
   m_Name: Bumper (VPX)
   m_TagString: Untagged
@@ -509,3 +510,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7931448999860917862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642515788050218447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7702a443f6254489163f018637fdd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.HitSoundComponent
+  SoundAsset: {fileID: 11400000, guid: faeecc009306543479fb16d0eaebd4cf, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6852294172980931214}
   - component: {fileID: 4814831299086297744}
   - component: {fileID: 2015211010257812846}
+  - component: {fileID: 9150276991906111486}
   m_Layer: 0
   m_Name: Flipper, Williams, Lightning (2.875in) - Left
   m_TagString: Untagged
@@ -176,3 +177,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7627466956121770100, guid: 1bb1089dcf242ee488043d46596b22cd, type: 3}
   m_PrefabInstance: {fileID: 8289342304558382543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9150276991906111486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807799404462680055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5132359707c977b4e9278ac06c70e5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.FlipperSoundComponent
+  SoundAsset: {fileID: 0}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Attack: {fileID: 11400000, guid: 945c41e1ff778fd4f8b70796ba57f1f4, type: 2}
+  Up: {fileID: 11400000, guid: 40d512ceaeb7e62488438c451e048e32, type: 2}
+  Reflip: {fileID: 11400000, guid: cbddc2d59568d524f9dd36d78521cf70, type: 2}
+  Down: {fileID: 11400000, guid: 5d5f451d8cc4b614da394bfdba88d7d9, type: 2}
+  ReflipDegrees: 20
+  ReleaseDegrees: 5
+  UpLevel: 1
+  DownLevel: 0.45
+  AttackGain: {x: 0.01, y: 0.635}
+  ReflipGain: {x: 0.8, y: 1}

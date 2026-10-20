@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 5846254610107072515}
   - component: {fileID: 4108597755391958914}
   - component: {fileID: 2771337060486493322}
+  - component: {fileID: 2016590367614934049}
   m_Layer: 0
   m_Name: Bumper Assembly (Williams)
   m_TagString: Untagged
@@ -1014,3 +1015,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4384022089842664146, guid: 08f911f21dd04b540a85c27e52867480, type: 3}
   m_PrefabInstance: {fileID: 8163787757181627008}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2016590367614934049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723339894401999858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7702a443f6254489163f018637fdd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.HitSoundComponent
+  SoundAsset: {fileID: 11400000, guid: faeecc009306543479fb16d0eaebd4cf, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1

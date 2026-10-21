@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7071517114603598172}
   - component: {fileID: 1606097917110756382}
   - component: {fileID: 3864897033732245657}
+  - component: {fileID: 8110808748132874832}
   m_Layer: 0
   m_Name: Post, Metal, Sleeved, Hex Base (1.1875in)
   m_TagString: Untagged
@@ -241,3 +242,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2097677543416033716, guid: 6eb8e8767f9bb9b468c102f440c97750, type: 3}
   m_PrefabInstance: {fileID: 6286306872845913389}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8110808748132874832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2718612168962085196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 58949c5728eecff45a08f1f119208e4d, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

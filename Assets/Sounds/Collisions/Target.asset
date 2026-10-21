@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Target
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 3b18b79617da92e4faae5b3502d0183d, type: 3}
+  - {fileID: 8300000, guid: 75058a70902e3b340935801891662ab4, type: 3}
+  - {fileID: 8300000, guid: ea7edb29e5bf54842b4c7d3e6cba8527, type: 3}
+  - {fileID: 8300000, guid: 524ccac5b67245643baf3b78ef49054b, type: 3}
+  - {fileID: 8300000, guid: 9e792f88cc69df441a793fef17191820, type: 3}
+  - {fileID: 8300000, guid: 6a143da6116314447bbe18385ae0aa66, type: 3}
+  - {fileID: 8300000, guid: 691253a16b1fe4c4fa899e4721acf76d, type: 3}
+  - {fileID: 8300000, guid: df89ae3f84de45f46965ac9ca9d5546f, type: 3}
+  - {fileID: 8300000, guid: 6bc4a18217361a44597cb1c8af64fc83, type: 3}
+  - {fileID: 8300000, guid: 274147dec7597bd41bec220bf205f482, type: 3}
+  - {fileID: 8300000, guid: 5e00f7f9ad94d8642aecea14930fe021, type: 3}
+  - {fileID: 8300000, guid: f39c5ab757401ce49813a6331abd2d37, type: 3}
+  - {fileID: 8300000, guid: 0172b92458c135043803bfbff5ae2ac7, type: 3}
+  - {fileID: 8300000, guid: 5569fb95e6dca0a4a8f44e3bfef1e76d, type: 3}
+  - {fileID: 8300000, guid: cfc37d93ceec11d42b41762d8967e63d, type: 3}
+  - {fileID: 8300000, guid: 4ef9cac04e6373f469e88d5db46b22f7, type: 3}
+  - {fileID: 8300000, guid: 0345d11ea0177c44f827f84ec1b785bf, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 1
+    Minimum: 0
+    Maximum: 10
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.025
+    Clips: 00000000010000000200000003000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  - Description: 
+    Selection: 1
+    Minimum: 10
+    Maximum: 3.402823e+38
+    IncludeMinimum: 0
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.01125
+    Clips: 04000000050000000600000007000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  - Description: 
+    Selection: 1
+    Minimum: 10
+    Maximum: 3.402823e+38
+    IncludeMinimum: 0
+    IncludeMaximum: 1
+    Volume: 4
+    Gain: 0.025
+    Clips: 08000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
+    ClipGains:
+    - 1
+    - 0.5
+    - 0.8
+    - 0.5
+    - 1
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.3
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

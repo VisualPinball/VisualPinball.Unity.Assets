@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Apron
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 6988e4fa86e5eed4a9849460f29be630, type: 3}
+  - {fileID: 8300000, guid: a5a451b6a128d8d40a2a95c8a120e622, type: 3}
+  - {fileID: 8300000, guid: 80df6f1638fc36648a76681856e9f4e7, type: 3}
+  - {fileID: 8300000, guid: 173e035301aa94d49acac4f145ea943e, type: 3}
+  - {fileID: 8300000, guid: b3caec061326d594daad2a11876eb920, type: 3}
+  - {fileID: 8300000, guid: 0b015128265c64849812d33306f84b4e, type: 3}
+  - {fileID: 8300000, guid: f2c8e103676747d4f87d9677b8b0923b, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 1
+    Minimum: 0
+    Maximum: 3.402823e+38
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 5
+    Gain: 0.05
+    Clips: 000000000100000002000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.402823e+38, y: 4}
+    IncomingY: {x: 7, y: 3.402823e+38}
+    InvertDirection: 0
+  - Description: 
+    Selection: 1
+    Minimum: 0
+    Maximum: 6
+    IncludeMinimum: 1
+    IncludeMaximum: 0
+    Volume: 2
+    Gain: 0.2
+    Clips: 0300000004000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.402823e+38, y: 4}
+    IncomingY: {x: 7, y: 3.402823e+38}
+    InvertDirection: 1
+  - Description: 
+    Selection: 1
+    Minimum: 6
+    Maximum: 16
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.2
+    Clips: 0500000003000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.402823e+38, y: 4}
+    IncomingY: {x: 7, y: 3.402823e+38}
+    InvertDirection: 1
+  - Description: 
+    Selection: 1
+    Minimum: 16
+    Maximum: 3.402823e+38
+    IncludeMinimum: 0
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.2
+    Clips: 0500000006000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.402823e+38, y: 4}
+    IncomingY: {x: 7, y: 3.402823e+38}
+    InvertDirection: 1
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

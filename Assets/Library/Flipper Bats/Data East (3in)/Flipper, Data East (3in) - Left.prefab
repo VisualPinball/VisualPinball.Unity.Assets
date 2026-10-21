@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 50691552563645190}
   - component: {fileID: 2125027233013828376}
   - component: {fileID: 4925633080874884326}
+  - component: {fileID: 1547300447721047033}
   m_Layer: 0
   m_Name: Flipper, Data East (3in) - Left
   m_TagString: Untagged
@@ -176,3 +177,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7464362366472868384, guid: ceba2cfd107d9804c9b5bf6f7c0f3530, type: 3}
   m_PrefabInstance: {fileID: 7689947727814698125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1547300447721047033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096594246895634047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 65763dd896d565d42a1c998430a3b74e, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Rubber
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 5c226e6234e6bc34186194e35c9abd2c, type: 3}
+  - {fileID: 8300000, guid: 40a03a88f59d65a4bbc5b8f8c3ede6fe, type: 3}
+  - {fileID: 8300000, guid: 7507c609493143c499387468c1e13617, type: 3}
+  - {fileID: 8300000, guid: ad9c42b6b8a27d04db3e879352f4b932, type: 3}
+  - {fileID: 8300000, guid: 13a10822ff31c084086a70948eebae6e, type: 3}
+  - {fileID: 8300000, guid: dcb505d4b236dc241b4136af9b0e87fa, type: 3}
+  - {fileID: 8300000, guid: f27db135b3b85184e9413dde88a3b6bb, type: 3}
+  - {fileID: 8300000, guid: 2b3c169efac2952459ed8c53b822fa77, type: 3}
+  - {fileID: 8300000, guid: 9d8eaad5038f1a3448e55cb09e4d81be, type: 3}
+  - {fileID: 8300000, guid: c7511708518166046891aba01e2c5842, type: 3}
+  - {fileID: 8300000, guid: 87a53eed427261040b2aef69ac5f7a63, type: 3}
+  - {fileID: 8300000, guid: d30a984e73f23264e8393744b2e82d37, type: 3}
+  - {fileID: 8300000, guid: 454543265072da148b35a6305206f671, type: 3}
+  - {fileID: 8300000, guid: 7bd3187160626a4478866f7607aeccaf, type: 3}
+  - {fileID: 8300000, guid: cf4ab4c329a318a49b28b22623f870e2, type: 3}
+  - {fileID: 8300000, guid: 09c924626c6ac27479afb1ca07ba350c, type: 3}
+  - {fileID: 8300000, guid: bf65cc6ee60aa4c45907846ede7f128d, type: 3}
+  - {fileID: 8300000, guid: 35cf8a26376cd9c4686b0c6f2eea2dc9, type: 3}
+  - {fileID: 8300000, guid: 1579185e9afbbe1488dc651cea422f0f, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 1
+    Minimum: 0
+    Maximum: 5
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.015
+    Clips: 000000000100000002000000030000000400000005000000060000000700000008000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  - Description: 
+    Selection: 1
+    Minimum: 5
+    Maximum: 3.402823e+38
+    IncludeMinimum: 0
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.011
+    Clips: 090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+    ClipGains:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0.6
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

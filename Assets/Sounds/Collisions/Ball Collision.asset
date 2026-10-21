@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Ball Collision
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 256e9ac97cd67cf4d8961ad5299df298, type: 3}
+  - {fileID: 8300000, guid: 042c9ff230c32c140ac31c439f1e04fe, type: 3}
+  - {fileID: 8300000, guid: 0a044721df6f0114d94dd9704139ab30, type: 3}
+  - {fileID: 8300000, guid: 44787de667bb20c4789cfb41d5e681aa, type: 3}
+  - {fileID: 8300000, guid: 0d881eda82af94f4b910791671600699, type: 3}
+  - {fileID: 8300000, guid: d1221251e7f8fe041aa05c9073b1381e, type: 3}
+  - {fileID: 8300000, guid: 35752f0a01c619c4c947523c3969740d, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 0
+    Minimum: 0
+    Maximum: 3.402823e+38
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 6
+    Gain: 0.016
+    Clips: 00000000010000000200000003000000040000000500000006000000
+    ClipGains: []
+    PitchFromSpeed: 1
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

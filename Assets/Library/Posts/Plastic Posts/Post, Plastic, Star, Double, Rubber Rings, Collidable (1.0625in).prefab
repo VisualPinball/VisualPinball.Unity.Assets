@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 739531876648626571}
   - component: {fileID: 8220025570563926698}
   - component: {fileID: 3187165787837557441}
+  - component: {fileID: 8365126473623885985}
   m_Layer: 0
   m_Name: Post, Plastic, Star, Double, Rubber Rings, Collidable (1.0625in)
   m_TagString: Untagged
@@ -344,3 +345,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4349217636922255565, guid: 82cd22a02b2607843b2b063c320866ee, type: 3}
   m_PrefabInstance: {fileID: 6639679968857050399}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8365126473623885985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050436735293321171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 58949c5728eecff45a08f1f119208e4d, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

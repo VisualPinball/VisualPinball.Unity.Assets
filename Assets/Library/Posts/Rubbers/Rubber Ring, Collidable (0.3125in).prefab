@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8902505136547602290}
   - component: {fileID: 278150773872630867}
   - component: {fileID: 6770110314281131064}
+  - component: {fileID: 8983026523044693989}
   m_Layer: 0
   m_Name: Rubber Ring, Collidable (0.3125in)
   m_TagString: Untagged
@@ -188,3 +189,21 @@ MonoBehaviour:
   Scatter: 0
   CollisionReductionFactor: 0
   OverwritePhysics: 1
+--- !u!114 &8983026523044693989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600589437666548010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 58949c5728eecff45a08f1f119208e4d, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

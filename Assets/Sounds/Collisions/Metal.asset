@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Metal
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 4ba76d3e7bd66d948b9839eef51a8cf4, type: 3}
+  - {fileID: 8300000, guid: 3338315426943ab4f8fd3cbda03f2d07, type: 3}
+  - {fileID: 8300000, guid: 9d87dc17622549f4a951b9b65de470fb, type: 3}
+  - {fileID: 8300000, guid: 4fb94eb6b85dd9344977fd74fb6c7651, type: 3}
+  - {fileID: 8300000, guid: f4c75df5a8fc7fb4e8f8ee77a34a731b, type: 3}
+  - {fileID: 8300000, guid: 9c7687d7ccdcd834cbf5d99b54c5f243, type: 3}
+  - {fileID: 8300000, guid: 6b81c75da7a0c924089a01b029128566, type: 3}
+  - {fileID: 8300000, guid: 8664a404bc218d6448b77254370ffb82, type: 3}
+  - {fileID: 8300000, guid: ce74bb587dc8f5045922f197b9f2591c, type: 3}
+  - {fileID: 8300000, guid: 6530e0f520ce4d942a4e2a9dba2a2ff6, type: 3}
+  - {fileID: 8300000, guid: 8750212c3a24d444d925f68f153d1127, type: 3}
+  - {fileID: 8300000, guid: c6a83d4d057ef8d4a8fe6b6b7dfc7c37, type: 3}
+  - {fileID: 8300000, guid: 1845760581daa8344a0f3212058afcda, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 1
+    Minimum: 0
+    Maximum: 3.402823e+38
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 2
+    Gain: 0.025
+    Clips: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

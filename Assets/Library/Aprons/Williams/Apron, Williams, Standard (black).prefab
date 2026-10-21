@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 6481275547403624642}
   - component: {fileID: 8319376213095999672}
   - component: {fileID: 4016874990584235392}
+  - component: {fileID: 9013991102921091616}
   m_Layer: 0
   m_Name: Apron, Williams, Collider
   m_TagString: Untagged
@@ -458,6 +459,7 @@ GameObject:
   - component: {fileID: 2184257612427897506}
   - component: {fileID: 7697773930343523624}
   - component: {fileID: 8752955606010133256}
+  - component: {fileID: 2719923593992585568}
   m_Layer: 0
   m_Name: Apron, Williams, Plunger Cover, Collider
   m_TagString: Untagged
@@ -895,3 +897,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2719923593992585568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4370639074977852324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: bfe73656f53e6aa47835773b830429da, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0
+--- !u!114 &9013991102921091616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322581259909253577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: bfe73656f53e6aa47835773b830429da, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

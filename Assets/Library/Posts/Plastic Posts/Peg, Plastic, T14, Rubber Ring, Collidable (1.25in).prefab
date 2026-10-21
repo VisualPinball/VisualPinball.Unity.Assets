@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 6596838310111257712}
   - component: {fileID: 2584099283602089809}
   - component: {fileID: 9076129059602392890}
+  - component: {fileID: 7599312046506754573}
   m_Layer: 0
   m_Name: Peg, Plastic, T14, Rubber Ring, Collidable (1.25in)
   m_TagString: Untagged
@@ -253,3 +254,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8245088241950406644, guid: c51bd1563bb08104a8cebebf66370824, type: 3}
   m_PrefabInstance: {fileID: 9218851274277624246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7599312046506754573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906608387015533096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 58949c5728eecff45a08f1f119208e4d, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

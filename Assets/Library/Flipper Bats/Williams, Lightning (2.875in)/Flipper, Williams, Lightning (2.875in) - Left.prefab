@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4814831299086297744}
   - component: {fileID: 2015211010257812846}
   - component: {fileID: 9150276991906111486}
+  - component: {fileID: 4744993020332042333}
   m_Layer: 0
   m_Name: Flipper, Williams, Lightning (2.875in) - Left
   m_TagString: Untagged
@@ -204,3 +205,21 @@ MonoBehaviour:
   DownLevel: 0.45
   AttackGain: {x: 0.01, y: 0.635}
   ReflipGain: {x: 0.8, y: 1}
+--- !u!114 &4744993020332042333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807799404462680055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 65763dd896d565d42a1c998430a3b74e, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

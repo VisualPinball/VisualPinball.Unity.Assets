@@ -12,6 +12,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
       - name: Fetch next version
         id: nextVersion
         uses: VisualPinball/next-version-action@v0
@@ -55,7 +59,18 @@ jobs:
 
       - name: Install Unity Package Manager CLI
         run: |
-          curl -fsSL https://cdn.packages.unity.com/upm-cli/install.sh | bash
+          installer="$RUNNER_TEMP/install-upm.sh"
+          curl --retry 3 --retry-all-errors --retry-delay 2 -fsSL \
+            https://cdn.packages.unity.com/upm-cli/install.sh -o "$installer"
+          for attempt in 1 2 3; do
+            if bash "$installer"; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep 5
+          done
           echo "$HOME/.upm/bin" >> "$GITHUB_PATH"
           "$HOME/.upm/bin/upm" --version
 
@@ -83,6 +98,6 @@ jobs:
           echo "//registry.visualpinball.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
           package_tgz="$(find "$RUNNER_TEMP/signed-package" -maxdepth 1 -name '*.tgz' -print -quit)"
           test -n "$package_tgz"
-          npm publish "$package_tgz" --registry=https://registry.visualpinball.org/
+          npm publish "$package_tgz" --registry=https://registry.visualpinball.org/ --tag latest
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

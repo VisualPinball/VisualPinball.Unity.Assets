@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5063060629982312590}
   - component: {fileID: 6596102616930138256}
   - component: {fileID: 192757939080195950}
+  - component: {fileID: 4660139682829712269}
   m_Layer: 0
   m_Name: Flipper, Bally, Raised Letters (2in) - Left
   m_TagString: Untagged
@@ -196,3 +197,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4660139682829712269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21726441761977847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 65763dd896d565d42a1c998430a3b74e, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

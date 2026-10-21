@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4134040702926230789}
   - component: {fileID: 2636464701815772443}
   - component: {fileID: 9056838492007564005}
+  - component: {fileID: 7628898910233909591}
   m_Layer: 0
   m_Name: Flipper, Bally (2in) - Right
   m_TagString: Untagged
@@ -282,3 +283,21 @@ MonoBehaviour:
   LiveCatchPerfectTime: 8
   LiveCatchMinmalBounceSpeedMultiplier: 0.1
   LiveCatchInaccurateBounceSpeedMultiplier: 1
+--- !u!114 &7628898910233909591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174319361358583932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008091bbcd17ad9498d4aa2d0fb6e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundComponent
+  SoundAsset: {fileID: 11400000, guid: 65763dd896d565d42a1c998430a3b74e, type: 2}
+  MultiPlayMode: 0
+  Volume: 1
+  Priority: 2
+  CalloutMaxQueueTime: -1
+  Source: 0

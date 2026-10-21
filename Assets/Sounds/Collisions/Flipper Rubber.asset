@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d438b1eda8d1ad46b0b40b9afa53080, type: 3}
+  m_Name: Flipper Rubber
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.CollisionSoundAsset
+  _description: g5k 1.25 impact samples and velocity response; normalized table volume.
+  Clips:
+  - {fileID: 8300000, guid: 71a1072ab71f0d945b5304b52091d0df, type: 3}
+  - {fileID: 8300000, guid: a3f645f19f011c74ba4b710f3bdcaff5, type: 3}
+  - {fileID: 8300000, guid: d7a1aca91b63ada4eab2bc8affa4eabd, type: 3}
+  - {fileID: 8300000, guid: 3be1e2fd718dc2a4289eab6693ec2321, type: 3}
+  - {fileID: 8300000, guid: e965edd0f57dc564a8961117a3045d6a, type: 3}
+  - {fileID: 8300000, guid: 46eaa188b37eff846a9d95ffdb37d11b, type: 3}
+  - {fileID: 8300000, guid: aa81366f5d347874ca34875d228315fd, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: 0}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 0
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0
+  Rules:
+  - Description: 
+    Selection: 0
+    Minimum: 0
+    Maximum: 3.402823e+38
+    IncludeMinimum: 1
+    IncludeMaximum: 1
+    Volume: 0
+    Gain: 0.015
+    Clips: 00000000010000000200000003000000040000000500000006000000
+    ClipGains: []
+    PitchFromSpeed: 0
+    IncomingX: {x: -3.4028235e+38, y: 3.4028235e+38}
+    IncomingY: {x: -3.4028235e+38, y: 3.4028235e+38}
+    InvertDirection: 0
+  RetriggerMsec: 10
+  UpwardSurfaceOnly: 0

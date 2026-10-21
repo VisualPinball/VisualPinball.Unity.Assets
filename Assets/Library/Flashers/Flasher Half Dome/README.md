@@ -1,0 +1,98 @@
+# Flasher Half Dome
+
+A fluted hemisphere "hat" flasher (Stern 550-5510-xx "HAT - TRIMMED", e.g. Godzilla red -02 / yellow -06): OD 29.8 mm,
+H 14.9 mm, 32 inner flutes along the meridians, two flat tabs (58.9 mm tip to tip). It is `Flasher Dome, Red` on a different
+mesh: the same shaders (`FlasherDomeGlow` / `FlasherDomeOuter`, `FlasherDome.hlsl` in `../Flasher Dome/`, here with
+`_ProfileMode` = 1) and the same material values, changed only where the mesh makes Red's value wrong (list below). See
+`../Flasher Dome/README.md` for the layer stack, the light, rendering layers and the "Make another dome" steps.
+
+## Use
+
+1. **Mounting:** the hat sits UNDER the playfield plastic and pokes up through the hole, with its tabs screwed to the
+   underside. The prefab origin is the base plane = the plastic's underside, +Y up through the hole. Place the prefab there,
+   on the plastic's underside, not on top of it.
+2. Map it in the **Lamp Manager** or **Coil Manager** like the full dome. The root `LightComponent` drives `_InsertLampLevel`
+   on Glow and Outer, the emission of `Tabs`, and the `Source` light.
+3. Same fade advice as the full dome (#89: about 0.015 s up, 0.03 s down).
+
+## Requirements
+
+- HDRP **Light Layers** enabled in the HDRP asset (the default `HDRP.asset` has them off; VPE table projects normally have them on).
+  Without them the `Source` light also lights the dome's own Inner and the dome reads as a flat saturated red.
+- VPE's `ThickerPlastic` diffusion profile registered in the HDRP global settings (Inner and Tabs).
+- The `Flasher Dome` folder next to this one: the half dome reuses its shaders (`FlasherDomeGlow`, `FlasherDomeOuter`,
+  `FlasherDome.hlsl`) with `_ProfileMode` = 1 on Glow and Outer. Do not set `_ProfileMode` back to 0 here (that is the tall
+  barrel + cap model); the mode-1 knobs are listed under "Differences" below.
+- Inner also uses two textures from `_Generic/Tileable Textures` in this package.
+- Rendering layers: as the full dome (dome renderers on layers 0 + 1, the `Source` light on layer 3 only).
+
+## Colours
+
+`Flasher Half Dome, Red.prefab` is the base. The other colours are prefab variants of it: each swaps in material variants
+(`Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat`, parent = the Red material) that override only the colour
+properties (`_DomeColor`, `_TransmittanceColor`, `_BaseColor`/`_Color`, the Tabs emissive colour map) and set the `Source` light
+colour. Edit the Red prefab or materials and every colour follows. Clear is the exception (next section). Values come from `Tools~/dome_colour.py` in
+`../Flasher Dome/` (the same colour model as the full dome; see its "Custom colour" section for a new plastic).
+
+| Preset | `_DomeColor` (sRGB) | σ (1/m, R G B) | Light colour |
+|---|---|---|---|
+| Red | (0.8996, 0.2052, 0.1804) | 100, 1400, 1500 | (1, 0.0127, 0.0028) |
+| Orange | (0.9485, 0.6522, 0.1804) | 50, 400, 1500 | (1, 0.2177, 0.0022) |
+| Yellow | (0.9688, 0.8530, 0.2052) | 30, 150, 1400 | (1, 0.4332, 0.0032) |
+| Olive | (0.7666, 0.7266, 0.1804) | 250, 300, 1500 | (1, 0.5341, 0.0057) |
+| Green | (0.2628, 0.8807, 0.3739) | 1200, 120, 900 | (0.0637, 1, 0.0504) |
+| Blue | (0.2325, 0.5849, 0.9386) | 1300, 500, 60 | (0.0760, 0.5160, 1) |
+| Clear | (0.9968, 0.9968, 0.9958) | 3, 3, 4 | (1, 0.6203, 0.3214) |
+| Purple | (0.7266, 0.1194, 0.8088) | 300, 1800, 200 | (1, 0.0049, 0.4347) |
+
+Purple matches the Stern -09 hat (violet: passes blue and some red, absorbs green). It is only in this folder; the full dome
+has no purple preset. All presets keep the 85 lm light; as for the full dome, a clear dome blows out white at the peak.
+
+## Clear
+
+`Flasher Half Dome, Clear` is the full dome's Clear preset on this mesh (`../Flasher Dome/README.md`, "Clear plastic"):
+standalone materials (Inner on `FlasherDomeLens`, Glow/Outer on the Frost graphs), the bulb-inside lens (`_LensInterior`
+(1, 2, 0, 1)) and Inner depth write, with the same known limit (other transparent objects behind it are hidden within its visible footprint).
+- Inner and Glow are scaled (1.110, 1.049, 1.110).
+- `Tabs` uses `FlasherDomeLens` in flat-part mode (`_ProfileMode` 2), the same clear-plastic model as the dome. They are milky
+  where thick, lamp-lit at the root (`_LensGlow`), and the far tab fades where the dome covers it (`_LensParallax` z, w), completely, highlights included (the lens graph does not
+  preserve specular; the full dome's far-tab hide leaves a thin highlight outline, see its README).
+- The tabs have their own mesh, `Flasher Half Dome, Clear - Tabs.asset`, with a 0.45 mm bevel on the edges. A bevel reads on
+  clear plastic, so only Clear has it: Red and the coloured presets keep the square-edged `Red - Tabs.asset`.
+
+## Differences from Flasher Dome, Red (everything else is Red's value)
+
+| Setting | Red | Half dome | Why |
+|---|---|---|---|
+| Meshes, masks, parity, Inner thickness map | dome48 | this part's mesh and bakes | the part |
+| `_ProfileMode` | 0 | 1 | hemisphere wall, meridian flutes |
+| `_FluteCount` | 36 | 32 | flute count |
+| `_InnerR` / `_InnerRY` / `_CapR` | .01395 / .01395 / .0145 | .0132 / .01365 / .0128 | inner surface of this mesh |
+| `_OuterTh` / `_GrooveHalf` / `_FluteLen` / `_BarR0` | tall-dome values | (.0017, .0025, .0033) / .41 / .019 / .003 | wall and flute profile of this mesh |
+| `_OpticalLamp` | (0, .0156, 0) | (0, 0, 0) | the filament sits at the base plane |
+| Dome node offset, Inner/Glow scale | +1.5 mm, (1.03, 1.065, 1.03) | 0, 1 | dome48 seat and fit; not needed here |
+| `Source` position | at the filament, 18 mm up | 4 mm above the base | the filament is below the plastic; a light at the base plane only grazes the surroundings |
+| Cookie | `Cookie Open` (36 beams) | `Cookie Base`: 32 beams, no cap wash, cut at the base plane (15 deg below the light, 8 deg soft) | flute count; flutes run to the pole; nothing lit below the plastic |
+| `Tabs` renderer | tabs are part of Outer | separate renderer: Red's Inner material made Transparent, with a lamp-driven emissive mask brightest at the root; no thickness map (the Inner map's UVs don't fit the tab mesh), flat `_Thickness` | under the refractive Outer the tabs read black when off and carried flute lines when lit |
+| `* - Tabs Emissive.png` (one per colour except Clear) | (Red's `Emissive.png`: sRGB, repeat U / clamp V, compressed) | sRGB, clamp, uncompressed: the baked root-glow mask x that plastic's tab colour | the tab glow colour lives in the map (next row) |
+| Inner `_EmissiveColorMap` | `* - Emissive.png` (unused: Inner emission is 0) | none | no visual effect |
+| `Tabs` emission | - | `_EmissiveColor` white x 150 on every colour; the colour (Red's (1, .05, .02) remapped per plastic, as `dome_colour.py` prints) is in the emissive map | VPE's `LightComponent` drives an HDRP Lit emissive renderer as `_EmissionColor` x intensity x level, and HDRP forces `_EmissionColor` to white, so a coloured `_EmissiveColor` glowed white in play. White x 150 + a coloured map gives the same result in the editor and at runtime |
+| Shader (mode 1 only) | - | the streak/bar gate uses the full miss distance of the view ray to the bulb; the pole cap spot shows in top views only | hemisphere geometry; mode 0 (the tall dome) is unchanged |
+
+The light (85 lm, colour, range, contact shadows off, light layer 3), the peak (`_WhiteHot`, `_PeakFlash`, `_HeatPeak`),
+the OFF glints/needles and all gains are Red's.
+
+## What's in the folder
+
+| File | What |
+|---|---|
+| `Flasher Half Dome, Red.prefab` | Dome (Inner + Glow + Outer + Tabs) + `Source` point light: the base prefab |
+| `Flasher Half Dome, <Colour>.prefab` | Orange, Yellow, Olive, Green, Blue, Clear, Purple: prefab variants of Red |
+| `Flasher Half Dome, <Colour> - Glow/Outer/Inner/Tabs.mat` | material variants of the Red materials (colour properties only); Clear's are standalone (Lens/Frost graphs, see Clear) |
+| `* - Inner.asset` / `* - Outer.asset` / `* - Tabs.asset` | inner fluted surface (UV0 = UV1 = mask atlas), smooth outer shell, the two tabs |
+| `Flasher Half Dome, Clear - Tabs.asset` | the Clear preset's tabs: the same tabs with a 0.45 mm edge bevel |
+| `* - Glow.mat` / `* - Outer.mat` / `* - Inner.mat` / `* - Tabs.mat` | as the full dome, plus the Tabs plastic |
+| `* - Masks.exr`, `* - Parity.png`, `* - Thickness.png` | baked from the mesh: `bake_masks.py --flutes 32 --cap-z 5`, Inner thickness ray cast (README method) |
+| `Flasher Half Dome, <Colour> - Tabs Emissive.png` | tab root-glow mask x the plastic's tab colour (the Tabs material's emissive map, one per colour; Clear has none: its Tabs use `FlasherDomeLens`, see "Clear") |
+| `* - Cookie Base.asset` | prefab cookie (above) |
+| `* - Cookie Open.asset` | same beams without the cut, for a mount where the light should also reach below the base plane |

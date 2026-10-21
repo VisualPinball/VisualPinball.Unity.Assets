@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2512577010653594090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599379545751280174, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780429822871984768, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_Color.b
+      value: 0.0504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780429822871984768, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780429822871984768, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_Color.r
+      value: 0.0637
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624176198976407783, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 335d5d87c1ef2f5c7930808a1d12151b, type: 2}
+    - target: {fileID: 6517250793455409956, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ea102a2b8b1b0b86bf945d623d6bb53, type: 2}
+    - target: {fileID: 7365420127739602235, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b281302594164e1d8a000efcc4bc8c9e, type: 2}
+    - target: {fileID: 8198804304018058941, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 01e4e8df94b7472ffb820bf277070010, type: 2}
+    - target: {fileID: 8892456364632755611, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}
+      propertyPath: m_Name
+      value: Flasher Half Dome, Green
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19871d4b8f67ae9ce9a8b5fb63236057, type: 3}

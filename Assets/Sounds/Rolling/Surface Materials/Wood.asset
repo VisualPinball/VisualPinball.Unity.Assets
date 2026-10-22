@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8154c0b7da6cc4c8024bcf37472745, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.RollingSoundMaterialAsset
+  Group: 0
+  VariantMode: 0
+  SlotPool: 
+  SlotCount: 6
+  FallbackBallMaterial: {fileID: 0}
+  Responses:
+  - BallMaterial: {fileID: 11400000, guid: fd2f750b3efdf3c49b6eac4523ca864f, type: 2}
+    Loop: {fileID: 11400000, guid: abe04adcfbf03484a841aeda59145927, type: 2}
+    Enter: {fileID: 11400000, guid: dd86c94235ce5d9469e79259011e8bc6, type: 2}
+    Exit: {fileID: 11400000, guid: dd86c94235ce5d9469e79259011e8bc6, type: 2}
+    SpeedMode: 1
+    MinimumSpeed: 2
+    GainFactor: 0.00011
+    GainExponent: 3
+    PitchMode: 1
+    PitchOffset: 0
+    PitchFactor: 15
+    PitchOrigin: 0
+    AttackSeconds: 0.01
+    ReleaseSeconds: 0.02
+    CrossfadeSeconds: 0.02
+    TransitionMinimumSpeed: 2
+    TransitionCooldownSeconds: 0.05
+    AirArrival: 0
+    AirDeparture: 0
+  - BallMaterial: {fileID: 11400000, guid: 9e5a017996578004785570f99877642a, type: 2}
+    Loop: {fileID: 11400000, guid: 73db9091dd850f84a85a6d96a82c953c, type: 2}
+    Enter: {fileID: 11400000, guid: dd86c94235ce5d9469e79259011e8bc6, type: 2}
+    Exit: {fileID: 11400000, guid: dd86c94235ce5d9469e79259011e8bc6, type: 2}
+    SpeedMode: 0
+    MinimumSpeed: 2
+    GainFactor: 0.00008
+    GainExponent: 3
+    PitchMode: 0
+    PitchOffset: 0
+    PitchFactor: 1
+    PitchOrigin: 0
+    AttackSeconds: 0.01
+    ReleaseSeconds: 0.02
+    CrossfadeSeconds: 0.02
+    TransitionMinimumSpeed: 2
+    TransitionCooldownSeconds: 0.05
+    AirArrival: 0
+    AirDeparture: 0

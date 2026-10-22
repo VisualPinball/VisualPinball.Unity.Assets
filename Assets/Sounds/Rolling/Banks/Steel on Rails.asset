@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ad37c5157a844b9026bfcfe140656, type: 3}
+  m_Name: Steel on Rails
+  m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.SoundEffectAsset
+  _description: 
+  Clips:
+  - {fileID: 8300000, guid: c43d643d07d81264f9f0e3a8a7d32777, type: 3}
+  - {fileID: 8300000, guid: 6f5be25f013232943b3323dc3bc4d1f1, type: 3}
+  - {fileID: 8300000, guid: 4f4d835d5fb0f724c818ec04802611ec, type: 3}
+  - {fileID: 8300000, guid: c32695ab4851a614ab92b21956b3a71a, type: 3}
+  - {fileID: 8300000, guid: 2707fd476bcbc1e478ffad5df5cd2a93, type: 3}
+  - {fileID: 8300000, guid: be568c1cba3f7494e9611c82315f8b7a, type: 3}
+  - {fileID: 8300000, guid: 8f94ea1949d877544a56921fe47ffa89, type: 3}
+  - {fileID: 8300000, guid: ed0df77bc19eef34c9038eef3a427184, type: 3}
+  - {fileID: 8300000, guid: 5f7fa3b257816b347b9755461bf41597, type: 3}
+  - {fileID: 8300000, guid: 8c3d1237558024945a5c7560dfddfcb0, type: 3}
+  _clipSelectionMethod: 0
+  _audioMixerGroup: {fileID: -6565917931112018152, guid: 9784dda595e200a4dbef54316a45f16e, type: 2}
+  _volumeRange: {x: 1, y: 1}
+  _pitchRange: {x: 1, y: 1}
+  _quadraticPitchVariation: 0
+  _type: 0
+  _loop: 1
+  _fadeInTime: 0
+  _fadeOutTime: 0
+  _cooldown: 0

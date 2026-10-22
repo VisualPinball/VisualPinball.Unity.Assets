@@ -1,0 +1,276 @@
+{
+  "source": "Terminator 2 (Williams 1991) g5k 1.25.vpx",
+  "recipe": "Stereo PCM16: arithmetic mean of channels, truncate toward zero; no normalization or resampling. Mono files unchanged. BallRoll_0 represents 12 byte-identical source clips.",
+  "clips": [
+    {
+      "name": "BallRoll_0",
+      "source_sha256": "1deae53bd6f0b1e9cdf79246fc2efdbea6e0d11e612e69dfc6d7ce825c53f30d",
+      "source_pcm_sha256": "71bd22f03d86f1c40bfebf21e72d5da0f6c8c11aeea005ea49d8922ee1105148",
+      "cooked_sha256": "1deae53bd6f0b1e9cdf79246fc2efdbea6e0d11e612e69dfc6d7ce825c53f30d",
+      "cooked_pcm_sha256": "71bd22f03d86f1c40bfebf21e72d5da0f6c8c11aeea005ea49d8922ee1105148",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 262025
+    },
+    {
+      "name": "RampLoop1",
+      "source_sha256": "f2cfd5ddbb784bb5e0d2f1e1845eb1a2f38c3f9c600485ae98b4e11802c7db63",
+      "source_pcm_sha256": "7ff712399d36e2702356c04e2904bc90dd20412758dc8ea845ecc2af1ec21fb1",
+      "cooked_sha256": "33a66d556e6d33a09635526f0a0e7e3167b460c69a6c56c7cb4894f7464a6be6",
+      "cooked_pcm_sha256": "e6b3d4acd8b84e93440334f18e375db60ae0a0f7d54b960d408fdd74a6e24f0f",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop2",
+      "source_sha256": "ec7d2e0bfbbdb7f6d9b08693494e394a202ed8b198582d5326896203b3582b61",
+      "source_pcm_sha256": "cb2990c0442cd8290f2f9b3200521e756c6ab39dc9ef98ff5479392d9c277912",
+      "cooked_sha256": "1b28ad9faf7a151cc86b550a06b43dd74f2b686b6e540894a238b6c1aa33804f",
+      "cooked_pcm_sha256": "58f0c51acba04729352c7a499b1eefd18633a1c129f0b9a3f16c8ab3b2405f10",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop3",
+      "source_sha256": "f3dae2fcb6b674e4108b642d2350f90b1bb31010a28634475e16cf29f4b2a815",
+      "source_pcm_sha256": "26bc25f60c3c13483a2850a6525f1f2184a0af3aadf1d4f03e3dfd35e28cef2e",
+      "cooked_sha256": "c9f71bec21ff98c34b69f32bdd43516886ee71a568154f7ad087ef9003ede0df",
+      "cooked_pcm_sha256": "52c67490a86d11ba761331c17cc1a15dfbe4c09cdedb4e5350583c9666f7b48c",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop4",
+      "source_sha256": "a4b4bf0756c83e79f69a001477fd83927b9496c03e019d19f7124380e516530a",
+      "source_pcm_sha256": "936c026d498227b84f4be634b91ac8050021c9a5b68169b51732aa0abaec9781",
+      "cooked_sha256": "af21bf78cc2a4dcacef7222b61873b924ac78cb7cdce642d822ca657fa8f652f",
+      "cooked_pcm_sha256": "9ddae82d24be153860fcb46764e33cad9002631a0873f43619ed2410d3091df2",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop5",
+      "source_sha256": "79a01a0f8e4ce4d041e682afd5f657acf91cecc6a6ea595d87f29a03edbbd41b",
+      "source_pcm_sha256": "eb6cd378b5f641c481f19db7c823a4075bb9c6f7fe8f3ce6e34e17d8baf25562",
+      "cooked_sha256": "444877d7dc5c3efbc3981ebbf6d2999135d2ac562a9f375aaf2695fafd5a29a9",
+      "cooked_pcm_sha256": "39b4748ee5b7090763199a98bf7dd96c14dcf246d84c41d488b97018b3cace3c",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop6",
+      "source_sha256": "7b7ecc44bce1808633e58252c71bc104407e1071d614ec300daa40f8cba4a326",
+      "source_pcm_sha256": "5a36322c5659e92e6d297ec3f16186c4845b41de3ac2be52ade43f74f0f5ba29",
+      "cooked_sha256": "43dc19972bebc0b6f39ef1daa18c7b74c289e07e051cc06e2b32e6d8ae223507",
+      "cooked_pcm_sha256": "805f9162dd2cd903cd3d751da22541e680a9d4c7f4a77b8f6c293612094362e5",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop7",
+      "source_sha256": "f652008bcb3a808e59f3aa8366e5d7561c2e84f10b3beee6fb0156a715f7c5c5",
+      "source_pcm_sha256": "501f6de05bb9eb5b6effd6286aa6499fda19427ba7b2c53ca9796ea9bb2d495a",
+      "cooked_sha256": "a574f65a30540231b6eb48a32b60ec62212a6611e7c31c843d00480d461d2f75",
+      "cooked_pcm_sha256": "9f4fb0b7dbc28d7600f3640a8536845879c9220b6a4a8030e4468505da3afe0a",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop8",
+      "source_sha256": "39f996229a66eef0539509300c748fbf08df64a6055f3e0ab50363fc560c9658",
+      "source_pcm_sha256": "2c8e665f31ef99a4487e65b593e9d1308d961ca6642d9386174806617148d05b",
+      "cooked_sha256": "6bb01589d8ca8d2b54b94b026ab1bb8f8c849de4c9c30ad9bb96fa124b1aa072",
+      "cooked_pcm_sha256": "2f97f102df9b5efa45e7704bec9f47f4afd76195580958ab9b060e9ec98d8047",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop9",
+      "source_sha256": "6f7f998cc5c94c7ea8bcb516aec0f124feebbbcb6c4650b8bfa96adb68e2a566",
+      "source_pcm_sha256": "8e67e9322bb3825dea178d6503aec43c6928adb29debf7f1868af3ca568fb1f5",
+      "cooked_sha256": "50851993fe1e642885e4ce824df19b13bdfef4c90e9a4793fcac397562e8b2db",
+      "cooked_pcm_sha256": "14da155c7aa9a01cd7ce945c3c783357862259f2cac1799031fac74c83ee85c6",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "RampLoop10",
+      "source_sha256": "feb4271ce2b9b75c0a7403c3ed41923f0fbe8f63ac330bcc905411414169468d",
+      "source_pcm_sha256": "a0316cd1f192bedfb9f302af83a28957b2bd91e9a0effb19c33bf085cbf0b7ef",
+      "cooked_sha256": "0fed4656c9fefc1aab96e68ffac501ebd6796a0e1c2edbfc622428c03ac3c029",
+      "cooked_pcm_sha256": "a8b47e397f2bf4d5e9bf0fd6d983fc0eec68b6e29dda909ef01345528e84c781",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 113672
+    },
+    {
+      "name": "WireLoop1",
+      "source_sha256": "9e2c81dca1b241f51f76b63342ca58ac40bba0856556083454c8dac4628fb93a",
+      "source_pcm_sha256": "0762c3509588810c9990ddfc4b23c68ace62901dbe29cbe829b13cb1e1f00334",
+      "cooked_sha256": "9e2c81dca1b241f51f76b63342ca58ac40bba0856556083454c8dac4628fb93a",
+      "cooked_pcm_sha256": "0762c3509588810c9990ddfc4b23c68ace62901dbe29cbe829b13cb1e1f00334",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop2",
+      "source_sha256": "e7a63af5014e7083b6afa9ccacea7ab6e6f3961d5521f38bafb447a5f8f07418",
+      "source_pcm_sha256": "b650054ec72ec28acd8189c0820e3016f13e1e66a6203d2386fbf94b0a6d5ca9",
+      "cooked_sha256": "e7a63af5014e7083b6afa9ccacea7ab6e6f3961d5521f38bafb447a5f8f07418",
+      "cooked_pcm_sha256": "b650054ec72ec28acd8189c0820e3016f13e1e66a6203d2386fbf94b0a6d5ca9",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop3",
+      "source_sha256": "4bc5bbd86cb3712ec4bbddb3dc42fe43eb9e08200191a46097cd34028d385098",
+      "source_pcm_sha256": "d329d4a478c3a51c1eba65b270c7a0d6e5e04c88f38d84f0048e8be43c2cfe32",
+      "cooked_sha256": "4bc5bbd86cb3712ec4bbddb3dc42fe43eb9e08200191a46097cd34028d385098",
+      "cooked_pcm_sha256": "d329d4a478c3a51c1eba65b270c7a0d6e5e04c88f38d84f0048e8be43c2cfe32",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop4",
+      "source_sha256": "79c5b0c26f465f637c8f7f54bfa4b1dcd0565220b02ba1dee4b5675013e43cda",
+      "source_pcm_sha256": "66a52870254cc24fe736f444655367337b9f9a07255de0cbf734446b12f9954d",
+      "cooked_sha256": "79c5b0c26f465f637c8f7f54bfa4b1dcd0565220b02ba1dee4b5675013e43cda",
+      "cooked_pcm_sha256": "66a52870254cc24fe736f444655367337b9f9a07255de0cbf734446b12f9954d",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop5",
+      "source_sha256": "c55f103c1b2b30deaf8df5ecca7959dbb9cdf54716d4f8716c89c4aebedbec39",
+      "source_pcm_sha256": "dba16ba76dad136abe6461a96aea45fa9100a0bbe515499f873a63a9159e8b2f",
+      "cooked_sha256": "c55f103c1b2b30deaf8df5ecca7959dbb9cdf54716d4f8716c89c4aebedbec39",
+      "cooked_pcm_sha256": "dba16ba76dad136abe6461a96aea45fa9100a0bbe515499f873a63a9159e8b2f",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop6",
+      "source_sha256": "7fb4ec359230284e133b0cde2622c3e3c2ef9bc8e4b749d767995bf205937842",
+      "source_pcm_sha256": "bfdbec9a2d6d5c7d03df7454ef03ec71afc720417e6dfd4c0ad7c7baa3499d13",
+      "cooked_sha256": "7fb4ec359230284e133b0cde2622c3e3c2ef9bc8e4b749d767995bf205937842",
+      "cooked_pcm_sha256": "bfdbec9a2d6d5c7d03df7454ef03ec71afc720417e6dfd4c0ad7c7baa3499d13",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop7",
+      "source_sha256": "d9b0bee916f4e7fe239987bb429c2afa4450bb55611b2a7ce45a36cc99644b58",
+      "source_pcm_sha256": "a13df013bab9066f69e4f1a32ffd385e36d1213fb9912885b370a3b6424924ed",
+      "cooked_sha256": "d9b0bee916f4e7fe239987bb429c2afa4450bb55611b2a7ce45a36cc99644b58",
+      "cooked_pcm_sha256": "a13df013bab9066f69e4f1a32ffd385e36d1213fb9912885b370a3b6424924ed",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop8",
+      "source_sha256": "ac174697f093d11d6797d31ea256bc4806705d71a4f524836ab5c4f8e3af55d7",
+      "source_pcm_sha256": "dc3774025fe149f5265b71e548f096d282b5e4c3b6869641d4804eebeb72ffb7",
+      "cooked_sha256": "ac174697f093d11d6797d31ea256bc4806705d71a4f524836ab5c4f8e3af55d7",
+      "cooked_pcm_sha256": "dc3774025fe149f5265b71e548f096d282b5e4c3b6869641d4804eebeb72ffb7",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop9",
+      "source_sha256": "4ba280c6aaa4362f5dbe1107d8537fc842724c6c09116563c027fe2098e268c7",
+      "source_pcm_sha256": "7c7181756a5b4b8bad9d7a4123597cd431504036f4c58db8033cffc254622876",
+      "cooked_sha256": "4ba280c6aaa4362f5dbe1107d8537fc842724c6c09116563c027fe2098e268c7",
+      "cooked_pcm_sha256": "7c7181756a5b4b8bad9d7a4123597cd431504036f4c58db8033cffc254622876",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireLoop10",
+      "source_sha256": "07e3b9005f341c5ea3b497d40883076546c93dc04dac1d6762cc91c1ce8539ab",
+      "source_pcm_sha256": "835fe87f26cef8f3c66f55a5b62adf0c3616cc148c99e1654537086f38dbc74a",
+      "cooked_sha256": "07e3b9005f341c5ea3b497d40883076546c93dc04dac1d6762cc91c1ce8539ab",
+      "cooked_pcm_sha256": "835fe87f26cef8f3c66f55a5b62adf0c3616cc148c99e1654537086f38dbc74a",
+      "rate": 44100,
+      "source_channels": 1,
+      "frames": 125048
+    },
+    {
+      "name": "WireRamp_Stop",
+      "source_sha256": "36545dafca45b236081be0572914e4899104fd7be9842f6fb118f2b81e4e972e",
+      "source_pcm_sha256": "1f30a071dda5911c9c1d506ceeff33db982b8baa0d6f53f7465a5f543a54f39d",
+      "cooked_sha256": "7fc0e9ae9aef4fcaf955d7100e4287e68b64b7600af1d154505a232925ccae23",
+      "cooked_pcm_sha256": "95d0e6d6e159bdf4b42eb266d56db63d9f936c8b4cb15a2068ca8b9c39c5d33f",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 40608
+    },
+    {
+      "name": "WireRampBump1",
+      "source_sha256": "5a6ba63e53cf13996f46bc447cfa642b52b143136bf7523072b2cbbe747cb69a",
+      "source_pcm_sha256": "0fee55c0764b45d7051a58fe6b683d7c80af21e3b02368907ea1ce6f756ca0eb",
+      "cooked_sha256": "84584ba34a27df3b1134aece546f300308ca19730c1958c09c85146a4c3fa12c",
+      "cooked_pcm_sha256": "f385fcfacb05a1212b523c9c5c882b822fb27adf86f4aa4f4e0db6005ecf5ec3",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 67968
+    },
+    {
+      "name": "WireRampBump2",
+      "source_sha256": "2f136364c178b01bbe419677f1344f5ba3b13372e566aab9b4a8232f664b9443",
+      "source_pcm_sha256": "14ede87162a9fd62805922ea83a94f8c66ce02b88d87cd163779f3e670ef9970",
+      "cooked_sha256": "084cb6c9264746d41be9f73e197446f3295cc75d027471b92e02d7a67c351f53",
+      "cooked_pcm_sha256": "e0f30ab5e6c2be45893ab6d36fedea07b41beff6a18570ff6f23d42ba9f8e5fd",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 67968
+    },
+    {
+      "name": "WireRampBump3",
+      "source_sha256": "3cf237ead84f4ac6c82bcc70d6522482e412152be48747b13625d9cb00fa1eb9",
+      "source_pcm_sha256": "71e834b5e119920a51629bad56fafebfee4ea8aa1a4ae98f206dd89a3c482aee",
+      "cooked_sha256": "8afa224f324386a136ce872680d91555dc9de86df5117038f50b31206c7690be",
+      "cooked_pcm_sha256": "220c8bce1b45cc0433064fc2374d243122254b2fca8a4911c0c2892b7e14e224",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 67968
+    },
+    {
+      "name": "WireRampBump4",
+      "source_sha256": "b9c2a58cf3109b0d7e5dd8e9a892550865e504c083b7256f38e0ab8f56185e63",
+      "source_pcm_sha256": "b5ead424b40e9dcdb3e580b4999956941f43f1e8dbab0f460d1fa0f78af4bbf3",
+      "cooked_sha256": "e20e1314c07fb41437d4cae1dce21e6b1a9cee4db216ca0bbce5624f2e0b06de",
+      "cooked_pcm_sha256": "7a4a2149bd7f392aee49b54e7c386af9a6c23ff0565d28e090616e374183dcca",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 67968
+    },
+    {
+      "name": "WireRampBump5",
+      "source_sha256": "b3dd13276dcfa6b11c49bb2107cde3e5ed0d05c70d73ae861c50dec933669719",
+      "source_pcm_sha256": "15ffd1161264308dfad69a28b4da85d31196a06f2ff41f51c9705bba10be90b5",
+      "cooked_sha256": "d2f9bc885fe1afc71f419072a5f7818546796c23df61be3415f0b557322b6e80",
+      "cooked_pcm_sha256": "5361652d6668221a35bde5d8936a049d1a2289bc15b0629d91dab8d244cee225",
+      "rate": 44100,
+      "source_channels": 2,
+      "frames": 67968
+    }
+  ]
+}

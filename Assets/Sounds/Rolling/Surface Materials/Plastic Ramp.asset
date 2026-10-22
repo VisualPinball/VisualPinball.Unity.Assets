@@ -37,22 +37,3 @@ MonoBehaviour:
     TransitionCooldownSeconds: 0.05
     AirArrival: 0
     AirDeparture: 0
-  - BallMaterial: {fileID: 11400000, guid: 9e5a017996578004785570f99877642a, type: 2}
-    Loop: {fileID: 11400000, guid: 791b0472db7591d4a9aa17b3284622ee, type: 2}
-    Enter: {fileID: 11400000, guid: e01d8bfe0c125154ca927ca00df7adbe, type: 2}
-    Exit: {fileID: 11400000, guid: e01d8bfe0c125154ca927ca00df7adbe, type: 2}
-    SpeedMode: 0
-    MinimumSpeed: 2
-    GainFactor: 0.00008
-    GainExponent: 3
-    PitchMode: 0
-    PitchOffset: 0
-    PitchFactor: 1
-    PitchOrigin: 0
-    AttackSeconds: 0.01
-    ReleaseSeconds: 0.02
-    CrossfadeSeconds: 0.02
-    TransitionMinimumSpeed: 2
-    TransitionCooldownSeconds: 0.05
-    AirArrival: 0
-    AirDeparture: 0

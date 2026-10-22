@@ -1,20 +1,6 @@
 {
-  "description": "Distinct acoustic starting points for ceramic balls and subtle material-boundary sounds. Original offline synthesis, not Powerball recordings and not modified steel recordings. Replace with measured recordings when available. Generated PCM is dedicated to the public domain under CC0-1.0.",
+  "description": "Optional wood/plastic material-boundary sounds for Steel responses. Original offline modal synthesis, not modified recordings. Ceramic response pairs remain unassigned until recordings are available. Generated PCM is dedicated to the public domain under CC0-1.0.",
   "clips": [
-    {
-      "file": "Ceramic_Wood.wav",
-      "sha256": "b23cdea8b5835f79c96c97fcc6b1c4c581986c5360154682e6919f53734b7e91",
-      "pcm_sha256": "91d55c9f3cf60e562776c7f15fe91319879595dc28152c8947ff870da257fb52",
-      "type": "original procedural modal synthesis",
-      "recording": false,
-      "loop": true,
-      "frequencies_hz": [
-        520,
-        1170,
-        2370
-      ],
-      "sample_rate": 44100
-    },
     {
       "file": "Seam_Wood.wav",
       "sha256": "cd2a0fc1e0fddf409b1dfa02023edc25087349fcfb48e1e75ed1d01cd1a25f70",
@@ -30,20 +16,6 @@
       "sample_rate": 44100
     },
     {
-      "file": "Ceramic_Plastic.wav",
-      "sha256": "f2271567b6c0b9b172838291c0f13e9119627177f1af9a6aaca0b4d75a94f8f1",
-      "pcm_sha256": "ca0a6327ab3d8744c9664e1a6a752b8c89ac9ad1a0d44bdc9740aeddc3dfddd4",
-      "type": "original procedural modal synthesis",
-      "recording": false,
-      "loop": true,
-      "frequencies_hz": [
-        860,
-        1730,
-        3210
-      ],
-      "sample_rate": 44100
-    },
-    {
       "file": "Seam_Plastic.wav",
       "sha256": "1e5022bd119b185fecc0abca2b71f1e071f976da7e56df371c3b67b9e9f3e403",
       "pcm_sha256": "50b39ed3a790fc1f2bcb3440d134587651d7899900bcb81e47a7b7d1d305c8f8",
@@ -54,34 +26,6 @@
         860,
         1730,
         3210
-      ],
-      "sample_rate": 44100
-    },
-    {
-      "file": "Ceramic_Rails.wav",
-      "sha256": "a2d89650032c8df469da8357d183335792608f762693b2fbe59052de43f4c88c",
-      "pcm_sha256": "b6b848adc91f0380728ca66ecc07b175ca2d0b75ad7f70553cea0c41f2a3c986",
-      "type": "original procedural modal synthesis",
-      "recording": false,
-      "loop": true,
-      "frequencies_hz": [
-        1480,
-        2970,
-        4930
-      ],
-      "sample_rate": 44100
-    },
-    {
-      "file": "Seam_Rails.wav",
-      "sha256": "957da62b21646d67ffe8bbf820c1154023996daad532f350d5ca0f22e09b989e",
-      "pcm_sha256": "3b34e22a5b0abcf0af8f3537fa56647826892722692ea35deb534f2ebe1532b4",
-      "type": "original procedural modal synthesis",
-      "recording": false,
-      "loop": false,
-      "frequencies_hz": [
-        1480,
-        2970,
-        4930
       ],
       "sample_rate": 44100
     }

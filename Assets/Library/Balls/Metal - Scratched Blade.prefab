@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: VisualPinball.Unity::VisualPinball.Unity.BallComponent
   Radius: 25
   Mass: 1
+  SoundMaterial: {fileID: 11400000, guid: fd2f750b3efdf3c49b6eac4523ca864f, type: 2}
   Velocity:
     x: 0
     y: 0

@@ -269,7 +269,7 @@ MonoBehaviour:
     Gpu: 0
     HybridOptics: 1
   _bake: {fileID: 11400000, guid: 1d405b58b75cce848a9bd7deaa8b83a5, type: 2}
-  _unbakedMaterial: {fileID: 2100000, guid: 2fd969e76964891458bf22c9ef88d16c, type: 2}
+  _unbakedMaterial: {fileID: 0}
   _id: 702af9e6567147bbadcac781d6fee129
   _coverMaterial: {fileID: 2100000, guid: 01ed3f552cc7f464d8133fce6aa115d3, type: 2}
   _usePlayfieldNormals: 0

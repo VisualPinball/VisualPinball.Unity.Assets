@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a98b83d8e16314b9e008c07c0fc397, type: 3}
+  m_Name: 9665d81f857fd864f95e5dc0cb966c74
+  m_EditorClassIdentifier: VisualPinball.Unity.Editor::VisualPinball.Unity.Editor.Asset
+  Library: {fileID: 11400000, guid: 8f1d38baa6e4ddf459fdb46d7f70bfef, type: 2}
+  Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+  _categoryId: 33824790-9a35-4e71-a513-a86672759d67
+  _addedAt: 2026-10-30T10:45:23.0204763+01:00
+  Description: Plastic playfield insert circle 1 inch  transparent red.
+  Attributes:
+  - Key: Part Number
+    Value: PI-1RRT
+  - Key: Author
+    Value: freezy
+  Tags:
+  - TagName: Circle
+  - TagName: Flat
+  - TagName: 1"
+  Links:
+  - Name: Marco Specialties
+    Url: https://www.marcospecialties.com/pinball-parts/PI-1RRT
+  - Name: Pinball Life
+    Url: https://www.pinballlife.com/1-round-transparent-plain-red-playfield-insert.html
+  GroupBy:
+    GroupBy: 0
+    Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+  MaterialVariations:
+  - Name: Body
+    Target:
+      Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 0
+    Overrides:
+    - Name: Clear
+      Material: {fileID: 2100000, guid: 9a8d8771b668b7041a70ae3a17416742, type: 2}
+      Id: 4754a633-bb1f-4034-bfa6-68a6bd4b8e92
+    - Name: Amber
+      Material: {fileID: 2100000, guid: d053ee5ffd9e57240a81d54e6086827b, type: 2}
+      Id: 1df503da-3658-439c-a247-c7bced947f57
+    - Name: Orange
+      Material: {fileID: 2100000, guid: b861366cbf9acc44b9053482a5ac392e, type: 2}
+      Id: 2490230d-f2e8-4753-8a0a-76e2f096c0df
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: d237c22e6ff3c054284bb992a5fd9b0c, type: 2}
+      Id: 81f00fff-f34b-417e-b691-fdfce452ab1e
+    - Name: Green
+      Material: {fileID: 2100000, guid: 64ff7e116796a43499e37ef3f03fa0e9, type: 2}
+      Id: f5855111-11f1-4b12-adf0-1e9dd3a598d2
+    - Name: Teal
+      Material: {fileID: 2100000, guid: f6af6ab365cc7d84390902a0ceff53a7, type: 2}
+      Id: ca09b426-9642-4e18-b4b7-d1e3a14b0196
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 72ad25e1d769e6444a6ca9312e169528, type: 2}
+      Id: c3e5d0ba-7c8a-42df-bc30-edc24a264578
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 1132fd18f7cc03049a5ae017b6a6df26, type: 2}
+      Id: 7f0fb9da-1953-41eb-9da5-94ab6c32707d
+  - Name: Cover
+    Target:
+      Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 1
+    Overrides:
+    - Name: Clear
+      Material: {fileID: 2100000, guid: a9d81cb0ecb937a42bc5c03a892faa66, type: 2}
+      Id: e027ecd8-5619-460a-81dc-a1b8f67ceb01
+    - Name: Amber
+      Material: {fileID: 2100000, guid: e4dbf7cf2914fff419df89e11f85f140, type: 2}
+      Id: 39f8f91e-000b-4c61-862e-d4279cb42a09
+    - Name: Orange
+      Material: {fileID: 2100000, guid: 9cfb08a0195873a4cac34604d3771ac1, type: 2}
+      Id: 57a92808-2f04-49c4-9436-eb8bb8f923ef
+    - Name: Yellow
+      Material: {fileID: 2100000, guid: 6bc7730df6f26b64689a3ba951e0c8f8, type: 2}
+      Id: 44e95a65-6cd6-4cee-83fb-719096a561a7
+    - Name: Green
+      Material: {fileID: 2100000, guid: 4c027d0040968ea4d97648419fc3031e, type: 2}
+      Id: 43e59f3a-eddd-4841-abe7-3abb0468114b
+    - Name: Teal
+      Material: {fileID: 2100000, guid: de669ddb364ccc1429a1f851a5d82483, type: 2}
+      Id: c29a7ada-a8d2-4e27-9a36-90f9f4ab47d7
+    - Name: Blue
+      Material: {fileID: 2100000, guid: 67db3f7256ab467418b2a23e00bf28f0, type: 2}
+      Id: bf05f9bc-3fb3-478e-ae02-c3a234a92f99
+    - Name: Purple
+      Material: {fileID: 2100000, guid: 7ac267f1621e961488f792716559d647, type: 2}
+      Id: 7832c04c-6272-4abf-99e5-f639a6500712
+  DecalVariations: []
+  MaterialDefaults:
+  - VariationName: Body
+    OverrideName: Red
+    Target:
+      Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 0
+  - VariationName: Cover
+    OverrideName: Red
+    Target:
+      Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 1
+  MaterialCombinationRules:
+  - Type: 0
+    Targets:
+    - Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 0
+    - Object: {fileID: 3091953091087149026, guid: 9665d81f857fd864f95e5dc0cb966c74, type: 3}
+      Slot: 1
+  EnvironmentGameObjectName: Playfield - Inserts
+  ThumbCameraPreset: {fileID: 2655988077585873504, guid: de9f19309ef00e74bb4ce486e8abde9e, type: 2}
+  ThumbCameraHeight: 0
+  ThumbCameraPos: {x: 0, y: 0, z: 0}
+  ThumbCameraRot: {x: 0, y: 0, z: 0}
+  UnpackPrefab: 0
+  Quality: 2

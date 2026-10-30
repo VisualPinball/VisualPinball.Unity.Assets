@@ -320,7 +320,7 @@ MonoBehaviour:
   m_AreaLightCookie: {fileID: 0}
   m_IESPoint: {fileID: 0}
   m_IESSpot: {fileID: 0}
-  m_IncludeForRayTracing: 0
+  m_IncludeForRayTracing: 1
   m_IncludeForPathTracing: 0
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0

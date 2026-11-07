@@ -5,3 +5,5 @@ Reusable Fleep mechanical sample banks extracted without audio processing from `
 All banks use random selection and zero cooldown so independent devices and repeated coil pulses remain audible. Flipper attack/reflip gain variation is applied by FlipperSoundComponent. Rolling and physics-impact sample banks are excluded.
 
 Ball Popper Assembly sounds on successful ball release; Kicker, System 7 sounds on every coil pulse, including empty firings. Table authors should choose the trigger that matches the actual mechanism. Coin, Start Button and Nudge banks use VPX’s quadratic pitch variation.
+
+The Plunger Pull and Plunger Release Ball banks are in the HDRP package (`org.visualpinball.engine.unity.hdrp`, `Assets/Sounds/Mechanical`), whose default Plunger prefab uses them.
